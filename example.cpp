@@ -28,9 +28,10 @@ int main()
     //THE MAGICAL CLOCK
     sf::Clock clock;
    float frameCounter = 0;
-   float frameCounter1 = 0;
-   float switchFrame = 100;
-   float frameSpeed = 6000;
+   float switchFrame = 1;
+   float frameSpeed = 60;
+   float teleCounter = 0;
+    float teleport_Distance = 105; //pixels
 
     /** Prepare the world */
     b2Vec2 Gravity(0.f, 9.8f);
@@ -55,23 +56,41 @@ int main()
 //        sf::Vertex(sf::Vector2f(  100,   100), sf::Color::Red),
 //        sf::Vertex(sf::Vector2f(  455, 546), sf::Color::Red)
 //    };
+    int teleport = 0;
     while (Window.isOpen())
     {
-        // define a 100x100 square, red, with a 10x10 texture mapped on it
 
-    frameCounter += frameSpeed * clock.restart().asSeconds();
-    std::cout << frameCounter << std::endl;
-    if((frameCounter >= switchFrame) )
+    float elapsed = clock.restart().asSeconds();//
+    frameCounter += elapsed;// *frameSpeed;
+   // std::cout << "frame counter: " << frameCounter << " Frame speed: " << frameSpeed << " clock.restart.asSeconds: " << temp << std::endl;
+  teleCounter += elapsed;
+    //frameCounter >= switchFrame
+    if((    frameCounter >= switchFrame/frameSpeed) )
     {
-        Window.pollEvent(event);
-        //MOUSE INPUT
-        if (event.type == sf::Event::MouseButtonPressed)
+        while(Window.pollEvent(event))
         {
 
-            if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+
+        if(event.type == sf::Event::Closed)
+                Window.close();
+
+            //MOUSE INPUT
+
+        if (event.type == sf::Event::MouseButtonReleased)
+        {
+
+            if(event.mouseButton.button == sf::Mouse::Left)
             {
-                int MouseX = sf::Mouse::getPosition(Window).x;
-                int MouseY = sf::Mouse::getPosition(Window).y;
+
+              if(teleCounter >= .3f)
+               {
+                   teleport = 1;
+                   std::cout << "telecounter: " << teleCounter << std::endl;
+                   teleCounter = 0;
+
+               }
+//                int MouseX = sf::Mouse::getPosition(Window).x;
+//                int MouseY = sf::Mouse::getPosition(Window).y;
              //CreateBox(World, MouseX, MouseY);
 
             // this line teleports to mouse cursor
@@ -86,27 +105,35 @@ int main()
 //                float force=0.05f;
  //       worldBodies["player"]->ApplyLinearImpulse(b2Vec2(diff.x*force,diff.y*force),worldBodies["player"]->GetWorldCenter()); //Apply impulse to box towards mouse
 
-               b2Vec2 mousePos = b2Vec2(MouseX, MouseY); //mouse posption in physics scale
-               std::cout << "mousePos: " << mousePos.x << " "<< mousePos.y << std::endl;
-               b2Vec2 playerPos = b2Vec2(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
-               std::cout << "playerPos: " << playerPos.x << " " << playerPos.y << std::endl;
-               b2Vec2 diff = mousePos-playerPos; //Find vector from box's center to mouse
-               std::cout << "diff: " << diff.x << " " << diff.y << std::endl;
-		       float d = sqrt((diff.x*diff.x + diff.y*diff.y));
-		       float tempx = diff.x*(7/d);
-		       float tempy = diff.y*(7/d);
-               std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
+//               b2Vec2 mousePos = b2Vec2(MouseX, MouseY); //mouse posption in physics scale
+//               std::cout << "mousePos: " << mousePos.x << " "<< mousePos.y << std::endl;
+//               b2Vec2 playerPos = b2Vec2(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+//               std::cout << "playerPos: " << playerPos.x << " " << playerPos.y << std::endl;
+//               b2Vec2 diff = mousePos-playerPos; //Find vector from box's center to mouse
+//               std::cout << "diff: " << diff.x << " " << diff.y << std::endl;
+//		       float d = sqrt((diff.x*diff.x + diff.y*diff.y));
+//		       float tempx = diff.x*(7/d);
+//		       float tempy = diff.y*(7/d);
+//               std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
+//
+//            worldBodies["player"]->SetTransform( b2Vec2(tempx+playerPos.x/SCALE,tempy+playerPos.y/SCALE) ,worldBodies["player"]->GetAngle());
 
-            worldBodies["player"]->SetTransform( b2Vec2(tempx+playerPos.x/SCALE,tempy+playerPos.y/SCALE) ,worldBodies["player"]->GetAngle());
+            }
 
         }
+
+        if (event.type == sf::Event::MouseButtonPressed)
+        {
+
             if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
             {
+                std::cout << "platform create"  << std::endl;
                 int MouseX = sf::Mouse::getPosition(Window).x;
                 int MouseY = sf::Mouse::getPosition(Window).y;
                 CreatePlatform(World, MouseX,MouseY);
+            }
         }
-        }
+
         //WASD keyboard movement
         if (event.type == sf::Event::KeyPressed)
         {
@@ -140,7 +167,7 @@ int main()
                     std::cout << "W key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
                                         b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
 
-                    if(vel.y < .01f)
+                   // if(vel.y < .01f)
                         worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-45), worldBodies["player"]->GetWorldCenter() );
                }
                 //DOWN
@@ -162,8 +189,29 @@ int main()
             //    float impulse = body->GetMass() * velChange; //disregard time factor
             //    body->ApplyLinearImpulse( b2Vec2(impulse,0), body->GetWorldCenter() );
 
-            }
+        }
+        } //END OF WHILE LOOP
+//std::cout << teleport << std::endl;
+        if(teleport == 1)
+                            {
+                                //std::cout << teleport << std::endl;
+                                teleport = 0;
+                    int MouseX = sf::Mouse::getPosition(Window).x;
+                        int MouseY = sf::Mouse::getPosition(Window).y;
+                       b2Vec2 mousePos = b2Vec2(MouseX, MouseY); //mouse posption in physics scale
+                    //   std::cout << "mousePos: " << mousePos.x << " "<< mousePos.y << std::endl;
+                       b2Vec2 playerPos = b2Vec2(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+                     //  std::cout << "playerPos: " << playerPos.x << " " << playerPos.y << std::endl;
+                       b2Vec2 diff = mousePos-playerPos; //Find vector from box's center to mouse
+                   //    std::cout << "diff: " << diff.x << " " << diff.y << std::endl;
+                       float d = sqrt((diff.x*diff.x + diff.y*diff.y));
+                       float tempx = diff.x*((teleport_Distance/SCALE)/d);
+                       float tempy = diff.y*((teleport_Distance/SCALE)/d);
+                  //     std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
 
+                        worldBodies["player"]->SetTransform( b2Vec2(tempx+playerPos.x/SCALE,tempy+playerPos.y/SCALE) ,worldBodies["player"]->GetAngle());
+                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-28.f), worldBodies["player"]->GetWorldCenter() );
+                    }
         World.Step(1/60.f, 8, 3);
 
         Window.clear(sf::Color::White);
@@ -174,15 +222,23 @@ int main()
                   sf::Sprite GroundSprite;
                   sf::Sprite platformSprite;
                   sf::Sprite playerSprite;
+                  sf::CircleShape shape(teleport_Distance);
+
                //   sf::IntRect r1(100, 200, 250, 25);
             switch( (int) BodyIterator->GetUserData() ){
             case 1:
+                    shape.setFillColor(sf::Color::Green);
+                    shape.setOrigin(teleport_Distance,teleport_Distance);
+                    shape.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+
                     playerSprite.setTexture(player);
                     playerSprite.setOrigin(24.f,24.f);
                     playerSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
                     playerSprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
+
+                    Window.draw(shape);
                     Window.draw(playerSprite);
-                 break;
+                    break;
             case 7:
                 Sprite.setTexture(BoxTexture);
                 Sprite.setOrigin(16.f, 16.f);
@@ -232,6 +288,7 @@ int main()
         Window.display();
 
         frameCounter = 0;
+
         }
     }
 	return 0;

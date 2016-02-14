@@ -39,14 +39,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="../../../Box2D" />
 			<Add directory="C:/SFML-2.3/include" />
+			<Add directory="C:/Box2D" />
 		</Compiler>
 		<Linker>
-			<Add library="..\..\Library\libBox2D.a" />
+			<Add library="C:\Box2D\libBox2D.a" />
 			<Add directory="C:/SFML-2.3/lib" />
 		</Linker>
-		<Unit filename="../../../Box2D/HelloWorld/HelloWorld.cpp" />
 		<Unit filename="example.cpp" />
 		<Extensions>
 			<code_completion />

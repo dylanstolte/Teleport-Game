@@ -60,8 +60,12 @@ int main()
         sf::Vertex(sf::Vector2f(  455, 546), sf::Color::Red)
     };
     int teleport = 0;
+    int teleportChain = 0;
     sf::Clock teleportclock;
 b2Vec2 teleportPosition;
+b2Vec2 teleportPositionTemp;
+b2Vec2 teleportPositionOld;
+float teleportDelay = .27;
 bool window_focus = 0;
     while (Window.isOpen())
     {
@@ -93,17 +97,24 @@ bool window_focus = 0;
 
         if (event.type == sf::Event::MouseButtonReleased)
         {
+            std::cout << "mouse released" << std::endl;
 
             if(event.mouseButton.button == sf::Mouse::Left)
             {
 
-              if(teleportclock.getElapsedTime().asSeconds() >= .4f)
+               //first jump
+              if(teleportclock.getElapsedTime().asSeconds() >= .4f )
                {
                    teleport = 1;
           //         std::cout << "telecounter: " << teleCounter << std::endl;
                     teleCounter = 0;
                     teleportclock.restart();
+                    break;
                }
+             if((teleport == 1) && (teleportclock.getElapsedTime().asSeconds() < teleportDelay) )
+             {
+                    teleportChain = 1;
+             }
 //                int MouseX = sf::Mouse::getPosition(Window).x;
 //                int MouseY = sf::Mouse::getPosition(Window).y;
              //CreateBox(World, MouseX, MouseY);
@@ -212,10 +223,22 @@ bool window_focus = 0;
 
                     int MouseX = sf::Mouse::getPosition(Window).x;
                         int MouseY = sf::Mouse::getPosition(Window).y;
+                        float target_x = worldBodies["player"]->GetPosition().x;
+                        float target_y = worldBodies["player"]->GetPosition().y;
+                        teleportPositionTemp = teleportPosition;
+
+                       if(teleportclock.getElapsedTime().asSeconds() < teleportDelay || teleportChain == 1)
+                        {
+                       //     std::cout << "target switch" << std::endl;
+                            target_x = teleportPosition.x/SCALE;
+                            target_y = teleportPosition.y/SCALE;
+                        }
+
+
                        b2Vec2 mousePos = b2Vec2(MouseX, MouseY); //mouse posption in physics scale
                     //   std::cout << "mousePos: " << mousePos.x << " "<< mousePos.y << std::endl;
-                       b2Vec2 playerPos = b2Vec2(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
-                       b2Vec2 pxplayerPos = b2Vec2(worldBodies["player"]->GetPosition().x,worldBodies["player"]->GetPosition().y);
+                       b2Vec2 playerPos = b2Vec2(target_x*SCALE,target_y*SCALE);
+                       b2Vec2 pxplayerPos = b2Vec2(target_x,target_y);
 
                      //  std::cout << "playerPos: " << playerPos.x << " " << playerPos.y << std::endl;
                        b2Vec2 diff = mousePos-playerPos; //Find vector from box's center to mouse
@@ -229,11 +252,33 @@ bool window_focus = 0;
                        float pxtempx = diff.x*( (var) /d);
                        float pxtempy = diff.y*( var/d);
                   //     std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
+                     b2Vec2 exchange;
+
                      teleportPosition =  b2Vec2(pxtempx+playerPos.x,pxtempy+playerPos.y);
+
+                     if(teleport == 0)
+                        teleportPositionOld = teleportPosition;
+
+                     if(teleportclock.getElapsedTime().asSeconds() < teleportDelay || teleportChain == 1)
+                    {
+                     exchange = teleportPosition;
+                     teleportPosition = teleportPositionTemp;
+                     teleportPositionTemp = exchange;
+                    }
                      //DO TELEPORT
-                     if(teleport == 1 && teleportclock.getElapsedTime().asSeconds() >= .08f)
+                     if(teleport == 1 && teleportclock.getElapsedTime().asSeconds() >= teleportDelay)
                             {
-                        worldBodies["player"]->SetTransform( b2Vec2(tempx+playerPos.x/SCALE,tempy+playerPos.y/SCALE) ,worldBodies["player"]->GetAngle());
+                          if(teleportChain == 1)
+                          {
+                              std::cout << "chaining" << std::endl;
+                //    std::cout << "teleport x: " << teleportPositionTemp.x << "teleport y: " << teleportPositionTemp.y << std::endl;
+
+                             worldBodies["player"]->SetTransform( b2Vec2(teleportPositionTemp.x/SCALE,teleportPositionTemp.y/SCALE) ,worldBodies["player"]->GetAngle());
+                             teleportChain = 0;
+                         }
+                          else
+                            worldBodies["player"]->SetTransform( b2Vec2(teleportPositionOld.x/SCALE,teleportPositionOld.y/SCALE) ,worldBodies["player"]->GetAngle());
+
                         worldBodies["player"]->ApplyLinearImpulse( b2Vec2(-0.f,-.4f), worldBodies["player"]->GetWorldCenter() );
 
                         teleCounter = 0;
@@ -252,6 +297,7 @@ bool window_focus = 0;
                   sf::Sprite GroundSprite;
                   sf::Sprite platformSprite;
                   sf::Sprite playerSprite;
+                  sf::Sprite teleportSprite;
                  // sf::CircleShape shape(teleport_Distance);
                     sf::CircleShape dot(5);
                //   sf::IntRect r1(100, 200, 250, 25);
@@ -271,14 +317,25 @@ bool window_focus = 0;
                     playerSprite.setTexture(player);
                     playerSprite.setOrigin(24.f,24.f);
 
-                    if(teleportclock.getElapsedTime().asSeconds() <.08f)
+
+                    if(teleportclock.getElapsedTime().asSeconds() <teleportDelay)
                     {
                         playerSprite.setTexture(flash);
+                        teleportSprite.setTexture(flash_blue);
+                        teleportSprite.setOrigin(24.f,24.f);
+                        teleportSprite.setPosition(teleportPosition.x,teleportPosition.y);
+
+                    dot.setFillColor(sf::Color::Green);
+                    dot.setOrigin(5,5);
+               //     std::cout << "lower teleport x: " << teleportPositionTemp.x << " lower teleport y: " << teleportPositionTemp.y << std::endl;
+                    dot.setPosition(teleportPositionTemp.x,teleportPositionTemp.y);
 
                     }
                     if((teleportclock.getElapsedTime().asSeconds() > .08f ) && (teleportclock.getElapsedTime().asSeconds() <= .16) )
+                  //if(teleport === 0)
                     {
-                        playerSprite.setTexture(flash_blue);
+                        //playerSprite.setTexture(flash_blue);
+
                     }
 
 
@@ -287,12 +344,19 @@ bool window_focus = 0;
 
 //                    Window.draw(shape);
                     Window.draw(dot);
+                    Window.draw(teleportSprite);
                     Window.draw(playerSprite);
                     break;
             case 7:
                 Sprite.setTexture(BoxTexture);
                 Sprite.setOrigin(16.f, 16.f);
-                Sprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+                if((teleportclock.getElapsedTime().asSeconds() > .08f ) && (teleportclock.getElapsedTime().asSeconds() <= .6))
+                {
+            Sprite.setPosition(teleportPosition.x,teleportPosition.y);
+            std::cout << "render chaining " << std:: endl;
+                }
+                else
+                    Sprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
                 Sprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
                 Window.draw(Sprite);
                 ++BodyCount;
@@ -334,11 +398,16 @@ bool window_focus = 0;
 //                Window.draw(GroundSprite);
 //            }
         }
-                         MouseX = sf::Mouse::getPosition(Window).x;
+                 MouseX = sf::Mouse::getPosition(Window).x;
                  MouseY = sf::Mouse::getPosition(Window).y;
-        line[0] = sf::Vertex(sf::Vector2f(MouseX,MouseY),sf::Color::Red);
+
+                line[0] = sf::Vertex(sf::Vector2f(MouseX,MouseY),sf::Color::Red);
                 line[1] = sf::Vertex(sf::Vector2f(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE),sf::Color::Red);
+                if(teleportclock.getElapsedTime().asSeconds() < teleportDelay)
+                    line[1] = sf::Vertex(sf::Vector2f(teleportPosition.x,teleportPosition.y),sf::Color::Red);
+
                 float force=0.05f;
+
             if(window_focus == 1)
                 sf::Mouse::setPosition(sf::Vector2i(teleportPosition.x,teleportPosition.y),Window);
 

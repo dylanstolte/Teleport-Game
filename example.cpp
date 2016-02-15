@@ -23,7 +23,7 @@ void CreateBox(b2World& World, int MouseX, int MouseY);
 int main()
 {
     /** Prepare the window */
-    sf::RenderWindow Window(sf::VideoMode(1024, 600, 32), "Test");
+    sf::RenderWindow Window(sf::VideoMode(1024, 1200, 32), "Test");
    // Window.setFramerateLimit(60);
     //THE MAGICAL CLOCK
     sf::Clock clock;
@@ -31,12 +31,12 @@ int main()
    float switchFrame = 1;
    float frameSpeed = 60;
    float teleCounter = 0;
-    float teleport_Distance = 105; //pixels
+    float teleport_Distance = 205; //pixels
 
     /** Prepare the world */
     b2Vec2 Gravity(0.f, 9.8f);
     b2World World(Gravity,true);
-    CreateGround(World, 512.f, 500.f);
+    CreateGround(World, 512.f, 1100.f);
     CreatePlatform(World, 300.f,150.f);  ///initail location passed to function
     CreatePlayer(World, 150.f,10.f);
 
@@ -45,18 +45,24 @@ int main()
     sf::Texture BoxTexture;
     sf::Texture platform;
     sf::Texture player;
+    sf::Texture flash;
+    sf::Texture flash_blue;
     GroundTexture.loadFromFile("ground.png");
     BoxTexture.loadFromFile("box.png");
     platform.loadFromFile("grass_box/grass_96x96.png");
     player.loadFromFile("crate.png");
-
+    flash.loadFromFile("flash.png");
+    flash_blue.loadFromFile("flash_blue.png");
     sf::Event event;
-//    sf::Vertex line[] =
-//    {
-//        sf::Vertex(sf::Vector2f(  100,   100), sf::Color::Red),
-//        sf::Vertex(sf::Vector2f(  455, 546), sf::Color::Red)
-//    };
+    sf::Vertex line[] =
+    {
+        sf::Vertex(sf::Vector2f(  100,   100), sf::Color::Red),
+        sf::Vertex(sf::Vector2f(  455, 546), sf::Color::Red)
+    };
     int teleport = 0;
+    sf::Clock teleportclock;
+b2Vec2 teleportPosition;
+bool window_focus = 0;
     while (Window.isOpen())
     {
 
@@ -73,7 +79,16 @@ int main()
 
         if(event.type == sf::Event::Closed)
                 Window.close();
-
+//
+//        if (event.type == sf::Event::GainedFocus)
+//        {
+//            window_focus = 1;
+//        }
+//
+//        if (event.type == sf::Event::LostFocus)
+//                {
+//                    window_focus = 0;
+//                }
             //MOUSE INPUT
 
         if (event.type == sf::Event::MouseButtonReleased)
@@ -82,12 +97,12 @@ int main()
             if(event.mouseButton.button == sf::Mouse::Left)
             {
 
-              if(teleCounter >= .3f)
+              if(teleportclock.getElapsedTime().asSeconds() >= .4f)
                {
                    teleport = 1;
-                   std::cout << "telecounter: " << teleCounter << std::endl;
-                   teleCounter = 0;
-
+          //         std::cout << "telecounter: " << teleCounter << std::endl;
+                    teleCounter = 0;
+                    teleportclock.restart();
                }
 //                int MouseX = sf::Mouse::getPosition(Window).x;
 //                int MouseY = sf::Mouse::getPosition(Window).y;
@@ -100,8 +115,8 @@ int main()
 
                //teleport toward mouse
                //send toward mouse cursor
-//                line[0] = sf::Vertex(sf::Vector2f(MouseX,MouseY),sf::Color::Red);
-//                line[1] = sf::Vertex(sf::Vector2f(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE),sf::Color::Red);
+ //               line[0] = sf::Vertex(sf::Vector2f(MouseX,MouseY),sf::Color::Red);
+ //               line[1] = sf::Vertex(sf::Vector2f(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE),sf::Color::Red);
 //                float force=0.05f;
  //       worldBodies["player"]->ApplyLinearImpulse(b2Vec2(diff.x*force,diff.y*force),worldBodies["player"]->GetWorldCenter()); //Apply impulse to box towards mouse
 
@@ -137,6 +152,8 @@ int main()
         //WASD keyboard movement
         if (event.type == sf::Event::KeyPressed)
         {
+                if(event.key.code == sf::Keyboard::Escape)
+                    Window.close();
                 if (event.key.code == sf::Keyboard::D)
                 {
                     std::cout << "D key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
@@ -191,27 +208,40 @@ int main()
 
         }
         } //END OF WHILE LOOP
-//std::cout << teleport << std::endl;
-        if(teleport == 1)
-                            {
-                                //std::cout << teleport << std::endl;
-                                teleport = 0;
+                    //TELEPORT MATH
+
                     int MouseX = sf::Mouse::getPosition(Window).x;
                         int MouseY = sf::Mouse::getPosition(Window).y;
                        b2Vec2 mousePos = b2Vec2(MouseX, MouseY); //mouse posption in physics scale
                     //   std::cout << "mousePos: " << mousePos.x << " "<< mousePos.y << std::endl;
                        b2Vec2 playerPos = b2Vec2(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+                       b2Vec2 pxplayerPos = b2Vec2(worldBodies["player"]->GetPosition().x,worldBodies["player"]->GetPosition().y);
+
                      //  std::cout << "playerPos: " << playerPos.x << " " << playerPos.y << std::endl;
                        b2Vec2 diff = mousePos-playerPos; //Find vector from box's center to mouse
                    //    std::cout << "diff: " << diff.x << " " << diff.y << std::endl;
                        float d = sqrt((diff.x*diff.x + diff.y*diff.y));
-                       float tempx = diff.x*((teleport_Distance/SCALE)/d);
-                       float tempy = diff.y*((teleport_Distance/SCALE)/d);
-                  //     std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
+                       float var = (d<teleport_Distance) ? d: teleport_Distance;
 
+                       float tempx = diff.x*( (var/SCALE) /d);
+                       float tempy = diff.y*( (var/SCALE) /d);
+
+                       float pxtempx = diff.x*( (var) /d);
+                       float pxtempy = diff.y*( var/d);
+                  //     std::cout << "newPos: " << tempx+playerPos.x << " " << tempy+playerPos.y << std::endl;
+                     teleportPosition =  b2Vec2(pxtempx+playerPos.x,pxtempy+playerPos.y);
+                     //DO TELEPORT
+                     if(teleport == 1 && teleportclock.getElapsedTime().asSeconds() >= .08f)
+                            {
                         worldBodies["player"]->SetTransform( b2Vec2(tempx+playerPos.x/SCALE,tempy+playerPos.y/SCALE) ,worldBodies["player"]->GetAngle());
-                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-28.f), worldBodies["player"]->GetWorldCenter() );
+                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(-0.f,-.4f), worldBodies["player"]->GetWorldCenter() );
+
+                        teleCounter = 0;
+                        teleport = 0;
                     }
+                    //gravity negation
+        if(teleportclock.getElapsedTime().asSeconds() < .5) //.7 worked decent
+          worldBodies["player"]->ApplyForce( worldBodies["player"]->GetMass() * -World.GetGravity(), worldBodies["player"]->GetWorldCenter() );
         World.Step(1/60.f, 8, 3);
 
         Window.clear(sf::Color::White);
@@ -222,21 +252,41 @@ int main()
                   sf::Sprite GroundSprite;
                   sf::Sprite platformSprite;
                   sf::Sprite playerSprite;
-                  sf::CircleShape shape(teleport_Distance);
-
+                 // sf::CircleShape shape(teleport_Distance);
+                    sf::CircleShape dot(5);
                //   sf::IntRect r1(100, 200, 250, 25);
             switch( (int) BodyIterator->GetUserData() ){
             case 1:
-                    shape.setFillColor(sf::Color::Green);
-                    shape.setOrigin(teleport_Distance,teleport_Distance);
-                    shape.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+                if(teleport == 0)
+                {
 
+                  //  shape.setFillColor(sf::Color::Green);
+                  //  shape.setOrigin(teleport_Distance,teleport_Distance);
+                  //  shape.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+
+                    dot.setFillColor(sf::Color::Blue);
+                    dot.setOrigin(5,5);
+                    dot.setPosition(teleportPosition.x,teleportPosition.y);
+                }
                     playerSprite.setTexture(player);
                     playerSprite.setOrigin(24.f,24.f);
+
+                    if(teleportclock.getElapsedTime().asSeconds() <.08f)
+                    {
+                        playerSprite.setTexture(flash);
+
+                    }
+                    if((teleportclock.getElapsedTime().asSeconds() > .08f ) && (teleportclock.getElapsedTime().asSeconds() <= .16) )
+                    {
+                        playerSprite.setTexture(flash_blue);
+                    }
+
+
                     playerSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
                     playerSprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
 
-                    Window.draw(shape);
+//                    Window.draw(shape);
+                    Window.draw(dot);
                     Window.draw(playerSprite);
                     break;
             case 7:
@@ -284,7 +334,15 @@ int main()
 //                Window.draw(GroundSprite);
 //            }
         }
-//        Window.draw(line, 2, sf::Lines);
+                         MouseX = sf::Mouse::getPosition(Window).x;
+                 MouseY = sf::Mouse::getPosition(Window).y;
+        line[0] = sf::Vertex(sf::Vector2f(MouseX,MouseY),sf::Color::Red);
+                line[1] = sf::Vertex(sf::Vector2f(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE),sf::Color::Red);
+                float force=0.05f;
+            if(window_focus == 1)
+                sf::Mouse::setPosition(sf::Vector2i(teleportPosition.x,teleportPosition.y),Window);
+
+        Window.draw(line, 2, sf::Lines);
         Window.display();
 
         frameCounter = 0;
@@ -328,7 +386,7 @@ void CreateBox(b2World& World, int MouseX, int MouseY)
     Shape.SetAsBox((32.f/2)/SCALE, (32.f/2)/SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 1.f;
-    FixtureDef.friction = 0.7f;
+    FixtureDef.friction = 1.4f;
     FixtureDef.shape = &Shape;
     Box->CreateFixture(&FixtureDef);
 }

@@ -4,15 +4,22 @@ using namespace std;
 Engine::~Engine(){};
 Engine::Engine()
 {
-    Window = new sf::RenderWindow(sf::VideoMode(1024, 900, 32), "Test");
+    Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
     view = sf::View();
+    backgroundView = sf::View();
+    view.reset(sf::FloatRect(0, 0, 1024, 900));
+    backgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
 
         /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
     World = new b2World(Gravity,true);
     CreateGround(*World, 512.f, 800.f);
     CreatePlatform(*World, 300.f,150.f);  ///initail location passed to function
-    CreatePlayer(*World, 150.f,10.f);
+    CreatePlatform(*World, 700.f,450.f);  ///initail location passed to function
+    CreatePlatform(*World, 1200.f,650.f);  ///initail location passed to function
+    CreatePlatform(*World, 1600.f,250.f);  ///initail location passed to function
+    CreatePlatform(*World, 800.f,340.f);  ///initail location passed to function
+    CreatePlayer(*World, 0.f,0.f);
 
 //LOAD TEXTURES
     GroundTexture.loadFromFile("ground.png");
@@ -21,6 +28,8 @@ Engine::Engine()
     player.loadFromFile("crate.png");
     flash.loadFromFile("flash.png");
     flash_blue.loadFromFile("flash_blue.png");
+    background.loadFromFile("mountains-bkg.jpg");
+    sky.loadFromFile("sky.jpg");
 
 
     frameCounter = 0;
@@ -76,9 +85,9 @@ void Engine::processInput()
             if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
             {
                 std::cout << "platform create"  << std::endl;
-                int MouseX = sf::Mouse::getPosition(*Window).x;
-                int MouseY = sf::Mouse::getPosition(*Window).y;
-                CreatePlatform(*World, MouseX,MouseY);
+                sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+                CreatePlatform(*World,mouse.x,mouse.y);
             }
         }
 
@@ -128,6 +137,7 @@ void Engine::processInput()
                 //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x + 10,sf::Mouse::getPosition().y),*Window);
 
                 view.move(10,0);
+                backgroundView.move(5,0);
             }
 
             if (event.key.code == sf::Keyboard::W)
@@ -138,8 +148,11 @@ void Engine::processInput()
                 //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x - 10,sf::Mouse::getPosition().y),*Window);
 
                 view.move(-10,0);
-
+                backgroundView.move(-5,0);
             }
+
+                                    if (event.type == sf::Event::Resized)
+                                            Window->setView(sf::View(sf::FloatRect(0.f, 0.f, static_cast<float>(Window->getSize().x) ,static_cast<float>(Window->getSize().y) ) ) );
             // b2Vec2 vel = body->GetLinearVelocity();
             //    float desiredVel = 0;
             //    switch ( moveState )
@@ -168,6 +181,32 @@ void Engine::update()
 void Engine::renderFrame()
 {
         Window->clear(sf::Color::White);
+
+        backgroundView.setCenter(( (worldBodies["player"]->GetPosition().x*SCALE)+(Window->getSize().x/2) ) /4 ,(worldBodies["player"]->GetPosition().y*SCALE) /4  );
+        Window->setView(backgroundView);
+
+        sf::Sprite backgroundSprite;
+        sf::Sprite backgroundSpriteFill;
+        sf::Sprite skySprite;
+        skySprite.setTexture(sky);
+        backgroundSprite.setTexture(background);
+        backgroundSpriteFill.setTexture(background);
+
+        backgroundSpriteFill.setPosition(1300,0);
+        skySprite.setPosition(0,-800);
+        cout << " X: " << backgroundView.getCenter().x << " Y: " << backgroundView.getCenter().y << endl;
+    //    cout << "background size x: " << backgroundView.getSize().x<< endl;
+
+
+        Window->draw(backgroundSpriteFill);
+        Window->draw(backgroundSprite);
+        Window->draw(skySprite);
+
+
+        //SET NORMAL VIEW
+        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+       // cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
+        Window->setView(view);
         Window->setView(view);
 
         int BodyCount = 0;
@@ -266,7 +305,7 @@ void Engine::CreateGround(b2World& World, float X, float Y)
 
 
     b2PolygonShape Shape;
-    Shape.SetAsBox((1024.f/2)/SCALE, (16.f/2)/SCALE);
+    Shape.SetAsBox((1024*2.f)/SCALE, (16.f/2)/SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 0.f;
     FixtureDef.shape = &Shape;

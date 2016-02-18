@@ -48,7 +48,6 @@
 		</Linker>
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.hpp" />
-		<Unit filename="example.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

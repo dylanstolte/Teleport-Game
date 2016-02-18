@@ -12,7 +12,7 @@ public:
    	sf::RenderWindow* Window;
    	b2World* World;
    	sf::View view;
-
+    sf::View backgroundView;
    	//THE MAGICAL CLOCK
     sf::Clock clock;
     float frameCounter;
@@ -26,6 +26,8 @@ public:
     sf::Texture player;
     sf::Texture flash;
     sf::Texture flash_blue;
+    sf::Texture background;
+    sf::Texture sky;
 
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;

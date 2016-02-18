@@ -46,7 +46,10 @@
 			<Add library="C:\Box2D\libBox2D.a" />
 			<Add directory="C:/SFML-2.3/lib" />
 		</Linker>
+		<Unit filename="Engine.cpp" />
+		<Unit filename="Engine.hpp" />
 		<Unit filename="example.cpp" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

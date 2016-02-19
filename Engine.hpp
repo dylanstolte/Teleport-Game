@@ -5,6 +5,8 @@
 #include <iostream>
 #include <String>
 #include <map>
+#include "MyContactListener.h"
+
 
 class Engine
 {
@@ -13,6 +15,8 @@ public:
    	b2World* World;
    	sf::View view;
     sf::View backgroundView;
+    sf::View midgroundView;
+    MyContactListener* listener;
    	//THE MAGICAL CLOCK
     sf::Clock clock;
     float frameCounter;
@@ -28,6 +32,9 @@ public:
     sf::Texture flash_blue;
     sf::Texture background;
     sf::Texture sky;
+    sf::Texture tree;
+    sf::Texture tree1;
+    sf::Texture tree2;
 
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;

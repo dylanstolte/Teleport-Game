@@ -7,12 +7,17 @@ Engine::Engine()
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
     view = sf::View();
     backgroundView = sf::View();
+    midgroundView = sf::View();
+
     view.reset(sf::FloatRect(0, 0, 1024, 900));
     backgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
+    midgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
 
         /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
+    listener = new MyContactListener();
     World = new b2World(Gravity,true);
+    World->SetContactListener(listener);
     CreateGround(*World, 512.f, 800.f);
     CreatePlatform(*World, 300.f,150.f);  ///initail location passed to function
     CreatePlatform(*World, 700.f,450.f);  ///initail location passed to function
@@ -30,6 +35,9 @@ Engine::Engine()
     flash_blue.loadFromFile("flash_blue.png");
     background.loadFromFile("mountains-bkg.jpg");
     sky.loadFromFile("sky.jpg");
+    tree.loadFromFile("tree.png");
+    tree1.loadFromFile("tree1.png");
+    tree2.loadFromFile("tree2.png");
 
 
     frameCounter = 0;
@@ -98,7 +106,7 @@ void Engine::processInput()
                 Window->close();
             if (event.key.code == sf::Keyboard::D)
             {
-                std::cout << "D key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
+                std::cout << "D key Pressed" << std::endl;
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = 7;
 
@@ -109,7 +117,7 @@ void Engine::processInput()
 
             if (event.key.code == sf::Keyboard::A)
             {
-                std::cout << "A key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
+                std::cout << "A key Pressed" <<  std::endl;
 
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = -7;
@@ -122,13 +130,14 @@ void Engine::processInput()
            //UP
             if (event.key.code == sf::Keyboard::Space)
             {
-                std::cout << "W key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
+                std::cout << "space key Pressed" <<  std::endl;
                                     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
 
-                float desiredVel = -4;
+              //  float desiredVel = -4;
 
-                float velChange = desiredVel - vel.y;
-                float impulse =  worldBodies["player"]->GetMass() * velChange;
+             //   float velChange = desiredVel - vel.y;
+                float impulse =  worldBodies["player"]->GetMass() * -10;
+           //     cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
                 worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
             }
             //DOWN
@@ -185,31 +194,46 @@ void Engine::renderFrame()
 {
         Window->clear(sf::Color::White);
 
-        backgroundView.setCenter(( (worldBodies["player"]->GetPosition().x*SCALE)+(Window->getSize().x/2) ) /4 ,(worldBodies["player"]->GetPosition().y*SCALE) /4  );
-        Window->setView(backgroundView);
-
         sf::Sprite backgroundSprite;
         sf::Sprite backgroundSpriteFill;
         sf::Sprite skySprite;
-        skySprite.setTexture(sky);
+        sf::Sprite treeSprite;
+        sf::Sprite treeSprite1;
+        sf::Sprite treeSprite2;
+
         backgroundSprite.setTexture(background);
         backgroundSpriteFill.setTexture(background);
+        skySprite.setTexture(sky);
+        treeSprite.setTexture(tree);
+        treeSprite1.setTexture(tree1);
+        treeSprite2.setTexture(tree2);
 
         backgroundSpriteFill.setPosition(1300,0);
         skySprite.setPosition(0,-800);
+        treeSprite.setPosition(2000,300);
+        treeSprite1.setPosition(900,450);
+        treeSprite2.setPosition(1400,550);
        // cout << " X: " << backgroundView.getCenter().x << " Y: " << backgroundView.getCenter().y << endl;
     //    cout << "background size x: " << backgroundView.getSize().x<< endl;
+         backgroundView.setCenter(0,0);
+        backgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /4 ),((worldBodies["player"]->GetPosition().y*SCALE)+Window->getSize().y*2-150) /4  );
 
-
+        Window->setView(backgroundView);
         Window->draw(backgroundSpriteFill);
         Window->draw(backgroundSprite);
         Window->draw(skySprite);
 
+        midgroundView.setCenter(0,0);
+        midgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /2 ),((worldBodies["player"]->GetPosition().y*SCALE)) /2  );
+        Window->setView(midgroundView);
+        Window->draw(treeSprite);
+        Window->draw(treeSprite1);
+        Window->draw(treeSprite2);
 
         //SET NORMAL VIEW
-        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+        view.setCenter(0,0);
+        view.move(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-300);
        // cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
-        Window->setView(view);
         Window->setView(view);
 
         int BodyCount = 0;
@@ -272,7 +296,7 @@ void Engine::CreatePlayer(b2World& World, float pos_x, float pos_y)
     Shape.SetAsBox((48.f/2)/SCALE, (48.f/2)/SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 3.f;
-    FixtureDef.friction = 1.f;
+    FixtureDef.friction = 2.f;
     FixtureDef.shape = &Shape;
     Player->CreateFixture(&FixtureDef);
 }

@@ -125,8 +125,11 @@ void Engine::processInput()
                 std::cout << "W key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
                                     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
 
-               // if(vel.y < .01f)
-                    worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-45), worldBodies["player"]->GetWorldCenter() );
+                float desiredVel = -4;
+
+                float velChange = desiredVel - vel.y;
+                float impulse =  worldBodies["player"]->GetMass() * velChange;
+                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
             }
             //DOWN
             if (event.key.code == sf::Keyboard::S)
@@ -194,7 +197,7 @@ void Engine::renderFrame()
 
         backgroundSpriteFill.setPosition(1300,0);
         skySprite.setPosition(0,-800);
-        cout << " X: " << backgroundView.getCenter().x << " Y: " << backgroundView.getCenter().y << endl;
+       // cout << " X: " << backgroundView.getCenter().x << " Y: " << backgroundView.getCenter().y << endl;
     //    cout << "background size x: " << backgroundView.getSize().x<< endl;
 
 
@@ -331,3 +334,9 @@ void Engine::CreatePlatform(b2World& World, float pos_x, float pos_y   )
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
 }
+
+
+
+
+
+

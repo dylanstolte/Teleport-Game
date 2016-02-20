@@ -547,16 +547,17 @@
 	<String>
 	<map>
 
-1455867833 source:c:\users\8470w\git\teleport-game\engine.cpp
+1455964377 source:c:\users\8470w\git\teleport-game\engine.cpp
 	"Engine.hpp"
 
-1455868648 c:\users\8470w\git\teleport-game\engine.hpp
+1455964346 c:\users\8470w\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
 	<String>
 	<map>
 	"MyContactListener.h"
+	"DebugDraw.h"
 
 1455783496 source:c:\users\8470w\git\teleport-game\main.cpp
 	"Engine.hpp"
@@ -570,4 +571,13 @@
 	<iostream>
 	<String>
 	<map>
+
+1455962566 source:c:\users\8470w\git\teleport-game\debugdraw.cpp
+	"DebugDraw.h"
+
+1455961621 c:\users\8470w\git\teleport-game\debugdraw.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
 

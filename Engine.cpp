@@ -1,5 +1,6 @@
 #include "Engine.hpp"
 
+
 using namespace std;
 Engine::~Engine(){};
 Engine::Engine()
@@ -18,6 +19,16 @@ Engine::Engine()
     listener = new MyContactListener();
     World = new b2World(Gravity,true);
     World->SetContactListener(listener);
+    /**Used for debuging*/
+    if(debug)
+    {
+        debugDrawInstance = new DebugDraw(*Window);
+        debugDrawInstance->SetFlags( b2DebugDraw::e_shapeBit );
+        World->SetDebugDraw( debugDrawInstance );
+    }
+
+
+
     CreateGround(*World, 512.f, 800.f);
     CreatePlatform(*World, 300.f,150.f);  ///initail location passed to function
     CreatePlatform(*World, 700.f,450.f);  ///initail location passed to function
@@ -29,8 +40,9 @@ Engine::Engine()
 //LOAD TEXTURES
     GroundTexture.loadFromFile("ground.png");
     BoxTexture.loadFromFile("box.png");
-    platform.loadFromFile("grass_box/grass_96x96.png");
-    player.loadFromFile("crate.png");
+   // platform.loadFromFile("grass_box/grass_96x96.png");
+    platform.loadFromFile("platform1.png");
+    player.loadFromFile("spritesheetvolt.png");
     flash.loadFromFile("flash.png");
     flash_blue.loadFromFile("flash_blue.png");
     background.loadFromFile("mountains-bkg.jpg");
@@ -184,14 +196,17 @@ void Engine::processInput()
 void Engine::update()
 {
 //TELEPORT MATH
-
-
+    if(debug)
+        Window->clear(sf::Color::White);
 
         World->Step(1/60.f, 8, 3);
+        World->DrawDebugData();
+
 };
 
 void Engine::renderFrame()
 {
+    if(!debug)
         Window->clear(sf::Color::White);
 
         sf::Sprite backgroundSprite;
@@ -237,20 +252,32 @@ void Engine::renderFrame()
         Window->setView(view);
 
         int BodyCount = 0;
+        sf::Sprite playerSprite;
         for (b2Body* BodyIterator = World->GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())
         {
                   sf::Sprite Sprite;
+
                   sf::Sprite GroundSprite;
                   sf::Sprite platformSprite;
-                  sf::Sprite playerSprite;
+
                  // sf::CircleShape shape(teleport_Distance);
             switch( (int) BodyIterator->GetUserData() ){
+            case 13:
+                platformSprite.setTexture(platform);
+              //  platformSprite.setTextureRect(r1);
+                platformSprite.setOrigin(400.f,200.f);
+                platformSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+                platformSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
+                platformSprite.setScale(.4,.6);
+                Window->draw(platformSprite);
+                break;
             case 1:
                     playerSprite.setTexture(player);
-                    playerSprite.setOrigin(24.f,24.f);
+                    playerSprite.setOrigin(140.f,190.f);
+                    playerSprite.setTextureRect(sf::IntRect(0,0,280,380));
                     playerSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
                     playerSprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
-                    Window->draw(playerSprite);
+                    playerSprite.setScale(.4,.35);
                     break;
             case 7:
                 Sprite.setTexture(BoxTexture);
@@ -267,17 +294,11 @@ void Engine::renderFrame()
                 GroundSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
                 Window->draw(GroundSprite);
                 break;
-            case 13:
-                platformSprite.setTexture(platform);
-              //  platformSprite.setTextureRect(r1);
-                platformSprite.setOrigin(48.f,48.f);
-                platformSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
-                platformSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
-                Window->draw(platformSprite);
-                break;
-            }
-        }
+                        }
+        }Window->draw(playerSprite);
+
         Window->display();
+      //  debugDrawInstance->window->display();
 
 };
 
@@ -293,7 +314,7 @@ void Engine::CreatePlayer(b2World& World, float pos_x, float pos_y)
     Player->SetUserData((void*)id);
 
     b2PolygonShape Shape;
-    Shape.SetAsBox((48.f/2)/SCALE, (48.f/2)/SCALE);
+    Shape.SetAsBox((280*.4f/2)/SCALE, (380*.35f/2)/SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 3.f;
     FixtureDef.friction = 2.f;
@@ -351,7 +372,7 @@ void Engine::CreatePlatform(b2World& World, float pos_x, float pos_y   )
     Body->SetUserData((void*)id);
 
     b2PolygonShape Shape;
-    Shape.SetAsBox((96.f/2)/SCALE, (96.f/2)/SCALE);
+    Shape.SetAsBox((800*.4f/2)/SCALE, (300*.6f/2)/SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 100.f;
     FixtureDef.friction = 0.7f;

@@ -6,7 +6,7 @@
 #include <String>
 #include <map>
 #include "MyContactListener.h"
-
+#include "DebugDraw.h"
 
 class Engine
 {
@@ -17,6 +17,8 @@ public:
     sf::View backgroundView;
     sf::View midgroundView;
     MyContactListener* listener;
+    //at global scope
+    DebugDraw* debugDrawInstance;
    	//THE MAGICAL CLOCK
     sf::Clock clock;
     float frameCounter;
@@ -39,7 +41,7 @@ public:
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
-
+    bool debug = false;
     /** We need this to easily convert between pixel and real-world coordinates*/
     static const float SCALE = 30.f;
     //Initializes the engine

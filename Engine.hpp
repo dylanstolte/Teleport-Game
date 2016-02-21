@@ -7,6 +7,9 @@
 #include <map>
 #include "MyContactListener.h"
 #include "DebugDraw.h"
+#include "Player.h"
+
+class Player;
 
 class Engine
 {
@@ -17,6 +20,7 @@ public:
     sf::View backgroundView;
     sf::View midgroundView;
     MyContactListener* listener;
+    Player* player;
     //at global scope
     DebugDraw* debugDrawInstance;
    	//THE MAGICAL CLOCK
@@ -29,7 +33,7 @@ public:
     sf::Texture GroundTexture;
     sf::Texture BoxTexture;
     sf::Texture platform;
-    sf::Texture player;
+    sf::Texture playerTexture;
     sf::Texture flash;
     sf::Texture flash_blue;
     sf::Texture background;

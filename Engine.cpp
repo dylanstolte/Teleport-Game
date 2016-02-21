@@ -5,6 +5,7 @@ using namespace std;
 Engine::~Engine(){};
 Engine::Engine()
 {
+
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
     view = sf::View();
     backgroundView = sf::View();
@@ -35,14 +36,15 @@ Engine::Engine()
     CreatePlatform(*World, 1200.f,650.f);  ///initail location passed to function
     CreatePlatform(*World, 1600.f,250.f);  ///initail location passed to function
     CreatePlatform(*World, 800.f,340.f);  ///initail location passed to function
-    CreatePlayer(*World, 0.f,0.f);
+    //CreatePlayer(*World, 0.f,0.f);
+    player = new Player(World, this);
 
 //LOAD TEXTURES
     GroundTexture.loadFromFile("ground.png");
     BoxTexture.loadFromFile("box.png");
    // platform.loadFromFile("grass_box/grass_96x96.png");
     platform.loadFromFile("platform1.png");
-    player.loadFromFile("spritesheetvolt.png");
+    //wwwwwwwwwsesfplayerTexture.loadFromFile("spritesheetvolt.png");
     flash.loadFromFile("flash.png");
     flash_blue.loadFromFile("flash_blue.png");
     background.loadFromFile("mountains-bkg.jpg");
@@ -140,7 +142,7 @@ void Engine::processInput()
             }
 
            //UP
-            if (event.key.code == sf::Keyboard::Space)
+            if (event.key.code == sf::Keyboard::W)
             {
                 std::cout << "space key Pressed" <<  std::endl;
                                     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
@@ -272,12 +274,7 @@ void Engine::renderFrame()
                 Window->draw(platformSprite);
                 break;
             case 1:
-                    playerSprite.setTexture(player);
-                    playerSprite.setOrigin(140.f,190.f);
-                    playerSprite.setTextureRect(sf::IntRect(0,0,280,380));
-                    playerSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
-                    playerSprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
-                    playerSprite.setScale(.4,.35);
+                    player->render();
                     break;
             case 7:
                 Sprite.setTexture(BoxTexture);
@@ -295,51 +292,12 @@ void Engine::renderFrame()
                 Window->draw(GroundSprite);
                 break;
                         }
-        }Window->draw(playerSprite);
+        }Window->draw(player->playerSprite);
 
         Window->display();
       //  debugDrawInstance->window->display();
 
 };
-
-void Engine::CreatePlayer(b2World& World, float pos_x, float pos_y)
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(pos_x/SCALE, pos_y/SCALE);
-    BodyDef.type = b2_dynamicBody;
-    b2Body* Player = World.CreateBody(&BodyDef);
-    //add body to world map
-    worldBodies["player"] =  Player;
-    int id = 1;
-    Player->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((280*.4f/2)/SCALE, (380*.35f/2)/SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 3.f;
-    FixtureDef.friction = 2.f;
-    FixtureDef.shape = &Shape;
-    Player->CreateFixture(&FixtureDef);
-}
-
-void Engine::CreateBox(b2World& World, int MouseX, int MouseY)
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(MouseX/SCALE, MouseY/SCALE);
-    BodyDef.type = b2_dynamicBody;
-    b2Body* Box= World.CreateBody(&BodyDef);
-
-    int id = 7;
-    Box->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((32.f/2)/SCALE, (32.f/2)/SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 1.f;
-    FixtureDef.friction = 1.4f;
-    FixtureDef.shape = &Shape;
-    Box->CreateFixture(&FixtureDef);
-}
 
 void Engine::CreateGround(b2World& World, float X, float Y)
 {
@@ -379,6 +337,7 @@ void Engine::CreatePlatform(b2World& World, float pos_x, float pos_y   )
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
 }
+
 
 
 

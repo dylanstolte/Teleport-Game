@@ -153,6 +153,7 @@ void Engine::processInput()
                 float impulse =  worldBodies["player"]->GetMass() * -10;
            //     cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
                 worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+              // worldBodies["player"]->
             }
             //DOWN
             if (event.key.code == sf::Keyboard::S)
@@ -202,15 +203,16 @@ void Engine::update()
         Window->clear(sf::Color::White);
 
         World->Step(1/60.f, 8, 3);
-        World->DrawDebugData();
+
+
 
 };
 
 void Engine::renderFrame()
 {
-    if(!debug)
-        Window->clear(sf::Color::White);
 
+        Window->clear(sf::Color::White);
+        World->DrawDebugData();
         sf::Sprite backgroundSprite;
         sf::Sprite backgroundSpriteFill;
         sf::Sprite skySprite;
@@ -236,10 +238,12 @@ void Engine::renderFrame()
         backgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /4 ),((worldBodies["player"]->GetPosition().y*SCALE)+Window->getSize().y*2-150) /4  );
 
         Window->setView(backgroundView);
-        Window->draw(backgroundSpriteFill);
-        Window->draw(backgroundSprite);
-        Window->draw(skySprite);
-
+        if(!debug)
+        {
+            Window->draw(backgroundSpriteFill);
+            Window->draw(backgroundSprite);
+            Window->draw(skySprite);
+        }
         midgroundView.setCenter(0,0);
         midgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /2 ),((worldBodies["player"]->GetPosition().y*SCALE)) /2  );
         Window->setView(midgroundView);
@@ -294,8 +298,9 @@ void Engine::renderFrame()
                         }
         }Window->draw(player->playerSprite);
 
+
         Window->display();
-      //  debugDrawInstance->window->display();
+       // debugDrawInstance->window->display();
 
 };
 

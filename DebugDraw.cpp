@@ -172,7 +172,9 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 		polygon.setFillColor(this->B2SFColor(color, 50));
 		polygon.setOutlineColor(this->B2SFColor(color));
 	}
+
 	polygon.setOutlineThickness(1.0f);
+	//this->window->clear(sf::Color::White);
 	this->window->draw(polygon);
     //this->window->display();
 }

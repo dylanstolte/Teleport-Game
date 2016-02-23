@@ -8,7 +8,8 @@
 #include "MyContactListener.h"
 #include "DebugDraw.h"
 #include "Player.h"
-
+#include "Map.h""
+class Map;
 class Player;
 class MyContactListener;
 
@@ -17,11 +18,13 @@ class Engine
 public:
    	sf::RenderWindow* Window;
    	b2World* World;
+
    	sf::View view;
     sf::View backgroundView;
     sf::View midgroundView;
     MyContactListener* listener;
     Player* player;
+    Map* worldMap;
     //at global scope
     DebugDraw* debugDrawInstance;
    	//THE MAGICAL CLOCK
@@ -42,6 +45,10 @@ public:
     sf::Texture tree;
     sf::Texture tree1;
     sf::Texture tree2;
+    /////////////// MOVE STATES
+    bool moveJump = false;
+    bool moveRight = false;
+    bool moveLeft = false;
 
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
@@ -60,11 +67,7 @@ public:
     	//Renders one frame
 	void renderFrame();
 
-    /** Create the base for the boxes to land */
-    void CreateGround(b2World& World, float X, float Y);
 
-    //create a platform
-    void CreatePlatform(b2World& World,float pos_x, float pos_y);
 
     //create player
     void CreatePlayer(b2World& World, float pos_x, float posy_y);

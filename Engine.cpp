@@ -18,6 +18,7 @@ Engine::Engine()
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
     listener = new MyContactListener(this);
+    worldMap = new Map(this);
     World = new b2World(Gravity,true);
     World->SetContactListener(listener);
     /**Used for debuging*/
@@ -30,13 +31,7 @@ Engine::Engine()
 
 
 
-    CreateGround(*World, 512.f, 800.f);
-    CreatePlatform(*World, 300.f,150.f);  ///initail location passed to function
-    CreatePlatform(*World, 700.f,450.f);  ///initail location passed to function
-    CreatePlatform(*World, 1200.f,650.f);  ///initail location passed to function
-    CreatePlatform(*World, 1600.f,250.f);  ///initail location passed to function
-    CreatePlatform(*World, 800.f,340.f);  ///initail location passed to function
-    //CreatePlayer(*World, 0.f,0.f);
+    worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
 
     ///LOAD TEXTURES
@@ -52,6 +47,7 @@ Engine::Engine()
     tree.loadFromFile("tree.png");
     tree1.loadFromFile("tree1.png");
     tree2.loadFromFile("tree2.png");
+
 
     frameCounter = 0;
     switchFrame = 1;
@@ -112,7 +108,7 @@ void Engine::processInput()
                 std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-                CreatePlatform(*World,mouse.x,mouse.y);
+//                CreatePlatform(*World,mouse.x,mouse.y);
             }
         }
 
@@ -123,7 +119,8 @@ void Engine::processInput()
                 Window->close();
 
             if (event.key.code == sf::Keyboard::D)
-            {
+        {
+                moveRight = true;
                 //std::cout << "D key Pressed" << std::endl;
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = 7;
@@ -136,7 +133,7 @@ void Engine::processInput()
             if (event.key.code == sf::Keyboard::A)
             {
                 //std::cout << "A key Pressed" <<  std::endl;
-
+            moveLeft = true;
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = -7;
 
@@ -148,23 +145,24 @@ void Engine::processInput()
             //UP
             if (event.key.code == sf::Keyboard::W)
             {
-                if(prevEvent.key.code != sf::Keyboard::W)
-                {
-                    cout<<player->numFootContacts<<endl;
-                    if(player->numFootContacts > 0)
-                    {
-                        float maxVel = -4.f;
-                        //std::cout << "W key Pressed" <<  std::endl;
-                        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                        float desiredVel = -10;
-                        float velChange = desiredVel - vel.y;
-                        float impulse =  worldBodies["player"]->GetMass() * velChange;
-                        //cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
-                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-                        //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
-                    }
-
-                }
+//                if(prevEvent.key.code != sf::Keyboard::W)
+//                {
+//                    cout<<player->numFootContacts<<endl;
+//                    if(player->numFootContacts > 0)
+//                    {
+//                        float maxVel = -4.f;
+//                        //std::cout << "W key Pressed" <<  std::endl;
+//                        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+//                        float desiredVel = -10;
+//                        float velChange = desiredVel - vel.y;
+//                        float impulse =  worldBodies["player"]->GetMass() * velChange;
+//                        //cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
+//                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+//                        //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
+//                    }
+//
+//                }
+                moveJump = true;
 
             }
             //DOWN
@@ -208,9 +206,14 @@ void Engine::processInput()
         if (event.type == sf::Event::KeyReleased)
         {
 
-            if (event.key.code == sf::Keyboard::W)
+            if (event.key.code == sf::Keyboard::D)
             {
+                moveRight = false;
 
+            }
+            if (event.key.code == sf::Keyboard::A)
+            {
+                moveLeft = false;
             }
 
         }
@@ -221,7 +224,25 @@ void Engine::processInput()
 
 void Engine::update()
 {
-//TELEPORT MATH
+
+    cout<<player->numFootContacts<<endl;
+    if(moveJump)
+    {
+        if(player->numFootContacts > 0)
+        {
+
+            //std::cout << "W key Pressed" <<  std::endl;
+            b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+            float desiredVel = -8;
+            float velChange = desiredVel - vel.y;
+            float impulse =  worldBodies["player"]->GetMass() * velChange;
+            worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+            //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
+            moveJump = false;
+        }
+
+    }
+
     if(debug)
         Window->clear(sf::Color::White);
 
@@ -329,42 +350,8 @@ void Engine::renderFrame()
 
 };
 
-void Engine::CreateGround(b2World& World, float X, float Y)
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(X/SCALE, Y/SCALE);
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = World.CreateBody(&BodyDef);
 
-    int id = 9;
-    Body->SetUserData((void*)id);
 
-    b2PolygonShape Shape;
-    Shape.SetAsBox((1024*2.f)/SCALE, (16.f/2)/SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 0.f;
-    FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
-}
-
-void Engine::CreatePlatform(b2World& World, float pos_x, float pos_y   )
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(pos_x/SCALE, pos_y/SCALE);
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = World.CreateBody(&BodyDef);
-
-    int id = 13;
-    Body->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((800*.4f/2)/SCALE, (300*.6f/2)/SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 100.f;
-    FixtureDef.friction = 0.7f;
-    FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
-}
 
 
 

@@ -46,6 +46,7 @@
 			<Add library="C:\Box2D\libBox2D.a" />
 			<Add directory="C:/SFML-2.3/lib" />
 		</Linker>
+		<Unit filename="Animation.cpp" />
 		<Unit filename="Animation.h" />
 		<Unit filename="DebugDraw.cpp" />
 		<Unit filename="DebugDraw.h" />

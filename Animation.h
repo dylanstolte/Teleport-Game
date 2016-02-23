@@ -9,17 +9,19 @@ public:
 Animation();
 Animation(int totalFrame,sf::Texture texture);
 ~Animation();
-
-int currentFrame;
+bool flip = false;
+bool isRunning = false;
+int currentFrame = 0;
 int totalFrames;
 sf::Texture animationTexture;
-
+sf::Vector2i frameSize;
+sf::Vector2i framePos;
 void setTexture(sf::Texture texture);
-//void start();
-void restart();
+void start();
 void stop();
-void nextFrame();
+sf::IntRect nextFrame();
 void previousFrame();
+void setFrame(int x_pos, int y_pos,int x_size, int y_size);
 
 };
 #endif // ANIMATION_H_INCLUDED

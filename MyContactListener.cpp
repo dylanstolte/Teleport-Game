@@ -11,7 +11,12 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         cout<< "Body " << (int) bodyUserData<< " began contact with ";
 
     if ( (int)fixtureUserData == 3 )
+    {
         engine->player->numFootContacts++;
+        cout << " fixture " << (int) fixtureUserData << " contacts " << engine->player->numFootContacts << endl;
+
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -22,7 +27,11 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         cout<< "Body " << (int) bodyUserData<< endl;
 
     if ( (int)fixtureUserData == 3 )
+    {
         engine->player->numFootContacts++;
+        cout << " fixture " << (int) fixtureUserData<< " contacts " << engine->player->numFootContacts << endl;
+    }
+
 }
 
 void MyContactListener::EndContact(b2Contact* contact) {
@@ -33,7 +42,10 @@ void MyContactListener::EndContact(b2Contact* contact) {
         cout<< "Body " << (int) bodyUserData<< " ended contact with ";
 
     if ( (int)fixtureUserData == 3 )
+    {
+        cout << " fixture " << (int) fixtureUserData << " contacts " << engine->player->numFootContacts << endl;
         engine->player->numFootContacts--;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,8 +54,11 @@ void MyContactListener::EndContact(b2Contact* contact) {
     if ( bodyUserData )
         cout<< "Body " << (int) bodyUserData<< endl;
 
-    if ( (int)fixtureUserData == 3 )
+        if ( (int)fixtureUserData == 3 )
+    {
+        cout << " fixture " << (int) fixtureUserData << " contacts " << engine->player->numFootContacts << endl;
         engine->player->numFootContacts--;
+    }
 
 }
 

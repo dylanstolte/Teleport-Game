@@ -17,16 +17,18 @@ public:
     sf::Sprite playerSprite;
     sf::RenderWindow* window;
     sf::Texture playerTexture;
+    sf::Texture pichuSheet;
     Engine* engine;
-    Animation walkRightAnimation;
-
+    Animation idleAnimation;
+    Animation runRightAnimation;
+    Animation runLeftAnimation;
     int numFootContacts = 0;
     float animationCounter;
 
     Player(b2World* world, Engine* engine);
     ~Player();
 
-    void setTexture(sf::Texture playerTexture);
+
     void setOrigin(float pos_x, float pos_y);
     void render();
 

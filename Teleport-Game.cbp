@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="HelloWorld" />
+		<Option title="Teleport-Game" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -46,8 +46,16 @@
 			<Add library="C:\Box2D\libBox2D.a" />
 			<Add directory="C:/SFML-2.3/lib" />
 		</Linker>
+		<Unit filename="Animation.h" />
+		<Unit filename="Animtaion.cpp" />
+		<Unit filename="DebugDraw.cpp" />
+		<Unit filename="DebugDraw.h" />
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.hpp" />
+		<Unit filename="MyContactListener.cpp" />
+		<Unit filename="MyContactListener.h" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

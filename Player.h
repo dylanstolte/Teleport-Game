@@ -1,9 +1,10 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 #include "Engine.hpp"
+#include "Animation.h"
 
 class Engine;
-
+class Animation;
 class Player{
 
 public:
@@ -15,6 +16,12 @@ public:
     sf::Sprite playerSprite;
     sf::RenderWindow* window;
     sf::Texture playerTexture;
+    Engine* engine;
+    Animation walkRightAnimation;
+
+
+    float animationCounter;
+
 
     Player(b2World* world, Engine* engine);
     ~Player();

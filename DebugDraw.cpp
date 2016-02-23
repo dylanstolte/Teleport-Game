@@ -163,7 +163,7 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 {
   //  this->window->clear(sf::Color::White);
     sf::ConvexShape polygon(vertexCount);
-    std::cout << "draw solid polygon" << std::endl;
+   // std::cout << "draw solid polygon" << std::endl;
 	for (int32 i=0; i<vertexCount; i++)
 	{
 
@@ -181,6 +181,7 @@ void DebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount, cons
 //
 void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
+
     std::cout << "draw polygon" << std::endl;
     sf::ConvexShape polygon;
 	for (int32 i=0; i<vertexCount; i++)

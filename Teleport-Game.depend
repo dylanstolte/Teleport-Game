@@ -553,7 +553,7 @@
 1456105655 source:c:\users\8470w\git\teleport-game\engine.cpp
 	"Engine.hpp"
 
-1456105664 c:\users\8470w\git\teleport-game\engine.hpp
+1456105930 c:\users\8470w\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
@@ -576,7 +576,7 @@
 	<String>
 	<map>
 
-1456105356 source:c:\users\8470w\git\teleport-game\debugdraw.cpp
+1456106573 source:c:\users\8470w\git\teleport-game\debugdraw.cpp
 	"DebugDraw.h"
 
 1455961621 c:\users\8470w\git\teleport-game\debugdraw.h
@@ -600,9 +600,17 @@
 1456015261 c:\users\dylan\git\teleport-game\player.h
 	"Engine.hpp"
 
-1456104151 c:\users\8470w\git\teleport-game\player.h
+1456192157 c:\users\8470w\git\teleport-game\player.h
 	"Engine.hpp"
+	"Animation.h"
 
-1456104151 source:c:\users\8470w\git\teleport-game\player.cpp
+1456192206 source:c:\users\8470w\git\teleport-game\player.cpp
 	"Player.h"
+	"Animation.h"
+
+1456191983 source:c:\users\8470w\git\teleport-game\animtaion.cpp
+	"Animation.h"
+
+1456191835 c:\users\8470w\git\teleport-game\animation.h
+	<SFML/graphics.hpp>
 

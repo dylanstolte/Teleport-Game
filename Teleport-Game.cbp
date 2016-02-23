@@ -46,11 +46,7 @@
 			<Add library="C:\Box2D\libBox2D.a" />
 			<Add directory="C:/SFML-2.3/lib" />
 		</Linker>
-<<<<<<< Updated upstream
 		<Unit filename="Animation.h" />
-		<Unit filename="Animtaion.cpp" />
-=======
->>>>>>> Stashed changes
 		<Unit filename="DebugDraw.cpp" />
 		<Unit filename="DebugDraw.h" />
 		<Unit filename="Engine.cpp" />

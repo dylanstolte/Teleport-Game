@@ -20,9 +20,8 @@ public:
     Engine* engine;
     Animation walkRightAnimation;
 
-
+    int numFootContacts = 0;
     float animationCounter;
-
 
     Player(b2World* world, Engine* engine);
     ~Player();

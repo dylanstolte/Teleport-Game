@@ -5,14 +5,17 @@
 #include <iostream>
 #include <String>
 #include <map>
+#include "Engine.hpp"
 
-  class MyContactListener : public b2ContactListener
-  {
-  public:
-        MyContactListener();
-        ~MyContactListener();
-        void BeginContact(b2Contact* contact);
-        void EndContact(b2Contact* contact);
+class Engine;
+class MyContactListener : public b2ContactListener
+{
+public:
+    Engine* engine;
+    MyContactListener(Engine* engine);
+    ~MyContactListener();
+    void BeginContact(b2Contact* contact);
+    void EndContact(b2Contact* contact);
 
-  };
+};
 #endif // MYCONTACTLISTENER_H_INCLUDED

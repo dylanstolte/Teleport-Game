@@ -17,4 +17,4 @@ void Animation::stop(){};
 
 void Animation::nextFrame(){};
 
-void previousFrame(){};
+void Animation::previousFrame(){};

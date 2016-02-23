@@ -10,6 +10,7 @@
 #include "Player.h"
 
 class Player;
+class MyContactListener;
 
 class Engine
 {
@@ -45,7 +46,7 @@ public:
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
-    bool debug = false;
+    bool debug = true;
     /** We need this to easily convert between pixel and real-world coordinates*/
     static const float SCALE = 30.f;
     //Initializes the engine

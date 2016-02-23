@@ -17,7 +17,7 @@ Engine::Engine()
 
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
-    listener = new MyContactListener();
+    listener = new MyContactListener(this);
     World = new b2World(Gravity,true);
     World->SetContactListener(listener);
     /**Used for debuging*/
@@ -87,8 +87,10 @@ bool inAir = false;
 void Engine::processInput()
 {
     sf::Event event;
+    sf::Event prevEvent;
     while(Window->pollEvent(event))
     {
+
         if(event.type == sf::Event::Closed)
             Window->close();
 
@@ -122,7 +124,7 @@ void Engine::processInput()
 
             if (event.key.code == sf::Keyboard::D)
             {
-                std::cout << "D key Pressed" << std::endl;
+                //std::cout << "D key Pressed" << std::endl;
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = 7;
 
@@ -133,7 +135,7 @@ void Engine::processInput()
 
             if (event.key.code == sf::Keyboard::A)
             {
-                std::cout << "A key Pressed" <<  std::endl;
+                //std::cout << "A key Pressed" <<  std::endl;
 
                 b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
                 float desiredVel = -7;
@@ -146,17 +148,23 @@ void Engine::processInput()
             //UP
             if (event.key.code == sf::Keyboard::W)
             {
+                if(prevEvent.key.code != sf::Keyboard::W)
+                {
+                    cout<<player->numFootContacts<<endl;
+                    if(player->numFootContacts > 0)
+                    {
+                        float maxVel = -4.f;
+                        //std::cout << "W key Pressed" <<  std::endl;
+                        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+                        float desiredVel = -10;
+                        float velChange = desiredVel - vel.y;
+                        float impulse =  worldBodies["player"]->GetMass() * velChange;
+                        //cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
+                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+                        //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
+                    }
 
-
-                std::cout << "W key Pressed" <<  std::endl;
-                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                //float desiredVel = -4;
-                //float velChange = desiredVel - vel.y;
-                float impulse =  worldBodies["player"]->GetMass() * -10;
-                //cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
-                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-                //worldBodies["player"]->
-
+                }
 
             }
             //DOWN
@@ -207,6 +215,7 @@ void Engine::processInput()
 
         }
 
+        prevEvent=event;
     } //END OF WHILE POLL EVENT LOOP
 };
 

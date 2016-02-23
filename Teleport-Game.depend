@@ -524,10 +524,10 @@
 1265015568 c:\box2d\box2d\dynamics\joints\b2weldjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1456194399 source:c:\users\dylan\git\teleport-game\engine.cpp
+1456196795 source:c:\users\dylan\git\teleport-game\engine.cpp
 	"Engine.hpp"
 
-1456014395 c:\users\dylan\git\teleport-game\engine.hpp
+1456196189 c:\users\dylan\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
@@ -540,15 +540,16 @@
 1455845359 source:c:\users\dylan\git\teleport-game\main.cpp
 	"Engine.hpp"
 
-1456194399 source:c:\users\dylan\git\teleport-game\mycontactlistener.cpp
+1456196822 source:c:\users\dylan\git\teleport-game\mycontactlistener.cpp
 	"MyContactListener.h"
 
-1456009717 c:\users\dylan\git\teleport-game\mycontactlistener.h
+1456196154 c:\users\dylan\git\teleport-game\mycontactlistener.h
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
 	<String>
 	<map>
+	"Engine.hpp"
 
 1456105655 source:c:\users\8470w\git\teleport-game\engine.cpp
 	"Engine.hpp"
@@ -594,10 +595,11 @@
 	<SFML/System.hpp>
 	<SFML/Graphics.hpp>
 
-1456015586 source:c:\users\dylan\git\teleport-game\player.cpp
+1456195601 source:c:\users\dylan\git\teleport-game\player.cpp
 	"Player.h"
+	"Animation.h"
 
-1456194399 c:\users\dylan\git\teleport-game\player.h
+1456195653 c:\users\dylan\git\teleport-game\player.h
 	"Engine.hpp"
 	"Animation.h"
 
@@ -617,4 +619,7 @@
 
 1456194357 c:\users\dylan\git\teleport-game\animation.h
 	<SFML/graphics.hpp>
+
+1456194357 source:c:\users\dylan\git\teleport-game\animation.cpp
+	"Animation.h"
 

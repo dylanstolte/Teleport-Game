@@ -21,10 +21,9 @@ Player::Player(b2World* world, Engine* engine)
     fixtureDef.shape = &shape;
     body->CreateFixture(&fixtureDef);
 
-
     walkRightAnimation = Animation();
 
-    shape.SetAsBox(0.3, 0.3, b2Vec2(0,-2), 0);
+    shape.SetAsBox(0.3, 0.3, b2Vec2(0,2), 0);
     fixtureDef.isSensor = true;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
@@ -50,12 +49,12 @@ void Player::setOrigin(float pos_x, float pos_y)
 void Player::render()
 {
 
-    std::cout << engine->clock.getElapsedTime().asSeconds() << std::endl;
-    std::cout << engine->frameCounter << std::endl;
+    //std::cout << engine->clock.getElapsedTime().asSeconds() << std::endl;
+    //std::cout << engine->frameCounter << std::endl;
     animationCounter += engine->clock.getElapsedTime().asSeconds();
     if(animationCounter >= engine->switchFrame/engine->frameSpeed)
     {
-        std::cout << "next animation: " << animationCounter << "  "<< 0 + animationCounter *280 <<std::endl;
+        //std::cout << "next animation: " << animationCounter << "  "<< 0 + animationCounter *280 <<std::endl;
         walkRightAnimation.nextFrame();
         animationCounter = 0;
     }

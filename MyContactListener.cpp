@@ -3,18 +3,29 @@
 
 using namespace std;
 void MyContactListener::BeginContact(b2Contact* contact) {
-   //check if fixture A was a ball
-      void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
-      if ( bodyUserData )
-        cout<< "From begin contact " << (int) bodyUserData<< endl;
 
-      //check if fixture B was a ball
-      bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
-      if ( bodyUserData )
-        cout<< "From begin contact " << (int) bodyUserData<< endl;
-      }
+    //Get first body and print
+    void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        cout<< "Body " << (int) bodyUserData<< " began contact with ";
 
-void MyContactListener::EndContact(b2Contact* contact) {    }
+    //Get second body and print
+    bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        cout<< "Body " << (int) bodyUserData<< endl;
+    }
+
+void MyContactListener::EndContact(b2Contact* contact) {
+
+    void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        cout<< "Body " << (int) bodyUserData<< " ended contact with ";
+
+    bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
+    if ( bodyUserData )
+        cout<< "Body " << (int) bodyUserData<< endl;
+
+}
 
 MyContactListener::MyContactListener(){}
 MyContactListener::~MyContactListener(){}

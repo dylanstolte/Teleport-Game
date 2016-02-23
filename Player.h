@@ -12,6 +12,7 @@ public:
     b2PolygonShape shape;
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
+
     b2World* world;
     sf::Sprite playerSprite;
     sf::RenderWindow* window;

@@ -22,8 +22,13 @@ public:
     Animation idleAnimation;
     Animation runRightAnimation;
     Animation runLeftAnimation;
+    Animation jumpAnimation;
+    Animation jumpLeftAnimation;
+    Animation fallingAnimation;
     int numFootContacts = 0;
     float animationCounter;
+    bool inAir = true;
+    bool grounded = false;
 
     Player(b2World* world, Engine* engine);
     ~Player();
@@ -31,6 +36,8 @@ public:
 
     void setOrigin(float pos_x, float pos_y);
     void render();
+    bool isFalling();
+    bool isGrounded();
 
 };
 

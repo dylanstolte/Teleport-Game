@@ -16,7 +16,7 @@ public:
     void CreateGround(float X, float Y);
 
     //create a platform
-    void CreatePlatform(float pos_x, float pos_y);
+    void createPlatform(float pos_x, float pos_y);
 };
 
 #endif // MAP_H_INCLUDED

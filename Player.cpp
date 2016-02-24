@@ -17,7 +17,7 @@ Player::Player(b2World* world, Engine* engine)
 
     shape.SetAsBox((25/2)/Engine::SCALE, (40/2)/Engine::SCALE);
     fixtureDef.density = 3.f;
-    fixtureDef.friction = 2.f;
+    fixtureDef.friction = 1.f;
     fixtureDef.shape = &shape;
     body->CreateFixture(&fixtureDef);
 
@@ -40,10 +40,17 @@ Player::Player(b2World* world, Engine* engine)
     runRightAnimation.setFrame(13,45,20,30);
 
     runLeftAnimation = Animation(3,pichuSheet);
-    runLeftAnimation.setFrame(13,45,20,30);
-    runLeftAnimation.flip = true;
+    runLeftAnimation.setFrame(103,45,20,30);
 
+    jumpAnimation = Animation(4,pichuSheet);
+    jumpAnimation.setFrame(7,140,25,40);
 
+    jumpLeftAnimation = Animation(4,pichuSheet);
+    jumpLeftAnimation.setFrame(7,90,25,40);
+
+    fallingAnimation = Animation(1,pichuSheet);
+    fallingAnimation.setFrame(270,140,20,40);
+    //125
 }
 
 
@@ -62,21 +69,56 @@ void Player::render()
     animationCounter += engine->clock.getElapsedTime().asSeconds();
     if(animationCounter >= engine->switchFrame/30)
     {
-     //   std::cout << "next animation: " << animationCounter << "  "<< 0 + animationCounter *280 <<std::endl;
-    //    if(engine->moveJump)
+        //   std::cout << "next animation: " << animationCounter << "  "<< 0 + animationCounter *280 <<std::endl;
+        //    if(engine->moveJump)
         {
             playerSprite.setTexture(idleAnimation.animationTexture);
             playerSprite.setTextureRect(idleAnimation.nextFrame());
         }
-        if(engine->moveRight)
+        if(isFalling())
         {
-            playerSprite.setTexture(runRightAnimation.animationTexture);
-            playerSprite.setTextureRect(runRightAnimation.nextFrame());
+            if(body->GetLinearVelocity().x < 0)
+                //falling animaiton
+
+            playerSprite.setTexture(fallingAnimation.animationTexture);
+            playerSprite.setTextureRect(fallingAnimation.nextFrame());
+
+
+        }
+        if(engine->jumpAnimation)
+        {
+            std::cout << body->GetLinearVelocity().x << std::endl;
+            if(jumpAnimation.currentFrame<jumpAnimation.totalFrames && body->GetLinearVelocity().x > 0)
+            {
+                playerSprite.setTexture(jumpAnimation.animationTexture);
+                playerSprite.setTextureRect(jumpAnimation.nextFrame());
+                inAir = true;
+            }
+            if(jumpLeftAnimation.currentFrame<jumpLeftAnimation.totalFrames && body->GetLinearVelocity().x < 0)
+            {
+                playerSprite.setTexture(jumpLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(jumpLeftAnimation.nextFrame());
+                inAir = true;
+            }
+            else if(numFootContacts > 0)
+            {
+                engine->jumpAnimation = false;
+                jumpAnimation.restart();
+            }
+            else
+                inAir = true;
+
+
         }
         else if(engine->moveLeft)
         {
             playerSprite.setTexture(runLeftAnimation.animationTexture);
             playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+        }
+        else if(engine->moveRight)
+        {
+            playerSprite.setTexture(runRightAnimation.animationTexture);
+            playerSprite.setTextureRect(runRightAnimation.nextFrame());
         }
         animationCounter = 0;
     }
@@ -85,7 +127,10 @@ void Player::render()
 
     playerSprite.setPosition(Engine::SCALE * body->GetPosition().x, Engine::SCALE * body->GetPosition().y);
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
- //   playerSprite.setScale(.4,.35);
+//   playerSprite.setScale(.4,.35);
 
 }
+bool Player::isFalling() {return inAir;}
+
+bool Player::isGrounded() {return grounded;}
 

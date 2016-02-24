@@ -82,6 +82,21 @@ bool inAir = false;
 
 void Engine::processInput()
 {
+
+    /**PROTYPE NEW INPUT*/
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){moveJump = true;}
+    else
+        {moveJump = false;}
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){moveRight = true;}
+    else
+        {moveRight = false;}
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){moveLeft = true;}
+    else
+        {moveLeft = false;}
+
+
     sf::Event event;
     sf::Event prevEvent;
     while(Window->pollEvent(event))
@@ -108,7 +123,7 @@ void Engine::processInput()
                 std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-//                CreatePlatform(*World,mouse.x,mouse.y);
+                worldMap->createPlatform(mouse.x,mouse.y);
             }
         }
 
@@ -118,28 +133,28 @@ void Engine::processInput()
             if(event.key.code == sf::Keyboard::Escape)
                 Window->close();
 
-            if (event.key.code == sf::Keyboard::D)
-        {
-                moveRight = true;
-                //std::cout << "D key Pressed" << std::endl;
-                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                float desiredVel = 7;
-
-                float velChange = desiredVel - vel.x;
-                float impulse =  worldBodies["player"]->GetMass() * velChange;
-                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
+     //       if (event.key.code == sf::Keyboard::D)
+            {
+//                moveRight = true;
+//                //std::cout << "D key Pressed" << std::endl;
+//                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+//                float desiredVel = 7;
+//
+//                float velChange = desiredVel - vel.x;
+//                float impulse =  worldBodies["player"]->GetMass() * velChange;
+//                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
             }
 
             if (event.key.code == sf::Keyboard::A)
             {
                 //std::cout << "A key Pressed" <<  std::endl;
-            moveLeft = true;
-                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                float desiredVel = -7;
-
-                float velChange = desiredVel - vel.x;
-                float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
-                worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
+           // moveLeft = true;
+//                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+//                float desiredVel = -7;
+//
+//                float velChange = desiredVel - vel.x;
+//                float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
+//                worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
             }
 
             //UP
@@ -162,7 +177,7 @@ void Engine::processInput()
 //                    }
 //
 //                }
-                moveJump = true;
+              //  moveJump = true;
 
             }
             //DOWN
@@ -208,12 +223,12 @@ void Engine::processInput()
 
             if (event.key.code == sf::Keyboard::D)
             {
-                moveRight = false;
+              //  moveRight = false;
 
             }
             if (event.key.code == sf::Keyboard::A)
             {
-                moveLeft = false;
+
             }
 
         }
@@ -225,7 +240,20 @@ void Engine::processInput()
 void Engine::update()
 {
 
-    cout<<player->numFootContacts<<endl;
+   // cout<<player->numFootContacts<<endl;
+   if(player->numFootContacts > 0)
+   {
+       player->grounded = false;
+       player->inAir = false;
+   }else
+        {
+            player->grounded = true;
+            player->inAir = true;
+
+            //cout<<"inair"<<endl;
+        }
+
+
     if(moveJump)
     {
         if(player->numFootContacts > 0)
@@ -233,14 +261,35 @@ void Engine::update()
 
             //std::cout << "W key Pressed" <<  std::endl;
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-            float desiredVel = -8;
+            float desiredVel = -5.5;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
             worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
             //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
-            moveJump = false;
+         //   moveJump = false;
+         jumpAnimation = true;
         }
 
+    }
+    if(moveRight)
+    {
+                //std::cout << "D key Pressed" << std::endl;
+                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+                float desiredVel = 7;
+
+                float velChange = desiredVel - vel.x;
+                float impulse =  worldBodies["player"]->GetMass() * velChange;
+                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
+    }
+    if(moveLeft)
+    {
+
+                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+                float desiredVel = -7;
+
+                float velChange = desiredVel - vel.x;
+                float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
+                worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
     }
 
     if(debug)

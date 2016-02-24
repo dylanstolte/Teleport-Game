@@ -52,6 +52,8 @@
 		<Unit filename="DebugDraw.h" />
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.hpp" />
+		<Unit filename="Map.cpp" />
+		<Unit filename="Map.h" />
 		<Unit filename="MyContactListener.cpp" />
 		<Unit filename="MyContactListener.h" />
 		<Unit filename="Player.cpp" />

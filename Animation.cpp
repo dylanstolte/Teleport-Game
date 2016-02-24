@@ -13,6 +13,8 @@ void Animation::setTexture(sf::Texture texture) {};
 
 void Animation::start() {};
 
+void Animation::restart() { currentFrame = 0;};
+
 void Animation::stop() {};
 
 sf::IntRect Animation::nextFrame()

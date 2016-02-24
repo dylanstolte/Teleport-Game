@@ -47,6 +47,7 @@ public:
     sf::Texture tree2;
     /////////////// MOVE STATES
     bool moveJump = false;
+    bool jumpAnimation = false;
     bool moveRight = false;
     bool moveLeft = false;
 

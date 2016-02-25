@@ -34,10 +34,6 @@ public:
     float frameSpeed;
 
     /** Prepare textures */
-    sf::Texture GroundTexture;
-    sf::Texture BoxTexture;
-    sf::Texture platform;
-    sf::Texture playerTexture;
     sf::Texture flash;
     sf::Texture flash_blue;
     sf::Texture background;
@@ -51,12 +47,13 @@ public:
     bool moveRight = false;
     bool moveLeft = false;
 
+
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
     bool debug = true;
     /** We need this to easily convert between pixel and real-world coordinates*/
-    static const float SCALE = 30.f;
+    float SCALE = 30.f;
     //Initializes the engine
 	void Init();
 	//Main Game Loop

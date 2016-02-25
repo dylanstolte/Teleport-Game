@@ -15,6 +15,14 @@ bool flip = false;
 bool isRunning = false;
 int currentFrame = 0;
 int totalFrames;
+float runningTime = 0;
+float totalTime = 5;
+sf::IntRect frame;
+   	//THE MAGICAL CLOCK
+    sf::Clock clock;
+    float frameCounter = 0;
+    float switchFrame = 1;
+    float frameSpeed = 8;
 
 sf::Texture animationTexture;
 sf::Vector2i frameSize;

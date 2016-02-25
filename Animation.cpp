@@ -1,5 +1,5 @@
 #include "Animation.h"
-
+#include <iostream>
 Animation::Animation() {};
 Animation::~Animation() {};
 Animation::Animation(int totalFrames,sf::Texture texture)
@@ -11,21 +11,43 @@ Animation::Animation(int totalFrames,sf::Texture texture)
 
 void Animation::setTexture(sf::Texture texture) {};
 
-void Animation::start() {};
+void Animation::start()
+{
+    isRunning = true;
 
-void Animation::restart() { currentFrame = 0;};
+};
 
-void Animation::stop() {};
+void Animation::restart()
+{
+    currentFrame = 0;
+};
+
+void Animation::stop()
+{
+    isRunning = false;
+};
 
 sf::IntRect Animation::nextFrame()
 {
+    float elapsed = clock.restart().asSeconds();//
+    frameCounter += elapsed;
+    start();
+    if(frameCounter >= switchFrame/frameSpeed)
+    {
+        // std::cout << "frame counter:  " << frameCounter << "  Frame speed: " << switchFrame/frameSpeed << "  clock.restart.asSeconds: " << elapsed << std::endl;
+        //check to restart animation loop
+        if(currentFrame >= totalFrames)
+        {
+            currentFrame = 0;
+            stop();
+        }
 
-    if(currentFrame >= totalFrames)
-        currentFrame = 0;
-   // sf::IntRect frame = sf::IntRect(framePos.x + flip == false ? (frameSize.x*currentFrame) : -(frameSize.x*currentFrame),framePos.y,flip == false ? frameSize.x : -(frameSize.x),frameSize.y);
-    sf::IntRect frame = sf::IntRect(framePos.x + frameSize.x*currentFrame,framePos.y,frameSize.x,frameSize.y);
+        // sf::IntRect frame = sf::IntRect(framePos.x + flip == false ? (frameSize.x*currentFrame) : -(frameSize.x*currentFrame),framePos.y,flip == false ? frameSize.x : -(frameSize.x),frameSize.y);
+        frame = sf::IntRect(framePos.x + frameSize.x*currentFrame,framePos.y,frameSize.x,frameSize.y);
+        currentFrame++;
+        frameCounter = 0;
+    }
 
-    currentFrame++;
     return frame;
 };
 

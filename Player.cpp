@@ -5,7 +5,7 @@ Player::Player(b2World* world, Engine* engine)
 {
 
     this->engine = engine;
-    bodyDef.position = b2Vec2(0.f/Engine::SCALE, 0.f/Engine::SCALE);
+    bodyDef.position = b2Vec2(0.f/engine->SCALE, 0.f/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -15,7 +15,7 @@ Player::Player(b2World* world, Engine* engine)
     int id = 1;
     body->SetUserData((void*)id);
 
-    shape.SetAsBox((25/2)/Engine::SCALE, (40/2)/Engine::SCALE);
+    shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
     fixtureDef.density = 3.f;
     fixtureDef.friction = 1.f;
     fixtureDef.shape = &shape;
@@ -63,74 +63,83 @@ void Player::setOrigin(float pos_x, float pos_y)
 
 void Player::render()
 {
-
-    //std::cout << engine->clock.getElapsedTime().asSeconds() << std::endl;
-    //std::cout << engine->frameCounter << std::endl;
-    animationCounter += engine->clock.getElapsedTime().asSeconds();
-    if(animationCounter >= engine->switchFrame/30)
     {
-        //   std::cout << "next animation: " << animationCounter << "  "<< 0 + animationCounter *280 <<std::endl;
-        //    if(engine->moveJump)
-        {
-            playerSprite.setTexture(idleAnimation.animationTexture);
-            playerSprite.setTextureRect(idleAnimation.nextFrame());
-        }
-        if(isFalling())
-        {
-            if(body->GetLinearVelocity().x < 0)
-                //falling animaiton
-
-            playerSprite.setTexture(fallingAnimation.animationTexture);
-            playerSprite.setTextureRect(fallingAnimation.nextFrame());
 
 
-        }
+
+        //  playerSprite.setTexture(idleAnimation.animationTexture);
+        // playerSprite.setTextureRect(idleAnimation.nextFrame());
         if(engine->jumpAnimation)
         {
-            std::cout << body->GetLinearVelocity().x << std::endl;
-            if(jumpAnimation.currentFrame<jumpAnimation.totalFrames && body->GetLinearVelocity().x > 0)
+            jumpAnimation.frameSpeed = 8;
+            if(jumpLeftAnimation.currentFrame<jumpLeftAnimation.totalFrames && body->GetLinearVelocity().x < 0)
             {
+
+                playerSprite.setTexture(jumpLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(jumpLeftAnimation.nextFrame());
+                inAir = true;
+            }
+
+            else  if(jumpAnimation.currentFrame<jumpAnimation.totalFrames && body->GetLinearVelocity().x > 0)
+            {
+
                 playerSprite.setTexture(jumpAnimation.animationTexture);
                 playerSprite.setTextureRect(jumpAnimation.nextFrame());
                 inAir = true;
             }
-            if(jumpLeftAnimation.currentFrame<jumpLeftAnimation.totalFrames && body->GetLinearVelocity().x < 0)
+            else if(isFalling())
             {
-                playerSprite.setTexture(jumpLeftAnimation.animationTexture);
-                playerSprite.setTextureRect(jumpLeftAnimation.nextFrame());
-                inAir = true;
+                std::cout << body->GetLinearVelocity().y<< std::endl;
+                if(body->GetLinearVelocity().y > 0)
+                {
+                    std::cout << "animation" << std::endl;
+                    playerSprite.setTexture(fallingAnimation.animationTexture);
+                    playerSprite.setTextureRect(fallingAnimation.nextFrame());
+                }
             }
             else if(numFootContacts > 0)
             {
                 engine->jumpAnimation = false;
                 jumpAnimation.restart();
+                jumpLeftAnimation.restart();
             }
-            else
-                inAir = true;
 
 
         }
-        else if(engine->moveLeft)
+        else if(engine->moveLeft && !engine->jumpAnimation)
         {
+            runLeftAnimation.frameSpeed = 16;
             playerSprite.setTexture(runLeftAnimation.animationTexture);
             playerSprite.setTextureRect(runLeftAnimation.nextFrame());
         }
-        else if(engine->moveRight)
+        else if(engine->moveRight && !engine->jumpAnimation)
         {
+
+            runRightAnimation.frameSpeed = 16;
             playerSprite.setTexture(runRightAnimation.animationTexture);
             playerSprite.setTextureRect(runRightAnimation.nextFrame());
         }
-        animationCounter = 0;
+
+
     }
 
 
 
-    playerSprite.setPosition(Engine::SCALE * body->GetPosition().x, Engine::SCALE * body->GetPosition().y);
-    playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
+
+
+
+playerSprite.setPosition(engine->SCALE * body->GetPosition().x, engine->SCALE * body->GetPosition().y);
+playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
 //   playerSprite.setScale(.4,.35);
 
 }
-bool Player::isFalling() {return inAir;}
+bool Player::isFalling()
+{
+    return inAir;
+}
 
-bool Player::isGrounded() {return grounded;}
+bool Player::isGrounded()
+{
+    return grounded;
+}
 

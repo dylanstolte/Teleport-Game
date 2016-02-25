@@ -7,6 +7,7 @@ Engine::Engine()
 {
 
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
+    Window->setVerticalSyncEnabled(true);
     view = sf::View();
     backgroundView = sf::View();
     midgroundView = sf::View();
@@ -35,10 +36,10 @@ Engine::Engine()
     player = new Player(World, this);
 
     ///LOAD TEXTURES
-    GroundTexture.loadFromFile("ground.png");
-    BoxTexture.loadFromFile("box.png");
-    // platform.loadFromFile("grass_box/grass_96x96.png");
-    platform.loadFromFile("platform1.png");
+//    GroundTexture.loadFromFile("ground.png");
+//    BoxTexture.loadFromFile("box.png");
+//    // platform.loadFromFile("grass_box/grass_96x96.png");
+//    platform.loadFromFile("platform1.png");
     //sesfplayerTexture.loadFromFile("spritesheetvolt.png");
     flash.loadFromFile("flash.png");
     flash_blue.loadFromFile("flash_blue.png");
@@ -84,17 +85,37 @@ void Engine::processInput()
 {
 
     /**PROTYPE NEW INPUT*/
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){moveJump = true;}
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        moveJump = true;
+    }
     else
-        {moveJump = false;}
+    {
+        moveJump = false;
+    }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){moveRight = true;}
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        moveRight = true;
+    }
     else
-        {moveRight = false;}
+    {
+        moveRight = false;
+    }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){moveLeft = true;}
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        moveLeft = true;
+    }
     else
-        {moveLeft = false;}
+    {
+        moveLeft = false;
+    }
+
+//  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){worldMap->selection++; std::cout<<worldMap->selection<<std::endl;}
+
+
+//   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){worldMap->selection--;}
 
 
     sf::Event event;
@@ -123,7 +144,8 @@ void Engine::processInput()
                 std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-                worldMap->createPlatform(mouse.x,mouse.y);
+                worldMap->placeObject(worldMap->selection,mouse.x,mouse.y);
+
             }
         }
 
@@ -133,7 +155,7 @@ void Engine::processInput()
             if(event.key.code == sf::Keyboard::Escape)
                 Window->close();
 
-     //       if (event.key.code == sf::Keyboard::D)
+            //       if (event.key.code == sf::Keyboard::D)
             {
 //                moveRight = true;
 //                //std::cout << "D key Pressed" << std::endl;
@@ -148,7 +170,7 @@ void Engine::processInput()
             if (event.key.code == sf::Keyboard::A)
             {
                 //std::cout << "A key Pressed" <<  std::endl;
-           // moveLeft = true;
+                // moveLeft = true;
 //                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
 //                float desiredVel = -7;
 //
@@ -177,7 +199,7 @@ void Engine::processInput()
 //                    }
 //
 //                }
-              //  moveJump = true;
+                //  moveJump = true;
 
             }
             //DOWN
@@ -221,14 +243,15 @@ void Engine::processInput()
         if (event.type == sf::Event::KeyReleased)
         {
 
-            if (event.key.code == sf::Keyboard::D)
+            if (event.key.code == sf::Keyboard::Up)
             {
-              //  moveRight = false;
-
+                worldMap->selection++;
+std::cout<< worldMap->selection << std::endl;
             }
-            if (event.key.code == sf::Keyboard::A)
+            if (event.key.code == sf::Keyboard::Down)
             {
-
+                worldMap->selection--;
+                std::cout<< worldMap->selection << std::endl;
             }
 
         }
@@ -240,18 +263,19 @@ void Engine::processInput()
 void Engine::update()
 {
 
-   // cout<<player->numFootContacts<<endl;
-   if(player->numFootContacts > 0)
-   {
-       player->grounded = false;
-       player->inAir = false;
-   }else
-        {
-            player->grounded = true;
-            player->inAir = true;
+    // cout<<player->numFootContacts<<endl;
+    if(player->numFootContacts > 0)
+    {
+        player->grounded = false;
+        player->inAir = false;
+    }
+    else
+    {
+        player->grounded = true;
+        player->inAir = true;
 
-            //cout<<"inair"<<endl;
-        }
+        //cout<<"inair"<<endl;
+    }
 
 
     if(moveJump)
@@ -266,30 +290,30 @@ void Engine::update()
             float impulse =  worldBodies["player"]->GetMass() * velChange;
             worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
             //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
-         //   moveJump = false;
-         jumpAnimation = true;
+            //   moveJump = false;
+            jumpAnimation = true;
         }
 
     }
     if(moveRight)
     {
-                //std::cout << "D key Pressed" << std::endl;
-                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                float desiredVel = 7;
+        //std::cout << "D key Pressed" << std::endl;
+        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+        float desiredVel = 7;
 
-                float velChange = desiredVel - vel.x;
-                float impulse =  worldBodies["player"]->GetMass() * velChange;
-                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
+        float velChange = desiredVel - vel.x;
+        float impulse =  worldBodies["player"]->GetMass() * velChange;
+        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
     }
     if(moveLeft)
     {
 
-                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-                float desiredVel = -7;
+        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+        float desiredVel = -7;
 
-                float velChange = desiredVel - vel.x;
-                float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
-                worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
+        float velChange = desiredVel - vel.x;
+        float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
+        worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
     }
 
     if(debug)
@@ -350,49 +374,14 @@ void Engine::renderFrame()
     //cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
     Window->setView(view);
 
-    int BodyCount = 0;
-    sf::Sprite playerSprite;
-    for (b2Body* BodyIterator = World->GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())
-    {
-        sf::Sprite Sprite;
 
-        sf::Sprite GroundSprite;
-        sf::Sprite platformSprite;
+    worldMap->render();
+    player->render();
 
-        //sf::CircleShape shape(teleport_Distance);
-        switch( (int) BodyIterator->GetUserData() )
-        {
-        case 13:
-            platformSprite.setTexture(platform);
-            //platformSprite.setTextureRect(r1);
-            platformSprite.setOrigin(400.f,200.f);
-            platformSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
-            platformSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
-            platformSprite.setScale(.4,.6);
-            Window->draw(platformSprite);
-            break;
-        case 1:
-            player->render();
-            break;
-        case 7:
-            Sprite.setTexture(BoxTexture);
-            Sprite.setOrigin(16.f, 16.f);
-            Sprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
-            Sprite.setRotation(BodyIterator->GetAngle() * 180/b2_pi);
-            Window->draw(Sprite);
-            ++BodyCount;
-            break;
-        case 9:
-            GroundSprite.setTexture(GroundTexture);
-            GroundSprite.setOrigin(512.f, 8.f);
-            GroundSprite.setPosition(BodyIterator->GetPosition().x * SCALE, BodyIterator->GetPosition().y * SCALE);
-            GroundSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
-            Window->draw(GroundSprite);
-            break;
-        }
-    }
+
+
     Window->draw(player->playerSprite);
-
+    // Window->draw(worldMap->groundSprite);
 
     Window->display();
     // debugDrawInstance->window->display();

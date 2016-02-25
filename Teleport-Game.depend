@@ -555,10 +555,10 @@
 	<map>
 	"Engine.hpp"
 
-1456300072 source:c:\users\8470w\git\teleport-game\engine.cpp
+1456382750 source:c:\users\8470w\git\teleport-game\engine.cpp
 	"Engine.hpp"
 
-1456291852 c:\users\8470w\git\teleport-game\engine.hpp
+1456377530 c:\users\8470w\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
@@ -613,14 +613,14 @@
 	"Engine.hpp"
 	"Animation.h"
 
-1456301190 source:c:\users\8470w\git\teleport-game\player.cpp
+1456382466 source:c:\users\8470w\git\teleport-game\player.cpp
 	"Player.h"
 	"Animation.h"
 
 1456191983 source:c:\users\8470w\git\teleport-game\animtaion.cpp
 	"Animation.h"
 
-1456292913 c:\users\8470w\git\teleport-game\animation.h
+1456368176 c:\users\8470w\git\teleport-game\animation.h
 	<SFML/graphics.hpp>
 
 1456194357 c:\users\dylan\git\teleport-game\animation.h
@@ -672,12 +672,13 @@
 1456249893 source:c:\users\stolted.auth\git\teleport-game\map.cpp
 	"Map.h"
 
-1456292158 source:c:\users\8470w\git\teleport-game\animation.cpp
+1456370087 source:c:\users\8470w\git\teleport-game\animation.cpp
 	"Animation.h"
+	<iostream>
 
-1456295715 c:\users\8470w\git\teleport-game\map.h
+1456383117 c:\users\8470w\git\teleport-game\map.h
 	"Engine.hpp"
 
-1456295877 source:c:\users\8470w\git\teleport-game\map.cpp
+1456383175 source:c:\users\8470w\git\teleport-game\map.cpp
 	"Map.h"
 

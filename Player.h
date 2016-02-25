@@ -26,7 +26,6 @@ public:
     Animation jumpLeftAnimation;
     Animation fallingAnimation;
     int numFootContacts = 0;
-    float animationCounter;
     bool inAir = true;
     bool grounded = false;
 

@@ -34,6 +34,7 @@ Engine::Engine()
 
     worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
+    enemy = new Enemy(World,this,100,100);
 
     ///LOAD TEXTURES
 //    GroundTexture.loadFromFile("ground.png");
@@ -262,6 +263,7 @@ std::cout<< worldMap->selection << std::endl;
 
 void Engine::update()
 {
+    enemy->moveOnPath();
 
     // cout<<player->numFootContacts<<endl;
     if(player->numFootContacts > 0)
@@ -376,6 +378,7 @@ void Engine::renderFrame()
 
 
     worldMap->render();
+    enemy->render();
     player->render();
 
 

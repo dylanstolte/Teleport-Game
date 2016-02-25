@@ -9,7 +9,10 @@
 #include "DebugDraw.h"
 #include "Player.h"
 #include "Map.h""
+#include "Enemy.h"
+
 class Map;
+class Enemy;
 class Player;
 class MyContactListener;
 
@@ -24,6 +27,7 @@ public:
     sf::View midgroundView;
     MyContactListener* listener;
     Player* player;
+    Enemy* enemy;
     Map* worldMap;
     //at global scope
     DebugDraw* debugDrawInstance;

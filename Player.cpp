@@ -89,10 +89,10 @@ void Player::render()
             }
             else if(isFalling())
             {
-                std::cout << body->GetLinearVelocity().y<< std::endl;
+              //  std::cout << body->GetLinearVelocity().y<< std::endl;
                 if(body->GetLinearVelocity().y > 0)
                 {
-                    std::cout << "animation" << std::endl;
+                  //  std::cout << "animation" << std::endl;
                     playerSprite.setTexture(fallingAnimation.animationTexture);
                     playerSprite.setTextureRect(fallingAnimation.nextFrame());
                 }

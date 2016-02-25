@@ -16,11 +16,13 @@ public:
     sf::Texture smallPlatform;
 sf::Sprite groundSprite;
     int objectCount = 0;
-    std::map<std::string,b2Body*> mapBodies;
+    std::vector<b2Body*> mapBodies;
+    std::vector<b2Body*> mapEnemies;
 
     // platform.loadFromFile("grass_box/grass_96x96.png");
 int selection = 0;
 
+  void createEnemy();
   void buildMapPerimeter();
   void render();
       /** Create the base for the boxes to land */

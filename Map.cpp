@@ -13,6 +13,7 @@ Map::~Map() {}
 void Map::buildMapPerimeter(
 
 ) {}
+void Map::createEnemy(){}
 
 void Map::createSmallPlatform(float pos_x, float pos_y)
 {
@@ -21,7 +22,7 @@ void Map::createSmallPlatform(float pos_x, float pos_y)
     BodyDef.type = b2_staticBody;
     b2Body* Body = engine->World->CreateBody(&BodyDef);
 
-    mapBodies["smallplatform" + objectCount] = Body;
+    mapBodies.push_back(Body);
     objectCount++;
     int id = 12;
     Body->SetUserData((void*)id);
@@ -42,7 +43,7 @@ void Map::createPlatform(float pos_x, float pos_y   )
     BodyDef.type = b2_staticBody;
     b2Body* Body = engine->World->CreateBody(&BodyDef);
 
-    mapBodies["platform" + objectCount] = Body;
+    mapBodies.push_back(Body);
     objectCount++;
     int id = 13;
     Body->SetUserData((void*)id);
@@ -63,7 +64,7 @@ void Map::CreateGround(float X, float Y)
     BodyDef.type = b2_staticBody;
     b2Body* Body = engine->World->CreateBody(&BodyDef);
 
-    mapBodies["ground"] = Body;
+    mapBodies.push_back(Body);
     int id = 9;
     Body->SetUserData((void*)id);
 
@@ -77,44 +78,44 @@ void Map::CreateGround(float X, float Y)
 }
 void Map::render()
 {
-for (std::map<std::string,b2Body*>::iterator it=mapBodies.begin(); it!=mapBodies.end(); ++it)
+    //For all the bodies in the map
+    for (int i = 0; i < mapBodies.size(); i++)
     {
-    //    std::cout << "iterating" << std::endl;
+        //CHECK object by userData
+        b2Body* it = mapBodies.at(i);
         sf::Sprite platformSprite;
-        if((int)it->second->GetUserData() == 13 )//&& it->GetUserData())
+        if((int)it->GetUserData() == 13 )//&& it->GetUserData())
         {
-      //      std::cout << "in if" << std::endl;
+            //      std::cout << "in if" << std::endl;
             platformSprite.setTexture(platform);
             //platformSprite.setTextureRect(r1);
             platformSprite.setOrigin(400.f,200.f);
-            platformSprite.setPosition(engine->SCALE * it->second->GetPosition().x, engine->SCALE * it->second->GetPosition().y);
-            platformSprite.setRotation(180/b2_pi * it->second->GetAngle());
+            platformSprite.setPosition(engine->SCALE * it->GetPosition().x, engine->SCALE * it->GetPosition().y);
+            platformSprite.setRotation(180/b2_pi * it->GetAngle());
             platformSprite.setScale(.4,.6);
             engine->Window->draw(platformSprite);
         }
 
-          if((int)it->second->GetUserData() == 12 )//&& it->GetUserData())
+        if((int)it->GetUserData() == 12 )//&& it->GetUserData())
         {
-      //      std::cout << "in if" << std::endl;
+            //      std::cout << "in if" << std::endl;
             platformSprite.setTexture(smallPlatform);
             //platformSprite.setTextureRect(r1);
             platformSprite.setOrigin(48.f,48.f);
-            platformSprite.setPosition(engine->SCALE * it->second->GetPosition().x, engine->SCALE * it->second->GetPosition().y);
-            platformSprite.setRotation(180/b2_pi * it->second->GetAngle());
-          //  platformSprite.setScale(.4,.6);
+            platformSprite.setPosition(engine->SCALE * it->GetPosition().x, engine->SCALE * it->GetPosition().y);
+            platformSprite.setRotation(180/b2_pi * it->GetAngle());
+            //  platformSprite.setScale(.4,.6);
             engine->Window->draw(platformSprite);
+        }
+        if((int)it->GetUserData() == 9 )//&& it->GetUserData())
+        {
+            groundSprite.setTexture(GroundTexture);
+            groundSprite.setOrigin(512.f, 8.f);
+            groundSprite.setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
+            groundSprite.setRotation(180/b2_pi * it->GetAngle());
         }
     }
 
-
-
-    /////////////////////////////////////
-  //  std::cout << "render map" << std::endl;
-
-    groundSprite.setTexture(GroundTexture);
-    groundSprite.setOrigin(512.f, 8.f);
-    groundSprite.setPosition(mapBodies["ground"]->GetPosition().x * engine->SCALE, mapBodies["ground"]->GetPosition().y * engine->SCALE);
-    groundSprite.setRotation(180/b2_pi * mapBodies["ground"]->GetAngle());
     engine->Window->draw(groundSprite);
 
 

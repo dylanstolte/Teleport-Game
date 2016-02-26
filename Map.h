@@ -19,6 +19,7 @@ sf::Sprite groundSprite;
     std::vector<b2Body*> mapBodies;
     std::vector<b2Body*> mapEnemies;
 
+
     // platform.loadFromFile("grass_box/grass_96x96.png");
 int selection = 0;
 

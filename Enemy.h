@@ -3,8 +3,10 @@
 
 #include "SFML/Graphics.hpp"
 #include "Engine.hpp"
-
+#include "Animation.h"
 class Map;
+class Animation;
+
 class Enemy{
 public:
     Enemy(b2World* world,Engine* engine, float pos_x, float pos_y);
@@ -15,9 +17,12 @@ public:
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
+    Animation walkLeftAnimation;
+    Animation walkRightAnimation;
+
     Map* worldMap;
     b2World* world;
-    sf::Sprite enemySprite;
+
     sf::RenderWindow* window;
     sf::Texture enemyTexture;
     Engine* engine;

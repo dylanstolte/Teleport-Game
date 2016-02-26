@@ -28,6 +28,7 @@ public:
     int numFootContacts = 0;
     bool inAir = true;
     bool grounded = false;
+    bool attack = false;
 
     Player(b2World* world, Engine* engine);
     ~Player();

@@ -66,9 +66,28 @@ void Player::render()
     {
 
 
+//        {
+//        playerSprite.setTexture(idleAnimation.animationTexture);
+//        playerSprite.setTextureRect(idleAnimation.nextFrame());
+//        }
+        if(attack)
+        {
+            //for each enemy in range
+            for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
+            {
+                b2Body* it = engine->worldMap->mapEnemies.at(i);
+        sf::Vertex line[] =
+        {
+        sf::Vertex(sf::Vector2f(it->GetPosition().x*30, it->GetPosition().y*30),sf::Color::Blue),
+        sf::Vertex(sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y),sf::Color::Blue)
+        };
 
-        //  playerSprite.setTexture(idleAnimation.animationTexture);
-        // playerSprite.setTextureRect(idleAnimation.nextFrame());
+        engine->Window->draw(line, 2, sf::Lines);
+
+            }
+            //draw line from player to enemy
+            //delete enemy
+        }
         if(engine->jumpAnimation)
         {
             jumpAnimation.frameSpeed = 8;

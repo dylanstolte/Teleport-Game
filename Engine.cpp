@@ -35,6 +35,7 @@ Engine::Engine()
     worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
     enemy = new Enemy(World,this,100,100);
+    enemy = new Enemy(World,this,200,200);
 
     ///LOAD TEXTURES
 //    GroundTexture.loadFromFile("ground.png");
@@ -113,12 +114,7 @@ void Engine::processInput()
         moveLeft = false;
     }
 
-//  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){worldMap->selection++; std::cout<<worldMap->selection<<std::endl;}
-
-
-//   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){worldMap->selection--;}
-
-
+    /***Start the Event Loop*/
     sf::Event event;
     sf::Event prevEvent;
     while(Window->pollEvent(event))
@@ -156,53 +152,7 @@ void Engine::processInput()
             if(event.key.code == sf::Keyboard::Escape)
                 Window->close();
 
-            //       if (event.key.code == sf::Keyboard::D)
-            {
-//                moveRight = true;
-//                //std::cout << "D key Pressed" << std::endl;
-//                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-//                float desiredVel = 7;
-//
-//                float velChange = desiredVel - vel.x;
-//                float impulse =  worldBodies["player"]->GetMass() * velChange;
-//                worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
-            }
 
-            if (event.key.code == sf::Keyboard::A)
-            {
-                //std::cout << "A key Pressed" <<  std::endl;
-                // moveLeft = true;
-//                b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-//                float desiredVel = -7;
-//
-//                float velChange = desiredVel - vel.x;
-//                float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
-//                worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
-            }
-
-            //UP
-            if (event.key.code == sf::Keyboard::W)
-            {
-//                if(prevEvent.key.code != sf::Keyboard::W)
-//                {
-//                    cout<<player->numFootContacts<<endl;
-//                    if(player->numFootContacts > 0)
-//                    {
-//                        float maxVel = -4.f;
-//                        //std::cout << "W key Pressed" <<  std::endl;
-//                        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-//                        float desiredVel = -10;
-//                        float velChange = desiredVel - vel.y;
-//                        float impulse =  worldBodies["player"]->GetMass() * velChange;
-//                        //cout<< "jump impulse " << impulse << " vel " << vel.x << " "<< vel.y << endl;
-//                        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-//                        //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
-//                    }
-//
-//                }
-                //  moveJump = true;
-
-            }
             //DOWN
             if (event.key.code == sf::Keyboard::S)
             {
@@ -214,15 +164,9 @@ void Engine::processInput()
                 backgroundView.move(5,0);
             }
 
-            if (event.key.code == sf::Keyboard::W)
+            if (event.key.code == sf::Keyboard::Space)
             {
-                //                std::cout << "S key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
-                //
-                //                worldBodies["player"]->ApplyForce( b2Vec2(0,500), worldBodies["player"]->GetWorldCenter() );
-                //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x - 10,sf::Mouse::getPosition().y),*Window);
-
-                view.move(-10,0);
-                backgroundView.move(-5,0);
+                player->attack = true;
             }
 
             if (event.type == sf::Event::Resized)
@@ -241,18 +185,24 @@ void Engine::processInput()
 
         }
 
+        /**Released Key Events*/
+
         if (event.type == sf::Event::KeyReleased)
         {
 
             if (event.key.code == sf::Keyboard::Up)
             {
                 worldMap->selection++;
-std::cout<< worldMap->selection << std::endl;
+                std::cout<< worldMap->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Down)
             {
                 worldMap->selection--;
                 std::cout<< worldMap->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::Space)
+            {
+                player->attack = false;
             }
 
         }

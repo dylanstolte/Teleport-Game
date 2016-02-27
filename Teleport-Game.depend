@@ -556,10 +556,10 @@
 	<map>
 	"Engine.hpp"
 
-1456459753 source:c:\users\8470w\git\teleport-game\engine.cpp
+1456543249 source:c:\users\8470w\git\teleport-game\engine.cpp
 	"Engine.hpp"
 
-1456447797 c:\users\8470w\git\teleport-game\engine.hpp
+1456530396 c:\users\8470w\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
@@ -570,6 +570,7 @@
 	"Player.h"
 	"Map.h"
 	"Enemy.h"
+	"AssetLoader.h"
 
 1455783496 source:c:\users\8470w\git\teleport-game\main.cpp
 	"Engine.hpp"
@@ -697,6 +698,21 @@
 	"Engine.hpp"
 	"Animation.h"
 
-1456458955 source:c:\users\8470w\git\teleport-game\enemy.cpp
+1456459866 source:c:\users\8470w\git\teleport-game\enemy.cpp
 	"Enemy.h"
+
+1456542696 c:\users\8470w\git\teleport-game\assetloader.h
+	<vector>
+	<string>
+	<dirent.h>
+	<sys/stat.h>
+	<iostream>
+	"Engine.hpp"
+
+1456543274 source:c:\users\8470w\git\teleport-game\assetloader.cpp
+	"AssetLoader.h"
+	<sstream>
+	<string>
+	<fstream>
+	<windows.h>
 

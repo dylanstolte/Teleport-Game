@@ -16,6 +16,9 @@ Engine::Engine()
     backgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
     midgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
 
+    /**Load the Assets*/
+    assetLoader = new AssetLoader();
+
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
     listener = new MyContactListener(this);
@@ -268,6 +271,8 @@ void Engine::update()
         worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
     }
 
+
+
     if(debug)
         Window->clear(sf::Color::White);
 
@@ -335,6 +340,11 @@ void Engine::renderFrame()
 
     Window->draw(player->playerSprite);
     // Window->draw(worldMap->groundSprite);
+   // std::map<std::string,sf::Sprite>::iterator it=assetLoader->spriteMap.begin();
+   // std::cout << assetLoader->spriteMap["ginso_0"].getTextureRect().left << std::endl;
+    Window->draw(assetLoader->spriteMap["ruins_2"]);
+  //  Window->draw(assetLoader->spriteMap["ginso_1"]);
+   // Window->draw(assetLoader->spriteMap["mountain_2"]);
 
     Window->display();
     // debugDrawInstance->window->display();

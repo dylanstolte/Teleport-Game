@@ -10,11 +10,13 @@
 #include "Player.h"
 #include "Map.h""
 #include "Enemy.h"
+#include "AssetLoader.h"
 
 class Map;
 class Enemy;
 class Player;
 class MyContactListener;
+class AssetLoader;
 
 class Engine
 {
@@ -29,6 +31,7 @@ public:
     Player* player;
     Enemy* enemy;
     Map* worldMap;
+    AssetLoader* assetLoader;
     //at global scope
     DebugDraw* debugDrawInstance;
    	//THE MAGICAL CLOCK

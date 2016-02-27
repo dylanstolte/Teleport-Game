@@ -49,8 +49,12 @@
 		</Linker>
 		<Unit filename="Animation.cpp" />
 		<Unit filename="Animation.h" />
+		<Unit filename="AssetLoader.cpp" />
+		<Unit filename="AssetLoader.h" />
 		<Unit filename="DebugDraw.cpp" />
 		<Unit filename="DebugDraw.h" />
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.hpp" />
 		<Unit filename="Map.cpp" />

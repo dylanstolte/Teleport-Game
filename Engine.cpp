@@ -16,8 +16,7 @@ Engine::Engine()
     backgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
     midgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
 
-    /**Load the Assets*/
-    assetLoader = new AssetLoader();
+
 
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
@@ -32,8 +31,8 @@ Engine::Engine()
         debugDrawInstance->SetFlags( b2DebugDraw::e_shapeBit );
         World->SetDebugDraw( debugDrawInstance );
     }
-
-
+  /**Load the Assets*/
+        assetLoader = new AssetLoader(this);
 
     worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
@@ -141,10 +140,10 @@ void Engine::processInput()
         {
             if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
             {
-                std::cout << "platform create"  << std::endl;
+             //   std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-                worldMap->placeObject(worldMap->selection,mouse.x,mouse.y);
+                worldMap->placeObject(assetLoader->selection,mouse.x,mouse.y);
 
             }
         }
@@ -195,13 +194,13 @@ void Engine::processInput()
 
             if (event.key.code == sf::Keyboard::Up)
             {
-                worldMap->selection++;
-                std::cout<< worldMap->selection << std::endl;
+                assetLoader->selection++;
+                std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Down)
             {
-                worldMap->selection--;
-                std::cout<< worldMap->selection << std::endl;
+                assetLoader->selection--;
+                std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Space)
             {
@@ -331,20 +330,11 @@ void Engine::renderFrame()
     //cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
     Window->setView(view);
 
-
     worldMap->render();
     enemy->render();
     player->render();
 
-
-
     Window->draw(player->playerSprite);
-    // Window->draw(worldMap->groundSprite);
-   // std::map<std::string,sf::Sprite>::iterator it=assetLoader->spriteMap.begin();
-   // std::cout << assetLoader->spriteMap["ginso_0"].getTextureRect().left << std::endl;
-    Window->draw(assetLoader->spriteMap["ruins_2"]);
-  //  Window->draw(assetLoader->spriteMap["ginso_1"]);
-   // Window->draw(assetLoader->spriteMap["mountain_2"]);
 
     Window->display();
     // debugDrawInstance->window->display();

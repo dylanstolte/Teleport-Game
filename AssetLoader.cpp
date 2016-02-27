@@ -3,18 +3,11 @@
 #include <string>
 #include <fstream>
 #include <windows.h>
-//#define WINDOWS
-//load fileb
-//
-//for each sprite in file
-//get sizex,y and position x,y
-//make spriite
-//make body
-//store both sprite and
-//   Returns a list of files in a directory (except the ones that begin with a dot)
+
 using namespace std;
-AssetLoader::AssetLoader()
+AssetLoader::AssetLoader(Engine* engine)
 {
+    this->engine = engine;
     std::string assetDirectory = "C:\\Users\\8470w\\git\\Teleport-Game\\AssetLoader\\Assets";
     std::string assetInfoDirectory = "C:\\Users\\8470w\\git\\Teleport-Game\\AssetLoader\\Info";
     loadAssets(assetDirectory,assetInfoDirectory);
@@ -41,25 +34,18 @@ void AssetLoader::loadAssets(const std::string &assetDirectory,const std::string
     //for every sprite on asset sheet
     for(int i = 0; i < assetFileNames.size(); i++)
     {
-        //  std::cout << assetFileNames.at(i) << std::endl;
-     //   readAssetInfo(assetInfoNames.at(i),i);
-        for(int j = 0; j < 4; j++)
+       //NEED A WAY TO GET TOTAL SPRITES IN INFO LIST
+        for(int j = 0; j < 3; j++)
+        {
             createSprite(assetFileNames.at(i),j);
+            //only create the body when you add the sprite to
+            //createBody(createSprite(assetFileNames.at(i),j),j);
+        }
+
     }
 }
 void AssetLoader::readAssetInfo(std::string fileName,int assetIndicator)
 {
-    //open file
-    //read line by line
-    //columns seperated by tabs
-    //skip one line of column headers
-    //read spriteindicator int first column
-    //red pos x second column
-    //read pos y third column
-    //read size x 4th column
-    //read size y 5th column
-    //read oritinx 6th
-    //read originy 7th
 //std::cout << "read asset info" << std::endl;
     std::ifstream infile(fileName);
     std::string line;
@@ -67,12 +53,12 @@ void AssetLoader::readAssetInfo(std::string fileName,int assetIndicator)
     std::getline(infile, dummyLine);
     for(int i = 0; std::getline(infile, line); i++)
     {
-//   std::cout << "reading file lines" << std::endl;
+   std::cout << "reading file lines" << std::endl;
         std::istringstream iss(line);
         int spriteIndicator, posx, posy, sizex, sizey, originx, originy;
         if (!(iss >> spriteIndicator >> posx >> posy >> sizex >> sizey >> originx >> originy))
         {
-            //      std::cout << "eror reading asset info file" << std::endl;
+                  std::cout << "eror reading asset info file" << std::endl;
             break;
 
         } // error
@@ -101,21 +87,78 @@ void AssetLoader::createSprite(std::string fileName,int spriteIndicator)
 {
     sf::Sprite sprite;
     sprite.setTexture(textureMap[fileName]);
-     std::cout << pos_xMap[fileName][spriteIndicator] << "indicator" <<spriteIndicator << std::endl;
-    sf::IntRect rect( pos_xMap[fileName][spriteIndicator], pos_xMap[fileName][spriteIndicator],size_xMap[fileName][spriteIndicator],size_xMap[fileName][spriteIndicator]);
+    sf::IntRect rect( pos_xMap[fileName][spriteIndicator], pos_yMap[fileName][spriteIndicator],size_xMap[fileName][spriteIndicator],size_yMap[fileName][spriteIndicator]);
     sprite.setTextureRect(rect);
+    cout << "higher: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
+
     sprite.setOrigin(origin_xMap[fileName][spriteIndicator],origin_yMap[fileName][spriteIndicator]);
-    sprite.setPosition(0,0);
+   // sprite.setPosition(0,0);
 
     char str[50];
     sprintf(str, "%d", spriteIndicator);
     spriteMap[getBaseFilename(fileName) + "_" + str] = sprite;
-    cout << spriteMap[getBaseFilename(fileName) + "_" + str].getTextureRect().left << endl;
+    cout << "lower: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
+    //cout << spriteMap[getBaseFilename(fileName) + "_" + str].getTextureRect().left << endl;
 
 
 };
 
-void AssetLoader::createBody() {};
+void AssetLoader::createBody(std::string fileName,int spriteIndicator)
+{
+    this->engine = engine;
+    bodyDef.position = b2Vec2(pos_xMap[fileName][spriteIndicator]/engine->SCALE, pos_yMap[fileName][spriteIndicator]/engine->SCALE);
+    bodyDef.type = b2_dynamicBody;
+    //add body to box2d world
+    body = engine->World->CreateBody(&bodyDef);
+
+    int id = 10;
+    body->SetUserData((void*)id);
+
+    cout << fileName << "   " << pos_xMap[fileName][spriteIndicator] << endl;
+    shape.SetAsBox((size_xMap[fileName][spriteIndicator]/2)/engine->SCALE, (size_yMap[fileName][spriteIndicator]/2)/engine->SCALE);
+    fixtureDef.density = 3.f;
+    fixtureDef.friction = 1.f;
+    fixtureDef.shape = &shape;
+
+    //add fixture to body (bodies can have multiple fixtures)
+    body->CreateFixture(&fixtureDef);
+
+
+
+};
+
+b2Body* AssetLoader::createBody(sf::Sprite sprite,int spriteIndicator,int pos_x, int pos_y)
+{
+    this->engine = engine;
+    bodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
+    bodyDef.type = b2_staticBody;
+    //add body to box2d world
+    body = engine->World->CreateBody(&bodyDef);
+
+    //how to make this unique
+    char str[50];
+    sprintf(str, "%d", spriteIndicator);
+
+    int id = spriteIndicator;
+    body->SetUserData((void*)id);
+    engine->worldMap->mapBodies.push_back(body);
+
+//    char str[50];
+//    sprintf(str, "%d", spriteIndicator);
+  //  body->SetUserData(static_cast<void*>(getBaseFilename(fileName) + "_" + str));
+
+  //  cout << fileName << "   " << pos_xMap[fileName][spriteIndicator] << endl;
+    shape.SetAsBox((sprite.getTextureRect().width/2)/engine->SCALE, (sprite.getTextureRect().height/2)/engine->SCALE);
+    fixtureDef.density = 3.f;
+    fixtureDef.friction = 1.f;
+    fixtureDef.shape = &shape;
+
+    //add fixture to body (bodies can have multiple fixtures)
+    body->CreateFixture(&fixtureDef);
+    return body;
+
+
+};
 
 void AssetLoader::getFileNames(std::vector<std::string> &out, const std::string &directory)
 {

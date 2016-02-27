@@ -58,7 +58,7 @@ public:
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
-    bool debug = true;
+    bool debug = false;
     /** We need this to easily convert between pixel and real-world coordinates*/
     float SCALE = 30.f;
     //Initializes the engine

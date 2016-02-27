@@ -114,6 +114,39 @@ void Map::render()
             groundSprite.setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
             groundSprite.setRotation(180/b2_pi * it->GetAngle());
         }
+        if((int)it->GetUserData() == 2 )//&& it->GetUserData())
+        {
+            //get selection
+            //draw sprite according to selection
+            //set sprite according to body
+           // engine->assetLoader->spriteMap["ginso_0"].setOrigin(40,40);
+       //    std::cout << "create from asset loader" << std::endl;
+            engine->assetLoader->spriteMap["ginso_2"].setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
+            engine->assetLoader->spriteMap["ginso_2"].setRotation(180/b2_pi * it->GetAngle());
+            engine->Window->draw(engine->assetLoader->spriteMap["ginso_2"]);
+        }
+        if((int)it->GetUserData() == 1 )//&& it->GetUserData())
+        {
+            //get selection
+            //draw sprite according to selection
+            //set sprite according to body
+           // engine->assetLoader->spriteMap["ginso_0"].setOrigin(40,40);
+       //    std::cout << "create from asset loader" << std::endl;
+            engine->assetLoader->spriteMap["ginso_1"].setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
+            engine->assetLoader->spriteMap["ginso_1"].setRotation(180/b2_pi * it->GetAngle());
+            engine->Window->draw(engine->assetLoader->spriteMap["ginso_1"]);
+        }
+        if((int)it->GetUserData() == 0 )//&& it->GetUserData())
+        {
+            //get selection
+            //draw sprite according to selection
+            //set sprite according to body
+           // engine->assetLoader->spriteMap["ginso_0"].setOrigin(40,40);
+       //    std::cout << "create from asset loader" << std::endl;
+            engine->assetLoader->spriteMap["ginso_0"].setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
+            engine->assetLoader->spriteMap["ginso_0"].setRotation(180/b2_pi * it->GetAngle());
+            engine->Window->draw(engine->assetLoader->spriteMap["ginso_0"]);
+        }
     }
 
     engine->Window->draw(groundSprite);
@@ -131,6 +164,38 @@ void Map::placeObject(int selection,int mouse_x,int mouse_y)
         break;
     case 2:
         createPlatform(mouse_x,mouse_y);
+        break;
+    case 3:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["ginso_0"],0,mouse_x,mouse_y);
+           // engine->Window->draw(engine->assetLoader->spriteMap["ginso_0"]);
+        }
+        break;
+    case 4:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["ginso_1"],1,mouse_x,mouse_y);
+        }
+        break;
+    case 5:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["ginso_2"],2,mouse_x,mouse_y);
+        }
+        break;
+    case 6:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["mountain_0"],0,mouse_x,mouse_y);
+        }
+        break;
+    case 7:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["mountain_1"],1,mouse_x,mouse_y);
+        }
+        break;
+    case 8:
+        {
+           engine->assetLoader->createBody(engine->assetLoader->spriteMap["mountain_2"],2,mouse_x,mouse_y);
+        }
+        break;
     }
 
 }

@@ -6,14 +6,23 @@
 #include <sys/stat.h>
 #include <iostream>
 #include "Engine.hpp"
-
+class Engine;
 class AssetLoader{
 public:
 
-    AssetLoader();
+    AssetLoader(Engine* engine);
     ~AssetLoader();
+    Engine* engine;
+    b2Body* body;
+    b2PolygonShape shape;
+    b2BodyDef bodyDef;
+    b2FixtureDef fixtureDef;
+    int selection = 0;
+
+
     void createSprite(std::string fileName,int spriteIndicator);
-    void createBody();
+    void createBody(std::string fileName,int spriteIndicator);
+    b2Body* createBody(sf::Sprite sprite,int spriteIndicator,int pos_x,int pos_y);
     void readAssetInfo(std::string assetinfofileName,int assetIndicator);
     void loadTextures(std::map<std::string,sf::Texture> &out,std::vector<std::string> &fileNames);
     void getFileNames(std::vector<std::string> &out, const std::string &directory);
@@ -25,7 +34,7 @@ public:
     //string is filename with path and extension
     std::map<std::string,sf::Texture> textureMap;
     //string is file(sprintsheet) + sprint indicator int(sprint 3 on the page or sprite 5)
-    std::map<std::string,b2Body*> bodyMap;
+    std::map<std::string,std::map<b2Body*,b2FixtureDef>> bodyFixtureMap;
     //string is file+sprintindicator int
     std::map<std::string,sf::Sprite> spriteMap;
 

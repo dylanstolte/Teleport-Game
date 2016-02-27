@@ -21,7 +21,6 @@ sf::Sprite groundSprite;
 
 
     // platform.loadFromFile("grass_box/grass_96x96.png");
-int selection = 0;
 
   void createEnemy();
   void buildMapPerimeter();

@@ -9,7 +9,7 @@ Animation::Animation(int totalFrames,sf::Texture texture)
     this->currentFrame = 0;
 };
 
-void Animation::setTexture(sf::Texture texture) {};
+void Animation::setTexture(sf::Texture texture) {animationTexture = texture;};
 
 void Animation::start()
 {

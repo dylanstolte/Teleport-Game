@@ -25,11 +25,14 @@ public:
     Animation jumpAnimation;
     Animation jumpLeftAnimation;
     Animation fallingAnimation;
+    Animation attackAnimation;
+    sf::Sprite test;
     int numFootContacts = 0;
     bool inAir = true;
     bool grounded = false;
     bool attack = false;
-
+    int attackDistance = 10*30;
+    float attackPos = 10;
     Player(b2World* world, Engine* engine);
     ~Player();
 
@@ -38,7 +41,8 @@ public:
     void render();
     bool isFalling();
     bool isGrounded();
-
+    float getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination);
+    sf::Vector2f getCoordsToPointBetweenPoints(float euclidian,sf::Vector2f target,sf::Vector2f destination,float distance);
 };
 
 #endif // PLAYER_H_INCLUDED

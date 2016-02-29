@@ -11,12 +11,14 @@
 #include "Map.h""
 #include "Enemy.h"
 #include "AssetLoader.h"
+#include "MapBuilder.h"
 
 class Map;
 class Enemy;
 class Player;
 class MyContactListener;
 class AssetLoader;
+class MapBuilder;
 
 class Engine
 {
@@ -27,11 +29,15 @@ public:
    	sf::View view;
     sf::View backgroundView;
     sf::View midgroundView;
+
+    //POINTERS TO CLASSES
     MyContactListener* listener;
     Player* player;
     Enemy* enemy;
     Map* worldMap;
     AssetLoader* assetLoader;
+    MapBuilder* mapBuilder;
+
     //at global scope
     DebugDraw* debugDrawInstance;
    	//THE MAGICAL CLOCK
@@ -58,7 +64,7 @@ public:
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
-    bool debug = false;
+    bool debug = true;
     /** We need this to easily convert between pixel and real-world coordinates*/
     float SCALE = 30.f;
     //Initializes the engine
@@ -71,10 +77,10 @@ public:
 	void update();
     	//Renders one frame
 	void renderFrame();
+	template <typename T>
+    std::string ToString(T val);
 
-
-
-    //create player
+   //create player
     void CreatePlayer(b2World& World, float pos_x, float posy_y);
 
     /** Create the boxes */

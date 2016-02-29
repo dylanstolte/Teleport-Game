@@ -7,6 +7,8 @@ Map::Map(Engine* engine)
     platform.loadFromFile("platform1.png");
     smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
+    createBodyBox(200,200,150,25);
+   // createBodyBox(100,250,150,150);
 }
 
 Map::~Map() {}
@@ -17,8 +19,10 @@ void Map::createEnemy(){}
 
 void Map::createSmallPlatform(float pos_x, float pos_y)
 {
+    std::cout << "create platform"  << pos_x << " " << pos_y << std::endl;
+
     b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
+ BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
     BodyDef.type = b2_staticBody;
     b2Body* Body = engine->World->CreateBody(&BodyDef);
 
@@ -29,6 +33,35 @@ void Map::createSmallPlatform(float pos_x, float pos_y)
 
     b2PolygonShape Shape;
     Shape.SetAsBox((96.f/2)/engine->SCALE, (96.f/2)/engine->SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 100.f;
+    FixtureDef.friction = 50.0f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
+
+}
+
+void Map::createBodyBox(float pos_x, float pos_y,float width, float height)
+{
+     b2BodyDef BodyDef;
+
+    sf::Vector2i temp1 = engine->Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
+    sf::Vector2f temp = engine->Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
+    BodyDef.position = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
+    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
+    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
+    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
+
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = engine->World->CreateBody(&BodyDef);
+
+    mapBodies.push_back(Body);
+    objectCount++;
+    int id = 4;
+    Body->SetUserData((void*)id);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((width/2)/engine->SCALE, (height/2)/engine->SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 100.f;
     FixtureDef.friction = 50.0f;
@@ -143,9 +176,9 @@ void Map::render()
             //set sprite according to body
            // engine->assetLoader->spriteMap["ginso_0"].setOrigin(40,40);
        //    std::cout << "create from asset loader" << std::endl;
-            engine->assetLoader->spriteMap["ginso_0"].setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
-            engine->assetLoader->spriteMap["ginso_0"].setRotation(180/b2_pi * it->GetAngle());
-            engine->Window->draw(engine->assetLoader->spriteMap["ginso_0"]);
+            engine->assetLoader->spriteMap["blueball_0"].setPosition(it->GetPosition().x * engine->SCALE, it->GetPosition().y * engine->SCALE);
+            engine->assetLoader->spriteMap["blueball_0"].setRotation(180/b2_pi * it->GetAngle());
+            engine->Window->draw(engine->assetLoader->spriteMap["blueball_0"]);
         }
     }
 
@@ -163,7 +196,8 @@ void Map::placeObject(int selection,int mouse_x,int mouse_y)
         //  engine->Window->draw(groundSprite);
         break;
     case 2:
-        createPlatform(mouse_x,mouse_y);
+       createPlatform(mouse_x,mouse_y);
+     // createBodyBox(200,200,150,25);
         break;
     case 3:
         {

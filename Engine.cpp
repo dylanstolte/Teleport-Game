@@ -1,5 +1,6 @@
 #include "Engine.hpp"
-
+#include <string>
+#include <sstream>
 
 using namespace std;
 Engine::~Engine() {};
@@ -7,8 +8,11 @@ Engine::Engine()
 {
 
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
-    Window->setVerticalSyncEnabled(true);
+   // Window->setVerticalSyncEnabled(true);
     view = sf::View();
+    view.setCenter(0,0);
+    Window->setView(view);
+
     backgroundView = sf::View();
     midgroundView = sf::View();
 
@@ -21,8 +25,9 @@ Engine::Engine()
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
     listener = new MyContactListener(this);
-    worldMap = new Map(this);
+
     World = new b2World(Gravity,true);
+    worldMap = new Map(this);
     World->SetContactListener(listener);
     /**Used for debuging*/
     if(debug)
@@ -38,6 +43,8 @@ Engine::Engine()
     player = new Player(World, this);
     enemy = new Enemy(World,this,100,100);
     enemy = new Enemy(World,this,200,200);
+
+    mapBuilder = new MapBuilder(this);
 
     ///LOAD TEXTURES
 //    GroundTexture.loadFromFile("ground.png");
@@ -57,6 +64,8 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
+
+
     mainLoop();
 }
 
@@ -205,6 +214,32 @@ void Engine::processInput()
             if (event.key.code == sf::Keyboard::Space)
             {
                 player->attack = false;
+                player->attackPos = 0;
+            }
+            //place point
+            if (event.key.code == sf::Keyboard::P)
+            {
+                sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+                if(mapBuilder->anchor1 && mapBuilder->anchor2)
+                {
+                    mapBuilder->anchor1 = false;
+                    mapBuilder->anchor2 = false;
+                }
+
+                if(mapBuilder->anchor1 && !mapBuilder->anchor2)
+                {
+                    mapBuilder->anchorPoint2.x = mouse.x;
+                    mapBuilder->anchorPoint2.y = mouse.y;
+                    mapBuilder->anchor2 = true;
+                }
+                if(!mapBuilder->anchor1)
+                {
+                    mapBuilder->anchorPoint1.x = mouse.x;
+                    mapBuilder->anchorPoint1.y = mouse.y;
+                    mapBuilder->anchor1 = true;
+                }
+
             }
 
         }
@@ -216,7 +251,6 @@ void Engine::processInput()
 void Engine::update()
 {
     enemy->moveOnPath();
-
     // cout<<player->numFootContacts<<endl;
     if(player->numFootContacts > 0)
     {
@@ -283,68 +317,102 @@ void Engine::update()
 
 void Engine::renderFrame()
 {
-
     Window->clear(sf::Color::White);
     World->DrawDebugData();
-    sf::Sprite backgroundSprite;
-    sf::Sprite backgroundSpriteFill;
-    sf::Sprite skySprite;
-    sf::Sprite treeSprite;
-    sf::Sprite treeSprite1;
-    sf::Sprite treeSprite2;
 
-    backgroundSprite.setTexture(background);
-    backgroundSpriteFill.setTexture(background);
-    skySprite.setTexture(sky);
-    treeSprite.setTexture(tree);
-    treeSprite1.setTexture(tree1);
-    treeSprite2.setTexture(tree2);
+    //  Window->setView(backgroundView);
 
-    backgroundSpriteFill.setPosition(1300,0);
-    skySprite.setPosition(0,-800);
-    treeSprite.setPosition(2000,300);
-    treeSprite1.setPosition(900,450);
-    treeSprite2.setPosition(1400,550);
-    //cout << " X: " << backgroundView.getCenter().x << " Y: " << backgroundView.getCenter().y << endl;
-    //cout << "background size x: " << backgroundView.getSize().x<< endl;
-    backgroundView.setCenter(0,0);
-    backgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /4 ),((worldBodies["player"]->GetPosition().y*SCALE)+Window->getSize().y*2-150) /4  );
-
-    Window->setView(backgroundView);
-    if(!debug)
+    //render box with mouse x,y position
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
     {
-        Window->draw(backgroundSpriteFill);
-        Window->draw(backgroundSprite);
-        Window->draw(skySprite);
+        // error...
     }
-    midgroundView.setCenter(0,0);
-    midgroundView.move( (( (worldBodies["player"]->GetPosition().x*SCALE)+Window->getSize().x*2) /2 ),((worldBodies["player"]->GetPosition().y*SCALE)) /2  );
-    Window->setView(midgroundView);
-    Window->draw(treeSprite);
-    Window->draw(treeSprite1);
-    Window->draw(treeSprite2);
 
+    sf::Text text;
+    sf::Text text2;
+
+    // select the font
+    text.setFont(font); // font is a sf::Font
+    text2.setFont(font);
+    // set the string to display
+    sf::Vector2i mouse = sf::Mouse::getPosition(*Window);
+    sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+    char mousex[50];
+    char mousey[50];
+    sprintf(mousex, "%d", mouse.x);
+    sprintf(mousey, "%d", mouse.y);
+
+  //  std::cout << mouseWorld.x << mouseWorld.y << std::endl;
+
+    int score = mouseWorld.x; // the score to print
+    int score1 = mouseWorld.y;
+
+    std::stringstream ss;  // #include <sstream>
+    ss << score;
+
+
+    std::stringstream ss1;  // #include <sstream>
+    ss1 << score1;
+
+
+    text2.setString("Window coords: \n x: " + (std::string)mousex + " y: " + mousey);
+
+    text.setString("World Coords: \n x: " + (std::string) ss.str().c_str() + " y: " + (std::string) ss1.str().c_str() );
+    // set the character size
+    text.setCharacterSize(15); // in pixels, not points!
+    text2.setCharacterSize(15);
+    // set the color
+    text.setColor(sf::Color::Blue);
+    text2.setColor(sf::Color::Cyan);
+   // sf::Vector2f mouse = Window->mapPixelToCoords
+    text.setPosition(Window->mapPixelToCoords(sf::Vector2i(70,0)));
+    text2.setPosition(Window->mapPixelToCoords(sf::Vector2i(200,0)));
+    Window->draw(text);
+    Window->draw(text2);
+//    if(!debug)
+//    {
+//        Window->draw(backgroundSpriteFill);
+//        Window->draw(backgroundSprite);
+//        Window->draw(skySprite);
+//    }
     //SET NORMAL VIEW
     view.setCenter(0,0);
-    view.move(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-300);
+   view.move(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-300);
     //cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
     Window->setView(view);
+
+   int pos_x = 0;
+   int pos_y = 0;
+
+    sf::Vector2i temp1 = Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
+    sf::Vector2f temp =  Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
+  //  sf::Vector2f temp = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
+    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
+    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
+    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
 
     worldMap->render();
     enemy->render();
     player->render();
 
+    mapBuilder->render(mouse.x,mouse.y);
     Window->draw(player->playerSprite);
 
     Window->display();
     // debugDrawInstance->window->display();
-
 };
 
 
 
-
-
+template <typename T>
+std::string Engine::ToString(T val)
+{
+    std::stringstream stream;
+    stream << val;
+    return stream.str();
+}
 
 
 

@@ -18,6 +18,7 @@ sf::Sprite groundSprite;
     int objectCount = 0;
     std::vector<b2Body*> mapBodies;
     std::vector<b2Body*> mapEnemies;
+    int property;
 
 
     // platform.loadFromFile("grass_box/grass_96x96.png");
@@ -32,7 +33,7 @@ sf::Sprite groundSprite;
     //create a platform
     void createPlatform(float pos_x, float pos_y);
     void placeObject(int selection,int mouse_x, int mouse_y);
-    void createBodyBox(float pos_x, float pos_y,float width, float height);
+    void createBodyBox(float pos_x, float pos_y,float width, float height, int property);
 //sf::Sprite backgroundSprite;
 //    sf::Sprite backgroundSpriteFill;
 //    sf::Sprite skySprite;

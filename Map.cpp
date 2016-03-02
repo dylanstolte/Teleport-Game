@@ -7,14 +7,21 @@ Map::Map(Engine* engine)
     platform.loadFromFile("platform1.png");
     smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
-    createBodyBox(200,200,150,25);
-   // createBodyBox(100,250,150,150);
+    std::cout << "create boxes" << std::endl;
+    createBodyBox(0,700,150,25,4);
+    //walls
+  //  createBodyBox(-450,50,15,1500,4);
+ //   createBodyBox(600,50,15,1500,4);
+    //swinging platforms
+    createBodyBox(-200,350,15,150,4);
+    createBodyBox(350,550,15,150,4);
+    //wallplatforms
+    createBodyBox(-450,350,150,15,4);
+    createBodyBox(600,500,150,15,4);
 }
 
 Map::~Map() {}
-void Map::buildMapPerimeter(
-
-) {}
+void Map::buildMapPerimeter() {}
 void Map::createEnemy(){}
 
 void Map::createSmallPlatform(float pos_x, float pos_y)
@@ -39,9 +46,10 @@ void Map::createSmallPlatform(float pos_x, float pos_y)
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
 
+
 }
 
-void Map::createBodyBox(float pos_x, float pos_y,float width, float height)
+void Map::createBodyBox(float pos_x, float pos_y,float width, float height, int property)
 {
      b2BodyDef BodyDef;
 
@@ -64,9 +72,10 @@ void Map::createBodyBox(float pos_x, float pos_y,float width, float height)
     Shape.SetAsBox((width/2)/engine->SCALE, (height/2)/engine->SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 100.f;
-    FixtureDef.friction = 50.0f;
+    FixtureDef.friction = 10.0f;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
+
 }
 
 void Map::createPlatform(float pos_x, float pos_y   )
@@ -85,9 +94,10 @@ void Map::createPlatform(float pos_x, float pos_y   )
     Shape.SetAsBox((800*.4f/2)/engine->SCALE, (300*.6f/2)/engine->SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 100.f;
-    FixtureDef.friction = 50.0f;
+    FixtureDef.friction = 10.0f;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
+
 }
 
 void Map::CreateGround(float X, float Y)
@@ -105,9 +115,10 @@ void Map::CreateGround(float X, float Y)
     Shape.SetAsBox((1024*2.f)/engine->SCALE, (16.f/2)/engine->SCALE);
     b2FixtureDef FixtureDef;
     FixtureDef.density = 0.f;
-    FixtureDef.friction = 50.0f;
+    FixtureDef.friction = 1.0f;
     FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
+    b2Fixture* bodyFixture = Body->CreateFixture(&FixtureDef);
+    bodyFixture->SetUserData((void*) id);
 }
 void Map::render()
 {

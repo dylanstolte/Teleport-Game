@@ -5,7 +5,7 @@ Player::Player(b2World* world, Engine* engine)
 {
 
     this->engine = engine;
-    bodyDef.position = b2Vec2(0.f/engine->SCALE, 0.f/engine->SCALE);
+    bodyDef.position = b2Vec2(0.f/engine->SCALE, 400.f/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -15,21 +15,42 @@ Player::Player(b2World* world, Engine* engine)
     int id = 1;
     body->SetUserData((void*)id);
 
-    shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
+  //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
+    circleShape.m_p.Set(0,.5); //position, relative to body position
+    circleShape.m_radius = .5;
     fixtureDef.density = 3.f;
     fixtureDef.friction = 1.f;
-    fixtureDef.shape = &shape;
-    body->CreateFixture(&fixtureDef);
+    fixtureDef.shape = &circleShape;
+    bodyFixture = body->CreateFixture(&fixtureDef);
+    bodyFixture->SetUserData( (void*)2 );
 
+    //circle bottom of plauer
+
+
+    //foot fixture
     shape.SetAsBox(0.2, 0.2, b2Vec2(0,1), 0);
     fixtureDef.isSensor = true;
+    fixtureDef.shape = &shape;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
+    //right fixture
+    shape.SetAsBox(0.2, 0.2, b2Vec2(.7,0), 0);
+    fixtureDef.isSensor = true;
+    b2Fixture* rightSensorFixture = body->CreateFixture(&fixtureDef);
+    rightSensorFixture->SetUserData( (void*)1 );
+
+    //left fixture
+    shape.SetAsBox(0.2, 0.2, b2Vec2(-.7,0), 0);
+    fixtureDef.isSensor = true;
+    b2Fixture* leftSensorFixture = body->CreateFixture(&fixtureDef);
+    leftSensorFixture->SetUserData( (void*)1 );
 
 
     playerTexture.loadFromFile("spritesheetvolt.png");
 
     playerSprite.setOrigin(13.f,21.f);
+    checkpointPos.x =0;
+    checkpointPos.y =60;
 
     //Animation Setup
     pichuSheet.loadFromFile("pichu1.png");
@@ -202,6 +223,15 @@ float Player::getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination)
 
 
 }
+
+void Player::respawn(sf::Vector2f checkpointPos)
+{
+    std::cout << "respawn" << std::endl;
+    body->SetTransform(b2Vec2(0,600/30),body->GetAngle());
+    body->SetLinearVelocity(b2Vec2(0,0));
+    dead = false;
+
+}//set player body to checkpointPos
 
 bool Player::isFalling()
 {

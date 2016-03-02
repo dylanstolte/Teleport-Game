@@ -17,13 +17,6 @@ MapBuilder::MapBuilder(Engine* engine)
 
     blackDot.setOrigin(1,1);
 
-
-
-//    anchorPoint1.x = 100;
-//    anchorPoint1.y = 100;
-//    anchorPoint2.x = 100;
-//    anchorPoint2.y = 100;
-
 };
 
 MapBuilder::~MapBuilder() {};

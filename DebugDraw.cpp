@@ -126,14 +126,15 @@ std::cout << "draw segment" << std::endl;
 //
 void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Vec2& axis, const b2Color& color)
 {
-    std::cout << "draw solid circle" << std::endl;
+  //  std::cout << "draw solid circle" << std::endl;
     //no converion in cordinates of center and upper left corner, Circle in sfml is managed by default with the center
   //  sf::Shape circle = sf::Shape::Circle(center.x*RATIO, center.y*RATIO, (radius*RATIO), this->B2SFColor(color, 50), 1.0f,this->B2SFColor(color));
-        sf::CircleShape circle = sf::CircleShape((radius*RATIO));
-        circle.setPosition(center.x*RATIO, center.y*RATIO);
-        circle.setFillColor(this->B2SFColor(color, 50));
-        circle.setOutlineThickness(1);
-        circle.setOutlineColor(this->B2SFColor(color));
+        sf::CircleShape circle(radius*RATIO);
+      //  circle.setOrigin(-center.x,center.y);
+        circle.setPosition(center.x,center.y);
+        circle.setFillColor(sf::Color(100, 250, 50));
+    //    circle.setOutlineThickness(1);
+      //  circle.setOutlineColor(this->B2SFColor(color));
     // line of the circle wich shows the angle
     b2Vec2 p = center + (radius * axis);
    // sf::Shape line = sf::Shape::Line(center.x*RATIO, center.y*RATIO, p.x*RATIO, p.y*RATIO, 1, this->B2SFColor(color));
@@ -149,7 +150,7 @@ void DebugDraw::DrawSolidCircle(const b2Vec2& center, float32 radius, const b2Ve
 //
 void DebugDraw::DrawCircle(const b2Vec2& center, float32 radius, const b2Color& color)
 {
-    std::cout << "draw circle" << std::endl;
+  //  std::cout << "draw circle" << std::endl;
    // sf::Shape circle = sf::Shape::Circle(center.x*RATIO, center.y*RATIO, radius*RATIO, this->B2SFColor(color, 50), 1.0f,this->B2SFColor(color));
   //  circle.EnableFill(false);
     sf::CircleShape circle = sf::CircleShape(radius*RATIO);

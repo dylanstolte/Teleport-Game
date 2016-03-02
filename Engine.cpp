@@ -10,15 +10,14 @@ Engine::Engine()
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
    // Window->setVerticalSyncEnabled(true);
     view = sf::View();
-    view.setCenter(0,0);
     Window->setView(view);
 
     backgroundView = sf::View();
     midgroundView = sf::View();
 
-    view.reset(sf::FloatRect(0, 0, 1024, 900));
-    backgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
-    midgroundView.reset(sf::FloatRect(0, 0, 1024, 900));
+    view.reset(sf::FloatRect(0, 0, 1200, 900));
+    backgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
+    midgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
 
 
 
@@ -41,17 +40,12 @@ Engine::Engine()
 
     worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
-    enemy = new Enemy(World,this,100,100);
-    enemy = new Enemy(World,this,200,200);
+  //  enemy = new Enemy(World,this,100,100);
+  //  enemy = new Enemy(World,this,200,200);
 
     mapBuilder = new MapBuilder(this);
 
     ///LOAD TEXTURES
-//    GroundTexture.loadFromFile("ground.png");
-//    BoxTexture.loadFromFile("box.png");
-//    // platform.loadFromFile("grass_box/grass_96x96.png");
-//    platform.loadFromFile("platform1.png");
-    //sesfplayerTexture.loadFromFile("spritesheetvolt.png");
     flash.loadFromFile("flash.png");
     flash_blue.loadFromFile("flash_blue.png");
     background.loadFromFile("mountains-bkg.jpg");
@@ -125,6 +119,45 @@ void Engine::processInput()
         moveLeft = false;
     }
 
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+
+            //   std::cout << "pressed" << std::endl;
+
+                if(mouseLeft)
+                {
+             //      std::cout << "held" << std::endl;
+
+                   sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+                     rect = sf::RectangleShape(sf::Vector2f(dot.getPosition().x-mouse.x,dot.getPosition().y-mouse.y));
+                    // rect.setOrigin(mouse);
+                     rect.setPosition(dot.getPosition());
+                     rect.setFillColor(sf::Color::Blue);
+
+
+                    line[0] = sf::Vertex(mouse,sf::Color::Green);
+                    line[1] = sf::Vertex(dot.getPosition(),sf::Color::Red);
+
+
+                }
+                else
+               {
+                mouseLeft = true;
+                sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+                dot = sf::CircleShape(5);
+                dot.setFillColor(sf::Color::Blue);
+                dot.setPosition(mouse);
+                }
+
+
+
+    }
+    else
+    {
+        mouseLeft = false;
+    }
+
     /***Start the Event Loop*/
     sf::Event event;
     sf::Event prevEvent;
@@ -133,16 +166,6 @@ void Engine::processInput()
 
         if(event.type == sf::Event::Closed)
             Window->close();
-
-        //MOUSE INPUT RELEASED
-        if (event.type == sf::Event::MouseButtonReleased)
-        {
-            //   std::cout << "mouse released" << std::endl;
-            if(event.mouseButton.button == sf::Mouse::Left)
-            {
-
-            }
-        }
 
         //MOUSE INPUT PRESSED
         if (event.type == sf::Event::MouseButtonPressed)
@@ -172,7 +195,7 @@ void Engine::processInput()
                 //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x + 10,sf::Mouse::getPosition().y),*Window);
 
                 view.move(10,0);
-                backgroundView.move(5,0);
+             //   backgroundView.move(5,0);
             }
 
             if (event.key.code == sf::Keyboard::Space)
@@ -250,8 +273,15 @@ void Engine::processInput()
 
 void Engine::update()
 {
-    enemy->moveOnPath();
+   // enemy->moveOnPath();
     // cout<<player->numFootContacts<<endl;
+
+    if(player->dead)
+    {
+   //     player->respawn(player->checkpointPos);
+    }
+
+
     if(player->numFootContacts > 0)
     {
         player->grounded = false;
@@ -273,7 +303,7 @@ void Engine::update()
 
             //std::cout << "W key Pressed" <<  std::endl;
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-            float desiredVel = -5.5;
+            float desiredVel = -10;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
             worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
@@ -283,26 +313,34 @@ void Engine::update()
         }
 
     }
-    if(moveRight)
-    {
-        //std::cout << "D key Pressed" << std::endl;
-        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-        float desiredVel = 7;
 
-        float velChange = desiredVel - vel.x;
-        float impulse =  worldBodies["player"]->GetMass() * velChange;
-        worldBodies["player"]->ApplyLinearImpulse( b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
-    }
-    if(moveLeft)
-    {
+ b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+ if (moveLeft) { player->bodyFixture->SetFriction(0);
 
-        b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-        float desiredVel = -7;
+   if (vel.x > 0)
+   {
+       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->dec,vel.y));
+     //  xsp -= player->dec;
+   }
+   else if (vel.x > -10)
+   {
+       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
+       //xsp = xsp-player->acc;
+   }
+} else if (moveRight) { player->bodyFixture->SetFriction(0);
 
-        float velChange = desiredVel - vel.x;
-        float impulse =  worldBodies["player"]->GetMass() * velChange; //disregard time factor
-        worldBodies["player"]->ApplyLinearImpulse(b2Vec2(impulse,0), worldBodies["player"]->GetWorldCenter() );
-    }
+   if (vel.x < 0)
+   {
+       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+   }
+   else if (vel.x < 10)
+   {
+       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+   }
+} //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
+else {
+player->bodyFixture->SetFriction(30);
+}
 
 
 
@@ -378,8 +416,20 @@ void Engine::renderFrame()
 //        Window->draw(skySprite);
 //    }
     //SET NORMAL VIEW
-    view.setCenter(0,0);
-   view.move(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-300);
+   // std::cout << view.getCenter().y << std::endl;
+  //  view.setCenter(0,0);
+    if(worldBodies["player"]->GetPosition().y*SCALE < 500)
+    {
+          //  std::cout << view.getCenter().y << std::endl;
+        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+       // view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-700);
+    }
+    else
+    {
+         view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,view.getCenter().y);
+    }
+
+   //view.move()
     //cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
     Window->setView(view);
 
@@ -389,16 +439,21 @@ void Engine::renderFrame()
     sf::Vector2i temp1 = Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
     sf::Vector2f temp =  Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
   //  sf::Vector2f temp = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
-    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
-    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
-    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
+//    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
+//    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
+//    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
 
     worldMap->render();
-    enemy->render();
+
+
+   // enemy->render();
     player->render();
 
     mapBuilder->render(mouse.x,mouse.y);
     Window->draw(player->playerSprite);
+   // Window->draw(dot);
+    Window->draw(line,2,sf::Lines);
+    Window->draw(rect);
 
     Window->display();
     // debugDrawInstance->window->display();

@@ -54,12 +54,17 @@ public:
     sf::Texture tree;
     sf::Texture tree1;
     sf::Texture tree2;
+    sf::CircleShape dot;
+    sf::Vertex line[2];
+    sf::Vertex lineSquares[2];
+    sf::RectangleShape rect;
+
     /////////////// MOVE STATES
     bool moveJump = false;
     bool jumpAnimation = false;
     bool moveRight = false;
     bool moveLeft = false;
-
+    bool mouseLeft = false;
 
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;

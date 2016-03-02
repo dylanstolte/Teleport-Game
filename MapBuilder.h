@@ -16,6 +16,7 @@ public:
 
     bool anchor1 = false;
     bool anchor2 = false;
+    bool drawbox = false;
 
     Engine *engine;
     sf::CircleShape anchorDot1;
@@ -24,12 +25,18 @@ public:
     sf::CircleShape blackDot;
     sf::CircleShape greenDot;
 
+    sf::Vector2f rectangleStart;
+
     int xa,ya,xb,yb,x,y;
     int xa2,ya2,xb2,yb2,xprev,yprev;
+    sf::Vertex line[2];
+      sf::RectangleShape rect;
 
 
     void render(int mousex, int mousey);
     int getPt(int n1, int n2, float perc);
+    void drawBezierCurve(int mousex, int mousey);
+    void drawBox(int mousex, int mousey);
 
 
 };

@@ -122,22 +122,23 @@ void Engine::processInput()
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
 
-        //   std::cout << "pressed" << std::endl;
+           std::cout << "pressed" << std::endl;
 
         if(mouseLeft)
         {
-            //      std::cout << "held" << std::endl;
+                  std::cout << "held" << std::endl;
 
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
-
-            rect = sf::RectangleShape(sf::Vector2f(dot.getPosition().x-mouse.x,dot.getPosition().y-mouse.y));
-            // rect.setOrigin(mouse);
-            rect.setPosition(dot.getPosition());
-            rect.setFillColor(sf::Color::Blue);
-
-
-            line[0] = sf::Vertex(mouse,sf::Color::Green);
-            line[1] = sf::Vertex(dot.getPosition(),sf::Color::Red);
+//
+//            rect = sf::RectangleShape(sf::Vector2f(mapBuilder->rectangleStart.x-mouse.x,mapBuilder->rectangleStart.y-mouse.y));
+//            // rect.setOrigin(mouse);
+//            rect.setPosition(mapBuilder->rectangleStart.x,mapBuilder->rectangleStart.y);
+//            rect.setFillColor(sf::Color::Blue);
+//
+//
+//            line[0] = sf::Vertex(mouse,sf::Color::Green);
+//            line[1] = sf::Vertex(mapBuilder->rectangleStart,sf::Color::Red);
+        mapBuilder->drawbox = true;
 
 
         }
@@ -145,9 +146,7 @@ void Engine::processInput()
         {
             mouseLeft = true;
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
-            dot = sf::CircleShape(5);
-            dot.setFillColor(sf::Color::Blue);
-            dot.setPosition(mouse);
+            mapBuilder->rectangleStart = sf::Vector2f(mouse);
         }
 
 
@@ -156,6 +155,8 @@ void Engine::processInput()
     else
     {
         mouseLeft = false;
+        std::cout << "Create body Box from sf:: blu box" << std::endl;
+        mapBuilder->drawbox = false;
     }
 
     /***Start the Event Loop*/
@@ -391,8 +392,7 @@ void Engine::renderFrame()
     mapBuilder->render(mouseWorld.x,mouseWorld.y);
     player->render();
     //RANDOM DRAW CALLS
-    Window->draw(line,2,sf::Lines);
-    Window->draw(rect);
+
 
     Window->display();
 };

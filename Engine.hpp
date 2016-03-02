@@ -55,9 +55,9 @@ public:
     sf::Texture tree1;
     sf::Texture tree2;
     sf::CircleShape dot;
-    sf::Vertex line[2];
+
     sf::Vertex lineSquares[2];
-    sf::RectangleShape rect;
+
 
     /////////////// MOVE STATES
     bool moveJump = false;

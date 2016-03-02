@@ -23,6 +23,7 @@ MapBuilder::~MapBuilder() {};
 
 void MapBuilder::render(int mouse_x, int mouse_y)
 {
+
     //draw anchor points and mouse control point
     controlPoint1.x = mouse_x;
     controlPoint1.y = mouse_y;
@@ -44,7 +45,21 @@ void MapBuilder::render(int mouse_x, int mouse_y)
 
     if(anchor1 && anchor2)
     {
-        //for how many points you want to generate
+       //if both anchors are set
+       drawBezierCurve(mouse_x,mouse_y);
+    }
+
+    if(drawbox)
+        drawBox(mouse_x,mouse_y);
+
+
+}
+
+void MapBuilder::drawBezierCurve(int mousex, int mousey)
+{
+
+
+
         for( float i = 0 ; i <= 1.1 ; i += 0.1)
         {
 
@@ -133,8 +148,23 @@ void MapBuilder::render(int mouse_x, int mouse_y)
             perpPrev = perp;
             curvePointPrev = curvePoint;
         }
+}
 
-    }
+void MapBuilder::drawBox(int mousex, int mousey)
+{
+    std::cout << " drawbox" <<std::endl;
+            sf::Vector2f mouse(mousex,mousey);
+
+            rect = sf::RectangleShape(sf::Vector2f(-(rectangleStart.x-mouse.x),-(rectangleStart.y-mouse.y)));
+            // rect.setOrigin(mouse);
+            rect.setPosition(rectangleStart.x,rectangleStart.y);
+            rect.setFillColor(sf::Color::Blue);
+
+
+            line[0] = sf::Vertex(mouse,sf::Color::Green);
+            line[1] = sf::Vertex(rectangleStart,sf::Color::Red);
+            engine->Window->draw(line,2,sf::Lines);
+            engine->Window->draw(rect);
 
 }
 

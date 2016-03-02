@@ -72,11 +72,11 @@ Player::Player(b2World* world, Engine* engine)
     fallingAnimation = Animation(1,pichuSheet);
     fallingAnimation.setFrame(270,140,20,40);
 
-    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
-    attackAnimation =  Animation(1,  temp);
-    sf::IntRect temp1 = engine->assetLoader->spriteMap["blueball_0"].getTextureRect();
-    attackAnimation.setFrame(65,80,290,75);
-    test.scale(.25,.25);
+//    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
+//    attackAnimation =  Animation(1,  temp);
+//    sf::IntRect temp1 = engine->assetLoader->spriteMap["blueball_0"].getTextureRect();
+//    attackAnimation.setFrame(65,80,290,75);
+//    test.scale(.25,.25);
     //125
 }
 
@@ -116,7 +116,7 @@ void Player::render()
                     };
                     engine->Window->draw(line, 2, sf::Lines);
                     sf::Texture tex;
-                    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
+                //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
                     test.setTextureRect(attackAnimation.nextFrame());
                     test.setOrigin(100,35);
                     test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));

@@ -449,7 +449,7 @@ void Engine::renderFrame()
    // enemy->render();
     player->render();
 
-    mapBuilder->render(mouse.x,mouse.y);
+    mapBuilder->render(mouseWorld.x,mouseWorld.y);
     Window->draw(player->playerSprite);
    // Window->draw(dot);
     Window->draw(line,2,sf::Lines);

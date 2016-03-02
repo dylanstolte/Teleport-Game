@@ -193,7 +193,7 @@ void Player::render()
 
     playerSprite.setPosition(engine->SCALE * body->GetPosition().x, engine->SCALE * body->GetPosition().y);
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
-//   playerSprite.setScale(.4,.35);
+    engine->Window->draw(playerSprite);
 
 }
 sf::Vector2f Player::getCoordsToPointBetweenPoints(float euclidian,sf::Vector2f player,sf::Vector2f enemy,float distance)

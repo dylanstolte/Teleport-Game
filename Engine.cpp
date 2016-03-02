@@ -8,7 +8,7 @@ Engine::Engine()
 {
 
     Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
-   // Window->setVerticalSyncEnabled(true);
+    // Window->setVerticalSyncEnabled(true);
     view = sf::View();
     Window->setView(view);
 
@@ -35,13 +35,13 @@ Engine::Engine()
         debugDrawInstance->SetFlags( b2DebugDraw::e_shapeBit );
         World->SetDebugDraw( debugDrawInstance );
     }
-  /**Load the Assets*/
-        assetLoader = new AssetLoader(this);
+    /**Load the Assets*/
+    assetLoader = new AssetLoader(this);
 
     worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
-  //  enemy = new Enemy(World,this,100,100);
-  //  enemy = new Enemy(World,this,200,200);
+    //  enemy = new Enemy(World,this,100,100);
+    //  enemy = new Enemy(World,this,200,200);
 
     mapBuilder = new MapBuilder(this);
 
@@ -122,33 +122,33 @@ void Engine::processInput()
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
 
-            //   std::cout << "pressed" << std::endl;
+        //   std::cout << "pressed" << std::endl;
 
-                if(mouseLeft)
-                {
-             //      std::cout << "held" << std::endl;
+        if(mouseLeft)
+        {
+            //      std::cout << "held" << std::endl;
 
-                   sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+            sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-                     rect = sf::RectangleShape(sf::Vector2f(dot.getPosition().x-mouse.x,dot.getPosition().y-mouse.y));
-                    // rect.setOrigin(mouse);
-                     rect.setPosition(dot.getPosition());
-                     rect.setFillColor(sf::Color::Blue);
-
-
-                    line[0] = sf::Vertex(mouse,sf::Color::Green);
-                    line[1] = sf::Vertex(dot.getPosition(),sf::Color::Red);
+            rect = sf::RectangleShape(sf::Vector2f(dot.getPosition().x-mouse.x,dot.getPosition().y-mouse.y));
+            // rect.setOrigin(mouse);
+            rect.setPosition(dot.getPosition());
+            rect.setFillColor(sf::Color::Blue);
 
 
-                }
-                else
-               {
-                mouseLeft = true;
-                sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
-                dot = sf::CircleShape(5);
-                dot.setFillColor(sf::Color::Blue);
-                dot.setPosition(mouse);
-                }
+            line[0] = sf::Vertex(mouse,sf::Color::Green);
+            line[1] = sf::Vertex(dot.getPosition(),sf::Color::Red);
+
+
+        }
+        else
+        {
+            mouseLeft = true;
+            sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+            dot = sf::CircleShape(5);
+            dot.setFillColor(sf::Color::Blue);
+            dot.setPosition(mouse);
+        }
 
 
 
@@ -172,7 +172,7 @@ void Engine::processInput()
         {
             if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
             {
-             //   std::cout << "platform create"  << std::endl;
+                //   std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
                 worldMap->placeObject(assetLoader->selection,mouse.x,mouse.y);
@@ -195,7 +195,7 @@ void Engine::processInput()
                 //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x + 10,sf::Mouse::getPosition().y),*Window);
 
                 view.move(10,0);
-             //   backgroundView.move(5,0);
+                //   backgroundView.move(5,0);
             }
 
             if (event.key.code == sf::Keyboard::Space)
@@ -273,12 +273,12 @@ void Engine::processInput()
 
 void Engine::update()
 {
-   // enemy->moveOnPath();
+    // enemy->moveOnPath();
     // cout<<player->numFootContacts<<endl;
 
     if(player->dead)
     {
-   //     player->respawn(player->checkpointPos);
+        //     player->respawn(player->checkpointPos);
     }
 
 
@@ -314,33 +314,39 @@ void Engine::update()
 
     }
 
- b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
- if (moveLeft) { player->bodyFixture->SetFriction(0);
+    b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+    if (moveLeft)
+    {
+        player->bodyFixture->SetFriction(0);
 
-   if (vel.x > 0)
-   {
-       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->dec,vel.y));
-     //  xsp -= player->dec;
-   }
-   else if (vel.x > -10)
-   {
-       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
-       //xsp = xsp-player->acc;
-   }
-} else if (moveRight) { player->bodyFixture->SetFriction(0);
+        if (vel.x > 0)
+        {
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->dec,vel.y));
+            //  xsp -= player->dec;
+        }
+        else if (vel.x > -10)
+        {
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
+            //xsp = xsp-player->acc;
+        }
+    }
+    else if (moveRight)
+    {
+        player->bodyFixture->SetFriction(0);
 
-   if (vel.x < 0)
-   {
-       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
-   }
-   else if (vel.x < 10)
-   {
-       worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
-   }
-} //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
-else {
-player->bodyFixture->SetFriction(30);
-}
+        if (vel.x < 0)
+        {
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+        }
+        else if (vel.x < 10)
+        {
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+        }
+    } //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
+    else
+    {
+        player->bodyFixture->SetFriction(30);
+    }
 
 
 
@@ -358,13 +364,45 @@ void Engine::renderFrame()
     Window->clear(sf::Color::White);
     World->DrawDebugData();
 
-    //  Window->setView(backgroundView);
+    //this call uses tons of cycle time loop runs ~100 slower
+      displayMouseCoords();
 
-    //render box with mouse x,y position
+    //CAMERA CONTROLS
+    if(worldBodies["player"]->GetPosition().y*SCALE < 500)
+    {
+        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+    }
+    else
+    {
+        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,view.getCenter().y);
+    }
+
+    Window->setView(view);
+
+    int pos_x = 0;
+    int pos_y = 0;
+
+    sf::Vector2i temp1 = Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
+    sf::Vector2f temp =  Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
+    sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+    // enemy->render();
+    worldMap->render();
+    mapBuilder->render(mouseWorld.x,mouseWorld.y);
+    player->render();
+    //RANDOM DRAW CALLS
+    Window->draw(line,2,sf::Lines);
+    Window->draw(rect);
+
+    Window->display();
+};
+
+void Engine::displayMouseCoords()
+{
     sf::Font font;
     if (!font.loadFromFile("arial.ttf"))
     {
-        // error...
+        std::cout << "Error loading font to displayMouseCoords " << std::endl;
     }
 
     sf::Text text;
@@ -382,7 +420,7 @@ void Engine::renderFrame()
     sprintf(mousex, "%d", mouse.x);
     sprintf(mousey, "%d", mouse.y);
 
-  //  std::cout << mouseWorld.x << mouseWorld.y << std::endl;
+    //  std::cout << mouseWorld.x << mouseWorld.y << std::endl;
 
     int score = mouseWorld.x; // the score to print
     int score1 = mouseWorld.y;
@@ -404,61 +442,12 @@ void Engine::renderFrame()
     // set the color
     text.setColor(sf::Color::Blue);
     text2.setColor(sf::Color::Cyan);
-   // sf::Vector2f mouse = Window->mapPixelToCoords
+    // sf::Vector2f mouse = Window->mapPixelToCoords
     text.setPosition(Window->mapPixelToCoords(sf::Vector2i(70,0)));
     text2.setPosition(Window->mapPixelToCoords(sf::Vector2i(200,0)));
     Window->draw(text);
     Window->draw(text2);
-//    if(!debug)
-//    {
-//        Window->draw(backgroundSpriteFill);
-//        Window->draw(backgroundSprite);
-//        Window->draw(skySprite);
-//    }
-    //SET NORMAL VIEW
-   // std::cout << view.getCenter().y << std::endl;
-  //  view.setCenter(0,0);
-    if(worldBodies["player"]->GetPosition().y*SCALE < 500)
-    {
-          //  std::cout << view.getCenter().y << std::endl;
-        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
-       // view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE-700);
-    }
-    else
-    {
-         view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,view.getCenter().y);
-    }
-
-   //view.move()
-    //cout << "player location x: " << worldBodies["player"]->GetPosition().x << "player location y: " << worldBodies["player"]->GetPosition().y << endl;
-    Window->setView(view);
-
-   int pos_x = 0;
-   int pos_y = 0;
-
-    sf::Vector2i temp1 = Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
-    sf::Vector2f temp =  Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
-  //  sf::Vector2f temp = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
-//    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
-//    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
-//    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
-
-    worldMap->render();
-
-
-   // enemy->render();
-    player->render();
-
-    mapBuilder->render(mouseWorld.x,mouseWorld.y);
-    Window->draw(player->playerSprite);
-   // Window->draw(dot);
-    Window->draw(line,2,sf::Lines);
-    Window->draw(rect);
-
-    Window->display();
-    // debugDrawInstance->window->display();
-};
-
+}
 
 
 template <typename T>

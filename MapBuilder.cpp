@@ -47,6 +47,7 @@ void MapBuilder::render(int mouse_x, int mouse_y)
         //for how many points you want to generate
         for( float i = 0 ; i <= 1.1 ; i += 0.1)
         {
+
             // The Green Line
             xa = getPt( anchorPoint1.x , controlPoint1.x , i );
             ya = getPt( anchorPoint1.y , controlPoint1.y , i );
@@ -74,18 +75,38 @@ void MapBuilder::render(int mouse_x, int mouse_y)
             perp.x /= length;
             perp.y /= length;
 
+                        if(i == .1)
+            {
+                curvePointPrev = curvePoint;
+                perpPrev = perp;
+            }
+
             //top vector line
             sf::Vertex top[] =
             {
                 sf::Vertex(sf::Vector2f(curvePoint.x, curvePoint.y),sf::Color::Red),
                 sf::Vertex(sf::Vector2f((perp.x*20)+center.x,(perp.y)*20+center.y),sf::Color::Blue)
             };
+
+            sf::Vertex acrosstop[] =
+            {
+                sf::Vertex(sf::Vector2f((perpPrev.x*20)+curvePointPrev.x,(perpPrev.y)*20+curvePointPrev.y),sf::Color::Red),
+                sf::Vertex(sf::Vector2f((perp.x*20)+center.x,(perp.y)*20+center.y),sf::Color::Blue)
+            };
+
             //bottom vector line
             sf::Vertex bottom[] =
             {
                 sf::Vertex(sf::Vector2f(curvePoint.x, curvePoint.y),sf::Color::Red),
-                sf::Vertex(sf::Vector2f(center.x-(perp.x*15),center.y-(perp.y)*15),sf::Color::Blue)
+                sf::Vertex(sf::Vector2f(center.x-(perp.x*20),center.y-(perp.y)*20),sf::Color::Blue)
             };
+
+            sf::Vertex acrossbottom[] =
+            {
+                sf::Vertex(sf::Vector2f(curvePointPrev.x-(perpPrev.x*20),curvePointPrev.y-(perpPrev.y*20)),sf::Color::Red),
+                sf::Vertex(sf::Vector2f(center.x-(perp.x*20),center.y-(perp.y)*20),sf::Color::Blue)
+            };
+
 
 
             sf::Vertex curve[] =
@@ -97,12 +118,19 @@ void MapBuilder::render(int mouse_x, int mouse_y)
 
             engine->Window->draw(top, 2, sf::Lines);
             engine->Window->draw(bottom, 2, sf::Lines);
-                if(i > .1)
-                    engine->Window->draw(curve, 2, sf::Lines);
+
+
+            if(i > .1)
+            {engine->Window->draw(acrosstop, 2, sf::Lines);
+            engine->Window->draw(acrossbottom, 2, sf::Lines);
+                                engine->Window->draw(curve, 2, sf::Lines);
+
+            }
 
 
             blackDot.setPosition(curvePoint.x,curvePoint.y);
             engine->Window->draw(blackDot);
+            perpPrev = perp;
             curvePointPrev = curvePoint;
         }
 

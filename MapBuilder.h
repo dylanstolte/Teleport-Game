@@ -12,6 +12,7 @@ public:
     sf::Vector2i controlPoint1;
     sf::Vector2i curvePoint;
     sf::Vector2i curvePointPrev;
+    sf::Vector2f perpPrev;
 
     bool anchor1 = false;
     bool anchor2 = false;

@@ -156,7 +156,7 @@ void MapBuilder::drawBox(int mousex, int mousey)
             sf::Vector2f mouse(mousex,mousey);
 
             rect = sf::RectangleShape(sf::Vector2f(-(rectangleStart.x-mouse.x),-(rectangleStart.y-mouse.y)));
-            // rect.setOrigin(mouse);
+        //  std::cout << rect.getSize() <<std::endl;
             rect.setPosition(rectangleStart.x,rectangleStart.y);
             rect.setFillColor(sf::Color::Blue);
 

@@ -19,6 +19,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         cout << " fixture " << (int) fixtureUserData << " contacts " << engine->player->numFootContacts << endl;
 
     }
+    //left and right fixtures
     if ( (int)fixtureUserData == 1 )
     {
        engine->player->numFootContacts++;

@@ -71,8 +71,8 @@ void Map::createBodyBox(float pos_x, float pos_y,float width, float height, int 
     b2PolygonShape Shape;
     Shape.SetAsBox((width/2)/engine->SCALE, (height/2)/engine->SCALE);
     b2FixtureDef FixtureDef;
-    FixtureDef.density = 100.f;
-    FixtureDef.friction = 10.0f;
+    FixtureDef.density = 1.f;
+    FixtureDef.friction = 1.0f;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
 

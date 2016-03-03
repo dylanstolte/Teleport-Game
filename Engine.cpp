@@ -94,10 +94,19 @@ void Engine::processInput()
     /**PROTYPE NEW INPUT*/
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
+        if(moveJump == false && jumpRelease == true)
+           std::cout << "Double jump" << std::endl;
+            //if no foot contacts
+                //
         moveJump = true;
+        jumpRelease = false;
     }
     else
     {
+        if(moveJump)
+        {
+            jumpRelease = true;
+        }
         moveJump = false;
     }
 
@@ -122,11 +131,11 @@ void Engine::processInput()
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
 
-           std::cout << "pressed" << std::endl;
+         //  std::cout << "pressed" << std::endl;
 
         if(mouseLeft)
         {
-                  std::cout << "held" << std::endl;
+              //    std::cout << "held" << std::endl;
 
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 //
@@ -154,8 +163,17 @@ void Engine::processInput()
     }
     else
     {
-        mouseLeft = false;
-        std::cout << "Create body Box from sf:: blu box" << std::endl;
+        if(mouseLeft)
+        {
+            mouseLeft = false;
+            std::cout << "released " << std::endl;
+            worldMap->createBodyBox(mapBuilder->rect.getPosition().x+(mapBuilder->rect.getSize().x/2),
+                                    mapBuilder->rect.getPosition().y+(mapBuilder->rect.getSize().y/2),
+                                    abs(mapBuilder->rect.getSize().x),
+                                    abs(mapBuilder->rect.getSize().y),21);
+        }
+
+      //  std::cout << "Create body Box from sf:: blu box" << std::endl;
         mapBuilder->drawbox = false;
     }
 
@@ -176,7 +194,7 @@ void Engine::processInput()
                 //   std::cout << "platform create"  << std::endl;
                 sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-                worldMap->placeObject(assetLoader->selection,mouse.x,mouse.y);
+                worldMap->placeObject(assetLoader->spriteSelection,mouse.x,mouse.y);
 
             }
         }
@@ -225,16 +243,30 @@ void Engine::processInput()
         if (event.type == sf::Event::KeyReleased)
         {
 
+
+            /** ASSET LOADER CONTROL */
             if (event.key.code == sf::Keyboard::Up)
             {
-                assetLoader->selection++;
-                std::cout<< assetLoader->selection << std::endl;
+                assetLoader->spriteSelection++;
+              //  std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Down)
             {
-                assetLoader->selection--;
-                std::cout<< assetLoader->selection << std::endl;
+                assetLoader->spriteSelection--;
+               // std::cout<< assetLoader->selection << std::endl;
             }
+            if (event.key.code == sf::Keyboard::Right)
+            {
+                assetLoader->spriteSheetSelection++;
+              //  std::cout<< assetLoader->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::Left)
+            {
+                assetLoader->spriteSheetSelection--;
+                //std::cout<< assetLoader->selection << std::endl;
+            }
+            /** END ASSET LOADER CONTROL */
+
             if (event.key.code == sf::Keyboard::Space)
             {
                 player->attack = false;
@@ -307,10 +339,21 @@ void Engine::update()
             float desiredVel = -10;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
-            worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-            //worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-2);
+          //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-7));
             //   moveJump = false;
             jumpAnimation = true;
+        }
+
+    }
+    //for variable jump height
+    if(jumpRelease)
+    {
+     //   std::cout << "release jump" << std::endl;
+        if(worldBodies["player"]->GetLinearVelocity().y < 0)
+        {
+            if(worldBodies["player"]->GetLinearVelocity().y < -3.5)
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(worldBodies["player"]->GetLinearVelocity().x,-3.5));
         }
 
     }
@@ -366,8 +409,8 @@ void Engine::renderFrame()
     World->DrawDebugData();
 
     //this call uses tons of cycle time loop runs ~100 slower
-      displayMouseCoords();
-
+    displayMouseCoords();
+    displayAssetSelection();
     //CAMERA CONTROLS
     if(worldBodies["player"]->GetPosition().y*SCALE < 500)
     {
@@ -380,22 +423,52 @@ void Engine::renderFrame()
 
     Window->setView(view);
 
-    int pos_x = 0;
-    int pos_y = 0;
-
-    sf::Vector2i temp1 = Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
-    sf::Vector2f temp =  Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
     // enemy->render();
     worldMap->render();
     mapBuilder->render(mouseWorld.x,mouseWorld.y);
     player->render();
-    //RANDOM DRAW CALLS
+
+    /**RANDOM DRAW CALLS*/
 
 
+
+    /** CALL TO DISPLAY */
     Window->display();
 };
+void Engine::displayAssetSelection()
+{
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+    {
+        std::cout << "Error loading font to displayMouseCoords " << std::endl;
+    }
+    sf::Text text;
+    text.setFont(font);
+    //dont go out of vector range
+    if(assetLoader->spriteSheetSelection < 0)
+        assetLoader->spriteSheetSelection = 0;
+    if(assetLoader->spriteSheetSelection >= assetLoader->assetFileNames.size())
+        assetLoader->spriteSheetSelection = assetLoader->assetFileNames.size() -1;
+
+    std::string asset = assetLoader->getBaseFilename(assetLoader->assetFileNames.at(assetLoader->spriteSheetSelection));
+    std::cout << "assset" << asset << std::endl;
+
+    char str[50];
+    sprintf(str, "%d", assetLoader->spriteSelection);
+
+    text.setString("AssetLoader: \nSprite Sheet : " + asset + " Sprite_sel: " + str);
+    text.setCharacterSize(15);
+    text.setColor(sf::Color::Black);
+    text.setPosition(Window->mapPixelToCoords(sf::Vector2i(300,0)));
+
+    sf::Sprite temp(assetLoader->spriteMap[asset + "_" + str]);
+    sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+    temp.setPosition(mouseWorld);
+
+    Window->draw(temp);
+    Window->draw(text);}
 
 void Engine::displayMouseCoords()
 {

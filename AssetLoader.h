@@ -17,7 +17,8 @@ public:
     b2PolygonShape shape;
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
-    int selection = 0;
+    int spriteSelection = 0;
+    int spriteSheetSelection = 0;
 
 
     void createSprite(std::string fileName,int spriteIndicator);

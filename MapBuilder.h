@@ -30,7 +30,7 @@ public:
     int xa,ya,xb,yb,x,y;
     int xa2,ya2,xb2,yb2,xprev,yprev;
     sf::Vertex line[2];
-      sf::RectangleShape rect;
+    sf::RectangleShape rect;
 
 
     void render(int mousex, int mousey);

@@ -8,8 +8,9 @@ using namespace std;
 AssetLoader::AssetLoader(Engine* engine)
 {
     this->engine = engine;
-    std::string assetDirectory = "C:\\Users\\8470w\\git\\Teleport-Game\\AssetLoader\\Assets";
-    std::string assetInfoDirectory = "C:\\Users\\8470w\\git\\Teleport-Game\\AssetLoader\\Info";
+    std::string assetDirectory = "C:\\Users\\Zbook15G2\\git\\Teleport-Game\\AssetLoader\\Assets";
+    std::string assetInfoDirectory = "C:\\Users\\Zbook15G2\\git\\Teleport-Game\\AssetLoader\\Info";
+   // assetFileNames.resize(10);
     loadAssets(assetDirectory,assetInfoDirectory);
 }
 

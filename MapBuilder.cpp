@@ -152,7 +152,7 @@ void MapBuilder::drawBezierCurve(int mousex, int mousey)
 
 void MapBuilder::drawBox(int mousex, int mousey)
 {
-    std::cout << " drawbox" <<std::endl;
+  //  std::cout << " drawbox" <<std::endl;
             sf::Vector2f mouse(mousex,mousey);
 
             rect = sf::RectangleShape(sf::Vector2f(-(rectangleStart.x-mouse.x),-(rectangleStart.y-mouse.y)));

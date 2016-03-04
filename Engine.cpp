@@ -58,8 +58,133 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
+        b2Vec2 g(0.000000000000000e+000f, -1.000000000000000e+001f);
 
+b2Body** bodies = (b2Body**)b2Alloc(1 * sizeof(b2Body*));
+b2Joint** joints = (b2Joint**)b2Alloc(0 * sizeof(b2Joint*));
+{
+  b2BodyDef bd;
+  bd.type = b2BodyType(0);
+  bd.position.Set(4.128805160522461e+000f, 1.914284586906433e+000f);
+  bd.angle = -3.141592741012573e+000f;
+  bd.linearVelocity.Set(0.000000000000000e+000f, 0.000000000000000e+000f);
+  bd.angularVelocity = 0.000000000000000e+000f;
+  bd.linearDamping = 0.000000000000000e+000f;
+  bd.angularDamping = 0.000000000000000e+000f;
+  bd.allowSleep = bool(4);
+  bd.awake = bool(2);
+  bd.fixedRotation = bool(0);
+  bd.bullet = bool(0);
+  bd.active = bool(32);
+//  bd.gravityScale = 1.000000000000000e+000f;
+  bodies[0] = World->CreateBody(&bd);
 
+  {
+    b2FixtureDef fd;
+    fd.friction = 2.000000029802322e-001f;
+    fd.restitution = 0.000000000000000e+000f;
+    fd.density = 1.000000000000000e+000f;
+    fd.isSensor = bool(0);
+    fd.filter.categoryBits = uint16(1);
+    fd.filter.maskBits = uint16(65535);
+    fd.filter.groupIndex = int16(0);
+    b2PolygonShape shape;
+    b2Vec2 vs[8];
+    vs[0].Set(2.383794784545898e+000f, 8.835233449935913e-001f);
+    vs[1].Set(2.289235144853592e-001f, 8.747122883796692e-001f);
+    vs[2].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
+    vs[3].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
+    vs[4].Set(2.257941246032715e+000f, 6.107720136642456e-001f);
+    shape.Set(vs, 5);
+
+    fd.shape = &shape;
+
+    bodies[0]->CreateFixture(&fd);
+  }
+  {
+    b2FixtureDef fd;
+    fd.friction = 2.000000029802322e-001f;
+    fd.restitution = 0.000000000000000e+000f;
+    fd.density = 1.000000000000000e+000f;
+    fd.isSensor = bool(0);
+    fd.filter.categoryBits = uint16(1);
+    fd.filter.maskBits = uint16(65535);
+    fd.filter.groupIndex = int16(0);
+    b2PolygonShape shape;
+    b2Vec2 vs[8];
+    vs[0].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
+    vs[1].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
+    vs[2].Set(5.614719390869141e-001f, -1.434275269508362e+000f);
+    shape.Set(vs, 3);
+
+    fd.shape = &shape;
+
+    bodies[0]->CreateFixture(&fd);
+  }
+  {
+    b2FixtureDef fd;
+    fd.friction = 2.000000029802322e-001f;
+    fd.restitution = 0.000000000000000e+000f;
+    fd.density = 1.000000000000000e+000f;
+    fd.isSensor = bool(0);
+    fd.filter.categoryBits = uint16(1);
+    fd.filter.maskBits = uint16(65535);
+    fd.filter.groupIndex = int16(0);
+    b2PolygonShape shape;
+    b2Vec2 vs[8];
+    vs[0].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
+    vs[1].Set(2.289235144853592e-001f, 8.747122883796692e-001f);
+    vs[2].Set(-1.004976868629456e+000f, 8.696670532226562e-001f);
+    vs[3].Set(-1.015588521957397e+000f, -2.753762006759644e-001f);
+    vs[4].Set(1.163501739501953e-001f, -1.958790659904480e+000f);
+    shape.Set(vs, 5);
+
+    fd.shape = &shape;
+
+    bodies[0]->CreateFixture(&fd);
+  }
+  {
+    b2FixtureDef fd;
+    fd.friction = 2.000000029802322e-001f;
+    fd.restitution = 0.000000000000000e+000f;
+    fd.density = 1.000000000000000e+000f;
+    fd.isSensor = bool(0);
+    fd.filter.categoryBits = uint16(1);
+    fd.filter.maskBits = uint16(65535);
+    fd.filter.groupIndex = int16(0);
+    b2PolygonShape shape;
+    b2Vec2 vs[8];
+    vs[0].Set(-1.004976868629456e+000f, 8.696670532226562e-001f);
+    vs[1].Set(-3.187181711196899e+000f, 8.607442378997803e-001f);
+    vs[2].Set(-1.455404996871948e+000f, -9.154237508773804e-001f);
+    vs[3].Set(-1.015588521957397e+000f, -2.753762006759644e-001f);
+    shape.Set(vs, 4);
+
+    fd.shape = &shape;
+
+    bodies[0]->CreateFixture(&fd);
+  }
+  {
+    b2FixtureDef fd;
+    fd.friction = 2.000000029802322e-001f;
+    fd.restitution = 0.000000000000000e+000f;
+    fd.density = 1.000000000000000e+000f;
+    fd.isSensor = bool(0);
+    fd.filter.categoryBits = uint16(1);
+    fd.filter.maskBits = uint16(65535);
+    fd.filter.groupIndex = int16(0);
+    b2PolygonShape shape;
+    b2Vec2 vs[8];
+    vs[0].Set(3.389878273010254e+000f, 4.649428129196167e-001f);
+    vs[1].Set(2.257941246032715e+000f, 6.107720136642456e-001f);
+    vs[2].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
+    shape.Set(vs, 3);
+
+    fd.shape = &shape;
+
+    bodies[0]->CreateFixture(&fd);
+  }
+}
     mainLoop();
 }
 
@@ -92,10 +217,15 @@ void Engine::processInput()
 {
 
     /**PROTYPE NEW INPUT*/
+
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         if(moveJump == false && jumpRelease == true)
-           std::cout << "Double jump" << std::endl;
+        {
+
+            doubleJump = true;
+    //       std::cout << "Double jump" << std::endl;
+        }
             //if no foot contacts
                 //
         moveJump = true;
@@ -133,29 +263,24 @@ void Engine::processInput()
 
          //  std::cout << "pressed" << std::endl;
 
-        if(mouseLeft)
+        if(mouseLeft && mapBuilder->enabledrawbox)
         {
               //    std::cout << "held" << std::endl;
 
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
-//
-//            rect = sf::RectangleShape(sf::Vector2f(mapBuilder->rectangleStart.x-mouse.x,mapBuilder->rectangleStart.y-mouse.y));
-//            // rect.setOrigin(mouse);
-//            rect.setPosition(mapBuilder->rectangleStart.x,mapBuilder->rectangleStart.y);
-//            rect.setFillColor(sf::Color::Blue);
-//
-//
-//            line[0] = sf::Vertex(mouse,sf::Color::Green);
-//            line[1] = sf::Vertex(mapBuilder->rectangleStart,sf::Color::Red);
-        mapBuilder->drawbox = true;
+            mapBuilder->drawbox = true;
 
 
         }
         else
         {
-            mouseLeft = true;
+            if(mapBuilder->enabledrawbox)
+            {
+                  mouseLeft = true;
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
             mapBuilder->rectangleStart = sf::Vector2f(mouse);
+            }
+
         }
 
 
@@ -166,7 +291,7 @@ void Engine::processInput()
         if(mouseLeft)
         {
             mouseLeft = false;
-            std::cout << "released " << std::endl;
+         //   std::cout << "released " << std::endl;
             worldMap->createBodyBox(mapBuilder->rect.getPosition().x+(mapBuilder->rect.getSize().x/2),
                                     mapBuilder->rect.getPosition().y+(mapBuilder->rect.getSize().y/2),
                                     abs(mapBuilder->rect.getSize().x),
@@ -297,6 +422,13 @@ void Engine::processInput()
                 }
 
             }
+            if(event.key.code == sf::Keyboard::B)
+            {
+                if(mapBuilder->enabledrawbox)
+                    mapBuilder->enabledrawbox = false;
+                else
+                    mapBuilder->enabledrawbox = true;
+            }
 
         }
 
@@ -306,6 +438,12 @@ void Engine::processInput()
 
 void Engine::update()
 {
+    /**  */
+
+
+
+
+    /** */
     // enemy->moveOnPath();
     // cout<<player->numFootContacts<<endl;
 
@@ -328,6 +466,19 @@ void Engine::update()
         //cout<<"inair"<<endl;
     }
 
+    if(doubleJump)
+    {
+         b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
+            float desiredVel = -10;
+            float velChange = desiredVel - vel.y;
+            float impulse =  worldBodies["player"]->GetMass() * velChange;
+          //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-7));
+            //   moveJump = false;
+            jumpAnimation = true;
+            doubleJump = false;
+
+    }
 
     if(moveJump)
     {
@@ -411,6 +562,7 @@ void Engine::renderFrame()
     //this call uses tons of cycle time loop runs ~100 slower
     displayMouseCoords();
     displayAssetSelection();
+
     //CAMERA CONTROLS
     if(worldBodies["player"]->GetPosition().y*SCALE < 500)
     {
@@ -453,7 +605,7 @@ void Engine::displayAssetSelection()
         assetLoader->spriteSheetSelection = assetLoader->assetFileNames.size() -1;
 
     std::string asset = assetLoader->getBaseFilename(assetLoader->assetFileNames.at(assetLoader->spriteSheetSelection));
-    std::cout << "assset" << asset << std::endl;
+    //std::cout << "assset" << asset << std::endl;
 
     char str[50];
     sprintf(str, "%d", assetLoader->spriteSelection);

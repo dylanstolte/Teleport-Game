@@ -198,6 +198,17 @@ void Map::render()
 
 }
 
+void save()
+{
+
+//     for(b2Body* BodyIterator = engine->World.GetBodyList();
+//     BodyIterator != 0;
+//     BodyIterator = BodyIterator->GetNext())
+//     {
+//
+//     }
+}
+
 void Map::placeObject(int selection,int mouse_x,int mouse_y)
 {
     switch ( selection)

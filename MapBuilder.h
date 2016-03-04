@@ -17,6 +17,7 @@ public:
     bool anchor1 = false;
     bool anchor2 = false;
     bool drawbox = false;
+    bool enabledrawbox = false;
 
     Engine *engine;
     sf::CircleShape anchorDot1;

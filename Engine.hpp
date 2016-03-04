@@ -66,6 +66,7 @@ public:
     bool moveLeft = false;
     bool mouseLeft = false;
     bool jumpRelease = false;
+    bool doubleJump = false;
     void displayAssetSelection();
     std::map<std::string,sf::Sprite>::iterator spriteMapIter;
     std::map<std::string,b2Body*> worldBodies;

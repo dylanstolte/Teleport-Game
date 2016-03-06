@@ -758,7 +758,7 @@
 1456795588 c:\users\zbook15g2\git\teleport-game\animation.h
 	<SFML/graphics.hpp>
 
-1457259574 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
+1457314825 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
 	"AssetLoader.h"
 	<sstream>
 	<string>
@@ -806,10 +806,10 @@
 	"Engine.hpp"
 	"Animation.h"
 
-1457066972 c:\users\zbook15g2\git\teleport-game\map.h
+1457314825 c:\users\zbook15g2\git\teleport-game\map.h
 	"Engine.hpp"
 
-1456795588 c:\users\zbook15g2\git\teleport-game\enemy.h
+1457314825 c:\users\zbook15g2\git\teleport-game\enemy.h
 	"SFML/Graphics.hpp"
 	"Engine.hpp"
 	"Animation.h"
@@ -820,33 +820,38 @@
 1456981698 source:c:\users\zbook15g2\git\teleport-game\debugdraw.cpp
 	"DebugDraw.h"
 
-1456795588 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
+1457314825 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
 	"Enemy.h"
 
-1457259574 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+1457086375 D
+
+1457241873 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+
+1457248488 8bfa... Changed In Air control(no decel on direction change)//Fixed double jump,jump,wallclibm, no bounce on press and ground collision no floating//Added first prototype map w/ rotating box platforms//Refactor File structure, After pull open codeblocks default.workspace not .cbp file//Workspace contains rubeExportToMapScript project, this scipt takes rubeExport.txt gui source code and creates scriptBuiltMap.ccp then gets auto loaded in engine, DONT FORGET TO NEGATIVE SCALE ACROSS X AXIS BEFORE EXPORT//
 	"Engine.hpp"
 	<string>
 	<sstream>
+	"scriptBuiltMap.h"
 
 1456798753 source:c:\users\zbook15g2\git\teleport-game\main.cpp
 	"Engine.hpp"
 
-1457217879 source:c:\users\zbook15g2\git\teleport-game\map.cpp
+1457314825 source:c:\users\zbook15g2\git\teleport-game\map.cpp
 	"Map.h"
 
 1457066972 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
 	"MapBuilder.h"
 
-1456989292 source:c:\users\zbook15g2\git\teleport-game\mycontactlistener.cpp
+1457314825 source:c:\users\zbook15g2\git\teleport-game\mycontactlistener.cpp
 	"MyContactListener.h"
 
-1456981698 source:c:\users\zbook15g2\git\teleport-game\player.cpp
+1457314825 source:c:\users\zbook15g2\git\teleport-game\player.cpp
 	"Player.h"
 	"Animation.h"
 
 1457086375 source:c:\users\zbook15g2\desktop\map.cpp
 
-1457259408 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
+1457315090 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
 	"scriptBuiltMap.h"
 
 1457214263 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h

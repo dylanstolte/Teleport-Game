@@ -66,10 +66,6 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
-
-
-//view.zoom(2);
-
     mainLoop();
 }
 

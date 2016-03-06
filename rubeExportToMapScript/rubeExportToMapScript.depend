@@ -7,6 +7,7 @@
 	<sys/stat.h>
 	<sstream>
 
+<<<<<<< HEAD
 1457248349 source:c:\users\zbook15g2\git\teleport-game\rubeexporttomapscript\main.cpp
 	<iostream>
 	<fstream>
@@ -15,3 +16,5 @@
 	<sys/stat.h>
 	<sstream>
 
+=======
+>>>>>>> c0c8bfa... Changed In Air control(no decel on direction change)//Fixed double jump,jump,wallclibm, no bounce on press and ground collision no floating//Added first prototype map w/ rotating box platforms//Refactor File structure, After pull open codeblocks default.workspace not .cbp file//Workspace contains rubeExportToMapScript project, this scipt takes rubeExport.txt gui source code and creates scriptBuiltMap.ccp then gets auto loaded in engine, DONT FORGET TO NEGATIVE SCALE ACROSS X AXIS BEFORE EXPORT//

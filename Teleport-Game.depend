@@ -758,7 +758,7 @@
 1456795588 c:\users\zbook15g2\git\teleport-game\animation.h
 	<SFML/graphics.hpp>
 
-1456989279 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
+1457259574 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
 	"AssetLoader.h"
 	<sstream>
 	<string>
@@ -823,7 +823,7 @@
 1456795588 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
 	"Enemy.h"
 
-1457241873 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+1457259574 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
 	"Engine.hpp"
 	<string>
 	<sstream>
@@ -846,7 +846,7 @@
 
 1457086375 source:c:\users\zbook15g2\desktop\map.cpp
 
-1457248488 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
+1457259408 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
 	"scriptBuiltMap.h"
 
 1457214263 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h

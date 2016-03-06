@@ -66,7 +66,7 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
-    b2Vec2 g(0.000000000000000e+000f, -1.000000000000000e+001f);
+
 
 //view.zoom(2);
 

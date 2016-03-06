@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1457248349 source:c:\users\zbook15g2\git\rubeexporttomapscript\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<dirent.h>
+	<sys/stat.h>
+	<sstream>
+

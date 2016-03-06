@@ -12,6 +12,7 @@
 #include "Enemy.h"
 #include "AssetLoader.h"
 #include "MapBuilder.h"
+#include "scriptBuiltMap.h"
 
 class Map;
 class Enemy;
@@ -19,6 +20,7 @@ class Player;
 class MyContactListener;
 class AssetLoader;
 class MapBuilder;
+class scriptBuiltMap;
 
 class Engine
 {
@@ -37,6 +39,7 @@ public:
     Map* worldMap;
     AssetLoader* assetLoader;
     MapBuilder* mapBuilder;
+    scriptBuiltMap* ScriptBuiltMap;
 
     //at global scope
     DebugDraw* debugDrawInstance;
@@ -67,12 +70,18 @@ public:
     bool mouseLeft = false;
     bool jumpRelease = false;
     bool doubleJump = false;
+    bool preventJump = false;
+    int jumpCount = 0;
     void displayAssetSelection();
     std::map<std::string,sf::Sprite>::iterator spriteMapIter;
     std::map<std::string,b2Body*> worldBodies;
     int MouseX;
     int MouseY;
     bool debug = true;
+
+    b2Body** bodies;
+    b2Joint** joints;
+
     /** We need this to easily convert between pixel and real-world coordinates*/
     float SCALE = 30.f;
     //Initializes the engine

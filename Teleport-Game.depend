@@ -773,7 +773,7 @@
 	<iostream>
 	"Engine.hpp"
 
-1457069156 c:\users\zbook15g2\git\teleport-game\engine.hpp
+1457239154 c:\users\zbook15g2\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	<Box2D\Box2D.h>
 	<iostream>
@@ -786,6 +786,7 @@
 	"Enemy.h"
 	"AssetLoader.h"
 	"MapBuilder.h"
+	"scriptBuiltMap.h"
 
 1456795588 c:\users\zbook15g2\git\teleport-game\mycontactlistener.h
 	<SFML\Graphics.hpp>
@@ -822,7 +823,7 @@
 1456795588 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
 	"Enemy.h"
 
-1457073883 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+1457241873 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
 	"Engine.hpp"
 	<string>
 	<sstream>
@@ -830,7 +831,7 @@
 1456798753 source:c:\users\zbook15g2\git\teleport-game\main.cpp
 	"Engine.hpp"
 
-1457068568 source:c:\users\zbook15g2\git\teleport-game\map.cpp
+1457217879 source:c:\users\zbook15g2\git\teleport-game\map.cpp
 	"Map.h"
 
 1457066972 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
@@ -844,4 +845,10 @@
 	"Animation.h"
 
 1457086375 source:c:\users\zbook15g2\desktop\map.cpp
+
+1457248488 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
+	"scriptBuiltMap.h"
+
+1457214263 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h
+	"Engine.hpp"
 

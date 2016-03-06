@@ -3,7 +3,13 @@
 #include <sstream>
 
 using namespace std;
-Engine::~Engine() {};
+Engine::~Engine()
+{
+    b2Free(joints);
+    b2Free(bodies);
+    joints = NULL;
+    bodies = NULL;
+};
 Engine::Engine()
 {
 
@@ -38,12 +44,14 @@ Engine::Engine()
     /**Load the Assets*/
     assetLoader = new AssetLoader(this);
 
-    worldMap->CreateGround(512.f, 800.f);
+    //  worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
     //  enemy = new Enemy(World,this,100,100);
     //  enemy = new Enemy(World,this,200,200);
 
     mapBuilder = new MapBuilder(this);
+    ScriptBuiltMap = new scriptBuiltMap(this);
+    ScriptBuiltMap->load();
 
     ///LOAD TEXTURES
     flash.loadFromFile("flash.png");
@@ -58,133 +66,10 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
-        b2Vec2 g(0.000000000000000e+000f, -1.000000000000000e+001f);
+    b2Vec2 g(0.000000000000000e+000f, -1.000000000000000e+001f);
 
-b2Body** bodies = (b2Body**)b2Alloc(1 * sizeof(b2Body*));
-b2Joint** joints = (b2Joint**)b2Alloc(0 * sizeof(b2Joint*));
-{
-  b2BodyDef bd;
-  bd.type = b2BodyType(0);
-  bd.position.Set(4.128805160522461e+000f, 1.914284586906433e+000f);
-  bd.angle = -3.141592741012573e+000f;
-  bd.linearVelocity.Set(0.000000000000000e+000f, 0.000000000000000e+000f);
-  bd.angularVelocity = 0.000000000000000e+000f;
-  bd.linearDamping = 0.000000000000000e+000f;
-  bd.angularDamping = 0.000000000000000e+000f;
-  bd.allowSleep = bool(4);
-  bd.awake = bool(2);
-  bd.fixedRotation = bool(0);
-  bd.bullet = bool(0);
-  bd.active = bool(32);
-//  bd.gravityScale = 1.000000000000000e+000f;
-  bodies[0] = World->CreateBody(&bd);
+//view.zoom(2);
 
-  {
-    b2FixtureDef fd;
-    fd.friction = 2.000000029802322e-001f;
-    fd.restitution = 0.000000000000000e+000f;
-    fd.density = 1.000000000000000e+000f;
-    fd.isSensor = bool(0);
-    fd.filter.categoryBits = uint16(1);
-    fd.filter.maskBits = uint16(65535);
-    fd.filter.groupIndex = int16(0);
-    b2PolygonShape shape;
-    b2Vec2 vs[8];
-    vs[0].Set(2.383794784545898e+000f, 8.835233449935913e-001f);
-    vs[1].Set(2.289235144853592e-001f, 8.747122883796692e-001f);
-    vs[2].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
-    vs[3].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
-    vs[4].Set(2.257941246032715e+000f, 6.107720136642456e-001f);
-    shape.Set(vs, 5);
-
-    fd.shape = &shape;
-
-    bodies[0]->CreateFixture(&fd);
-  }
-  {
-    b2FixtureDef fd;
-    fd.friction = 2.000000029802322e-001f;
-    fd.restitution = 0.000000000000000e+000f;
-    fd.density = 1.000000000000000e+000f;
-    fd.isSensor = bool(0);
-    fd.filter.categoryBits = uint16(1);
-    fd.filter.maskBits = uint16(65535);
-    fd.filter.groupIndex = int16(0);
-    b2PolygonShape shape;
-    b2Vec2 vs[8];
-    vs[0].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
-    vs[1].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
-    vs[2].Set(5.614719390869141e-001f, -1.434275269508362e+000f);
-    shape.Set(vs, 3);
-
-    fd.shape = &shape;
-
-    bodies[0]->CreateFixture(&fd);
-  }
-  {
-    b2FixtureDef fd;
-    fd.friction = 2.000000029802322e-001f;
-    fd.restitution = 0.000000000000000e+000f;
-    fd.density = 1.000000000000000e+000f;
-    fd.isSensor = bool(0);
-    fd.filter.categoryBits = uint16(1);
-    fd.filter.maskBits = uint16(65535);
-    fd.filter.groupIndex = int16(0);
-    b2PolygonShape shape;
-    b2Vec2 vs[8];
-    vs[0].Set(3.663492202758789e-001f, -9.445260763168335e-001f);
-    vs[1].Set(2.289235144853592e-001f, 8.747122883796692e-001f);
-    vs[2].Set(-1.004976868629456e+000f, 8.696670532226562e-001f);
-    vs[3].Set(-1.015588521957397e+000f, -2.753762006759644e-001f);
-    vs[4].Set(1.163501739501953e-001f, -1.958790659904480e+000f);
-    shape.Set(vs, 5);
-
-    fd.shape = &shape;
-
-    bodies[0]->CreateFixture(&fd);
-  }
-  {
-    b2FixtureDef fd;
-    fd.friction = 2.000000029802322e-001f;
-    fd.restitution = 0.000000000000000e+000f;
-    fd.density = 1.000000000000000e+000f;
-    fd.isSensor = bool(0);
-    fd.filter.categoryBits = uint16(1);
-    fd.filter.maskBits = uint16(65535);
-    fd.filter.groupIndex = int16(0);
-    b2PolygonShape shape;
-    b2Vec2 vs[8];
-    vs[0].Set(-1.004976868629456e+000f, 8.696670532226562e-001f);
-    vs[1].Set(-3.187181711196899e+000f, 8.607442378997803e-001f);
-    vs[2].Set(-1.455404996871948e+000f, -9.154237508773804e-001f);
-    vs[3].Set(-1.015588521957397e+000f, -2.753762006759644e-001f);
-    shape.Set(vs, 4);
-
-    fd.shape = &shape;
-
-    bodies[0]->CreateFixture(&fd);
-  }
-  {
-    b2FixtureDef fd;
-    fd.friction = 2.000000029802322e-001f;
-    fd.restitution = 0.000000000000000e+000f;
-    fd.density = 1.000000000000000e+000f;
-    fd.isSensor = bool(0);
-    fd.filter.categoryBits = uint16(1);
-    fd.filter.maskBits = uint16(65535);
-    fd.filter.groupIndex = int16(0);
-    b2PolygonShape shape;
-    b2Vec2 vs[8];
-    vs[0].Set(3.389878273010254e+000f, 4.649428129196167e-001f);
-    vs[1].Set(2.257941246032715e+000f, 6.107720136642456e-001f);
-    vs[2].Set(1.005093574523926e+000f, -7.401105165481567e-001f);
-    shape.Set(vs, 3);
-
-    fd.shape = &shape;
-
-    bodies[0]->CreateFixture(&fd);
-  }
-}
     mainLoop();
 }
 
@@ -220,24 +105,32 @@ void Engine::processInput()
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        if(moveJump == false && jumpRelease == true)
-        {
 
-            doubleJump = true;
-    //       std::cout << "Double jump" << std::endl;
+        if(player->numFootContacts > 0 && !moveJump && jumpRelease)
+        {
+            moveJump = true;
+            std::cout << "Jump" << std::endl;
+            jumpCount++;
+            doubleJump = false;
         }
-            //if no foot contacts
-                //
-        moveJump = true;
+
+
+        if(doubleJump && jumpRelease)
+        {
+            moveJump = true;
+            std::cout << "double Jump" << std::endl;
+        }
+
+
+
+        std::cout << "pressed"  << std::endl;
+
         jumpRelease = false;
     }
     else
     {
-        if(moveJump)
-        {
-            jumpRelease = true;
-        }
-        moveJump = false;
+
+        jumpRelease = true;
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -261,11 +154,11 @@ void Engine::processInput()
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
 
-         //  std::cout << "pressed" << std::endl;
+        //  std::cout << "pressed" << std::endl;
 
         if(mouseLeft && mapBuilder->enabledrawbox)
         {
-              //    std::cout << "held" << std::endl;
+            //    std::cout << "held" << std::endl;
 
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
             mapBuilder->drawbox = true;
@@ -276,9 +169,9 @@ void Engine::processInput()
         {
             if(mapBuilder->enabledrawbox)
             {
-                  mouseLeft = true;
-            sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
-            mapBuilder->rectangleStart = sf::Vector2f(mouse);
+                mouseLeft = true;
+                sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+                mapBuilder->rectangleStart = sf::Vector2f(mouse);
             }
 
         }
@@ -291,14 +184,14 @@ void Engine::processInput()
         if(mouseLeft)
         {
             mouseLeft = false;
-         //   std::cout << "released " << std::endl;
+            //   std::cout << "released " << std::endl;
             worldMap->createBodyBox(mapBuilder->rect.getPosition().x+(mapBuilder->rect.getSize().x/2),
                                     mapBuilder->rect.getPosition().y+(mapBuilder->rect.getSize().y/2),
                                     abs(mapBuilder->rect.getSize().x),
                                     abs(mapBuilder->rect.getSize().y),21);
         }
 
-      //  std::cout << "Create body Box from sf:: blu box" << std::endl;
+        //  std::cout << "Create body Box from sf:: blu box" << std::endl;
         mapBuilder->drawbox = false;
     }
 
@@ -373,17 +266,17 @@ void Engine::processInput()
             if (event.key.code == sf::Keyboard::Up)
             {
                 assetLoader->spriteSelection++;
-              //  std::cout<< assetLoader->selection << std::endl;
+                //  std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Down)
             {
                 assetLoader->spriteSelection--;
-               // std::cout<< assetLoader->selection << std::endl;
+                // std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Right)
             {
                 assetLoader->spriteSheetSelection++;
-              //  std::cout<< assetLoader->selection << std::endl;
+                //  std::cout<< assetLoader->selection << std::endl;
             }
             if (event.key.code == sf::Keyboard::Left)
             {
@@ -466,77 +359,76 @@ void Engine::update()
         //cout<<"inair"<<endl;
     }
 
-    if(doubleJump)
-    {
-         b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-            float desiredVel = -10;
-            float velChange = desiredVel - vel.y;
-            float impulse =  worldBodies["player"]->GetMass() * velChange;
-          //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-7));
-            //   moveJump = false;
-            jumpAnimation = true;
-            doubleJump = false;
-
-    }
 
     if(moveJump)
     {
-        if(player->numFootContacts > 0)
         {
-
-            //std::cout << "W key Pressed" <<  std::endl;
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
             float desiredVel = -10;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
-          //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
+            //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
             worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-7));
-            //   moveJump = false;
+            moveJump = false;
             jumpAnimation = true;
+
+            if(doubleJump)
+                doubleJump = false;
+            else
+                doubleJump = true;
         }
 
     }
     //for variable jump height
     if(jumpRelease)
     {
-     //   std::cout << "release jump" << std::endl;
         if(worldBodies["player"]->GetLinearVelocity().y < 0)
         {
             if(worldBodies["player"]->GetLinearVelocity().y < -3.5)
                 worldBodies["player"]->SetLinearVelocity(b2Vec2(worldBodies["player"]->GetLinearVelocity().x,-3.5));
         }
-
     }
 
     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
     if (moveLeft)
     {
+
         player->bodyFixture->SetFriction(0);
 
-        if (vel.x > 0)
+        if(player->numFootContacts > 0)
         {
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->dec,vel.y));
-            //  xsp -= player->dec;
-        }
-        else if (vel.x > -10)
-        {
+            if (vel.x > 0)
+            {
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->dec,vel.y));
+                //  xsp -= player->dec;
+            }
+            else if (vel.x > -10)
+            {
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
+                //xsp = xsp-player->acc;
+            }
+        }else if (vel.x > -10)
             worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
-            //xsp = xsp-player->acc;
-        }
+
     }
     else if (moveRight)
     {
         player->bodyFixture->SetFriction(0);
 
-        if (vel.x < 0)
+        if(player->numFootContacts > 0)
         {
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+            if (vel.x < 0)
+            {
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+            }
+            else if (vel.x < 10)
+            {
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+            }
         }
-        else if (vel.x < 10)
-        {
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
-        }
+       else if (vel.x < 10)
+           worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+
     } //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
     else
     {
@@ -564,14 +456,15 @@ void Engine::renderFrame()
     displayAssetSelection();
 
     //CAMERA CONTROLS
-    if(worldBodies["player"]->GetPosition().y*SCALE < 500)
+    //  if(worldBodies["player"]->GetPosition().y*SCALE < 500)
+    {
+        //      view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+    }
+    //  else
     {
         view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
     }
-    else
-    {
-        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,view.getCenter().y);
-    }
+
 
     Window->setView(view);
 
@@ -620,7 +513,8 @@ void Engine::displayAssetSelection()
     temp.setPosition(mouseWorld);
 
     Window->draw(temp);
-    Window->draw(text);}
+    Window->draw(text);
+}
 
 void Engine::displayMouseCoords()
 {

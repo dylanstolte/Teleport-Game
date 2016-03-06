@@ -2,22 +2,22 @@
 
 Map::Map(Engine* engine)
 {
-    GroundTexture.loadFromFile("ground.png");
-    BoxTexture.loadFromFile("box.png");
-    platform.loadFromFile("platform1.png");
-    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
+//    GroundTexture.loadFromFile("ground.png");
+//    BoxTexture.loadFromFile("box.png");
+//    platform.loadFromFile("platform1.png");
+//    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
-    std::cout << "create boxes" << std::endl;
-    createBodyBox(0,700,150,25,4);
-    //walls
-  //  createBodyBox(-450,50,15,1500,4);
- //   createBodyBox(600,50,15,1500,4);
-    //swinging platforms
-    createBodyBox(-200,350,15,150,4);
-    createBodyBox(350,550,15,150,4);
-    //wallplatforms
-    createBodyBox(-450,350,150,15,4);
-    createBodyBox(600,500,150,15,4);
+//    std::cout << "create boxes" << std::endl;
+//    createBodyBox(0,700,150,25,4);
+//    //walls
+//  //  createBodyBox(-450,50,15,1500,4);
+// //   createBodyBox(600,50,15,1500,4);
+//    //swinging platforms
+//    createBodyBox(-200,350,15,150,4);
+//    createBodyBox(350,550,15,150,4);
+//    //wallplatforms
+//    createBodyBox(-450,350,150,15,4);
+//    createBodyBox(600,500,150,15,4);
 }
 
 Map::~Map() {}

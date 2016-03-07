@@ -13,7 +13,7 @@ Engine::~Engine()
 Engine::Engine()
 {
 
-    Window = new sf::RenderWindow(sf::VideoMode(1024,900, 32), "Test");
+    Window = new sf::RenderWindow(sf::VideoMode(1400,900, 32), "Test");
     // Window->setVerticalSyncEnabled(true);
     view = sf::View();
     Window->setView(view);
@@ -21,7 +21,7 @@ Engine::Engine()
     backgroundView = sf::View();
     midgroundView = sf::View();
 
-    view.reset(sf::FloatRect(0, 0, 1200, 900));
+    view.reset(sf::FloatRect(0, 0, 1400, 900));
     backgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
     midgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
 
@@ -43,8 +43,6 @@ Engine::Engine()
     }
     /**Load the Assets*/
     assetLoader = new AssetLoader(this);
-
-    //  worldMap->CreateGround(512.f, 800.f);
     player = new Player(World, this);
     //  enemy = new Enemy(World,this,100,100);
     //  enemy = new Enemy(World,this,200,200);
@@ -53,20 +51,9 @@ Engine::Engine()
     ScriptBuiltMap = new scriptBuiltMap(this);
     ScriptBuiltMap->load();
 
-    ///LOAD TEXTURES
-    flash.loadFromFile("flash.png");
-    flash_blue.loadFromFile("flash_blue.png");
-    background.loadFromFile("mountains-bkg.jpg");
-    sky.loadFromFile("sky.jpg");
-    tree.loadFromFile("tree.png");
-    tree1.loadFromFile("tree1.png");
-    tree2.loadFromFile("tree2.png");
-
-
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
-    b2Vec2 g(0.000000000000000e+000f, -1.000000000000000e+001f);
 
 //view.zoom(2);
 
@@ -153,17 +140,13 @@ void Engine::processInput()
 
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-
         //  std::cout << "pressed" << std::endl;
 
         if(mouseLeft && mapBuilder->enabledrawbox)
         {
             //    std::cout << "held" << std::endl;
-
             sf::Vector2f mouse = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
             mapBuilder->drawbox = true;
-
-
         }
         else
         {
@@ -175,9 +158,6 @@ void Engine::processInput()
             }
 
         }
-
-
-
     }
     else
     {
@@ -190,7 +170,6 @@ void Engine::processInput()
                                     abs(mapBuilder->rect.getSize().x),
                                     abs(mapBuilder->rect.getSize().y),21);
         }
-
         //  std::cout << "Create body Box from sf:: blu box" << std::endl;
         mapBuilder->drawbox = false;
     }
@@ -227,12 +206,7 @@ void Engine::processInput()
             //DOWN
             if (event.key.code == sf::Keyboard::S)
             {
-                //std::cout << "S key Pressed" << (int) worldBodies["player"]->GetUserData() << std::endl;
-                //worldBodies["player"]->ApplyForce( b2Vec2(0,500), worldBodies["player"]->GetWorldCenter() );
-                //sf::Mouse::setPosition(sf::Vector2i(sf::Mouse::getPosition().x + 10,sf::Mouse::getPosition().y),*Window);
-
                 view.move(10,0);
-                //   backgroundView.move(5,0);
             }
 
             if (event.key.code == sf::Keyboard::Space)
@@ -242,18 +216,6 @@ void Engine::processInput()
 
             if (event.type == sf::Event::Resized)
                 Window->setView(sf::View(sf::FloatRect(0.f, 0.f, static_cast<float>(Window->getSize().x) ,static_cast<float>(Window->getSize().y) ) ) );
-            // b2Vec2 vel = body->GetLinearVelocity();
-            //    float desiredVel = 0;
-            //    switch ( moveState )
-            //    {
-            //      case MS_LEFT:  desiredVel = -5; break;
-            //      case MS_STOP:  desiredVel =  0; break;
-            //      case MS_RIGHT: desiredVel =  5; break;
-            //    }
-            //    float velChange = desiredVel - vel.x;
-            //    float impulse = body->GetMass() * velChange; //disregard time factor
-            //    body->ApplyLinearImpulse( b2Vec2(impulse,0), body->GetWorldCenter() );
-
         }
 
         /**Released Key Events*/
@@ -261,29 +223,28 @@ void Engine::processInput()
         if (event.type == sf::Event::KeyReleased)
         {
 
-
-            /** ASSET LOADER CONTROL */
-            if (event.key.code == sf::Keyboard::Up)
-            {
-                assetLoader->spriteSelection++;
-                //  std::cout<< assetLoader->selection << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Down)
-            {
-                assetLoader->spriteSelection--;
-                // std::cout<< assetLoader->selection << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Right)
-            {
-                assetLoader->spriteSheetSelection++;
-                //  std::cout<< assetLoader->selection << std::endl;
-            }
-            if (event.key.code == sf::Keyboard::Left)
-            {
-                assetLoader->spriteSheetSelection--;
-                //std::cout<< assetLoader->selection << std::endl;
-            }
-            /** END ASSET LOADER CONTROL */
+//            /** ASSET LOADER CONTROL */
+//            if (event.key.code == sf::Keyboard::Up)
+//            {
+//                assetLoader->spriteSelection++;
+//                //  std::cout<< assetLoader->selection << std::endl;
+//            }
+//            if (event.key.code == sf::Keyboard::Down)
+//            {
+//                assetLoader->spriteSelection--;
+//                // std::cout<< assetLoader->selection << std::endl;
+//            }
+//            if (event.key.code == sf::Keyboard::Right)
+//            {
+//                assetLoader->spriteSheetSelection++;
+//                //  std::cout<< assetLoader->selection << std::endl;
+//            }
+//            if (event.key.code == sf::Keyboard::Left)
+//            {
+//                assetLoader->spriteSheetSelection--;
+//                //std::cout<< assetLoader->selection << std::endl;
+//            }
+//            /** END ASSET LOADER CONTROL */
 
             if (event.key.code == sf::Keyboard::Space)
             {
@@ -451,8 +412,8 @@ void Engine::renderFrame()
     Window->clear(sf::Color::White);
     World->DrawDebugData();
 
-    //this call uses tons of cycle time loop runs ~100 slower
-    displayMouseCoords();
+    //this call uses tons of cycle time
+   // displayMouseCoords();
     displayAssetSelection();
 
     //CAMERA CONTROLS

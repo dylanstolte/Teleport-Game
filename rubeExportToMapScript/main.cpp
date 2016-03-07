@@ -12,7 +12,7 @@ int main()
     ofstream myfile;
     myfile.open ("scriptBuiltMap.cpp");
 
-    string cppWrap = "#include \"scriptBuiltMap.h\" \n scriptBuiltMap::scriptBuiltMap(Engine* engine){this->engine = engine;}; \n scriptBuiltMap::~scriptBuiltMap(){delete this->engine;}; \n void scriptBuiltMap::load() { \n engine->joints = (b2Joint**)b2Alloc(0 * sizeof(b2Joint*)); \n engine->bodies = (b2Body**)b2Alloc(1 * sizeof(b2Body*)); \n ";
+    string cppWrap = "#include \"scriptBuiltMap.h\" \n scriptBuiltMap::scriptBuiltMap(Engine* engine){this->engine = engine;}; \n scriptBuiltMap::~scriptBuiltMap(){delete this->engine;}; \n void scriptBuiltMap::load() { \n ";
     myfile << cppWrap << endl;
     std::ifstream infile("rubeExport.txt");
     std::string line;
@@ -20,6 +20,27 @@ int main()
     {
         cout << "processing: " << line << endl;
         std::istringstream iss(line);
+
+        if(line.find("b2Joint** joints")  != std::string::npos )
+        {
+            cout << "found joints decleration" << endl;
+            string in = "joints";
+            line.replace(line.find("b2Joint** joints"),16,in);
+            cout << "new Line: " << line << endl;
+
+
+        }
+
+        if(line.find("b2Body** bodies")  != std::string::npos )
+        {
+            cout << "found  bodies decleration" << endl;
+            string in = "bodies";
+            line.replace(line.find("b2Body** bodies"),15,in);
+            cout << "new Line: " << line << endl;
+
+
+        }
+
 
         string smallString = "bodies";
         if(line.find(smallString)  != std::string::npos )
@@ -31,6 +52,7 @@ int main()
 
 
         }
+
 
         if(line.find("joints")  != std::string::npos )
         {
@@ -55,12 +77,14 @@ int main()
         }
 
         if(line.find("bd.gravityScale")  == std::string::npos
-           && line.find("b2Free(joints);")  == std::string::npos
-           && line.find("b2Free(bodies);")  == std::string::npos
+           && line.find("b2Free(engine->joints);")  == std::string::npos
+           && line.find("b2Free(engine->bodies);")  == std::string::npos
            && line.find("joints = NULL;")  == std::string::npos
-           && line.find("engine->bodies = NULL;")  == std::string::npos)
+           && line.find("bodies = NULL;")  == std::string::npos)
         {
-            if(i > 13 )
+
+
+            if(i > 11 )
             {
             myfile << line;
             myfile << endl;

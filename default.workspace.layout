@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_workspace_layout_file>
+<<<<<<< HEAD
 	<ActiveProject path="Teleport-Game.cbp" />
 	<PreferredTarget name="Debug" />
+=======
+<<<<<<< HEAD
+	<ActiveProject path="Teleport-Game.cbp" />
+	<PreferredTarget name="Debug" />
+=======
+	<ActiveProject path="rubeExportToMapScript/rubeExportToMapScript.cbp" />
+>>>>>>> c0c8bfa... Changed In Air control(no decel on direction change)//Fixed double jump,jump,wallclibm, no bounce on press and ground collision no floating//Added first prototype map w/ rotating box platforms//Refactor File structure, After pull open codeblocks default.workspace not .cbp file//Workspace contains rubeExportToMapScript project, this scipt takes rubeExport.txt gui source code and creates scriptBuiltMap.ccp then gets auto loaded in engine, DONT FORGET TO NEGATIVE SCALE ACROSS X AXIS BEFORE EXPORT//
+>>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
 </CodeBlocks_workspace_layout_file>

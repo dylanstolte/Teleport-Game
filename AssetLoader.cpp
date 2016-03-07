@@ -64,7 +64,7 @@ void AssetLoader::readAssetInfo(std::string fileName,int assetIndicator)
 
         } // error
 
-        std::cout << assetFileNames.at(assetIndicator) << spriteIndicator << posx << posy << sizex << sizey << originx << originy << std::endl;
+      //  std::cout << assetFileNames.at(assetIndicator) << spriteIndicator << posx << posy << sizex << sizey << originx << originy << std::endl;
         pos_xMap[assetFileNames.at(assetIndicator)][spriteIndicator] = posx;
         pos_yMap[assetFileNames.at(assetIndicator)][spriteIndicator] = posy;
         size_xMap[assetFileNames.at(assetIndicator)][spriteIndicator] = sizex;
@@ -90,7 +90,7 @@ void AssetLoader::createSprite(std::string fileName,int spriteIndicator)
     sprite.setTexture(textureMap[fileName]);
     sf::IntRect rect( pos_xMap[fileName][spriteIndicator], pos_yMap[fileName][spriteIndicator],size_xMap[fileName][spriteIndicator],size_yMap[fileName][spriteIndicator]);
     sprite.setTextureRect(rect);
-    cout << "higher: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
+  //  cout << "higher: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
 
     sprite.setOrigin(origin_xMap[fileName][spriteIndicator],origin_yMap[fileName][spriteIndicator]);
    // sprite.setPosition(0,0);
@@ -98,7 +98,7 @@ void AssetLoader::createSprite(std::string fileName,int spriteIndicator)
     char str[50];
     sprintf(str, "%d", spriteIndicator);
     spriteMap[getBaseFilename(fileName) + "_" + str] = sprite;
-    cout << "lower: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
+   // cout << "lower: " << sprite.getTextureRect().left << sprite.getTextureRect().top << sprite.getTextureRect().width << sprite.getTextureRect().height << endl;
     //cout << spriteMap[getBaseFilename(fileName) + "_" + str].getTextureRect().left << endl;
 
 

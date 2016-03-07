@@ -758,16 +758,27 @@
 1456795588 c:\users\zbook15g2\git\teleport-game\animation.h
 	<SFML/graphics.hpp>
 
-<<<<<<< HEAD
-1457315541 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
-=======
-1457314825 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
->>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
+1457086375 D
+
+1457334761 source:c:\users\zbook15g2\git\teleport-game\assetloader.cpp
 	"AssetLoader.h"
 	<sstream>
 	<string>
 	<fstream>
 	<windows.h>
+
+1457315090 72ea3bc13586057e283e4b602043823ed7651
+	"AssetLoader.h"
+	<sstream>
+	<string>
+	<fstream>
+	<windows.h>
+	"Engine.hpp"
+	<string>
+	<sstream>
+	"scriptBuiltMap.h"
+	"Map.h"
+	"scriptBuiltMap.h"
 
 1456988540 c:\users\zbook15g2\git\teleport-game\assetloader.h
 	<vector>
@@ -827,28 +838,17 @@
 1457314825 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
 	"Enemy.h"
 
-<<<<<<< HEAD
-1457332478 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
-=======
-1457086375 D
-
-1457241873 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
-
-1457248488 8bfa... Changed In Air control(no decel on direction change)//Fixed double jump,jump,wallclibm, no bounce on press and ground collision no floating//Added first prototype map w/ rotating box platforms//Refactor File structure, After pull open codeblocks default.workspace not .cbp file//Workspace contains rubeExportToMapScript project, this scipt takes rubeExport.txt gui source code and creates scriptBuiltMap.ccp then gets auto loaded in engine, DONT FORGET TO NEGATIVE SCALE ACROSS X AXIS BEFORE EXPORT//
->>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
+1457334762 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
 	"Engine.hpp"
 	<string>
 	<sstream>
-	"scriptBuiltMap.h"
+
+1457248488 8bfa... Changed In Air control(no decel on direction change)//Fixed double jump,jump,wallclibm, no bounce on press and ground collision no floating//Added first prototype map w/ rotating box platforms//Refactor File structure, After pull open codeblocks default.workspace not .cbp file//Workspace contains rubeExportToMapScript project, this scipt takes rubeExport.txt gui source code and creates scriptBuiltMap.ccp then gets auto loaded in engine, DONT FORGET TO NEGATIVE SCALE ACROSS X AXIS BEFORE EXPORT//
 
 1456798753 source:c:\users\zbook15g2\git\teleport-game\main.cpp
 	"Engine.hpp"
 
-<<<<<<< HEAD
 1457315301 source:c:\users\zbook15g2\git\teleport-game\map.cpp
-=======
-1457314825 source:c:\users\zbook15g2\git\teleport-game\map.cpp
->>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
 	"Map.h"
 
 1457066972 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
@@ -863,12 +863,7 @@
 
 1457086375 source:c:\users\zbook15g2\desktop\map.cpp
 
-<<<<<<< HEAD
-1457331523 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
-=======
 1457315090 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
->>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
-	"scriptBuiltMap.h"
 
 1457214263 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h
 	"Engine.hpp"

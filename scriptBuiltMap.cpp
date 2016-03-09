@@ -1,10 +1,10 @@
-#include "scriptBuiltMap.h" 
- scriptBuiltMap::scriptBuiltMap(Engine* engine){this->engine = engine;}; 
- scriptBuiltMap::~scriptBuiltMap(){delete this->engine;}; 
- void scriptBuiltMap::load() { 
- 
-engine->bodies = (b2Body**)b2Alloc(43 * sizeof(b2Body*));
-engine->joints = (b2Joint**)b2Alloc(36 * sizeof(b2Joint*));
+#include "scriptBuiltMap.h"
+ scriptBuiltMap::scriptBuiltMap(Engine* engine){this->engine = engine;};
+ scriptBuiltMap::~scriptBuiltMap(){delete this->engine;};
+ void scriptBuiltMap::load() {
+
+engine->bodies = (b2Body**)b2Alloc(70 * sizeof(b2Body*));
+engine->joints = (b2Joint**)b2Alloc(70* sizeof(b2Joint*));
 {
   b2BodyDef bd;
   bd.type = b2BodyType(2);

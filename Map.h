@@ -33,14 +33,17 @@ sf::Sprite groundSprite;
     void createPlatform(float pos_x, float pos_y);
     void placeObject(int selection,int mouse_x, int mouse_y);
     void createBodyBox(float pos_x, float pos_y,float width, float height, int property);
-//sf::Sprite backgroundSprite;
+    sf::Sprite backgroundSprite;
 //    sf::Sprite backgroundSpriteFill;
 //    sf::Sprite skySprite;
-//    sf::Sprite treeSprite;
+   sf::Sprite verticalVineSprite;
+   sf::Texture verticalVineTexture;
 //    sf::Sprite treeSprite1;
 //    sf::Sprite treeSprite2;
-//
-//    backgroundSprite.setTexture(background);
+  sf::Texture moonbackground;
+  sf::View backgroundView;
+
+
 //    backgroundSpriteFill.setTexture(background);
 //    skySprite.setTexture(sky);
 //    treeSprite.setTexture(tree);

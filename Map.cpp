@@ -7,6 +7,16 @@ Map::Map(Engine* engine)
 //    platform.loadFromFile("platform1.png");
 //    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
+      moonbackground.loadFromFile("AssetLoader/moonBackground.jpg");
+    backgroundSprite.setTexture(moonbackground);
+    backgroundView.setCenter(0,0);
+    backgroundView.reset(sf::FloatRect(0, 0, 1400, 900));
+    verticalVineTexture.loadFromFile("AssetLoader/verticalVine.png");
+    verticalVineSprite.setTexture(verticalVineTexture);
+    verticalVineSprite.scale(sf::Vector2f(.3,.3));
+    verticalVineSprite.setPosition(-180,1610);
+
+
 //    std::cout << "create boxes" << std::endl;
 //    createBodyBox(0,700,150,25,4);
 //    //walls

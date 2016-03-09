@@ -14,15 +14,15 @@ Engine::Engine()
 {
 
     Window = new sf::RenderWindow(sf::VideoMode(1400,900, 32), "Test");
-    // Window->setVerticalSyncEnabled(true);
+    Window->setVerticalSyncEnabled(true);
     view = sf::View();
     Window->setView(view);
 
-    backgroundView = sf::View();
+
     midgroundView = sf::View();
 
     view.reset(sf::FloatRect(0, 0, 1400, 900));
-    backgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
+
     midgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
 
 
@@ -49,17 +49,14 @@ Engine::Engine()
 
     mapBuilder = new MapBuilder(this);
     ScriptBuiltMap = new scriptBuiltMap(this);
+
     ScriptBuiltMap->load();
+std::cout << "test" << std::endl;
 
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
-<<<<<<< HEAD
 
-//view.zoom(2);
-
-=======
->>>>>>> 6b672ea3bc13586057e283e4b602043823ed7651
     mainLoop();
 }
 
@@ -298,7 +295,7 @@ void Engine::update()
     /**  */
 
 
-
+std::cout << "test" << std::endl;
 
     /** */
     // enemy->moveOnPath();
@@ -412,11 +409,19 @@ void Engine::update()
 
 void Engine::renderFrame()
 {
+    std::cout << "test" << std::endl;
     Window->clear(sf::Color::White);
+
+    Window->setView(worldMap->backgroundView);
+    Window->draw(worldMap->backgroundSprite);
+
+
+    Window->setView(view);
     World->DrawDebugData();
+    Window->draw(worldMap->verticalVineSprite);
 
     //this call uses tons of cycle time
-   // displayMouseCoords();
+    displayMouseCoords();
     displayAssetSelection();
 
     //CAMERA CONTROLS
@@ -430,7 +435,7 @@ void Engine::renderFrame()
     }
 
 
-    Window->setView(view);
+
 
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 

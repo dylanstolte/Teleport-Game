@@ -5,7 +5,7 @@ Player::Player(b2World* world, Engine* engine)
 {
 
     this->engine = engine;
-    bodyDef.position = b2Vec2(0.f/engine->SCALE, 400.f/engine->SCALE);
+    bodyDef.position = b2Vec2(0.f/engine->SCALE, 200.f/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -48,7 +48,7 @@ Player::Player(b2World* world, Engine* engine)
 
     playerTexture.loadFromFile("spritesheetvolt.png");
 
-    playerSprite.setOrigin(13.f,21.f);
+    playerSprite.setOrigin(13.f,0.f);
     checkpointPos.x =0;
     checkpointPos.y =60;
 
@@ -84,7 +84,7 @@ Player::Player(b2World* world, Engine* engine)
 void Player::setOrigin(float pos_x, float pos_y)
 {
 
-    playerSprite.setOrigin(140.f,190.f);
+  //  playerSprite.setOrigin(140.f,190.f);
 
 }
 
@@ -104,8 +104,8 @@ void Player::render()
             {
                 b2Body* it = engine->worldMap->mapEnemies.at(i);
 
-                float euclidian = getEuclidianDistance(sf::Vector2f(it->GetPosition().x*30, it->GetPosition().y*30),sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y));
-                sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*30, it->GetPosition().y*30);
+                float euclidian = getEuclidianDistance(sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE),sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y));
+                sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
                 sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
                 if(euclidian < attackDistance)
                 {
@@ -124,7 +124,7 @@ void Player::render()
 
                  //  std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
 //                 std::cout << "rect" << test->getTextureRect().width << std::endl;
-//                 test->setPosition(100.f,300.f);
+//                 test->setPosition(100.f,engine->SCALE0.f);
                //  test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
                     engine->Window->draw(test);
                 }
@@ -227,7 +227,7 @@ float Player::getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination)
 void Player::respawn(sf::Vector2f checkpointPos)
 {
     std::cout << "respawn" << std::endl;
-    body->SetTransform(b2Vec2(0,600/30),body->GetAngle());
+    body->SetTransform(b2Vec2(0,600/engine->SCALE),body->GetAngle());
     body->SetLinearVelocity(b2Vec2(0,0));
     dead = false;
 

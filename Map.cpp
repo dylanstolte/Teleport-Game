@@ -7,14 +7,20 @@ Map::Map(Engine* engine)
 //    platform.loadFromFile("platform1.png");
 //    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
-      moonbackground.loadFromFile("AssetLoader/moonBackground.jpg");
+    moonbackground.loadFromFile("AssetLoader/treeBackground.jpg");
     backgroundSprite.setTexture(moonbackground);
-    backgroundView.setCenter(0,0);
+   // backgroundView.setCenter(4500,600);
     backgroundView.reset(sf::FloatRect(0, 0, 1400, 900));
     verticalVineTexture.loadFromFile("AssetLoader/verticalVine.png");
     verticalVineSprite.setTexture(verticalVineTexture);
     verticalVineSprite.scale(sf::Vector2f(.3,.3));
     verticalVineSprite.setPosition(-180,1610);
+
+    rockPlatformTexture.loadFromFile("AssetLoader/rockPlatform.png");
+    rockPlatformSprite.setTexture(rockPlatformTexture);
+    rockPlatformSprite.scale(sf::Vector2f(1.6,1.6));
+   std::cout << "endl"  << std::endl;
+    rockPlatformSprite.setPosition(1165,290);
 
 
 //    std::cout << "create boxes" << std::endl;
@@ -132,6 +138,12 @@ void Map::CreateGround(float X, float Y)
 }
 void Map::render()
 {
+    //draw sprites in mapSprites
+    for (int i = 0; i < mapSprites.size(); i++)
+    {
+        engine->Window->draw(mapSprites[i]);
+    }
+    //Place sprites at body locations in mapBodies
     //For all the bodies in the map
     for (int i = 0; i < mapBodies.size(); i++)
     {

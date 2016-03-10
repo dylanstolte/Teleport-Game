@@ -51,7 +51,6 @@ Engine::Engine()
     ScriptBuiltMap = new scriptBuiltMap(this);
 
     ScriptBuiltMap->load();
-std::cout << "test" << std::endl;
 
     frameCounter = 0;
     switchFrame = 1;
@@ -224,26 +223,31 @@ void Engine::processInput()
         {
 
 //            /** ASSET LOADER CONTROL */
-//            if (event.key.code == sf::Keyboard::Up)
-//            {
-//                assetLoader->spriteSelection++;
-//                //  std::cout<< assetLoader->selection << std::endl;
-//            }
-//            if (event.key.code == sf::Keyboard::Down)
-//            {
-//                assetLoader->spriteSelection--;
-//                // std::cout<< assetLoader->selection << std::endl;
-//            }
-//            if (event.key.code == sf::Keyboard::Right)
-//            {
-//                assetLoader->spriteSheetSelection++;
-//                //  std::cout<< assetLoader->selection << std::endl;
-//            }
-//            if (event.key.code == sf::Keyboard::Left)
-//            {
-//                assetLoader->spriteSheetSelection--;
-//                //std::cout<< assetLoader->selection << std::endl;
-//            }
+            if (event.key.code == sf::Keyboard::Up)
+            {
+                assetLoader->spriteSelection++;
+                //  std::cout<< assetLoader->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::Down)
+            {
+                assetLoader->spriteSelection--;
+                // std::cout<< assetLoader->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::Right)
+            {
+                assetLoader->spriteSheetSelection++;
+                //  std::cout<< assetLoader->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::Left)
+            {
+                assetLoader->spriteSheetSelection--;
+                //std::cout<< assetLoader->selection << std::endl;
+            }
+            if (event.key.code == sf::Keyboard::I)
+            {
+                std::cout << "Insert selected asset" << std::endl;
+                addAssetToWorldMap();
+            }
 //            /** END ASSET LOADER CONTROL */
 
             if (event.key.code == sf::Keyboard::Space)
@@ -295,8 +299,6 @@ void Engine::update()
     /**  */
 
 
-std::cout << "test" << std::endl;
-
     /** */
     // enemy->moveOnPath();
     // cout<<player->numFootContacts<<endl;
@@ -325,11 +327,11 @@ std::cout << "test" << std::endl;
     {
         {
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-            float desiredVel = -10;
+            float desiredVel = -9;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
-            //  worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter() );
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-7));
+           // worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-7), worldBodies["player"]->GetWorldCenter() );
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-8));
             moveJump = false;
             jumpAnimation = true;
 
@@ -399,7 +401,8 @@ std::cout << "test" << std::endl;
 
 
     if(debug)
-        Window->clear(sf::Color::White);
+         Window->clear(sf::Color(100,100,100,0));
+       // Window->clear(sf::Color::White);
 
     World->Step(1/60.f, 8, 3);
 
@@ -409,9 +412,8 @@ std::cout << "test" << std::endl;
 
 void Engine::renderFrame()
 {
-    std::cout << "test" << std::endl;
-    Window->clear(sf::Color::White);
-
+    //Window->clear(sf::Color::White);
+    Window->clear(sf::Color(100,100,100,0));
     Window->setView(worldMap->backgroundView);
     Window->draw(worldMap->backgroundSprite);
 
@@ -419,6 +421,7 @@ void Engine::renderFrame()
     Window->setView(view);
     World->DrawDebugData();
     Window->draw(worldMap->verticalVineSprite);
+    Window->draw(worldMap->rockPlatformSprite);
 
     //this call uses tons of cycle time
     displayMouseCoords();
@@ -433,6 +436,9 @@ void Engine::renderFrame()
     {
         view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
     }
+    //background parallax
+    //if(worldMap->backgroundView.getCenter().x > (worldBodies["player"]->GetPosition().x))
+        worldMap->backgroundView.setCenter((worldBodies["player"]->GetPosition().x*SCALE)/6,(worldBodies["player"]->GetPosition().y*SCALE)/6);
 
 
 
@@ -451,6 +457,26 @@ void Engine::renderFrame()
     /** CALL TO DISPLAY */
     Window->display();
 };
+
+void Engine::addAssetToWorldMap()
+{
+     //dont go out of vector range
+    if(assetLoader->spriteSheetSelection < 0)
+        assetLoader->spriteSheetSelection = 0;
+    if(assetLoader->spriteSheetSelection >= assetLoader->assetFileNames.size())
+        assetLoader->spriteSheetSelection = assetLoader->assetFileNames.size() -1;
+
+    std::string asset = assetLoader->getBaseFilename(assetLoader->assetFileNames.at(assetLoader->spriteSheetSelection));
+
+    char str[50];
+    sprintf(str, "%d", assetLoader->spriteSelection);
+
+    sf::Sprite temp(assetLoader->spriteMap[asset + "_" + str]);
+    sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+    temp.setPosition(mouseWorld);
+
+    worldMap->mapSprites.push_back(temp);
+}
 void Engine::displayAssetSelection()
 {
     sf::Font font;

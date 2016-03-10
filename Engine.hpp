@@ -102,7 +102,7 @@ public:
 
     /** Create the boxes */
     void CreateBox(b2World& World, int MouseX, int MouseY);
-
+    void addAssetToWorldMap();
     void displayMouseCoords();
 
 

@@ -16,8 +16,12 @@ public:
     sf::Texture smallPlatform;
 sf::Sprite groundSprite;
     int objectCount = 0;
+    //pointers because bodies are stored in world
     std::vector<b2Body*> mapBodies;
     std::vector<b2Body*> mapEnemies;
+
+    std::vector<sf::Sprite> mapSprites;
+
     int property;
 
     void save();
@@ -38,6 +42,9 @@ sf::Sprite groundSprite;
 //    sf::Sprite skySprite;
    sf::Sprite verticalVineSprite;
    sf::Texture verticalVineTexture;
+
+   sf::Sprite rockPlatformSprite;
+   sf::Texture rockPlatformTexture;
 //    sf::Sprite treeSprite1;
 //    sf::Sprite treeSprite2;
   sf::Texture moonbackground;

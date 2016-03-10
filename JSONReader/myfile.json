@@ -1,0 +1,13 @@
+
+{
+   "allowSleep" : true,
+   "autoClearForces" : true,
+   "continuousPhysics" : true,
+   "gravity" : 
+   {
+      "x" : 0,
+      "y" : "411CCCCD"
+   },
+   "subStepping" : false,
+   "warmStarting" : true
+}

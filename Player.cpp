@@ -19,7 +19,7 @@ Player::Player(b2World* world, Engine* engine)
     circleShape.m_p.Set(0,.5); //position, relative to body position
     circleShape.m_radius = .5;
     fixtureDef.density = 3.f;
-    fixtureDef.friction = 1.f;
+    fixtureDef.friction = 3.f;
     fixtureDef.shape = &circleShape;
     bodyFixture = body->CreateFixture(&fixtureDef);
     bodyFixture->SetUserData( (void*)2 );

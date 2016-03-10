@@ -32,9 +32,6 @@ Engine::Engine()
     listener = new MyContactListener(this);
 
     World = new b2World(Gravity);
-
-  //  World = json.readFromString(mystring, errorMsg);
-
     worldMap = new Map(this);
     World->SetContactListener(listener);
     /**Used for debuging*/
@@ -300,7 +297,7 @@ void Engine::processInput()
 void Engine::update()
 {
     /**  */
-
+    std::cout << "friction in update" << player->bodyFixture->GetFriction() << std::endl;
 
     /** */
     // enemy->moveOnPath();
@@ -358,6 +355,7 @@ void Engine::update()
     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
     if (moveLeft)
     {
+        std::cout << "move left" << std::endl;
 
         player->bodyFixture->SetFriction(0);
 
@@ -379,6 +377,7 @@ void Engine::update()
     }
     else if (moveRight)
     {
+         std::cout << "move right" << std::endl;
         player->bodyFixture->SetFriction(0);
 
         if(player->numFootContacts > 0)
@@ -415,6 +414,7 @@ void Engine::update()
 
 void Engine::renderFrame()
 {
+    std::cout << "friction" << player->bodyFixture->GetFriction() << std::endl;
     //Window->clear(sf::Color::White);
     Window->clear(sf::Color(100,100,100,0));
     Window->setView(worldMap->backgroundView);

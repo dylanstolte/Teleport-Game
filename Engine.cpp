@@ -31,14 +31,17 @@ Engine::Engine()
     b2Vec2 Gravity(0.f, 9.8f);
     listener = new MyContactListener(this);
 
-    World = new b2World(Gravity,true);
+    World = new b2World(Gravity);
+
+  //  World = json.readFromString(mystring, errorMsg);
+
     worldMap = new Map(this);
     World->SetContactListener(listener);
     /**Used for debuging*/
     if(debug)
     {
         debugDrawInstance = new DebugDraw(*Window);
-        debugDrawInstance->SetFlags( b2DebugDraw::e_shapeBit );
+        debugDrawInstance->SetFlags( b2Draw::e_shapeBit );
         World->SetDebugDraw( debugDrawInstance );
     }
     /**Load the Assets*/

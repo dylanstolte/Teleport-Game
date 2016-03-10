@@ -48,7 +48,7 @@ void Enemy::moveOnPath()
         float desiredVel = -5;
         float velChange = desiredVel - vel.x;
         float impulse =  body->GetMass() * velChange; //disregard time factor
-        body->ApplyLinearImpulse(b2Vec2(impulse,0), body->GetWorldCenter() );
+        body->ApplyLinearImpulse(b2Vec2(impulse,0), body->GetWorldCenter(),true );
     }
 
 }

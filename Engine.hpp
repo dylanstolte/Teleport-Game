@@ -1,7 +1,7 @@
 #ifndef ENGINE_HPP_INCLUDED
 #define ENGINE_HPP_INCLUDED
 #include <SFML\Graphics.hpp>
-#include <Box2D\Box2D.h>
+#include "Box2D/Box2D.h"
 #include <iostream>
 #include <String>
 #include <map>

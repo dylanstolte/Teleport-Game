@@ -81,34 +81,34 @@ void DebugDraw::DrawPoint(const b2Vec2& p, float32 size, const b2Color& color)
 
 void DebugDraw::DrawTransform(const b2Transform& xf)
 {
-    std::cout << "draw transform" << std::endl;
-    float x,y, lineSize, lineProportion;
-    x = xf.position.x * RATIO;
-    y = xf.position.y * RATIO;
-    lineProportion = 0.15; // 0.15 ~ 10 pixels
-    b2Vec2 p1 = xf.position, p2;
-
-	//red (X axis)
-	p2 = p1 + (lineProportion * xf.R.col1);
-    // 1, );
-	sf::Vertex redLine[] =
-    {
-    sf::Vertex(sf::Vector2f(p1.x*RATIO, p1.y*RATIO), sf::Color::Red),
-    sf::Vertex(sf::Vector2f(p2.x*RATIO, p2.y*RATIO),sf::Color::Red)
-    };
-
-	//green (Y axis)
-	p2 = p1 - (lineProportion * xf.R.col2);
-	//sf::Shape greenLine = sf::Shape::Line(p1.x*RATIO, p1.y*RATIO, p2.x*RATIO, p2.y*RATIO, 1, sf::Color::Green);
-
-	sf::Vertex greenLine[] =
-    {
-    sf::Vertex(sf::Vector2f(p1.x*RATIO, p1.y*RATIO), sf::Color::Green),
-    sf::Vertex(sf::Vector2f(p2.x*RATIO, p2.y*RATIO),sf::Color::Green)
-    };
-
-    this->window->draw(redLine,2,sf::Lines);
-    this->window->draw(greenLine,2,sf::Lines);
+//    std::cout << "draw transform" << std::endl;
+//    float x,y, lineSize, lineProportion;
+//    x = xf.position.x * RATIO;
+//    y = xf.position.y * RATIO;
+//    lineProportion = 0.15; // 0.15 ~ 10 pixels
+//    b2Vec2 p1 = xf.position, p2;
+//
+//	//red (X axis)
+//	p2 = p1 + (lineProportion * xf.R.col1);
+//    // 1, );
+//	sf::Vertex redLine[] =
+//    {
+//    sf::Vertex(sf::Vector2f(p1.x*RATIO, p1.y*RATIO), sf::Color::Red),
+//    sf::Vertex(sf::Vector2f(p2.x*RATIO, p2.y*RATIO),sf::Color::Red)
+//    };
+//
+//	//green (Y axis)
+//	p2 = p1 - (lineProportion * xf.R.col2);
+//	//sf::Shape greenLine = sf::Shape::Line(p1.x*RATIO, p1.y*RATIO, p2.x*RATIO, p2.y*RATIO, 1, sf::Color::Green);
+//
+//	sf::Vertex greenLine[] =
+//    {
+//    sf::Vertex(sf::Vector2f(p1.x*RATIO, p1.y*RATIO), sf::Color::Green),
+//    sf::Vertex(sf::Vector2f(p2.x*RATIO, p2.y*RATIO),sf::Color::Green)
+//    };
+//
+//    this->window->draw(redLine,2,sf::Lines);
+//    this->window->draw(greenLine,2,sf::Lines);
 }
 //
 void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& color)

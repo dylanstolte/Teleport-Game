@@ -32,7 +32,7 @@
 //formula to convert radians to degrees = (radians * (pi/180))
 #define RADTODEG (b2_pi / 180.0)
 
-class DebugDraw : public b2DebugDraw
+class DebugDraw : public b2Draw
 {
     public:
         DebugDraw(sf::RenderWindow &window);

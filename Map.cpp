@@ -7,8 +7,8 @@ Map::Map(Engine* engine)
 //    platform.loadFromFile("platform1.png");
 //    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
-    moonbackground.loadFromFile("AssetLoader/treeBackground.jpg");
-    backgroundSprite.setTexture(moonbackground);
+  //  moonbackground.loadFromFile("AssetLoader/treeBackground.jpg");
+  //  backgroundSprite.setTexture(moonbackground);
    // backgroundView.setCenter(4500,600);
     backgroundView.reset(sf::FloatRect(0, 0, 1400, 900));
     verticalVineTexture.loadFromFile("AssetLoader/verticalVine.png");
@@ -21,6 +21,9 @@ Map::Map(Engine* engine)
     rockPlatformSprite.scale(sf::Vector2f(1.6,1.6));
    std::cout << "endl"  << std::endl;
     rockPlatformSprite.setPosition(1165,290);
+
+    //create sprites from images from json
+    //call create sprites function put into map sprites
 
 
 //    std::cout << "create boxes" << std::endl;
@@ -40,102 +43,8 @@ Map::~Map() {}
 void Map::buildMapPerimeter() {}
 void Map::createEnemy(){}
 
-void Map::createSmallPlatform(float pos_x, float pos_y)
-{
-    std::cout << "create platform"  << pos_x << " " << pos_y << std::endl;
-
-    b2BodyDef BodyDef;
- BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = engine->World->CreateBody(&BodyDef);
-
-    mapBodies.push_back(Body);
-    objectCount++;
-    int id = 12;
-    Body->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((96.f/2)/engine->SCALE, (96.f/2)/engine->SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 100.f;
-    FixtureDef.friction = 50.0f;
-    FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
 
 
-}
-
-void Map::createBodyBox(float pos_x, float pos_y,float width, float height, int property)
-{
-     b2BodyDef BodyDef;
-
-    sf::Vector2i temp1 = engine->Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
-    sf::Vector2f temp = engine->Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
-    BodyDef.position = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
-    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
-    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
-    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
-
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = engine->World->CreateBody(&BodyDef);
-
-    mapBodies.push_back(Body);
-    objectCount++;
-    int id = 4;
-    Body->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((width/2)/engine->SCALE, (height/2)/engine->SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 1.f;
-    FixtureDef.friction = 1.0f;
-    FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
-
-}
-
-void Map::createPlatform(float pos_x, float pos_y   )
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = engine->World->CreateBody(&BodyDef);
-
-    mapBodies.push_back(Body);
-    objectCount++;
-    int id = 13;
-    Body->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((800*.4f/2)/engine->SCALE, (300*.6f/2)/engine->SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 100.f;
-    FixtureDef.friction = 10.0f;
-    FixtureDef.shape = &Shape;
-    Body->CreateFixture(&FixtureDef);
-
-}
-
-void Map::CreateGround(float X, float Y)
-{
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(X/engine->SCALE, Y/engine->SCALE);
-    BodyDef.type = b2_staticBody;
-    b2Body* Body = engine->World->CreateBody(&BodyDef);
-
-    mapBodies.push_back(Body);
-    int id = 9;
-    Body->SetUserData((void*)id);
-
-    b2PolygonShape Shape;
-    Shape.SetAsBox((1024*2.f)/engine->SCALE, (16.f/2)/engine->SCALE);
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = 0.f;
-    FixtureDef.friction = 1.0f;
-    FixtureDef.shape = &Shape;
-    b2Fixture* bodyFixture = Body->CreateFixture(&FixtureDef);
-    bodyFixture->SetUserData((void*) id);
-}
 void Map::render()
 {
     //draw sprites in mapSprites
@@ -275,5 +184,102 @@ void Map::placeObject(int selection,int mouse_x,int mouse_y)
         }
         break;
     }
+
+}
+
+void Map::createBodyBox(float pos_x, float pos_y,float width, float height, int property)
+{
+     b2BodyDef BodyDef;
+
+    sf::Vector2i temp1 = engine->Window->mapCoordsToPixel(sf::Vector2f(pos_x,pos_y));
+    sf::Vector2f temp = engine->Window->mapPixelToCoords(sf::Vector2i(pos_x,pos_y));
+    BodyDef.position = b2Vec2((pos_x)/engine->SCALE, (pos_y)/engine->SCALE);
+    std::cout << "passeds" << pos_x << " " << pos_y << std::endl;
+    std::cout << "coords to pix" << temp1.x << " " << temp1.y << std::endl;
+    std::cout << "pix to coords" << temp.x << " " << temp.y << std::endl;
+
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = engine->World->CreateBody(&BodyDef);
+
+    mapBodies.push_back(Body);
+    objectCount++;
+    int id = 4;
+    Body->SetUserData((void*)id);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((width/2)/engine->SCALE, (height/2)/engine->SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 1.f;
+    FixtureDef.friction = 1.0f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
+
+}
+
+void Map::createPlatform(float pos_x, float pos_y   )
+{
+    b2BodyDef BodyDef;
+    BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = engine->World->CreateBody(&BodyDef);
+
+    mapBodies.push_back(Body);
+    objectCount++;
+    int id = 13;
+    Body->SetUserData((void*)id);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((800*.4f/2)/engine->SCALE, (300*.6f/2)/engine->SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 100.f;
+    FixtureDef.friction = 10.0f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
+
+}
+
+void Map::CreateGround(float X, float Y)
+{
+    b2BodyDef BodyDef;
+    BodyDef.position = b2Vec2(X/engine->SCALE, Y/engine->SCALE);
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = engine->World->CreateBody(&BodyDef);
+
+    mapBodies.push_back(Body);
+    int id = 9;
+    Body->SetUserData((void*)id);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((1024*2.f)/engine->SCALE, (16.f/2)/engine->SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 0.f;
+    FixtureDef.friction = 1.0f;
+    FixtureDef.shape = &Shape;
+    b2Fixture* bodyFixture = Body->CreateFixture(&FixtureDef);
+    bodyFixture->SetUserData((void*) id);
+}
+
+void Map::createSmallPlatform(float pos_x, float pos_y)
+{
+    std::cout << "create platform"  << pos_x << " " << pos_y << std::endl;
+
+    b2BodyDef BodyDef;
+ BodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = engine->World->CreateBody(&BodyDef);
+
+    mapBodies.push_back(Body);
+    objectCount++;
+    int id = 12;
+    Body->SetUserData((void*)id);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((96.f/2)/engine->SCALE, (96.f/2)/engine->SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 100.f;
+    FixtureDef.friction = 50.0f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
+
 
 }

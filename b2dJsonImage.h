@@ -21,7 +21,7 @@
 
 
 #include <string>
-#include "Box2D/Box2D.h"
+#include <Box2D/Box2D.h>
 
 enum _b2dJsonImagefilterType {
     FT_NEAREST,
@@ -34,10 +34,12 @@ class b2dJsonImage {
 public:
     std::string name;
     std::string file;
+    std::string path;
     b2Body* body;
     b2Vec2 center;
     float angle;
     float scale;
+    float aspectScale;
     bool flip;
     float opacity;
     int filter; // 0 = nearest, 1 = linear

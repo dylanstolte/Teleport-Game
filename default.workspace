@@ -3,6 +3,5 @@
 	<Workspace title="Workspace">
 		<Project filename="Teleport-Game.cbp" />
 		<Project filename="rubeExportToMapScript/rubeExportToMapScript.cbp" />
-		<Project filename="../JSONloader/JSONloader.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

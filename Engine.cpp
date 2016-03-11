@@ -1,6 +1,7 @@
 #include "Engine.hpp"
 #include <string>
 #include <sstream>
+#include "b2dJson.h"
 
 using namespace std;
 Engine::~Engine()
@@ -31,7 +32,15 @@ Engine::Engine()
     b2Vec2 Gravity(0.f, 9.8f);
     listener = new MyContactListener(this);
 
-    World = new b2World(Gravity);
+ //   World = new b2World(Gravity);
+    string errorMsg;
+    b2dJson json;
+    World = json.readFromFile("myfile.json", errorMsg);
+
+    //get all files from json
+    //assign to map
+
+
     worldMap = new Map(this);
     World->SetContactListener(listener);
     /**Used for debuging*/
@@ -43,14 +52,15 @@ Engine::Engine()
     }
     /**Load the Assets*/
     assetLoader = new AssetLoader(this);
+    std::cout << "test" << std::endl;
     player = new Player(World, this);
     //  enemy = new Enemy(World,this,100,100);
     //  enemy = new Enemy(World,this,200,200);
 
     mapBuilder = new MapBuilder(this);
-    ScriptBuiltMap = new scriptBuiltMap(this);
+   // ScriptBuiltMap = new scriptBuiltMap(this);
 
-    ScriptBuiltMap->load();
+   // ScriptBuiltMap->load();
 
     frameCounter = 0;
     switchFrame = 1;
@@ -297,7 +307,6 @@ void Engine::processInput()
 void Engine::update()
 {
     /**  */
-    std::cout << "friction in update" << player->bodyFixture->GetFriction() << std::endl;
 
     /** */
     // enemy->moveOnPath();
@@ -414,21 +423,21 @@ void Engine::update()
 
 void Engine::renderFrame()
 {
-    std::cout << "friction" << player->bodyFixture->GetFriction() << std::endl;
     //Window->clear(sf::Color::White);
     Window->clear(sf::Color(100,100,100,0));
     Window->setView(worldMap->backgroundView);
-    Window->draw(worldMap->backgroundSprite);
+  //  Window->draw(worldMap->backgroundSprite);
 
 
     Window->setView(view);
     World->DrawDebugData();
+    //these need to be added to sprite map and then call world map render
     Window->draw(worldMap->verticalVineSprite);
     Window->draw(worldMap->rockPlatformSprite);
 
     //this call uses tons of cycle time
-    displayMouseCoords();
-    displayAssetSelection();
+  //  displayMouseCoords();
+  //  displayAssetSelection();
 
     //CAMERA CONTROLS
     //  if(worldBodies["player"]->GetPosition().y*SCALE < 500)

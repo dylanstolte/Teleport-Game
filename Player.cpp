@@ -46,7 +46,7 @@ Player::Player(b2World* world, Engine* engine)
     leftSensorFixture->SetUserData( (void*)1 );
 
 
-    playerTexture.loadFromFile("spritesheetvolt.png");
+   // playerTexture.loadFromFile("spritesheetvolt.png");
 
     playerSprite.setOrigin(13.f,0.f);
     checkpointPos.x =0;

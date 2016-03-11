@@ -399,7 +399,7 @@
 	<iostream>
 	"Engine.hpp"
 
-1457657351 c:\users\zbook15g2\git\teleport-game\engine.hpp
+1457677493 c:\users\zbook15g2\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	"Box2D/Box2D.h"
 	<iostream>
@@ -413,6 +413,8 @@
 	"AssetLoader.h"
 	"MapBuilder.h"
 	"scriptBuiltMap.h"
+	"b2dJson.h"
+	"b2dJsonImage.h"
 
 1270343882 c:\box2d\box2d\box2d.h
 	<Box2D/Common/b2Settings.h>
@@ -569,7 +571,7 @@
 	"Engine.hpp"
 	"Animation.h"
 
-1457597654 c:\users\zbook15g2\git\teleport-game\map.h
+1457677000 c:\users\zbook15g2\git\teleport-game\map.h
 	"Engine.hpp"
 
 1457314825 c:\users\zbook15g2\git\teleport-game\enemy.h
@@ -592,7 +594,7 @@
 1456798753 source:c:\users\zbook15g2\git\teleport-game\main.cpp
 	"Engine.hpp"
 
-1457660855 source:c:\users\zbook15g2\git\teleport-game\map.cpp
+1457682629 source:c:\users\zbook15g2\git\teleport-game\map.cpp
 	"Map.h"
 
 1457066972 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
@@ -608,11 +610,10 @@
 1457595131 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
 	"scriptBuiltMap.h"
 
-1457665812 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+1457677742 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
 	"Engine.hpp"
 	<string>
 	<sstream>
-	"b2dJson.h"
 
 1456940380 source:c:\users\stolted.auth\git\teleport-game\animation.cpp
 	"Animation.h"

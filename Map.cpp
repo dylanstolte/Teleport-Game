@@ -50,6 +50,7 @@ void Map::render()
     //draw sprites in mapSprites
     for (int i = 0; i < mapSprites.size(); i++)
     {
+       // std::cout << "render map sprite" << std::endl;
         engine->Window->draw(mapSprites[i]);
     }
     //Place sprites at body locations in mapBodies
@@ -127,6 +128,36 @@ void Map::render()
     engine->Window->draw(groundSprite);
 
 
+}
+
+void Map::jsonImageToMapSprites()
+{
+    for(int i = 0; i < engine->worldMap->jsonImages.size(); i++)
+    {
+        //check if the texture needs to be loaded
+        b2dJsonImage* image = engine->worldMap->jsonImages[i];
+        sf::Texture tempTexture;
+        std::cout << "load image: " << image->file << std::endl;
+
+        tempTexture.loadFromFile(image->file);
+        engine->assetLoader->textureMap[image->name] = tempTexture;
+
+        sf::Sprite tempSprite;
+        tempSprite.setTexture(engine->assetLoader->textureMap[image->name]);
+        tempSprite.setOrigin(tempSprite.getLocalBounds().width/2,tempSprite.getLocalBounds().height/2);
+        tempSprite.setPosition(image->center.x*engine->SCALE,image->center.y*engine->SCALE);
+        //tempSprite.setPosition();
+        float scale = image->scale/(tempSprite.getLocalBounds().height/engine->SCALE);
+        if(image->flip)
+            tempSprite.setScale( scale,scale );
+            else
+                tempSprite.setScale( -scale,scale );
+                //rad to degree
+        tempSprite.setRotation( 180+(image->angle) * 57.2958);
+        std::cout << "set angle: " << (image->angle) * 57.2958  << std::endl;
+
+        mapSprites.push_back(tempSprite);
+    }
 }
 
 void save()

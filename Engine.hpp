@@ -13,6 +13,8 @@
 #include "AssetLoader.h"
 #include "MapBuilder.h"
 #include "scriptBuiltMap.h"
+#include "b2dJson.h"
+#include "b2dJsonImage.h"
 
 class Map;
 class Enemy;

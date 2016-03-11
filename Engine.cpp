@@ -1,7 +1,7 @@
 #include "Engine.hpp"
 #include <string>
 #include <sstream>
-#include "b2dJson.h"
+
 
 using namespace std;
 Engine::~Engine()
@@ -13,36 +13,31 @@ Engine::~Engine()
 };
 Engine::Engine()
 {
-
     Window = new sf::RenderWindow(sf::VideoMode(1400,900, 32), "Test");
     Window->setVerticalSyncEnabled(true);
+
     view = sf::View();
     Window->setView(view);
-
-
-    midgroundView = sf::View();
-
     view.reset(sf::FloatRect(0, 0, 1400, 900));
-
-    midgroundView.reset(sf::FloatRect(0, 0, 1200, 900));
-
 
 
     /** Prepare the box2d world */
     b2Vec2 Gravity(0.f, 9.8f);
+    //Declare listener before applying it to world;
     listener = new MyContactListener(this);
 
- //   World = new b2World(Gravity);
+    /**Load the world from RUBE generated json file*/
     string errorMsg;
     b2dJson json;
+    //read json file and set as b2World
     World = json.readFromFile("myfile.json", errorMsg);
-
-    //get all files from json
-    //assign to map
-
+    std::cout << errorMsg << std::endl;
 
     worldMap = new Map(this);
+
+    /**Apply contact listener to world**/
     World->SetContactListener(listener);
+
     /**Used for debuging*/
     if(debug)
     {
@@ -50,18 +45,21 @@ Engine::Engine()
         debugDrawInstance->SetFlags( b2Draw::e_shapeBit );
         World->SetDebugDraw( debugDrawInstance );
     }
+
     /**Load the Assets*/
     assetLoader = new AssetLoader(this);
-    std::cout << "test" << std::endl;
+
+    /** More Initilization*/
     player = new Player(World, this);
-    //  enemy = new Enemy(World,this,100,100);
-    //  enemy = new Enemy(World,this,200,200);
-
     mapBuilder = new MapBuilder(this);
-   // ScriptBuiltMap = new scriptBuiltMap(this);
 
-   // ScriptBuiltMap->load();
+    /** Load json images into sf::spritemap in map class */
+    //get all json images
+    json.getAllImages(worldMap->jsonImages);
+    //assign to map
+    worldMap->jsonImageToMapSprites();
 
+    /** FPS timer vars*/
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;

@@ -3,35 +3,39 @@
 #include "Engine.hpp"
 
 class Engine;
-class Map{
+class b2dJsonImage;
+
+class Map
+{
 
 public:
 
     Engine* engine;
- Map(Engine* engine);
- ~Map();
-     sf::Texture GroundTexture;
+    Map(Engine* engine);
+    ~Map();
+    sf::Texture GroundTexture;
     sf::Texture BoxTexture;
     sf::Texture platform;
     sf::Texture smallPlatform;
-sf::Sprite groundSprite;
+    sf::Sprite groundSprite;
     int objectCount = 0;
     //pointers because bodies are stored in world
     std::vector<b2Body*> mapBodies;
     std::vector<b2Body*> mapEnemies;
 
     std::vector<sf::Sprite> mapSprites;
-
+    std::vector<b2dJsonImage*> jsonImages;
     int property;
 
     void save();
 
-  void createEnemy();
-  void buildMapPerimeter();
-  void render();
-      /** Create the base for the boxes to land */
+    void createEnemy();
+    void buildMapPerimeter();
+    void render();
+    /** Create the base for the boxes to land */
     void CreateGround(float X, float Y);
     void createSmallPlatform(float mouse_x,float mouse_y);
+    void jsonImageToMapSprites();
 
 
     void createPlatform(float pos_x, float pos_y);
@@ -40,15 +44,15 @@ sf::Sprite groundSprite;
     sf::Sprite backgroundSprite;
 //    sf::Sprite backgroundSpriteFill;
 //    sf::Sprite skySprite;
-   sf::Sprite verticalVineSprite;
-   sf::Texture verticalVineTexture;
+    sf::Sprite verticalVineSprite;
+    sf::Texture verticalVineTexture;
 
-   sf::Sprite rockPlatformSprite;
-   sf::Texture rockPlatformTexture;
+    sf::Sprite rockPlatformSprite;
+    sf::Texture rockPlatformTexture;
 //    sf::Sprite treeSprite1;
 //    sf::Sprite treeSprite2;
-  sf::Texture moonbackground;
-  sf::View backgroundView;
+    sf::Texture moonbackground;
+    sf::View backgroundView;
 
 
 //    backgroundSpriteFill.setTexture(background);

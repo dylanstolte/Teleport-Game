@@ -73,6 +73,7 @@ public:
     bool jumpRelease = false;
     bool doubleJump = false;
     bool preventJump = false;
+    bool moveStop = false;
     int jumpCount = 0;
     void displayAssetSelection();
     std::map<std::string,sf::Sprite>::iterator spriteMapIter;

@@ -153,6 +153,10 @@ void Map::jsonImageToMapSprites()
             else
                 tempSprite.setScale( -scale,scale );
                 //rad to degree
+        sf::Color color(image->colorTint[0],image->colorTint[1],image->colorTint[2],image->colorTint[3]);
+        color.a = image->opacity*255;
+        //set opacity of sprite
+        tempSprite.setColor( color );
         tempSprite.setRotation( 180+(image->angle) * 57.2958);
         std::cout << "set angle: " << (image->angle) * 57.2958  << std::endl;
 

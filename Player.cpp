@@ -28,19 +28,19 @@ Player::Player(b2World* world, Engine* engine)
 
 
     //foot fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(0,1), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(0,0), 0);
     fixtureDef.isSensor = true;
     fixtureDef.shape = &shape;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
     //right fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(.7,0), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(.5,.5), 0);
     fixtureDef.isSensor = true;
     b2Fixture* rightSensorFixture = body->CreateFixture(&fixtureDef);
     rightSensorFixture->SetUserData( (void*)1 );
 
     //left fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(-.7,0), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(-.5,.5), 0);
     fixtureDef.isSensor = true;
     b2Fixture* leftSensorFixture = body->CreateFixture(&fixtureDef);
     leftSensorFixture->SetUserData( (void*)1 );
@@ -48,29 +48,29 @@ Player::Player(b2World* world, Engine* engine)
 
    // playerTexture.loadFromFile("spritesheetvolt.png");
 
-    playerSprite.setOrigin(13.f,0.f);
+    playerSprite.setOrigin(90.f,110.f);
     checkpointPos.x =0;
     checkpointPos.y =60;
 
     //Animation Setup
-    pichuSheet.loadFromFile("pichu1.png");
+    pichuSheet.loadFromFile("AssetLoader/WalkCycleSheet.png");
     idleAnimation = Animation(8,pichuSheet);
-    idleAnimation.setFrame(0,0,25,38);
+    idleAnimation.setFrame(0,0,25,-38);
 
-    runRightAnimation = Animation(3,pichuSheet);
-    runRightAnimation.setFrame(13,45,20,30);
+    runRightAnimation = Animation(40,pichuSheet);
+    runRightAnimation.setFrame(0,0,180,180);
 
     runLeftAnimation = Animation(3,pichuSheet);
-    runLeftAnimation.setFrame(103,45,20,30);
+   // runLeftAnimation.setFrame(103,-45,20,30);
 
     jumpAnimation = Animation(4,pichuSheet);
-    jumpAnimation.setFrame(7,140,25,40);
+  //  jumpAnimation.setFrame(7,-140,25,40);
 
     jumpLeftAnimation = Animation(4,pichuSheet);
-    jumpLeftAnimation.setFrame(7,90,25,40);
+   // jumpLeftAnimation.setFrame(7,-90,25,40);
 
     fallingAnimation = Animation(1,pichuSheet);
-    fallingAnimation.setFrame(270,140,20,40);
+  //  fallingAnimation.setFrame(270,-140,20,40);
 
 //    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
 //    attackAnimation =  Animation(1,  temp);
@@ -178,9 +178,10 @@ void Player::render()
         else if(engine->moveRight && !engine->jumpAnimation)
         {
 
-            runRightAnimation.frameSpeed = 16;
+            runRightAnimation.frameSpeed = 40;
             playerSprite.setTexture(runRightAnimation.animationTexture);
             playerSprite.setTextureRect(runRightAnimation.nextFrame());
+            playerSprite.setScale(.5,-.5);
         }
 
 
@@ -191,7 +192,7 @@ void Player::render()
 
 
 
-    playerSprite.setPosition(engine->SCALE * body->GetPosition().x, engine->SCALE * body->GetPosition().y);
+    playerSprite.setPosition(engine->SCALE * body->GetPosition().x, (engine->SCALE * body->GetPosition().y));
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
     engine->Window->draw(playerSprite);
 

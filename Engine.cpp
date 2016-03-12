@@ -17,8 +17,9 @@ Engine::Engine()
     Window->setVerticalSyncEnabled(true);
 
     view = sf::View();
-    Window->setView(view);
-    view.reset(sf::FloatRect(0, 0, 1400, 900));
+
+
+    view.reset(sf::FloatRect(0, 0, 1400, -900));
 
 
     /** Prepare the box2d world */
@@ -130,19 +131,26 @@ void Engine::processInput()
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         moveRight = true;
+        moveStop = false;
     }
     else
     {
+
         moveRight = false;
+        if(!moveLeft)
+        moveStop = true;
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         moveLeft = true;
+        moveStop = false;
     }
     else
     {
         moveLeft = false;
+        if(!moveRight)
+            moveStop = true;
     }
 
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -334,11 +342,11 @@ void Engine::update()
     {
         {
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
-            float desiredVel = -9;
+            float desiredVel = 9;
             float velChange = desiredVel - vel.y;
             float impulse =  worldBodies["player"]->GetMass() * velChange;
            // worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-7), worldBodies["player"]->GetWorldCenter() );
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,-8));
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,8));
             moveJump = false;
             jumpAnimation = true;
 
@@ -352,20 +360,16 @@ void Engine::update()
     //for variable jump height
     if(jumpRelease)
     {
-        if(worldBodies["player"]->GetLinearVelocity().y < 0)
-        {
-            if(worldBodies["player"]->GetLinearVelocity().y < -3.5)
-                worldBodies["player"]->SetLinearVelocity(b2Vec2(worldBodies["player"]->GetLinearVelocity().x,-3.5));
+        if(worldBodies["player"]->GetLinearVelocity().y > 0)
+        { std::cout << "variable jump" << std::endl;
+            if(worldBodies["player"]->GetLinearVelocity().y > 3.5)
+                worldBodies["player"]->SetLinearVelocity(b2Vec2(worldBodies["player"]->GetLinearVelocity().x,3.5));
         }
     }
 
     b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
     if (moveLeft)
     {
-        std::cout << "move left" << std::endl;
-
-        player->bodyFixture->SetFriction(0);
-
         if(player->numFootContacts > 0)
         {
             if (vel.x > 0)
@@ -384,9 +388,6 @@ void Engine::update()
     }
     else if (moveRight)
     {
-         std::cout << "move right" << std::endl;
-        player->bodyFixture->SetFriction(0);
-
         if(player->numFootContacts > 0)
         {
             if (vel.x < 0)
@@ -402,11 +403,12 @@ void Engine::update()
            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
 
     } //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
-    else
-    {
-        player->bodyFixture->SetFriction(30);
-    }
 
+    if(moveStop && player->numFootContacts > 0)
+    {
+       // std::cout << "stopping movement" << std::cout;
+        worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x/1.2,vel.y));
+    }
 
 
     if(debug)
@@ -428,6 +430,7 @@ void Engine::renderFrame()
 
 
     Window->setView(view);
+
     World->DrawDebugData();
     //these need to be added to sprite map and then call world map render
     Window->draw(worldMap->verticalVineSprite);

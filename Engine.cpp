@@ -10,16 +10,24 @@ Engine::~Engine()
     b2Free(bodies);
     joints = NULL;
     bodies = NULL;
+    delete enemy;
+    delete player;
+    delete listener;
+    delete worldMap;
+    delete assetLoader;
+    delete mapBuilder;
+    delete debugDrawInstance;
 };
 Engine::Engine()
 {
-    Window = new sf::RenderWindow(sf::VideoMode(1400,900, 32), "Test");
-    Window->setVerticalSyncEnabled(true);
+    Window = new sf::RenderWindow(sf::VideoMode(1920,1080, 32), "Test");
+  //  Window->setVerticalSyncEnabled(true);
 
     view = sf::View();
+    view.setCenter(1,1);
+    int cameraZoom = 1;
 
-
-    view.reset(sf::FloatRect(0, 0, 1400, -900));
+    view.reset(sf::FloatRect(1, 1, 1920, -1080));
 
 
     /** Prepare the box2d world */
@@ -29,7 +37,7 @@ Engine::Engine()
 
     /**Load the world from RUBE generated json file*/
     string errorMsg;
-    b2dJson json;
+    //  b2dJson json;
     //read json file and set as b2World
     World = json.readFromFile("myfile.json", errorMsg);
     std::cout << errorMsg << std::endl;
@@ -53,6 +61,7 @@ Engine::Engine()
     /** More Initilization*/
     player = new Player(World, this);
     mapBuilder = new MapBuilder(this);
+    enemy = new Enemy(World,this,0,0);
 
     /** Load json images into sf::spritemap in map class */
     //get all json images
@@ -83,6 +92,7 @@ void Engine::mainLoop()
         while( (frameCounter >= switchFrame/frameSpeed) )
         {
             update();
+
             frameCounter -= switchFrame/frameSpeed;
         }
         renderFrame();
@@ -116,8 +126,6 @@ void Engine::processInput()
             std::cout << "double Jump" << std::endl;
         }
 
-
-
         std::cout << "pressed"  << std::endl;
 
         jumpRelease = false;
@@ -138,7 +146,7 @@ void Engine::processInput()
 
         moveRight = false;
         if(!moveLeft)
-        moveStop = true;
+            moveStop = true;
     }
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -228,6 +236,11 @@ void Engine::processInput()
             {
                 player->attack = true;
             }
+            if (event.key.code == sf::Keyboard::Return)
+            {
+                player->dash = true;
+                std::cout << "dash" << std::endl;
+            }
 
             if (event.type == sf::Event::Resized)
                 Window->setView(sf::View(sf::FloatRect(0.f, 0.f, static_cast<float>(Window->getSize().x) ,static_cast<float>(Window->getSize().y) ) ) );
@@ -237,8 +250,31 @@ void Engine::processInput()
 
         if (event.type == sf::Event::KeyReleased)
         {
+            /** other key events*/
+            if (event.key.code == sf::Keyboard::Y)
+            {
+                view.zoom(1.5);
+            }
 
-//            /** ASSET LOADER CONTROL */
+            if (event.key.code == sf::Keyboard::T)
+            {
+                view.zoom(.5);
+            }
+            if (event.key.code == sf::Keyboard::Space)
+            {
+
+
+                player->attack = false;
+                player->attackPos = 0;
+            }
+            if (event.key.code == sf::Keyboard::Return)
+            {
+                player->dash = false;
+                //  player->attackPos = 0;
+            }
+
+
+            /** ASSET LOADER CONTROL */
             if (event.key.code == sf::Keyboard::Up)
             {
                 assetLoader->spriteSelection++;
@@ -266,11 +302,7 @@ void Engine::processInput()
             }
 //            /** END ASSET LOADER CONTROL */
 
-            if (event.key.code == sf::Keyboard::Space)
-            {
-                player->attack = false;
-                player->attackPos = 0;
-            }
+
             //place point
             if (event.key.code == sf::Keyboard::P)
             {
@@ -316,7 +348,11 @@ void Engine::update()
 
     /** */
     // enemy->moveOnPath();
-    // cout<<player->numFootContacts<<endl;
+
+
+
+    //for every enemy in remove body list
+    //  delete enemy class
 
     if(player->dead)
     {
@@ -344,9 +380,9 @@ void Engine::update()
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
             float desiredVel = 9;
             float velChange = desiredVel - vel.y;
-            float impulse =  worldBodies["player"]->GetMass() * velChange;
-           // worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,-7), worldBodies["player"]->GetWorldCenter() );
-            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,8));
+            float impulse =  worldBodies["player"]->GetMass() * 9;
+            worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter(), true);
+            // worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,9));
             moveJump = false;
             jumpAnimation = true;
 
@@ -361,7 +397,8 @@ void Engine::update()
     if(jumpRelease)
     {
         if(worldBodies["player"]->GetLinearVelocity().y > 0)
-        { std::cout << "variable jump" << std::endl;
+        {
+            std::cout << "variable jump" << std::endl;
             if(worldBodies["player"]->GetLinearVelocity().y > 3.5)
                 worldBodies["player"]->SetLinearVelocity(b2Vec2(worldBodies["player"]->GetLinearVelocity().x,3.5));
         }
@@ -382,7 +419,8 @@ void Engine::update()
                 worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
                 //xsp = xsp-player->acc;
             }
-        }else if (vel.x > -10)
+        }
+        else if (vel.x > -10)
             worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x-player->acc,vel.y));
 
     }
@@ -390,32 +428,58 @@ void Engine::update()
     {
         if(player->numFootContacts > 0)
         {
-            if (vel.x < 0)
+            if(player->dash)
             {
-                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+                if (vel.x < 0) // moving left
+                {
+                    worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+                }
+                else if (vel.x < 10) // moving right
+                {
+                    worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc+20,vel.y));
+                }
             }
-            else if (vel.x < 10)
-            {
-                worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+            else {
+
+                if (vel.x < 0) // moving left
+                {
+                    worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->dec,vel.y));
+                }
+                else if (vel.x < 10) // moving right
+                {
+                    worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+                }
             }
         }
-       else if (vel.x < 10)
-           worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
+        else if (vel.x < 10) // if in the air and velocity less than 10
+            worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x+player->acc,vel.y));
 
     } //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
 
     if(moveStop && player->numFootContacts > 0)
     {
-       // std::cout << "stopping movement" << std::cout;
+        // std::cout << "stopping movement" << std::cout;
         worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x/1.2,vel.y));
     }
 
 
     if(debug)
-         Window->clear(sf::Color(100,100,100,0));
-       // Window->clear(sf::Color::White);
+        Window->clear(sf::Color(100,100,100,0));
+    // Window->clear(sf::Color::White);
 
     World->Step(1/60.f, 8, 3);
+    for (int i = 0; i < enemyScheduledForRemoval.size(); i++)
+    {
+        std::cout << "remove enemy" << std::endl;
+        Enemy* temp = enemyScheduledForRemoval.at(i);
+        delete temp;
+        std::cout << "removal completed" << std::endl;
+        // delete enemy;
+        enemy = NULL;
+        std::cout << "pointer null completed" << std::endl;
+    }
+
+    enemyScheduledForRemoval.clear();
 
 
 
@@ -423,10 +487,11 @@ void Engine::update()
 
 void Engine::renderFrame()
 {
+
     //Window->clear(sf::Color::White);
     Window->clear(sf::Color(100,100,100,0));
     Window->setView(worldMap->backgroundView);
-  //  Window->draw(worldMap->backgroundSprite);
+    //  Window->draw(worldMap->backgroundSprite);
 
 
     Window->setView(view);
@@ -437,43 +502,107 @@ void Engine::renderFrame()
     Window->draw(worldMap->rockPlatformSprite);
 
     //this call uses tons of cycle time
-  //  displayMouseCoords();
-  //  displayAssetSelection();
-
-    //CAMERA CONTROLS
-    //  if(worldBodies["player"]->GetPosition().y*SCALE < 500)
-    {
-        //      view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
-    }
-    //  else
-    {
-        view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
-    }
-    //background parallax
-    //if(worldMap->backgroundView.getCenter().x > (worldBodies["player"]->GetPosition().x))
-        worldMap->backgroundView.setCenter((worldBodies["player"]->GetPosition().x*SCALE)/6,(worldBodies["player"]->GetPosition().y*SCALE)/6);
-
-
-
+    //  displayMouseCoords();
+    //  displayAssetSelection();
 
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
 
-    // enemy->render();
+    sf::CircleShape positionCircle;
+    positionCircle.setRadius(50);
+    positionCircle.setFillColor(sf::Color::Cyan);
+    sf::CircleShape targetCircle;
+    targetCircle.setRadius(5);
+    targetCircle.setFillColor(sf::Color::Red);
+
+
+    sf::Vector2f position(positionCircle.getPosition());
+    sf::Vector2f target(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+   // std::cout << target.x << " " << target.y << "//" << position.x << " " << position.y << std::endl;
+
+
+    //X distance to target, Y distance to target, and Euclidean distance
+    float x, y, d;
+
+    //Velocity magnitudes
+    float vx, vy, v;
+
+    //Find x and y
+    x = (float)(target.x - position.x);
+    y = (float)(target.y - position.y);
+
+    //If we're within 1 pixel of the target already, just snap
+    //to target and stay there. Otherwise, continue
+//	if((x*x + y*y) <= 1)
+//	{
+//		position.x = target.x;
+//		position.y = target.y;
+//	}
+//	else
+    {
+        //Distance formula
+        d = sqrt((x*x + y*y));
+     //   std::cout << "Distance " << d << std::endl;
+
+        //We set our velocity to move 1/60th of the distance to
+        //the target. 60 is arbitrary, I picked it because I intend
+        //to run this function once every 60th of a second. We also
+        //allow the user to change the camera speed via the speed member
+        //v = (d * speed)/60;
+        float v;
+        v = d;
+        //Keep v above 1 pixel per update, otherwise it may never get to
+        //the target. v is an absolute value thanks to the squaring of x
+        //and y earlier
+        if(v < 1.0f)
+            v = 1.0f;
+
+        //Similar triangles to get vx and vy
+        vx = x * (v/d);
+        vy = y * (v/d);
+
+        //Then update camera's position and we're done
+
+        positionCircle.setPosition(mouseWorld);
+
+        targetCircle.setPosition(target.x,target.y);
+
+        Window->draw(targetCircle);
+        //temp set camera to player
+        view.setCenter(target.x,target.y);
+     //   std::cout << "vx and vy " << vx << " " << vy << std::endl;
+    }
+
+    worldMap->backgroundView.setCenter((worldBodies["player"]->GetPosition().x*SCALE)/6,(worldBodies["player"]->GetPosition().y*SCALE)/6);
+
+
+
+
+//    sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
+
+
     worldMap->render();
+  //  std::cout << "render world good" << std::endl;
+    if(enemy != NULL)
+    {
+        enemy->render();
+   //     std::cout << "render enemy good" << std::endl;
+    }
+
     mapBuilder->render(mouseWorld.x,mouseWorld.y);
     player->render();
 
     /**RANDOM DRAW CALLS*/
 
-
+    Window->draw(positionCircle);
 
     /** CALL TO DISPLAY */
     Window->display();
+   // std::cout << "display" << std::endl;
 };
 
 void Engine::addAssetToWorldMap()
 {
-     //dont go out of vector range
+    //dont go out of vector range
     if(assetLoader->spriteSheetSelection < 0)
         assetLoader->spriteSheetSelection = 0;
     if(assetLoader->spriteSheetSelection >= assetLoader->assetFileNames.size())

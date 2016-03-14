@@ -15,7 +15,7 @@
 * misrepresented as being the original software.
 * 3. This notice may not be removed or altered from any source distribution.
 */
-
+#include <iostream>
 #include <Box2D/Dynamics/b2World.h>
 #include <Box2D/Dynamics/b2Body.h>
 #include <Box2D/Dynamics/b2Fixture.h>
@@ -130,6 +130,7 @@ b2Body* b2World::CreateBody(const b2BodyDef* def)
 
 void b2World::DestroyBody(b2Body* b)
 {
+
 	b2Assert(m_bodyCount > 0);
 	b2Assert(IsLocked() == false);
 	if (IsLocked())
@@ -187,7 +188,7 @@ void b2World::DestroyBody(b2Body* b)
 	}
 	b->m_fixtureList = NULL;
 	b->m_fixtureCount = 0;
-
+std::cout << "in box destroy" << std::endl;
 	// Remove world body list.
 	if (b->m_prev)
 	{

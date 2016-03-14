@@ -1,6 +1,9 @@
 #include "Player.h"
 #include "Animation.h"
+Player::~Player()
+{
 
+};
 Player::Player(b2World* world, Engine* engine)
 {
 
@@ -15,7 +18,7 @@ Player::Player(b2World* world, Engine* engine)
     int id = 1;
     body->SetUserData((void*)id);
 
-  //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
+    //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
     circleShape.m_p.Set(0,.5); //position, relative to body position
     circleShape.m_radius = .5;
     fixtureDef.density = 3.f;
@@ -46,31 +49,31 @@ Player::Player(b2World* world, Engine* engine)
     leftSensorFixture->SetUserData( (void*)1 );
 
 
-   // playerTexture.loadFromFile("spritesheetvolt.png");
+    // playerTexture.loadFromFile("spritesheetvolt.png");
 
     playerSprite.setOrigin(90.f,110.f);
     checkpointPos.x =0;
     checkpointPos.y =60;
 
     //Animation Setup
-    pichuSheet.loadFromFile("AssetLoader/WalkCycleSheet.png");
+    pichuSheet.loadFromFile("AssetLoader/colorRun.png");
     idleAnimation = Animation(8,pichuSheet);
     idleAnimation.setFrame(0,0,25,-38);
 
-    runRightAnimation = Animation(40,pichuSheet);
-    runRightAnimation.setFrame(0,0,180,180);
+    runRightAnimation = Animation(30,pichuSheet);
+    runRightAnimation.setFrame(0,0,154,180);
 
-    runLeftAnimation = Animation(3,pichuSheet);
-   // runLeftAnimation.setFrame(103,-45,20,30);
+    runLeftAnimation = Animation(30,pichuSheet);
+    runLeftAnimation.setFrame(0,0,154,180);
 
     jumpAnimation = Animation(4,pichuSheet);
-  //  jumpAnimation.setFrame(7,-140,25,40);
+    //  jumpAnimation.setFrame(7,-140,25,40);
 
     jumpLeftAnimation = Animation(4,pichuSheet);
-   // jumpLeftAnimation.setFrame(7,-90,25,40);
+    // jumpLeftAnimation.setFrame(7,-90,25,40);
 
     fallingAnimation = Animation(1,pichuSheet);
-  //  fallingAnimation.setFrame(270,-140,20,40);
+    //  fallingAnimation.setFrame(270,-140,20,40);
 
 //    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
 //    attackAnimation =  Animation(1,  temp);
@@ -84,26 +87,26 @@ Player::Player(b2World* world, Engine* engine)
 void Player::setOrigin(float pos_x, float pos_y)
 {
 
-  //  playerSprite.setOrigin(140.f,190.f);
+    //  playerSprite.setOrigin(140.f,190.f);
 
 }
 
 void Player::render()
 {
     {
-
-
 //        {
 //        playerSprite.setTexture(idleAnimation.animationTexture);
 //        playerSprite.setTextureRect(idleAnimation.nextFrame());
 //        }
+
         if(attack)
         {
             //for each enemy in range
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
-                b2Body* it = engine->worldMap->mapEnemies.at(i);
-
+                b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
+                Enemy* enemy = engine->worldMap->mapEnemies.at(i);
+////
                 float euclidian = getEuclidianDistance(sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE),sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y));
                 sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
                 sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
@@ -116,17 +119,22 @@ void Player::render()
                     };
                     engine->Window->draw(line, 2, sf::Lines);
                     sf::Texture tex;
-                //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
+                    //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
                     test.setTextureRect(attackAnimation.nextFrame());
                     test.setOrigin(100,35);
                     test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
 
 
-                 //  std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
-//                 std::cout << "rect" << test->getTextureRect().width << std::endl;
+                    // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
+                    //   std::cout << "rect" << test->getTextureRect().width << std::endl;
 //                 test->setPosition(100.f,engine->SCALE0.f);
-               //  test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
+//                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
                     engine->Window->draw(test);
+                    std::cout << "schedule for removal" << std::endl;
+                    engine->enemyScheduledForRemoval.push_back(enemy);
+                    // std::find(vector.begin(), vector.end(), body) != vector.end()
+                    engine->worldMap->mapEnemies.clear();
+
                 }
             }
             //draw line from player to enemy
@@ -171,26 +179,41 @@ void Player::render()
         }
         else if(engine->moveLeft && !engine->jumpAnimation)
         {
-            runLeftAnimation.frameSpeed = 16;
-            playerSprite.setTexture(runLeftAnimation.animationTexture);
-            playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+            if(dash)
+            {
+                runLeftAnimation.frameSpeed = 120;
+                playerSprite.setTexture(runLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+                playerSprite.setScale(-.7,-.7);
+            }
+            else
+            {
+                runLeftAnimation.frameSpeed = 60;
+                playerSprite.setTexture(runLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+                playerSprite.setScale(-.7,-.7);
+            }
         }
         else if(engine->moveRight && !engine->jumpAnimation)
         {
-
-            runRightAnimation.frameSpeed = 40;
-            playerSprite.setTexture(runRightAnimation.animationTexture);
-            playerSprite.setTextureRect(runRightAnimation.nextFrame());
-            playerSprite.setScale(.5,-.5);
+            if(dash)
+            {
+                std::cout << "player dash" << std::endl;
+                runRightAnimation.frameSpeed = 120;
+                playerSprite.setTexture(runRightAnimation.animationTexture);
+                playerSprite.setTextureRect(runRightAnimation.nextFrame());
+                playerSprite.setScale(.7,-.7);
+            }
+            else
+            {
+                runRightAnimation.frameSpeed = 60;
+                playerSprite.setTexture(runRightAnimation.animationTexture);
+                playerSprite.setTextureRect(runRightAnimation.nextFrame());
+                playerSprite.setScale(.7,-.7);
+            }
         }
 
-
     }
-
-
-
-
-
 
     playerSprite.setPosition(engine->SCALE * body->GetPosition().x, (engine->SCALE * body->GetPosition().y));
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
@@ -218,6 +241,8 @@ sf::Vector2f Player::getCoordsToPointBetweenPoints(float euclidian,sf::Vector2f 
 
     return coords;
 }
+
+//return float distance between target and destination
 float Player::getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination)
 {
     return sqrt((target.x-destination.x)*(target.x-destination.x)+(target.y-destination.y)*(target.y-destination.y));

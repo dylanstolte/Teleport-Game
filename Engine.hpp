@@ -30,11 +30,12 @@ public:
    	sf::RenderWindow* Window;
    	b2World* World;
 
+    /**Parallax layers **/
    	sf::View view;
     sf::View backgroundView;
     sf::View midgroundView;
 
-    //POINTERS TO CLASSES
+    /**POINTERS TO CLASSES*/
     MyContactListener* listener;
     Player* player;
     Enemy* enemy;
@@ -42,9 +43,8 @@ public:
     AssetLoader* assetLoader;
     MapBuilder* mapBuilder;
     scriptBuiltMap* ScriptBuiltMap;
-
-    //at global scope
     DebugDraw* debugDrawInstance;
+
    	//THE MAGICAL CLOCK
     sf::Clock clock;
     float frameCounter;
@@ -62,7 +62,7 @@ public:
     sf::CircleShape dot;
 
     sf::Vertex lineSquares[2];
-
+    int cameraZoom;
 
     /////////////// MOVE STATES
     bool moveJump = false;
@@ -84,6 +84,9 @@ public:
 
     b2Body** bodies;
     b2Joint** joints;
+    b2dJson json;
+    //enemy class removal
+    std::vector<Enemy*> enemyScheduledForRemoval;
 
     /** We need this to easily convert between pixel and real-world coordinates*/
     float SCALE = 30.f;

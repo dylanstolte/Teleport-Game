@@ -7,13 +7,13 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
     this->world = World;
     originPos.x = pos_x;
     originPos.y = pos_x;
-    bodyDef.position = b2Vec2(100.f/engine->SCALE, 100.f/engine->SCALE);
+    bodyDef.position = b2Vec2(-100.f/engine->SCALE, 100.f/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
     body = world->CreateBody(&bodyDef);
     //add body to world map
-    engine->worldMap->mapEnemies.push_back(body);
+    engine->worldMap->mapEnemies.push_back(this);
     int id = 2;
     body->SetUserData((void*)id);
 
@@ -29,15 +29,30 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
     footSensorFixture->SetUserData( (void*)3 );
 
 
-    enemyTexture.loadFromFile("enemysprite.png");
+    enemyTexture.loadFromFile("AssetLoader/enemysprite.png");
 
    walkLeftAnimation = Animation(4,enemyTexture);
    walkLeftAnimation.setFrame(0,70,60,70);
 
-   // enemySprite.setOrigin(24.f,24.f);
+
+
+
+  //Json::Value bodyValue = engine->json.b2j( body );
+
+  //later...
+
+   // body = engine->json.j2b2Body(engine->World, bodyValue);
+  //delete body
     };
 
-Enemy::~Enemy(){};
+Enemy::~Enemy()
+{
+    std::cout << "remove body in class  " << std::endl;
+    engine->World->DestroyBody( body );
+    std::cout << "completed body in class removal  " << std::endl;
+
+
+};
 void Enemy::moveOnPath()
 {
 
@@ -55,10 +70,11 @@ void Enemy::moveOnPath()
 
 void Enemy::render()
 {
+
     sf::Sprite enemySprite;
     for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
     {
-
+      //  std::cout << "render enemy" << std::endl;
     enemySprite.setOrigin(35,35);
     enemySprite.setTexture(enemyTexture);
     enemySprite.setTextureRect(walkLeftAnimation.nextFrame());
@@ -66,6 +82,7 @@ void Enemy::render()
     enemySprite.setPosition(engine->SCALE * body->GetPosition().x, engine->SCALE * body->GetPosition().y);
     enemySprite.setRotation(body->GetAngle() * 180/b2_pi);
     engine->Window->draw(enemySprite);
+
     }
 };
 

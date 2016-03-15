@@ -53,10 +53,9 @@ std::cout << "bodyvalue" << std::endl;
 Enemy::~Enemy()
 {
     std::cout << "remove body in class  " << std::endl;
-    //getBodyByName from json
-    //body = body from json
     engine->World->DestroyBody( engine->json.getBodyByName("Enemy") );
     std::cout << "completed body in class removal  " << std::endl;
+    //this class will be removed
 
 
 };

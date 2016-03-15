@@ -468,54 +468,6 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -65.63673400878906,
-          "y" : -28.54409790039063
-        },
-        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_26_39 PM.png",
-        "filter" : 1,
-        "flip" : false,
-        "id" : 26,
-        "name" : "image11",
-        "opacity" : 1,
-        "scale" : 36.0
-      },
-      
-      {
-        "aspectScale" : 1,
-        "center" : 
-        {
-          "x" : -87.99337768554688,
-          "y" : -23.85290527343750
-        },
-        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_26_55 PM.png",
-        "filter" : 1,
-        "flip" : false,
-        "id" : 27,
-        "name" : "image12",
-        "opacity" : 1,
-        "scale" : 36.0
-      },
-      
-      {
-        "aspectScale" : 1,
-        "center" : 
-        {
-          "x" : -119.8463897705078,
-          "y" : -26.42691040039063
-        },
-        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_27_11 PM.png",
-        "filter" : 1,
-        "flip" : false,
-        "id" : 28,
-        "name" : "image13",
-        "opacity" : 1,
-        "scale" : 36.0
-      },
-      
-      {
-        "aspectScale" : 1,
-        "center" : 
-        {
           "x" : -19.04705429077148,
           "y" : -36.14080047607422
         },
@@ -1540,13 +1492,13 @@
           "x" : -15.50357627868652,
           "y" : -31.41731452941895
         },
-        "colorTint" : [ 83, 83, 83, 255 ],
+        "colorTint" : [ 249, 249, 249, 255 ],
         "file" : "AssetLoader/ThreeBranchTree.png",
         "filter" : 1,
         "flip" : true,
         "id" : 104,
         "name" : "image7",
-        "opacity" : 0.7,
+        "opacity" : 0.8,
         "renderOrder" : 2,
         "scale" : 11.77251625061035
       },
@@ -1981,22 +1933,6 @@
         "opacity" : 1,
         "renderOrder" : 3,
         "scale" : 1.424145936965942
-      },
-      
-      {
-        "aspectScale" : 1,
-        "center" : 
-        {
-          "x" : -65.63670349121094,
-          "y" : -28.54409980773926
-        },
-        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_26_39 PM.png",
-        "filter" : 1,
-        "flip" : false,
-        "id" : 130,
-        "name" : "image11",
-        "opacity" : 1,
-        "scale" : 36.0
       },
       
       {
@@ -4137,6 +4073,1750 @@
         "opacity" : 0.8,
         "renderOrder" : 3,
         "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.856360435485840,
+          "y" : -15.78200912475586
+        },
+        "colorTint" : [ 45, 45, 45, 255 ],
+        "file" : "AssetLoader/TallPurpleTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 250,
+        "name" : "image9",
+        "opacity" : 0.7,
+        "scale" : 42.13926696777344
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -94.15614318847656,
+          "y" : -16.80208778381348
+        },
+        "colorTint" : [ 45, 45, 45, 255 ],
+        "file" : "AssetLoader/TallPurpleTree.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 251,
+        "name" : "image9",
+        "opacity" : 0.7,
+        "scale" : 42.13926696777344
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.0031738281250,
+          "y" : -19.37614250183106
+        },
+        "colorTint" : [ 71, 71, 71, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 252,
+        "name" : "image10",
+        "opacity" : 0.7,
+        "scale" : 40.64757537841797
+      },
+      
+      {
+        "angle" : -0.1286178976297379,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.60285186767578,
+          "y" : -36.36499404907227
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 253,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 2.323779344558716
+      },
+      
+      {
+        "angle" : -0.1207798346877098,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -36.64480590820313,
+          "y" : -36.23379135131836
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 254,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 2.656431913375855
+      },
+      
+      {
+        "angle" : -0.04402506351470947,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.83289718627930,
+          "y" : -36.75435256958008
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 255,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 1.439533829689026
+      },
+      
+      {
+        "angle" : -0.1286178976297379,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.68843841552734,
+          "y" : -36.95774841308594
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 256,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 1.093515396118164
+      },
+      
+      {
+        "angle" : -0.1207798346877098,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.17875671386719,
+          "y" : -36.89600753784180
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 257,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 1.250053763389587
+      },
+      
+      {
+        "angle" : -0.04402506351470947,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.79669189453125,
+          "y" : -37.14096832275391
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 258,
+        "name" : "image11",
+        "opacity" : 0.5,
+        "scale" : 0.6774104237556458
+      },
+      
+      {
+        "angle" : -0.002815773710608482,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -85.65794372558594,
+          "y" : -29.09420585632324
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 259,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 11.47088909149170
+      },
+      
+      {
+        "angle" : -0.2114950567483902,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -79.08670806884766,
+          "y" : -29.87677383422852
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 260,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 11.47088909149170
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -152.0622558593750,
+          "y" : -30.17308998107910
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 261,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.0912780761719,
+          "y" : -29.99270057678223
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 262,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -147.4360961914063,
+          "y" : -29.82178688049316
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 263,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -153.3523101806641,
+          "y" : -29.80419349670410
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 264,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.7857971191406,
+          "y" : -30.06961250305176
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 265,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -149.8300170898438,
+          "y" : -30.03967094421387
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 266,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.1136768683791161,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -157.0452728271484,
+          "y" : -30.08463096618652
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 267,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.1419582217931747,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -158.5388793945313,
+          "y" : -30.28558540344238
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 268,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -152.8590393066406,
+          "y" : -29.85928153991699
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 269,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -145.2038726806641,
+          "y" : -29.68836784362793
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 270,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.3352661132813,
+          "y" : -30.05959510803223
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 271,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -148.2522888183594,
+          "y" : -30.02085304260254
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 272,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -157.5674896240234,
+          "y" : -30.19301414489746
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 273,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -150.4845275878906,
+          "y" : -30.15427207946777
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 274,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -153.3670959472656,
+          "y" : -30.14172554016113
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 275,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -146.8181915283203,
+          "y" : -29.89079475402832
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 276,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -149.9201202392578,
+          "y" : -30.14172554016113
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 277,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -158.0180358886719,
+          "y" : -30.20303153991699
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 278,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.5845489501953,
+          "y" : -29.93761253356934
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 279,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -151.1348571777344,
+          "y" : -30.00830650329590
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 280,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -144.5859527587891,
+          "y" : -29.75737571716309
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 281,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -147.6878967285156,
+          "y" : -30.00830650329590
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 282,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -70.36895751953125,
+          "y" : -37.66798400878906
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 284,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -59.05581283569336,
+          "y" : -38.23710250854492
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 285,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.04232406616211,
+          "y" : -37.70018768310547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 286,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -59.80995178222656,
+          "y" : -37.83137130737305
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 287,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -65.08830261230469,
+          "y" : -37.20207977294922
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 288,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.52485656738281,
+          "y" : -37.60660552978516
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 289,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.80455017089844,
+          "y" : -37.65544128417969
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 290,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -60.29326248168945,
+          "y" : -37.71840667724609
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 291,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.52563095092773,
+          "y" : -37.58721542358398
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 292,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -60.34781265258789,
+          "y" : -38.05183029174805
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 293,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.97343444824219,
+          "y" : -37.56333541870117
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 294,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.29250335693359,
+          "y" : -37.737792968750
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 295,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -58.11544036865234,
+          "y" : -38.18301010131836
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 296,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.74106597900391,
+          "y" : -37.69452667236328
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 297,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : -0.004719085991382599,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -63.99349594116211,
+          "y" : -37.56066513061523
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 298,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -66.70262145996094,
+          "y" : -37.40451049804688
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 299,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -67.32052612304688,
+          "y" : -37.33550262451172
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 300,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "angle" : 0.02356226742267609,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -65.50038909912109,
+          "y" : -37.58379364013672
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 301,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.71444702148438,
+          "y" : -37.55338287353516
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 302,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.47038269042969,
+          "y" : -37.27108764648438
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 303,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -67.57232666015625,
+          "y" : -37.52201843261719
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 304,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -68.136718750,
+          "y" : -37.53456878662109
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 305,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.69945907592773,
+          "y" : -37.25676727294922
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 306,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.2073061466217041,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -44.95201110839844,
+          "y" : -37.38946533203125
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 307,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.2355874925851822,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -46.42029190063477,
+          "y" : -37.72918701171875
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 308,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -41.30144500732422,
+          "y" : -36.76499557495117
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 309,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -45.90944290161133,
+          "y" : -37.59829330444336
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 310,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.25183486938477,
+          "y" : -37.20466995239258
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 311,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.07461929321289,
+          "y" : -36.76089477539063
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 312,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.98255157470703,
+          "y" : -37.01166915893555
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 313,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -45.46180343627930,
+          "y" : -37.54619598388672
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 314,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.51142883300781,
+          "y" : -37.10652160644531
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 315,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.01517105102539,
+          "y" : -37.11525726318359
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 316,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -40.80518341064453,
+          "y" : -36.77372360229492
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 317,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -41.28460693359375,
+          "y" : -37.10243225097656
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 318,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -48.12401199340820,
+          "y" : -37.39644241333008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 319,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -46.80511856079102,
+          "y" : -37.64311599731445
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 320,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -49.83773803710938,
+          "y" : -37.74670410156250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 321,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -47.62775039672852,
+          "y" : -37.40517044067383
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 322,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -50.33399581909180,
+          "y" : -37.73796844482422
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 323,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.77885437011719,
+          "y" : -37.87495803833008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 324,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -53.45996093750,
+          "y" : -38.12163162231445
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 325,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -56.98883819580078,
+          "y" : -38.21648406982422
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 326,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.28259277343750,
+          "y" : -37.88368606567383
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 327,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -56.49258041381836,
+          "y" : -38.22521972656250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 328,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -50.71098327636719,
+          "y" : -37.77022171020508
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 329,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -52.92097091674805,
+          "y" : -38.11175537109375
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 330,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -49.88835144042969,
+          "y" : -38.00816726684570
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 331,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -53.41722869873047,
+          "y" : -38.10301971435547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 332,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -51.20724487304688,
+          "y" : -37.76149368286133
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 333,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -72.32293701171875,
+          "y" : -36.71477890014648
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 334,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -74.32517242431641,
+          "y" : -35.71891403198242
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 335,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -72.72326660156250,
+          "y" : -36.42137908935547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 336,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -74.72549438476563,
+          "y" : -35.42551422119141
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 337,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -71.78823089599609,
+          "y" : -37.38368225097656
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 338,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.87529754638672,
+          "y" : -36.6738281250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 339,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.827636718750,
+          "y" : -35.32364273071289
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 340,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.93668365478516,
+          "y" : -36.96733093261719
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 341,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.59327697753906,
+          "y" : -34.86242675781250
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 342,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 0.9666618704795837
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.88901519775391,
+          "y" : -35.61714553833008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 343,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 0.1070775538682938,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.272421836853027,
+          "y" : -31.45310020446777
+        },
+        "colorTint" : [ 204, 204, 204, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 344,
+        "name" : "image7",
+        "opacity" : 0.8,
+        "renderOrder" : 1,
+        "scale" : 8.972380638122559
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.63091278076172,
+          "y" : -18.05295562744141
+        },
+        "colorTint" : [ 71, 71, 71, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 345,
+        "name" : "image10",
+        "opacity" : 0.7,
+        "scale" : 40.64757537841797
       }
     ],
     "positionIterations" : 3,

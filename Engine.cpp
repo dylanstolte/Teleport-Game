@@ -473,11 +473,12 @@ void Engine::update()
     for (int i = 0; i < enemyScheduledForRemoval.size(); i++)
     {
         std::cout << "remove enemy" << std::endl;
+        //enemy class scheduled for removal
         Enemy* temp = enemyScheduledForRemoval.at(i);
-
+        //call enemy class destructor
         delete temp;
         std::cout << "removal completed" << std::endl;
-        // delete enemy;
+        // set enemy pointer in engine class to null
         enemy = NULL;
         std::cout << "pointer null completed" << std::endl;
     }

@@ -101,17 +101,29 @@ void Player::render()
 
         if(attack)
         {
+            std::cout << "attack" << std::endl;
             //for each enemy in range
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
-                b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
+               // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
+                               std::vector<b2Body*> Bodies;
+                int num = engine->json.getBodiesByName("Enemy",Bodies);
+                std::cout << " " <<  num << std::endl;
+
+                b2Body* it = engine->json.getBodyByName("Enemy");
                 Enemy* enemy = engine->worldMap->mapEnemies.at(i);
-////
-                float euclidian = getEuclidianDistance(sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE),sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y));
+
+                std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
+std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
+
                 sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
                 sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
+                float euclidian = getEuclidianDistance(bodyPosition,playerPosition);
+
+                std::cout << "check for in range: " << euclidian << std::endl;
                 if(euclidian < attackDistance)
                 {
+                    std::cout << "in range" << std::endl;
                     sf::Vertex line[] =
                     {
                         sf::Vertex(bodyPosition,sf::Color::Blue),
@@ -137,8 +149,6 @@ void Player::render()
 
                 }
             }
-            //draw line from player to enemy
-            //delete enemy
         }
         if(engine->jumpAnimation)
         {

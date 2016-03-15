@@ -61,6 +61,7 @@ Engine::Engine()
     /** More Initilization*/
     player = new Player(World, this);
     mapBuilder = new MapBuilder(this);
+    std::cout << "enemy load" << std::endl;
     enemy = new Enemy(World,this,0,0);
 
     /** Load json images into sf::spritemap in map class */
@@ -468,10 +469,12 @@ void Engine::update()
     // Window->clear(sf::Color::White);
 
     World->Step(1/60.f, 8, 3);
+    //remove sheduled enemies
     for (int i = 0; i < enemyScheduledForRemoval.size(); i++)
     {
         std::cout << "remove enemy" << std::endl;
         Enemy* temp = enemyScheduledForRemoval.at(i);
+
         delete temp;
         std::cout << "removal completed" << std::endl;
         // delete enemy;

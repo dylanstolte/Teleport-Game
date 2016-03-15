@@ -11,6 +11,10 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
+
+     body = NULL;
+     b2Body* temp;
+
     body = world->CreateBody(&bodyDef);
     //add body to world map
     engine->worldMap->mapEnemies.push_back(this);
@@ -28,6 +32,9 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
 
+    Json::Value bodyValue = engine->json.b2j( body );
+  //  body = engine->json.j2b2Body(engine->World, bodyValue);
+std::cout << "bodyvalue" << std::endl;
 
     enemyTexture.loadFromFile("AssetLoader/enemysprite.png");
 
@@ -37,18 +44,18 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
 
 
 
-  //Json::Value bodyValue = engine->json.b2j( body );
 
-  //later...
-
-   // body = engine->json.j2b2Body(engine->World, bodyValue);
-  //delete body
+   engine->json.setBodyName(body, "Enemy");
+  // engine->json.j2b2Body(engine->World, bodyValue);
+ // engine->World->DestroyBody(body);
     };
 
 Enemy::~Enemy()
 {
     std::cout << "remove body in class  " << std::endl;
-    engine->World->DestroyBody( body );
+    //getBodyByName from json
+    //body = body from json
+    engine->World->DestroyBody( engine->json.getBodyByName("Enemy") );
     std::cout << "completed body in class removal  " << std::endl;
 
 

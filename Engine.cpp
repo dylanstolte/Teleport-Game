@@ -500,7 +500,7 @@ void Engine::renderFrame()
 
     Window->setView(view);
 
-    World->DrawDebugData();
+   // World->DrawDebugData();
     //these need to be added to sprite map and then call world map render
     Window->draw(worldMap->verticalVineSprite);
     Window->draw(worldMap->rockPlatformSprite);

@@ -486,8 +486,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -30.49825096130371,
-          "y" : -37.74778366088867
+          "x" : -29.15476226806641,
+          "y" : -38.62014389038086
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -496,15 +496,15 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 0.7011820077896118
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -32.60539245605469,
-          "y" : -37.913574218750
+          "x" : -29.59928321838379,
+          "y" : -39.33618927001953
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -512,15 +512,15 @@
         "id" : 32,
         "name" : "image14",
         "opacity" : 1,
-        "scale" : 1.424145936965942
+        "scale" : 1.055312275886536
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -34.19911956787109,
-          "y" : -37.74778366088867
+          "x" : -33.66312789916992,
+          "y" : -38.047363281250
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -528,15 +528,15 @@
         "id" : 33,
         "name" : "image14",
         "opacity" : 1,
-        "scale" : 1.424145936965942
+        "scale" : 1.048844337463379
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -28.80825996398926,
-          "y" : -38.24515533447266
+          "x" : -22.05718231201172,
+          "y" : -38.40032196044922
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -545,7 +545,7 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 0.9097843766212463
       },
       
       {
@@ -583,11 +583,12 @@
       },
       
       {
+        "angle" : 0.3193585276603699,
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -26.72785758972168,
-          "y" : -38.28259277343750
+          "x" : -26.49914932250977,
+          "y" : -38.43813323974609
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -596,7 +597,7 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 1.232480287551880
       },
       
       {
@@ -620,8 +621,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -25.12343406677246,
-          "y" : -38.15958786010742
+          "x" : -25.20914649963379,
+          "y" : -38.43542098999023
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -630,15 +631,15 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 1.341553092002869
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -23.92012023925781,
-          "y" : -37.54990768432617
+          "x" : -25.41308975219727,
+          "y" : -38.45905303955078
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -647,24 +648,24 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 0.9417299628257752
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -23.93616485595703,
-          "y" : -38.00984191894531
+          "x" : -24.52159118652344,
+          "y" : -38.14511108398438
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
-        "flip" : false,
+        "flip" : true,
         "id" : 41,
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 1.199504137039185
       },
       
       {
@@ -1720,8 +1721,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -23.92009925842285,
-          "y" : -37.54990005493164
+          "x" : -22.92997932434082,
+          "y" : -39.77767181396484
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1737,8 +1738,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -25.12339973449707,
-          "y" : -38.15959930419922
+          "x" : -24.62833976745606,
+          "y" : -40.18109130859375
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1771,8 +1772,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -34.19910049438477,
-          "y" : -37.74779891967773
+          "x" : -31.10597610473633,
+          "y" : -38.47695541381836
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1780,7 +1781,7 @@
         "id" : 120,
         "name" : "image14",
         "opacity" : 1,
-        "scale" : 1.424145936965942
+        "scale" : 1.219096899032593
       },
       
       {
@@ -1821,8 +1822,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -28.80830001831055,
-          "y" : -38.24520111083984
+          "x" : -28.92358589172363,
+          "y" : -38.43972015380859
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1831,7 +1832,7 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 0.9394730329513550
       },
       
       {
@@ -1872,8 +1873,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -32.60540008544922,
-          "y" : -37.91360092163086
+          "x" : -32.28792190551758,
+          "y" : -38.20099258422852
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1881,15 +1882,15 @@
         "id" : 126,
         "name" : "image14",
         "opacity" : 1,
-        "scale" : 1.424145936965942
+        "scale" : 1.181572556495667
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -26.72789955139160,
-          "y" : -38.28260040283203
+          "x" : -20.62215805053711,
+          "y" : -39.49962615966797
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1905,8 +1906,8 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -30.49830055236816,
-          "y" : -37.74779891967773
+          "x" : -28.34331130981445,
+          "y" : -39.64101028442383
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1915,15 +1916,15 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 1.064331293106079
       },
       
       {
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -23.93619918823242,
-          "y" : -38.00979995727539
+          "x" : -25.33729362487793,
+          "y" : -39.09163284301758
         },
         "file" : "AssetLoader/rock group 1.png",
         "filter" : 1,
@@ -1932,7 +1933,7 @@
         "name" : "image14",
         "opacity" : 1,
         "renderOrder" : 3,
-        "scale" : 1.424145936965942
+        "scale" : 1.138406157493591
       },
       
       {
@@ -4161,24 +4162,6 @@
       },
       
       {
-        "angle" : -0.04402506351470947,
-        "aspectScale" : 1,
-        "center" : 
-        {
-          "x" : -35.83289718627930,
-          "y" : -36.75435256958008
-        },
-        "file" : "AssetLoader/StubyOrangeTree.png",
-        "filter" : 1,
-        "flip" : false,
-        "id" : 255,
-        "name" : "image11",
-        "opacity" : 1,
-        "renderOrder" : 1,
-        "scale" : 1.439533829689026
-      },
-      
-      {
         "angle" : -0.1286178976297379,
         "aspectScale" : 1,
         "center" : 
@@ -4234,9 +4217,10 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -85.65794372558594,
-          "y" : -29.09420585632324
+          "x" : -85.65789794921875,
+          "y" : -29.09420013427734
         },
+        "colorTint" : [ 223, 222, 255, 255 ],
         "file" : "AssetLoader/StubyOrangeTree.png",
         "filter" : 1,
         "flip" : false,
@@ -4252,9 +4236,10 @@
         "aspectScale" : 1,
         "center" : 
         {
-          "x" : -79.08670806884766,
-          "y" : -29.87677383422852
+          "x" : -79.08670043945313,
+          "y" : -29.87680053710938
         },
+        "colorTint" : [ 223, 222, 255, 255 ],
         "file" : "AssetLoader/StubyOrangeTree.png",
         "filter" : 1,
         "flip" : false,
@@ -4262,7 +4247,7 @@
         "name" : "image11",
         "opacity" : 1,
         "renderOrder" : 1,
-        "scale" : 11.47088909149170
+        "scale" : 11.47089958190918
       },
       
       {
@@ -5817,6 +5802,582 @@
         "name" : "image10",
         "opacity" : 0.7,
         "scale" : 40.64757537841797
+      },
+      
+      {
+        "aspectScale" : 1.84610927104950,
+        "center" : 
+        {
+          "x" : -81.81286621093750,
+          "y" : -38.05566024780273
+        },
+        "colorTint" : [ 205, 196, 255, 255 ],
+        "file" : "AssetLoader/SteepHill.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 346,
+        "name" : "image12",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 10.30966854095459
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -73.89496612548828,
+          "y" : -37.44096374511719
+        },
+        "colorTint" : [ 199, 200, 255, 255 ],
+        "file" : "AssetLoader/GrassRock.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 347,
+        "name" : "image13",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 3.5
+      },
+      
+      {
+        "angle" : -0.5046097636222839,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -71.95641326904297,
+          "y" : -39.51386260986328
+        },
+        "colorTint" : [ 199, 200, 255, 255 ],
+        "file" : "AssetLoader/GrassRock.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 348,
+        "name" : "image13",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 2.416981458663940
+      },
+      
+      {
+        "angle" : -0.5046097636222839,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.98908233642578,
+          "y" : -40.46873855590820
+        },
+        "colorTint" : [ 199, 200, 255, 255 ],
+        "file" : "AssetLoader/GrassRock.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 349,
+        "name" : "image13",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 2.416981458663940
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -68.24118041992188,
+          "y" : -38.33957290649414
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 350,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.304051756858826
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -65.25299835205078,
+          "y" : -38.12482452392578
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 351,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.091916322708130
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -67.07234191894531,
+          "y" : -38.23357009887695
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 352,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.091916322708130
+      },
+      
+      {
+        "angle" : 0.02356226742267609,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -66.09249114990234,
+          "y" : -38.37968826293945
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 353,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.041000962257385
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.52707672119141,
+          "y" : -38.35490417480469
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 354,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.304051756858826
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -70.06052398681641,
+          "y" : -38.44831085205078
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 355,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.304051756858826
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.90328216552734,
+          "y" : -38.02676010131836
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 356,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.38193511962891,
+          "y" : -38.71977233886719
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 357,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -33.08810424804688,
+          "y" : -38.58625411987305
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 358,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -31.97229385375977,
+          "y" : -38.99951553344727
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 359,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -33.39010620117188,
+          "y" : -39.28244400024414
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 360,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.71343231201172,
+          "y" : -39.32377243041992
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 361,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "angle" : -0.2201670259237289,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -36.53259658813477,
+          "y" : -37.97870635986328
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 362,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 0.9109642505645752
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.97459411621094,
+          "y" : -38.51314163208008
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 363,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.54861450195313,
+          "y" : -39.17436218261719
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 364,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.22753906250,
+          "y" : -39.50178909301758
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 365,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -37.90421676635742,
+          "y" : -37.81058883666992
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 366,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.22030258178711,
+          "y" : -37.96000289916992
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 367,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -38.26661682128906,
+          "y" : -38.46228027343750
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 368,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -37.18895339965820,
+          "y" : -38.80242538452148
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 369,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -36.64853286743164,
+          "y" : -39.55583953857422
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 370,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -37.88832473754883,
+          "y" : -39.62895584106445
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 371,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.39514923095703,
+          "y" : -39.22840881347656
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 372,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -40.377441406250,
+          "y" : -38.54811096191406
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 373,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "angle" : -0.2152232527732849,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -40.59043121337891,
+          "y" : -38.11259841918945
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 374,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "angle" : -0.2152232527732849,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -37.94577789306641,
+          "y" : -37.79916000366211
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 375,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 1.078878641128540
+      },
+      
+      {
+        "angle" : -0.2201670259237289,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.95469284057617,
+          "y" : -37.89299774169922
+        },
+        "colorTint" : [ 239, 144, 255, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 376,
+        "name" : "image18",
+        "opacity" : 1,
+        "scale" : 0.9109642505645752
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -28.25731849670410,
+          "y" : -38.52223205566406
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 377,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.9394730329513550
+      },
+      
+      {
+        "angle" : 0.3546729981899262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -27.37415695190430,
+          "y" : -38.43597412109375
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 378,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.9394730329513550
       }
     ],
     "positionIterations" : 3,

@@ -1,6 +1,9 @@
 #include "Player.h"
 #include "Animation.h"
+Player::~Player()
+{
 
+};
 Player::Player(b2World* world, Engine* engine)
 {
 
@@ -15,7 +18,7 @@ Player::Player(b2World* world, Engine* engine)
     int id = 1;
     body->SetUserData((void*)id);
 
-  //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
+    //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
     circleShape.m_p.Set(0,.5); //position, relative to body position
     circleShape.m_radius = .5;
     fixtureDef.density = 3.f;
@@ -28,49 +31,49 @@ Player::Player(b2World* world, Engine* engine)
 
 
     //foot fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(0,1), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(0,0), 0);
     fixtureDef.isSensor = true;
     fixtureDef.shape = &shape;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
     //right fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(.7,0), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(.5,.5), 0);
     fixtureDef.isSensor = true;
     b2Fixture* rightSensorFixture = body->CreateFixture(&fixtureDef);
     rightSensorFixture->SetUserData( (void*)1 );
 
     //left fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(-.7,0), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(-.5,.5), 0);
     fixtureDef.isSensor = true;
     b2Fixture* leftSensorFixture = body->CreateFixture(&fixtureDef);
     leftSensorFixture->SetUserData( (void*)1 );
 
 
-   // playerTexture.loadFromFile("spritesheetvolt.png");
+    // playerTexture.loadFromFile("spritesheetvolt.png");
 
-    playerSprite.setOrigin(13.f,0.f);
+    playerSprite.setOrigin(90.f,110.f);
     checkpointPos.x =0;
     checkpointPos.y =60;
 
     //Animation Setup
-    pichuSheet.loadFromFile("pichu1.png");
+    pichuSheet.loadFromFile("AssetLoader/colorRun.png");
     idleAnimation = Animation(8,pichuSheet);
-    idleAnimation.setFrame(0,0,25,38);
+    idleAnimation.setFrame(0,0,25,-38);
 
-    runRightAnimation = Animation(3,pichuSheet);
-    runRightAnimation.setFrame(13,45,20,30);
+    runRightAnimation = Animation(30,pichuSheet);
+    runRightAnimation.setFrame(0,0,154,180);
 
-    runLeftAnimation = Animation(3,pichuSheet);
-    runLeftAnimation.setFrame(103,45,20,30);
+    runLeftAnimation = Animation(30,pichuSheet);
+    runLeftAnimation.setFrame(0,0,154,180);
 
     jumpAnimation = Animation(4,pichuSheet);
-    jumpAnimation.setFrame(7,140,25,40);
+    //  jumpAnimation.setFrame(7,-140,25,40);
 
     jumpLeftAnimation = Animation(4,pichuSheet);
-    jumpLeftAnimation.setFrame(7,90,25,40);
+    // jumpLeftAnimation.setFrame(7,-90,25,40);
 
     fallingAnimation = Animation(1,pichuSheet);
-    fallingAnimation.setFrame(270,140,20,40);
+    //  fallingAnimation.setFrame(270,-140,20,40);
 
 //    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
 //    attackAnimation =  Animation(1,  temp);
@@ -84,31 +87,43 @@ Player::Player(b2World* world, Engine* engine)
 void Player::setOrigin(float pos_x, float pos_y)
 {
 
-  //  playerSprite.setOrigin(140.f,190.f);
+    //  playerSprite.setOrigin(140.f,190.f);
 
 }
 
 void Player::render()
 {
     {
-
-
 //        {
 //        playerSprite.setTexture(idleAnimation.animationTexture);
 //        playerSprite.setTextureRect(idleAnimation.nextFrame());
 //        }
+
         if(attack)
         {
+            std::cout << "attack" << std::endl;
             //for each enemy in range
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
-                b2Body* it = engine->worldMap->mapEnemies.at(i);
+               // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
+                               std::vector<b2Body*> Bodies;
+                int num = engine->json.getBodiesByName("Enemy",Bodies);
+                std::cout << " " <<  num << std::endl;
 
-                float euclidian = getEuclidianDistance(sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE),sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y));
+                b2Body* it = engine->json.getBodyByName("Enemy");
+                Enemy* enemy = engine->worldMap->mapEnemies.at(i);
+
+                std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
+std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
+
                 sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
                 sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
+                float euclidian = getEuclidianDistance(bodyPosition,playerPosition);
+
+                std::cout << "check for in range: " << euclidian << std::endl;
                 if(euclidian < attackDistance)
                 {
+                    std::cout << "in range" << std::endl;
                     sf::Vertex line[] =
                     {
                         sf::Vertex(bodyPosition,sf::Color::Blue),
@@ -116,21 +131,24 @@ void Player::render()
                     };
                     engine->Window->draw(line, 2, sf::Lines);
                     sf::Texture tex;
-                //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
+                    //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
                     test.setTextureRect(attackAnimation.nextFrame());
                     test.setOrigin(100,35);
                     test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
 
 
-                 //  std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
-//                 std::cout << "rect" << test->getTextureRect().width << std::endl;
+                    // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
+                    //   std::cout << "rect" << test->getTextureRect().width << std::endl;
 //                 test->setPosition(100.f,engine->SCALE0.f);
-               //  test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
+//                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
                     engine->Window->draw(test);
+                    std::cout << "schedule for removal" << std::endl;
+                    engine->enemyScheduledForRemoval.push_back(enemy);
+                    // std::find(vector.begin(), vector.end(), body) != vector.end()
+                    engine->worldMap->mapEnemies.clear();
+
                 }
             }
-            //draw line from player to enemy
-            //delete enemy
         }
         if(engine->jumpAnimation)
         {
@@ -171,27 +189,43 @@ void Player::render()
         }
         else if(engine->moveLeft && !engine->jumpAnimation)
         {
-            runLeftAnimation.frameSpeed = 16;
-            playerSprite.setTexture(runLeftAnimation.animationTexture);
-            playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+            if(dash)
+            {
+                runLeftAnimation.frameSpeed = 120;
+                playerSprite.setTexture(runLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+                playerSprite.setScale(-.7,-.7);
+            }
+            else
+            {
+                runLeftAnimation.frameSpeed = 60;
+                playerSprite.setTexture(runLeftAnimation.animationTexture);
+                playerSprite.setTextureRect(runLeftAnimation.nextFrame());
+                playerSprite.setScale(-.7,-.7);
+            }
         }
         else if(engine->moveRight && !engine->jumpAnimation)
         {
-
-            runRightAnimation.frameSpeed = 16;
-            playerSprite.setTexture(runRightAnimation.animationTexture);
-            playerSprite.setTextureRect(runRightAnimation.nextFrame());
+            if(dash)
+            {
+                std::cout << "player dash" << std::endl;
+                runRightAnimation.frameSpeed = 120;
+                playerSprite.setTexture(runRightAnimation.animationTexture);
+                playerSprite.setTextureRect(runRightAnimation.nextFrame());
+                playerSprite.setScale(.7,-.7);
+            }
+            else
+            {
+                runRightAnimation.frameSpeed = 60;
+                playerSprite.setTexture(runRightAnimation.animationTexture);
+                playerSprite.setTextureRect(runRightAnimation.nextFrame());
+                playerSprite.setScale(.7,-.7);
+            }
         }
-
 
     }
 
-
-
-
-
-
-    playerSprite.setPosition(engine->SCALE * body->GetPosition().x, engine->SCALE * body->GetPosition().y);
+    playerSprite.setPosition(engine->SCALE * body->GetPosition().x, (engine->SCALE * body->GetPosition().y));
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
     engine->Window->draw(playerSprite);
 
@@ -217,6 +251,8 @@ sf::Vector2f Player::getCoordsToPointBetweenPoints(float euclidian,sf::Vector2f 
 
     return coords;
 }
+
+//return float distance between target and destination
 float Player::getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination)
 {
     return sqrt((target.x-destination.x)*(target.x-destination.x)+(target.y-destination.y)*(target.y-destination.y));

@@ -36,6 +36,7 @@ public:
     bool grounded = false;
     bool attack = false;
     bool dead = false;
+    bool dash = false;
     float acc = .46;
     float dec = .55;
 

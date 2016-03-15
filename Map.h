@@ -4,6 +4,7 @@
 
 class Engine;
 class b2dJsonImage;
+class Enemy;
 
 class Map
 {
@@ -21,7 +22,7 @@ public:
     int objectCount = 0;
     //pointers because bodies are stored in world
     std::vector<b2Body*> mapBodies;
-    std::vector<b2Body*> mapEnemies;
+    std::vector<Enemy*> mapEnemies;
 
     std::vector<sf::Sprite> mapSprites;
     std::vector<b2dJsonImage*> jsonImages;

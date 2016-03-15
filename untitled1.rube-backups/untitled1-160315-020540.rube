@@ -1,0 +1,5828 @@
+
+{
+  "collisionbitplanes" : 
+  {
+    "names" : 
+    [
+      "bitplane1",
+      "bitplane2",
+      "bitplane3",
+      "bitplane4",
+      "bitplane5",
+      "bitplane6",
+      "bitplane7",
+      "bitplane8",
+      "bitplane9",
+      "bitplane10",
+      "bitplane11",
+      "bitplane12",
+      "bitplane13",
+      "bitplane14",
+      "bitplane15",
+      "bitplane16",
+      "bitplane17",
+      "bitplane18",
+      "bitplane19",
+      "bitplane20",
+      "bitplane21",
+      "bitplane22",
+      "bitplane23",
+      "bitplane24",
+      "bitplane25",
+      "bitplane26",
+      "bitplane27",
+      "bitplane28",
+      "bitplane29",
+      "bitplane30",
+      "bitplane31",
+      "bitplane32"
+    ]
+  },
+  "metaworld" : 
+  {
+    "allowSleep" : true,
+    "autoClearForces" : true,
+    "continuousPhysics" : true,
+    "exportOptions" : 
+    {
+      "compactCommonFloats" : true,
+      "compactZeroVecs" : true,
+      "saveFullPathForImages" : false,
+      "saveFullPathForSamplerOutput" : false,
+      "saveImagePathsRelativeToRUBEFile" : false,
+      "saveSamplerOutputPathsRelativeToRUBEFile" : false,
+      "useGsonFormat" : false,
+      "useHumanReadableFloats" : true,
+      "usePrettyPrint" : true
+    },
+    "gravity" : 
+    {
+      "x" : 0,
+      "y" : -10
+    },
+    "metabody" : 
+    [
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 2,
+            "name" : "fixture0",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                -27.64244079589844,
+                -17.45779418945313,
+                -13.79955673217773,
+                7.332305908203125,
+                10.53912353515625,
+                21.58483886718750,
+                10.53912353515625,
+                10.57497882843018,
+                8.779046058654785,
+                6.210876464843750,
+                -4.767135620117188,
+                -7.326815605163574,
+                -8.407272338867188,
+                -8.906097412109375,
+                -5.381216049194336,
+                -4.129485130310059,
+                6.304829597473145,
+                6.167129993438721,
+                -1.180013656616211,
+                -2.559222221374512,
+                -2.816068649291992,
+                -3.346691131591797,
+                -3.466549873352051,
+                -14.61572456359863,
+                -27.92624855041504
+              ],
+              "y" : 
+              [
+                -8.971542358398438,
+                -11.87118530273438,
+                -10.23378658294678,
+                -6.904922485351563,
+                -5.600067138671875,
+                -3.319656372070313,
+                -0.1840970069169998,
+                9.604291915893555,
+                10.28358173370361,
+                10.53923034667969,
+                10.68174743652344,
+                11.75459003448486,
+                13.64080810546875,
+                26.6818847656250,
+                29.74141311645508,
+                31.24792480468750,
+                27.72258758544922,
+                39.48726654052734,
+                39.84128189086914,
+                41.26434707641602,
+                49.36692047119141,
+                55.54306793212891,
+                71.02380371093750,
+                71.13362884521484,
+                69.314941406250
+              ]
+            }
+          }
+        ],
+        "id" : 2,
+        "linearVelocity" : 0,
+        "name" : "body0",
+        "position" : 
+        {
+          "x" : 13.18739700317383,
+          "y" : -106.5409851074219
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 3,
+            "name" : "fixture1",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                -5.226478576660156,
+                8.618377685546875,
+                77.90732574462891,
+                49.08315658569336,
+                47.75783538818359,
+                37.91489410400391,
+                31.97158432006836,
+                25.27728271484375,
+                17.84568023681641,
+                0.6268655061721802,
+                -5.135363578796387,
+                -11.06041812896729,
+                -9.894874572753906,
+                -11.31675910949707,
+                -18.74268341064453,
+                -18.52243995666504,
+                -21.58573913574219,
+                -21.61778640747070,
+                -24.83982086181641,
+                -35.48602294921875,
+                -35.07744216918945,
+                -21.75323104858398,
+                -16.08111953735352,
+                -11.44989490509033,
+                -10.07548904418945,
+                -11.15196228027344,
+                -14.93911933898926,
+                -21.68146514892578,
+                -26.38273620605469,
+                -36.61974334716797,
+                -30.50329589843750,
+                -20.97450256347656,
+                -14.60051631927490,
+                -12.69499206542969,
+                -12.67647075653076,
+                -12.56622314453125,
+                -17.00871276855469,
+                -17.26623535156250,
+                -19.51966857910156,
+                -28.14708709716797,
+                -28.21147155761719
+              ],
+              "y" : 
+              [
+                -19.97027587890625,
+                62.58737182617188,
+                65.06152343750,
+                71.16029357910156,
+                73.92318725585938,
+                74.16510009765625,
+                74.68912506103516,
+                74.15437316894531,
+                74.69650268554688,
+                74.38848876953125,
+                75.79844665527344,
+                77.10648345947266,
+                64.90628814697266,
+                63.43585968017578,
+                63.009277343750,
+                66.87593078613281,
+                66.68632507324219,
+                71.28936004638672,
+                70.06547546386719,
+                67.47412872314453,
+                55.23419952392578,
+                55.30129241943359,
+                54.36680603027344,
+                47.17190933227539,
+                32.87025451660156,
+                30.40489196777344,
+                27.76148986816406,
+                27.35564994812012,
+                28.34031677246094,
+                27.31018066406250,
+                24.28414916992188,
+                23.1252441406250,
+                17.00878906250,
+                12.69508361816406,
+                10.32580661773682,
+                -3.777084112167358,
+                -6.288070201873779,
+                -8.927795410156250,
+                -11.30999755859375,
+                -10.53738403320313,
+                -17.55520629882813
+              ]
+            }
+          }
+        ],
+        "id" : 3,
+        "linearVelocity" : 0,
+        "name" : "body1",
+        "position" : 
+        {
+          "x" : 52.89789962768555,
+          "y" : -114.4629821777344
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 4,
+            "name" : "fixture2",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                5.600784301757813,
+                32.42850112915039,
+                31.69813919067383,
+                26.38376235961914,
+                23.70576858520508,
+                18.38454055786133,
+                8.194232940673828,
+                2.351291179656982,
+                -5.404491424560547,
+                -12.56901168823242,
+                -17.15987777709961,
+                -25.12434005737305,
+                -30.49616622924805,
+                -33.50848007202148,
+                -36.87641525268555,
+                -42.81731796264648,
+                -44.98114395141602,
+                -45.07926940917969,
+                -51.57447052001953,
+                -81.32765197753906
+              ],
+              "y" : 
+              [
+                13.57542419433594,
+                -32.42829895019531,
+                32.81136703491211,
+                32.39400863647461,
+                32.63747787475586,
+                31.87231063842773,
+                32.70702743530273,
+                31.94189071655273,
+                31.35064315795898,
+                30.96807479858398,
+                31.69843673706055,
+                31.73321151733398,
+                35.11042404174805,
+                36.33152389526367,
+                36.93407821655273,
+                36.62359619140625,
+                35.84629821777344,
+                32.41324234008789,
+                32.02782058715820,
+                32.61327743530273
+              ]
+            }
+          }
+        ],
+        "id" : 4,
+        "linearVelocity" : 0,
+        "name" : "body2",
+        "position" : 
+        {
+          "x" : -46.23060226440430,
+          "y" : -69.97497558593750
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 6,
+            "name" : "fixture4",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                -10.01536560058594,
+                -2.707862854003906,
+                9.115722656250,
+                3.091231822967529,
+                -1.404708862304688,
+                -4.878321170806885,
+                -10.91499328613281
+              ],
+              "y" : 
+              [
+                -0.37634277343750,
+                -2.047073364257813,
+                0.2482604980468750,
+                1.276397705078125,
+                2.754333496093750,
+                2.741575241088867,
+                3.209197998046875
+              ]
+            }
+          }
+        ],
+        "id" : 6,
+        "linearVelocity" : 0,
+        "name" : "body4",
+        "position" : 
+        {
+          "x" : 19.38040542602539,
+          "y" : -38.70499038696289
+        },
+        "type" : "static"
+      }
+    ],
+    "metaimage" : 
+    [
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 60.13961029052734,
+          "y" : -37.81855773925781
+        },
+        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_22_57 PM.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 16,
+        "name" : "image1",
+        "opacity" : 1,
+        "scale" : 36.0
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 90.11719512939453,
+          "y" : -37.65180969238281
+        },
+        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_23_08 PM.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 17,
+        "name" : "image2",
+        "opacity" : 1,
+        "scale" : 36.0
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 124.7727661132813,
+          "y" : -31.53869628906250
+        },
+        "file" : "../../Videos/Captures/Ori And The Blind Forest 3_12_2016 9_23_26 PM.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 18,
+        "name" : "image3",
+        "opacity" : 1,
+        "scale" : 36.0
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -19.04705429077148,
+          "y" : -36.14080047607422
+        },
+        "colorTint" : [ 157, 157, 157, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 30,
+        "name" : "image6",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.9
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.49825096130371,
+          "y" : -37.74778366088867
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 31,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -32.60539245605469,
+          "y" : -37.913574218750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 32,
+        "name" : "image14",
+        "opacity" : 1,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.19911956787109,
+          "y" : -37.74778366088867
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 33,
+        "name" : "image14",
+        "opacity" : 1,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -28.80825996398926,
+          "y" : -38.24515533447266
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 34,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.34315681457520,
+          "y" : -38.50186538696289
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 35,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -28.11835670471191,
+          "y" : -39.18642044067383
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 36,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -26.72785758972168,
+          "y" : -38.28259277343750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 37,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -26.6315917968750,
+          "y" : -39.28803253173828
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 38,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -25.12343406677246,
+          "y" : -38.15958786010742
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 39,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.92012023925781,
+          "y" : -37.54990768432617
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 40,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.93616485595703,
+          "y" : -38.00984191894531
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 41,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -24.80255317687988,
+          "y" : -39.22385406494141
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 42,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.01094627380371,
+          "y" : -38.95645141601563
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 43,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -14.80952644348145,
+          "y" : -36.33164978027344
+        },
+        "colorTint" : [ 153, 153, 153, 255 ],
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 44,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 2,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -29.28783607482910,
+          "y" : -37.05845260620117
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 45,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.08404131978750229,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.15616798400879,
+          "y" : -37.20682525634766
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 46,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -21.08602714538574,
+          "y" : -34.63256454467773
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 47,
+        "name" : "image15",
+        "opacity" : 1,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.184423446655273,
+          "y" : -42.40399551391602
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 64,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.866666555404663
+      },
+      
+      {
+        "angle" : -1.578974008560181,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 8.112865447998047,
+          "y" : -47.53695297241211
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 65,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.438253164291382
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 2.674850940704346,
+          "y" : -43.50473022460938
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 66,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.866666555404663
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.954571247100830,
+          "y" : -44.34724426269531
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 67,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.660949230194092
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.763606071472168,
+          "y" : -46.00107955932617
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 68,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 4.051359176635742,
+          "y" : -46.25100326538086
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 69,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.152089118957520,
+          "y" : -47.48467254638672
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 70,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.035709142684937,
+          "y" : -47.79309082031250
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 71,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.354155540466309,
+          "y" : -48.24508285522461
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 72,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 2.934675931930542,
+          "y" : -49.45216369628906
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 73,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.700401544570923,
+          "y" : -50.42527389526367
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 74,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.768922805786133,
+          "y" : -49.19160461425781
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 75,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.066705703735352,
+          "y" : -46.19782638549805
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 76,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -1.578974008560181,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 7.985244274139404,
+          "y" : -38.89595413208008
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 77,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.438253164291382
+      },
+      
+      {
+        "angle" : -1.368769288063049,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 8.865050315856934,
+          "y" : -41.56098556518555
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 78,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.417138695716858
+      },
+      
+      {
+        "angle" : -1.533917665481567,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.307516098022461,
+          "y" : -41.91627883911133
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 79,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.417138695716858
+      },
+      
+      {
+        "angle" : -1.82577371597290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.151812553405762,
+          "y" : -40.48611831665039
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 80,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.417138695716858
+      },
+      
+      {
+        "angle" : -1.82577371597290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.268796920776367,
+          "y" : -45.17087173461914
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 81,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.417138695716858
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.130819320678711,
+          "y" : -38.39168167114258
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 82,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.33288574218750,
+          "y" : -39.15209197998047
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 83,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 4.030089378356934,
+          "y" : -37.15801239013672
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 84,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.742336273193359,
+          "y" : -36.90808868408203
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 85,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 2.913405895233154,
+          "y" : -40.35917282104492
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 86,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.014439105987549,
+          "y" : -38.70009994506836
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 87,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.747653007507324,
+          "y" : -40.09861373901367
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 88,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "angle" : -2.632764339447022,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.045435905456543,
+          "y" : -37.10483551025391
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 89,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.639587044715881
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -0.3295602798461914,
+          "y" : -39.00077056884766
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 90,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 3.866666555404663
+      },
+      
+      {
+        "angle" : -0.1073935329914093,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.182164192199707,
+          "y" : -40.77529144287109
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 91,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.660949230194092
+      },
+      
+      {
+        "angle" : 0.7414889931678772,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.094864368438721,
+          "y" : -38.79282379150391
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 92,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.283125281333923
+      },
+      
+      {
+        "angle" : -0.8067435622215271,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.177539825439453,
+          "y" : -42.06579589843750
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 93,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.9103074073791504
+      },
+      
+      {
+        "angle" : 0.1130072474479675,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 7.714259147644043,
+          "y" : -43.2902832031250
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 94,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.283125281333923
+      },
+      
+      {
+        "angle" : 0.1130072474479675,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.332437515258789,
+          "y" : -46.11973953247070
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 95,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.283125281333923
+      },
+      
+      {
+        "angle" : -0.1809868514537811,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.037101745605469,
+          "y" : -42.34554290771484
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 96,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6535084843635559
+      },
+      
+      {
+        "angle" : -0.4106523394584656,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.473129749298096,
+          "y" : -47.76934051513672
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 97,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.283125281333923
+      },
+      
+      {
+        "angle" : -1.337882041931152,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.586970329284668,
+          "y" : -44.34077072143555
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 98,
+        "name" : "image15",
+        "opacity" : 1,
+        "scale" : 0.6535084843635559
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 8.386400222778320,
+          "y" : -34.69430541992188
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 99,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 4.939438819885254,
+          "y" : -34.69430541992188
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 100,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 11.48833274841309,
+          "y" : -34.44337463378906
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 101,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "angle" : -0.1484532654285431,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 19.91460800170898,
+          "y" : -81.31911468505859
+        },
+        "colorTint" : [ 35, 35, 35, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 102,
+        "name" : "image7",
+        "opacity" : 0.8,
+        "scale" : 72.16571807861328
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -10.57924938201904,
+          "y" : -35.44503784179688
+        },
+        "colorTint" : [ 161, 161, 161, 255 ],
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 103,
+        "name" : "image6",
+        "opacity" : 1,
+        "renderOrder" : 2,
+        "scale" : 3.9
+      },
+      
+      {
+        "angle" : 0.1070775538682938,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -15.50357627868652,
+          "y" : -31.41731452941895
+        },
+        "colorTint" : [ 249, 249, 249, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 104,
+        "name" : "image7",
+        "opacity" : 0.8,
+        "renderOrder" : 2,
+        "scale" : 11.77251625061035
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 7.822003841400147,
+          "y" : -34.70685195922852
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 105,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 10.87041568756104,
+          "y" : -34.37436676025391
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 106,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.244277477264404,
+          "y" : -34.72566986083984
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 107,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.1136768683791161,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -0.9709869027137756,
+          "y" : -34.77062988281250
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 108,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 2.721975803375244,
+          "y" : -34.49019241333008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 109,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.2884835898876190,
+          "y" : -34.75561141967773
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 110,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.1419582217931747,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -2.464599370956421,
+          "y" : -34.97158432006836
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 111,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.215247869491577,
+          "y" : -34.54528045654297
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 112,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.7390310168266296,
+          "y" : -34.74559402465820
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 113,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.412280082702637,
+          "y" : -53.67779922485352
+        },
+        "file" : "AssetLoader/GradientHolder.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 114,
+        "name" : "image8",
+        "opacity" : 1,
+        "scale" : 28.43832397460938
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -29.28779983520508,
+          "y" : -37.05849838256836
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 115,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.08404131978750229,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.15620040893555,
+          "y" : -37.20679855346680
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 116,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.92009925842285,
+          "y" : -37.54990005493164
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 117,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -25.12339973449707,
+          "y" : -38.15959930419922
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 118,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -24.80260086059570,
+          "y" : -39.22389984130859
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 119,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.19910049438477,
+          "y" : -37.74779891967773
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 120,
+        "name" : "image14",
+        "opacity" : 1,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.01090049743652,
+          "y" : -38.95650100708008
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 121,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -28.11840057373047,
+          "y" : -39.18640136718750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 122,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -28.80830001831055,
+          "y" : -38.24520111083984
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 123,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.34320068359375,
+          "y" : -38.50189971923828
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 124,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -26.63159942626953,
+          "y" : -39.28799819946289
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 125,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -32.60540008544922,
+          "y" : -37.91360092163086
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 126,
+        "name" : "image14",
+        "opacity" : 1,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -26.72789955139160,
+          "y" : -38.28260040283203
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 127,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -30.49830055236816,
+          "y" : -37.74779891967773
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 128,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.93619918823242,
+          "y" : -38.00979995727539
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 129,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -17.15041160583496,
+          "y" : -38.89970779418945
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 131,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -19.97972488403320,
+          "y" : -36.89435577392578
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 132,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -20.91378402709961,
+          "y" : -38.41910934448242
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 133,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.1657346189022064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -20.83305358886719,
+          "y" : -37.11309051513672
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 134,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.21644210815430,
+          "y" : -38.01737213134766
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 135,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -14.58978652954102,
+          "y" : -36.94614028930664
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 136,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 2,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -14.58980655670166,
+          "y" : -36.94615173339844
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 137,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 2,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -15.73935604095459,
+          "y" : -37.65199279785156
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 138,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -15.33269882202148,
+          "y" : -38.68652343750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 139,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -13.56888771057129,
+          "y" : -38.27381134033203
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 140,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -18.64049911499023,
+          "y" : -38.91979217529297
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 141,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -19.40491104125977,
+          "y" : -38.03796386718750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 142,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -20.91373825073242,
+          "y" : -38.41907119750977
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 143,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -17.15040206909180,
+          "y" : -38.89974212646484
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 144,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -23.21643829345703,
+          "y" : -38.01734542846680
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 145,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -17.32839202880859,
+          "y" : -37.90550994873047
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 146,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -15.73932075500488,
+          "y" : -37.65200042724609
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 147,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -21.12985229492188,
+          "y" : -37.68016052246094
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 148,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -14.56826591491699,
+          "y" : -37.40586090087891
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 149,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -15.33274269104004,
+          "y" : -38.68657302856445
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 150,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -19.40494918823242,
+          "y" : -38.03801345825195
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 151,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -13.56883811950684,
+          "y" : -38.27385711669922
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 152,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -18.64054489135742,
+          "y" : -38.91977691650391
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 153,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -21.12989807128906,
+          "y" : -37.68017959594727
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 154,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -17.32843017578125,
+          "y" : -37.90552139282227
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 155,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -14.56830406188965,
+          "y" : -37.40582275390625
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 156,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.424145936965942
+      },
+      
+      {
+        "angle" : 0.08169329911470413,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -19.97968673706055,
+          "y" : -36.89439773559570
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 157,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.1657346189022064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -20.83308792114258,
+          "y" : -37.11306762695313
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 158,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.405144691467285
+      },
+      
+      {
+        "angle" : 0.9163737893104553,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -11.49121856689453,
+          "y" : -38.66113662719727
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 159,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.3792923986911774
+      },
+      
+      {
+        "angle" : 1.836124658584595,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -11.14730262756348,
+          "y" : -37.53899765014648
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 160,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.5346322059631348
+      },
+      
+      {
+        "angle" : 1.615723848342896,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -12.02299308776856,
+          "y" : -38.74081802368164
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 161,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.108721971511841
+      },
+      
+      {
+        "angle" : 1.312464952468872,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.224182128906250,
+          "y" : -37.76697158813477
+        },
+        "file" : "AssetLoader/mushroomGroup.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 162,
+        "name" : "image15",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.5346322059631348
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.257901191711426,
+          "y" : -38.32902526855469
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 163,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -12.33742713928223,
+          "y" : -38.55070495605469
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 164,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : 1.723117351531982,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -10.74038505554199,
+          "y" : -39.60087203979492
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 165,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.611101150512695
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -8.957509040832520,
+          "y" : -38.19773101806641
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 166,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.696385383605957,
+          "y" : -38.86034393310547
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 167,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.907565116882324,
+          "y" : -38.17097091674805
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 168,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : 0.1441433429718018,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.423555374145508,
+          "y" : -37.10635375976563
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 169,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.432596683502197
+      },
+      
+      {
+        "angle" : 1.723117351531982,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -10.60075283050537,
+          "y" : -38.19688796997070
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 170,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.108721971511841
+      },
+      
+      {
+        "angle" : 1.723117351531982,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -11.41559219360352,
+          "y" : -38.22507858276367
+        },
+        "file" : "AssetLoader/rock group 3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 171,
+        "name" : "image16",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.611101150512695
+      },
+      
+      {
+        "angle" : 0.1441433429718018,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -12.97419357299805,
+          "y" : -37.70521545410156
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 172,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.432596683502197
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -8.593915939331055,
+          "y" : -37.96707153320313
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 173,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.955066680908203,
+          "y" : -38.74097824096680
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 174,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : 0.3543480634689331,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -11.93225097656250,
+          "y" : -37.17438507080078
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 175,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.5904707908630371
+      },
+      
+      {
+        "angle" : -0.1026563644409180,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -10.47108078002930,
+          "y" : -36.77988433837891
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 176,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.5904707908630371
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -12.70101928710938,
+          "y" : -38.78136444091797
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 177,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.9096469879150391,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.845699310302734,
+          "y" : -38.03370666503906
+        },
+        "file" : "AssetLoader/rock group 2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 178,
+        "name" : "image17",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.6831570267677307
+      },
+      
+      {
+        "angle" : -0.1026563644409180,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -12.39305305480957,
+          "y" : -37.12423706054688
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 179,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 0.5904707908630371
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.308039665222168,
+          "y" : -37.51697540283203
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 180,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.472613334655762,
+          "y" : -37.27534103393555
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 181,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.182167053222656,
+          "y" : -36.41460418701172
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 182,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.798467636108398,
+          "y" : -37.26163864135742
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 183,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.342403411865234,
+          "y" : -36.84189987182617
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 184,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.552100181579590,
+          "y" : -37.59706497192383
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 185,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -8.228201866149902,
+          "y" : -36.89280700683594
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 186,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.472582817077637,
+          "y" : -37.27531051635742
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 187,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.308032035827637,
+          "y" : -37.51700592041016
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 188,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.498976707458496,
+          "y" : -36.69392395019531
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 189,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.182138442993164,
+          "y" : -36.41461181640625
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 190,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.798501968383789,
+          "y" : -37.26168441772461
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 191,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -8.228232383728027,
+          "y" : -36.89284896850586
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 192,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.342359542846680,
+          "y" : -36.84193420410156
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 193,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.552138328552246,
+          "y" : -37.59705352783203
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 194,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.616584777832031,
+          "y" : -36.08591842651367
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 195,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.616584777832031,
+          "y" : -36.08589553833008
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 196,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.662767410278320,
+          "y" : -36.16451644897461
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 197,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.662799835205078,
+          "y" : -36.16455459594727
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 198,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.499011039733887,
+          "y" : -36.69393157958984
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 199,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.034695148468018,
+          "y" : -38.30881500244141
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 200,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -6.034729480743408,
+          "y" : -38.30882263183594
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 201,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.843758106231690,
+          "y" : -39.13186645507813
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 202,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.087818622589111,
+          "y" : -39.21195602416992
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 203,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.19851827621460,
+          "y" : -37.77944564819336
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 204,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.334186077117920,
+          "y" : -38.87652969360352
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 205,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.763920307159424,
+          "y" : -38.50769805908203
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 206,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.843750476837158,
+          "y" : -39.13189697265625
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 207,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.717856884002686,
+          "y" : -38.02950286865234
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 208,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.334220409393311,
+          "y" : -38.87657546997070
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 209,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.763950824737549,
+          "y" : -38.50774002075195
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 210,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -2.878077983856201,
+          "y" : -38.45682525634766
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 211,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.152303218841553,
+          "y" : -37.70078659057617
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 212,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -2.878121852874756,
+          "y" : -38.45679092407227
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 213,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.008331298828125,
+          "y" : -38.89023208618164
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 214,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.198485851287842,
+          "y" : -37.77940750122070
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 215,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -4.717885494232178,
+          "y" : -38.02949523925781
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 216,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.2141963243484497,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -3.152303218841553,
+          "y" : -37.70080947875977
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 217,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -7.087856769561768,
+          "y" : -39.21194458007813
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 218,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.1325030326843262,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -9.008300781250,
+          "y" : -38.89020156860352
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 219,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -2.868361473083496,
+          "y" : -36.23073959350586
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 220,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.1589331626892090,
+          "y" : -36.10577392578125
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 221,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.2232298851013184,
+          "y" : -36.94823455810547
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 222,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.1589684486389160,
+          "y" : -36.10577392578125
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 223,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 1.754013538360596,
+          "y" : -36.92418289184570
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 224,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.580444812774658,
+          "y" : -36.04084014892578
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 225,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.580481529235840,
+          "y" : -36.04087448120117
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 226,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.256851434707642,
+          "y" : -36.72945022583008
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 227,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -2.868395805358887,
+          "y" : -36.23076629638672
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 228,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.06237284839153290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.019614219665527,
+          "y" : -36.31388854980469
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 229,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.018669128417969,
+          "y" : -36.83923339843750
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 230,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.2232327461242676,
+          "y" : -36.94826507568359
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 231,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 1.502902030944824,
+          "y" : -36.02883148193359
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 232,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 1.754054546356201,
+          "y" : -36.92414474487305
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 233,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.06237284839153290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.100162744522095,
+          "y" : -35.9406738281250
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 234,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.256889581680298,
+          "y" : -36.72948837280273
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 235,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.018632888793945,
+          "y" : -36.83924865722656
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 236,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : -0.01932044327259064,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 1.502875328063965,
+          "y" : -36.02882003784180
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 237,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.06237284839153290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 3.100159168243408,
+          "y" : -35.94069671630859
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 238,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "angle" : 0.06237284839153290,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.019576549530029,
+          "y" : -36.31391906738281
+        },
+        "file" : "AssetLoader/rock group 1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 239,
+        "name" : "image14",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.191358327865601
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.4897396564483643,
+          "y" : -34.62361145019531
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 240,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.943752527236939,
+          "y" : -34.88903045654297
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 241,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 4.012041091918945,
+          "y" : -34.85908889770508
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 242,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 0.9830117225646973,
+          "y" : -34.67869949340820
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 243,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 8.638179779052734,
+          "y" : -34.50778579711914
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 244,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -1.493205070495606,
+          "y" : -34.87901306152344
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 245,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.589767456054688,
+          "y" : -34.84027099609375
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 246,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 2.707202672958374,
+          "y" : -34.82772445678711
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 247,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 9.256096839904785,
+          "y" : -34.57679367065430
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 248,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 6.154164314270020,
+          "y" : -34.82772445678711
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 249,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : 5.856360435485840,
+          "y" : -15.78200912475586
+        },
+        "colorTint" : [ 45, 45, 45, 255 ],
+        "file" : "AssetLoader/TallPurpleTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 250,
+        "name" : "image9",
+        "opacity" : 0.7,
+        "scale" : 42.13926696777344
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -94.15614318847656,
+          "y" : -16.80208778381348
+        },
+        "colorTint" : [ 45, 45, 45, 255 ],
+        "file" : "AssetLoader/TallPurpleTree.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 251,
+        "name" : "image9",
+        "opacity" : 0.7,
+        "scale" : 42.13926696777344
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.0031738281250,
+          "y" : -19.37614250183106
+        },
+        "colorTint" : [ 71, 71, 71, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 252,
+        "name" : "image10",
+        "opacity" : 0.7,
+        "scale" : 40.64757537841797
+      },
+      
+      {
+        "angle" : -0.1286178976297379,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.60285186767578,
+          "y" : -36.36499404907227
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 253,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 2.323779344558716
+      },
+      
+      {
+        "angle" : -0.1207798346877098,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -36.64480590820313,
+          "y" : -36.23379135131836
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 254,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 2.656431913375855
+      },
+      
+      {
+        "angle" : -0.04402506351470947,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.83289718627930,
+          "y" : -36.75435256958008
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 255,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 1.439533829689026
+      },
+      
+      {
+        "angle" : -0.1286178976297379,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.68843841552734,
+          "y" : -36.95774841308594
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 256,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 1.093515396118164
+      },
+      
+      {
+        "angle" : -0.1207798346877098,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.17875671386719,
+          "y" : -36.89600753784180
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 257,
+        "name" : "image11",
+        "opacity" : 1,
+        "scale" : 1.250053763389587
+      },
+      
+      {
+        "angle" : -0.04402506351470947,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -34.79669189453125,
+          "y" : -37.14096832275391
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 258,
+        "name" : "image11",
+        "opacity" : 0.5,
+        "scale" : 0.6774104237556458
+      },
+      
+      {
+        "angle" : -0.002815773710608482,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -85.65794372558594,
+          "y" : -29.09420585632324
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 259,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 11.47088909149170
+      },
+      
+      {
+        "angle" : -0.2114950567483902,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -79.08670806884766,
+          "y" : -29.87677383422852
+        },
+        "file" : "AssetLoader/StubyOrangeTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 260,
+        "name" : "image11",
+        "opacity" : 1,
+        "renderOrder" : 1,
+        "scale" : 11.47088909149170
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -152.0622558593750,
+          "y" : -30.17308998107910
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 261,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.0912780761719,
+          "y" : -29.99270057678223
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 262,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -147.4360961914063,
+          "y" : -29.82178688049316
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 263,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -153.3523101806641,
+          "y" : -29.80419349670410
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 264,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.7857971191406,
+          "y" : -30.06961250305176
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 265,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -149.8300170898438,
+          "y" : -30.03967094421387
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 266,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.1136768683791161,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -157.0452728271484,
+          "y" : -30.08463096618652
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 267,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.1419582217931747,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -158.5388793945313,
+          "y" : -30.28558540344238
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 268,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -152.8590393066406,
+          "y" : -29.85928153991699
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 269,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -145.2038726806641,
+          "y" : -29.68836784362793
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 270,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.3352661132813,
+          "y" : -30.05959510803223
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 271,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -148.2522888183594,
+          "y" : -30.02085304260254
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 272,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -157.5674896240234,
+          "y" : -30.19301414489746
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 273,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -150.4845275878906,
+          "y" : -30.15427207946777
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 274,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -153.3670959472656,
+          "y" : -30.14172554016113
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 275,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -146.8181915283203,
+          "y" : -29.89079475402832
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 276,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -149.9201202392578,
+          "y" : -30.14172554016113
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 277,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -158.0180358886719,
+          "y" : -30.20303153991699
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 278,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -155.5845489501953,
+          "y" : -29.93761253356934
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 279,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -151.1348571777344,
+          "y" : -30.00830650329590
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 280,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -144.5859527587891,
+          "y" : -29.75737571716309
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 281,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -147.6878967285156,
+          "y" : -30.00830650329590
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 282,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -70.36895751953125,
+          "y" : -37.66798400878906
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 284,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -59.05581283569336,
+          "y" : -38.23710250854492
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 285,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.04232406616211,
+          "y" : -37.70018768310547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 286,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -59.80995178222656,
+          "y" : -37.83137130737305
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 287,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -65.08830261230469,
+          "y" : -37.20207977294922
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 288,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.52485656738281,
+          "y" : -37.60660552978516
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 289,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.80455017089844,
+          "y" : -37.65544128417969
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 290,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -60.29326248168945,
+          "y" : -37.71840667724609
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 291,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.52563095092773,
+          "y" : -37.58721542358398
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 292,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -60.34781265258789,
+          "y" : -38.05183029174805
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 293,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.97343444824219,
+          "y" : -37.56333541870117
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 294,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.29250335693359,
+          "y" : -37.737792968750
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 295,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -58.11544036865234,
+          "y" : -38.18301010131836
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 296,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : -0.1183959543704987,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -62.74106597900391,
+          "y" : -37.69452667236328
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 297,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : -0.004719085991382599,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -63.99349594116211,
+          "y" : -37.56066513061523
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 298,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -66.70262145996094,
+          "y" : -37.40451049804688
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 299,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -67.32052612304688,
+          "y" : -37.33550262451172
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 300,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "angle" : 0.02356226742267609,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -65.50038909912109,
+          "y" : -37.58379364013672
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 301,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -69.71444702148438,
+          "y" : -37.55338287353516
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 302,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -64.47038269042969,
+          "y" : -37.27108764648438
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 303,
+        "name" : "image5",
+        "opacity" : 1,
+        "scale" : 2.566666603088379
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -67.57232666015625,
+          "y" : -37.52201843261719
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 304,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.633333325386047
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -68.136718750,
+          "y" : -37.53456878662109
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 305,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.69945907592773,
+          "y" : -37.25676727294922
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 306,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.2073061466217041,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -44.95201110839844,
+          "y" : -37.38946533203125
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 307,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.2355874925851822,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -46.42029190063477,
+          "y" : -37.72918701171875
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 308,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -41.30144500732422,
+          "y" : -36.76499557495117
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 309,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -45.90944290161133,
+          "y" : -37.59829330444336
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 310,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.277251124382019
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.25183486938477,
+          "y" : -37.20466995239258
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 311,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.07461929321289,
+          "y" : -36.76089477539063
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 312,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -39.98255157470703,
+          "y" : -37.01166915893555
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 313,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -45.46180343627930,
+          "y" : -37.54619598388672
+        },
+        "colorTint" : [ 56, 56, 56, 255 ],
+        "file" : "AssetLoader/LittleGrass3.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 314,
+        "name" : "image0",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.303860545158386
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.51142883300781,
+          "y" : -37.10652160644531
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 315,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -43.01517105102539,
+          "y" : -37.11525726318359
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 316,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -40.80518341064453,
+          "y" : -36.77372360229492
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 317,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -41.28460693359375,
+          "y" : -37.10243225097656
+        },
+        "colorTint" : [ 86, 86, 86, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 318,
+        "name" : "image4",
+        "opacity" : 0.8,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -48.12401199340820,
+          "y" : -37.39644241333008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 319,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -46.80511856079102,
+          "y" : -37.64311599731445
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 320,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -49.83773803710938,
+          "y" : -37.74670410156250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 321,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -47.62775039672852,
+          "y" : -37.40517044067383
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 322,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -50.33399581909180,
+          "y" : -37.73796844482422
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 323,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.77885437011719,
+          "y" : -37.87495803833008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 324,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -53.45996093750,
+          "y" : -38.12163162231445
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 325,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -56.98883819580078,
+          "y" : -38.21648406982422
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 326,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -54.28259277343750,
+          "y" : -37.88368606567383
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 327,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -56.49258041381836,
+          "y" : -38.22521972656250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 328,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -50.71098327636719,
+          "y" : -37.77022171020508
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 329,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -52.92097091674805,
+          "y" : -38.11175537109375
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 330,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -49.88835144042969,
+          "y" : -38.00816726684570
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 331,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -53.41722869873047,
+          "y" : -38.10301971435547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 332,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : 0.09362927079200745,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -51.20724487304688,
+          "y" : -37.76149368286133
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 333,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -72.32293701171875,
+          "y" : -36.71477890014648
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 334,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -74.32517242431641,
+          "y" : -35.71891403198242
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 335,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -72.72326660156250,
+          "y" : -36.42137908935547
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 336,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -74.72549438476563,
+          "y" : -35.42551422119141
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 337,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 3,
+        "scale" : 2.048923730850220
+      },
+      
+      {
+        "angle" : -0.5212442874908447,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -71.78823089599609,
+          "y" : -37.38368225097656
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 338,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 3,
+        "scale" : 1.6
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.87529754638672,
+          "y" : -36.6738281250
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 339,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.827636718750,
+          "y" : -35.32364273071289
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 340,
+        "name" : "image5",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.93668365478516,
+          "y" : -36.96733093261719
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 341,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.59327697753906,
+          "y" : -34.86242675781250
+        },
+        "colorTint" : [ 129, 129, 129, 255 ],
+        "file" : "AssetLoader/LittleGrass2.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 342,
+        "name" : "image4",
+        "opacity" : 1,
+        "renderOrder" : 4,
+        "scale" : 0.9666618704795837
+      },
+      
+      {
+        "angle" : 1.475835204124451,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -91.88901519775391,
+          "y" : -35.61714553833008
+        },
+        "colorTint" : [ 95, 95, 95, 255 ],
+        "file" : "AssetLoader/LittleGrass1.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 343,
+        "name" : "image5",
+        "opacity" : 0.7,
+        "renderOrder" : 4,
+        "scale" : 1.237885236740112
+      },
+      
+      {
+        "angle" : 0.1070775538682938,
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -5.272421836853027,
+          "y" : -31.45310020446777
+        },
+        "colorTint" : [ 204, 204, 204, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : false,
+        "id" : 344,
+        "name" : "image7",
+        "opacity" : 0.8,
+        "renderOrder" : 1,
+        "scale" : 8.972380638122559
+      },
+      
+      {
+        "aspectScale" : 1,
+        "center" : 
+        {
+          "x" : -35.63091278076172,
+          "y" : -18.05295562744141
+        },
+        "colorTint" : [ 71, 71, 71, 255 ],
+        "file" : "AssetLoader/ThreeBranchTree.png",
+        "filter" : 1,
+        "flip" : true,
+        "id" : 345,
+        "name" : "image10",
+        "opacity" : 0.7,
+        "scale" : 40.64757537841797
+      }
+    ],
+    "positionIterations" : 3,
+    "stepsPerSecond" : 60.0,
+    "subStepping" : false,
+    "velocityIterations" : 8,
+    "warmStarting" : true
+  }
+}

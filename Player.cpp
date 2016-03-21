@@ -8,7 +8,7 @@ Player::Player(b2World* world, Engine* engine)
 {
 
     this->engine = engine;
-    bodyDef.position = b2Vec2(0.f/engine->SCALE, 200.f/engine->SCALE);
+    bodyDef.position = b2Vec2(-600.f/engine->SCALE, 200.f/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -51,7 +51,7 @@ Player::Player(b2World* world, Engine* engine)
 
     // playerTexture.loadFromFile("spritesheetvolt.png");
 
-    playerSprite.setOrigin(90.f,110.f);
+
     checkpointPos.x =0;
     checkpointPos.y =60;
 
@@ -66,11 +66,12 @@ Player::Player(b2World* world, Engine* engine)
     runLeftAnimation = Animation(30,pichuSheet);
     runLeftAnimation.setFrame(0,0,154,180);
 
-    jumpAnimation = Animation(4,pichuSheet);
-    //  jumpAnimation.setFrame(7,-140,25,40);
+    jump.loadFromFile("AssetLoader/jump.png");
+    jumpAnimation = Animation(30,jump);
+    jumpAnimation.setFrame(0,0,48,70);
 
-    jumpLeftAnimation = Animation(4,pichuSheet);
-    // jumpLeftAnimation.setFrame(7,-90,25,40);
+    jumpLeftAnimation = Animation(30,jump);
+    jumpLeftAnimation.setFrame(0,0,48,70);
 
     fallingAnimation = Animation(1,pichuSheet);
     //  fallingAnimation.setFrame(270,-140,20,40);
@@ -106,7 +107,7 @@ void Player::render()
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
                // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
-                               std::vector<b2Body*> Bodies;
+                std::vector<b2Body*> Bodies;
                 int num = engine->json.getBodiesByName("Enemy",Bodies);
                 std::cout << " " <<  num << std::endl;
 
@@ -114,7 +115,7 @@ void Player::render()
                 Enemy* enemy = engine->worldMap->mapEnemies.at(i);
 
                 std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
-std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
+                std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
 
                 sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
                 sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
@@ -152,20 +153,23 @@ std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
         }
         if(engine->jumpAnimation)
         {
-            jumpAnimation.frameSpeed = 8;
+            jumpAnimation.frameSpeed = 60;
+            jumpLeftAnimation.frameSpeed = 60;
             if(jumpLeftAnimation.currentFrame<jumpLeftAnimation.totalFrames && body->GetLinearVelocity().x < 0)
             {
-
+                playerSprite.setOrigin(20.f,20.f);
                 playerSprite.setTexture(jumpLeftAnimation.animationTexture);
                 playerSprite.setTextureRect(jumpLeftAnimation.nextFrame());
+                playerSprite.setScale(1.5,1.5);
                 inAir = true;
             }
 
             else  if(jumpAnimation.currentFrame<jumpAnimation.totalFrames && body->GetLinearVelocity().x > 0)
             {
-
+                playerSprite.setOrigin(20.f,20.f);
                 playerSprite.setTexture(jumpAnimation.animationTexture);
                 playerSprite.setTextureRect(jumpAnimation.nextFrame());
+                playerSprite.setScale(1.5,1.5);
                 inAir = true;
             }
             else if(isFalling())
@@ -198,6 +202,7 @@ std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
             }
             else
             {
+                playerSprite.setOrigin(90.f,110.f);
                 runLeftAnimation.frameSpeed = 60;
                 playerSprite.setTexture(runLeftAnimation.animationTexture);
                 playerSprite.setTextureRect(runLeftAnimation.nextFrame());
@@ -216,6 +221,7 @@ std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
             }
             else
             {
+                playerSprite.setOrigin(90.f,110.f);
                 runRightAnimation.frameSpeed = 60;
                 playerSprite.setTexture(runRightAnimation.animationTexture);
                 playerSprite.setTextureRect(runRightAnimation.nextFrame());

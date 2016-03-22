@@ -39,7 +39,7 @@ Engine::Engine()
     string errorMsg;
     //  b2dJson json;
     //read json file and set as b2World
-    World = json.readFromFile("myfile.json", errorMsg);
+    World = json.readFromFile("PrototypeA.json", errorMsg);
     std::cout << errorMsg << std::endl;
 
     worldMap = new Map(this);
@@ -381,7 +381,7 @@ void Engine::update()
             b2Vec2 vel =  worldBodies["player"]->GetLinearVelocity();
             float desiredVel = 9;
             float velChange = desiredVel - vel.y;
-            float impulse =  worldBodies["player"]->GetMass() * 9;
+            float impulse =  worldBodies["player"]->GetMass() * 18;
             worldBodies["player"]->ApplyLinearImpulse( b2Vec2(0,impulse), worldBodies["player"]->GetWorldCenter(), true);
             // worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,9));
             moveJump = false;
@@ -500,7 +500,8 @@ void Engine::renderFrame()
 
     Window->setView(view);
 
-   // World->DrawDebugData();
+    if(debug)
+        World->DrawDebugData();
     //these need to be added to sprite map and then call world map render
     Window->draw(worldMap->verticalVineSprite);
     Window->draw(worldMap->rockPlatformSprite);

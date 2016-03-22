@@ -22,6 +22,7 @@ public:
     sf::RenderWindow* window;
     sf::Texture playerTexture;
     sf::Texture pichuSheet;
+    sf::Texture jump;
     Engine* engine;
     Animation idleAnimation;
     Animation runRightAnimation;

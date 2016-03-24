@@ -9,7 +9,7 @@ class Animation;
 
 class Enemy{
 public:
-    Enemy(b2World* world,Engine* engine, float pos_x, float pos_y);
+    Enemy(Engine* engine, float pos_x, float pos_y,std::string enemyName);
     ~Enemy();
 
     b2Body* body;
@@ -21,7 +21,7 @@ public:
     Animation walkRightAnimation;
 
     Map* worldMap;
-    b2World* world;
+
 
     sf::RenderWindow* window;
     sf::Texture enemyTexture;
@@ -31,8 +31,9 @@ public:
     sf::Vector2i currentPos;
 
     void render();
-    void moveOnPath();
+    void moveOnPath(float x);
     sf::Vector2i nextPosition();
+    std::string bodyName;
 
 
 };

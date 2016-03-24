@@ -38,8 +38,9 @@ public:
     bool attack = false;
     bool dead = false;
     bool dash = false;
-    float acc = .46;
-    float dec = .55;
+    float acc = .76;
+    float dec = .5;
+    int health = 70;
 
     int attackDistance = 10*30;
     float attackPos = 10;
@@ -51,6 +52,7 @@ public:
     void setOrigin(float pos_x, float pos_y);
     void render();
     void respawn(sf::Vector2f checkpointPos);
+    void update();
     bool isFalling();
     bool isGrounded();
     float getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination);

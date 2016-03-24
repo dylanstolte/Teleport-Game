@@ -1,13 +1,13 @@
 #include "Enemy.h"
+#include <math.h>
 
-
-Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
+Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName)
 {
     this->engine = engine;
-    this->world = World;
+    this->bodyName = enemyName;
     originPos.x = pos_x;
     originPos.y = pos_x;
-    bodyDef.position = b2Vec2(-100.f/engine->SCALE, 100.f/engine->SCALE);
+    bodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -15,9 +15,9 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
      body = NULL;
      b2Body* temp;
 
-    body = world->CreateBody(&bodyDef);
+    body = engine->World->CreateBody(&bodyDef);
     //add body to world map
-    engine->worldMap->mapEnemies.push_back(this);
+    //engine->worldMap->mapEnemies.push_back(this);
     int id = 2;
     body->SetUserData((void*)id);
 
@@ -25,7 +25,7 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
     fixtureDef.density = 3.f;
     fixtureDef.friction = 1.f;
     fixtureDef.shape = &shape;
-    body->CreateFixture(&fixtureDef);
+    b2Fixture* fixture = body->CreateFixture(&fixtureDef);
 
     shape.SetAsBox(0.2, 0.2, b2Vec2(0,1), 0);
     fixtureDef.isSensor = true;
@@ -34,18 +34,19 @@ Enemy::Enemy(b2World* World,Engine* engine, float pos_x, float pos_y )
 
     Json::Value bodyValue = engine->json.b2j( body );
   //  body = engine->json.j2b2Body(engine->World, bodyValue);
-std::cout << "bodyvalue" << std::endl;
+    std::cout << "bodyvalue" << std::endl;
 
     enemyTexture.loadFromFile("AssetLoader/enemysprite.png");
 
-   walkLeftAnimation = Animation(4,enemyTexture);
-   walkLeftAnimation.setFrame(0,70,60,70);
+    walkLeftAnimation = Animation(4,enemyTexture);
+    walkLeftAnimation.setFrame(0,70,60,70);
 
 
 
 
 
-   engine->json.setBodyName(body, "Enemy");
+   engine->json.setBodyName(body, bodyName.c_str());
+   engine->json.setCustomInt(fixture, "damage", 10);
   // engine->json.j2b2Body(engine->World, bodyValue);
  // engine->World->DestroyBody(body);
     };
@@ -53,24 +54,20 @@ std::cout << "bodyvalue" << std::endl;
 Enemy::~Enemy()
 {
     std::cout << "remove body in class  " << std::endl;
-    engine->World->DestroyBody( engine->json.getBodyByName("Enemy") );
+    //engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
+    engine->World->DestroyBody(body);
     std::cout << "completed body in class removal  " << std::endl;
     //this class will be removed
 
 
 };
-void Enemy::moveOnPath()
+void Enemy::moveOnPath(float x)
 {
 
-    //move left if less than 400 pixel from origin
-    if(body->GetPosition().x > originPos.x - 100)
-    {
-        b2Vec2 vel =  body->GetLinearVelocity();
-        float desiredVel = -5;
-        float velChange = desiredVel - vel.x;
-        float impulse =  body->GetMass() * velChange; //disregard time factor
-        body->ApplyLinearImpulse(b2Vec2(impulse,0), body->GetWorldCenter(),true );
-    }
+    //get body position
+
+//std::cout << "move path" << std::endl;
+        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + 6 * sin(x),body->GetPosition().y),body->GetAngle());
 
 }
 
@@ -78,7 +75,7 @@ void Enemy::render()
 {
 
     sf::Sprite enemySprite;
-    for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
+ //   for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
     {
       //  std::cout << "render enemy" << std::endl;
     enemySprite.setOrigin(35,35);

@@ -35,6 +35,25 @@ void MyContactListener::BeginContact(b2Contact* contact) {
 
     }
 
+    //if fixture a has damage property && fixture b is player
+    //or fixture b has damage && fixture a is player
+        //get damage from fixture minus from player health
+    if( (engine->json.hasCustomInt(contact->GetFixtureA(), "damage") && (int)contact->GetFixtureB()->GetUserData() == 2 ) ||
+        (engine->json.hasCustomInt(contact->GetFixtureB(), "damage") && (int)contact->GetFixtureA()->GetUserData() == 2 )  )
+    {
+        cout << "FixtureA Has Damage Property";
+        int damage = engine->json.getCustomInt(contact->GetFixtureA(), "damage");
+        if(damage == 0)
+            damage = engine->json.getCustomInt(contact->GetFixtureB(), "damage");
+        cout << " Damage = " << damage << endl;
+        engine->player->health -= damage;
+        //bounce player off enemy
+        //big bounce if there is lots of velocity on impact, impulse needs cap
+        engine->player->body->SetLinearVelocity(-engine->player->body->GetLinearVelocity());
+
+    }
+
+
 
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -65,6 +84,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         cout << " fixture " << (int) fixtureUserData << endl;
 
     }
+
+    //if fixtureUserData has damage property &&
+    //get damage property from fixture
 
 }
 

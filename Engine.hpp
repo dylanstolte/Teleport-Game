@@ -38,7 +38,7 @@ public:
     /**POINTERS TO CLASSES*/
     MyContactListener* listener;
     Player* player;
-    Enemy* enemy;
+
     Map* worldMap;
     AssetLoader* assetLoader;
     MapBuilder* mapBuilder;
@@ -71,7 +71,8 @@ public:
     bool moveLeft = false;
     bool mouseLeft = false;
     bool jumpRelease = false;
-    bool doubleJump = false;
+    bool doubleJumpReset = false;
+    bool doDoubleJump = false;
     bool preventJump = false;
     bool moveStop = false;
     int jumpCount = 0;

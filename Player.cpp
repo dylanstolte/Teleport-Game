@@ -102,9 +102,9 @@ void Player::update()
 
     if(numFootContacts > 0)
     {
-       grounded = true;
-       inAir = false;
-       engine->doubleJumpReset = true;
+        grounded = true;
+        inAir = false;
+        engine->doubleJumpReset = true;
     }
     else
     {
@@ -181,14 +181,14 @@ void Player::update()
     {
         if(numFootContacts > 0)
         {
-                if (vel.x < 0) // moving left
-                {
-                    body->SetLinearVelocity(b2Vec2(vel.x+dec,vel.y));
-                }
-                else if (vel.x < 15) // moving right
-                {
-                    body->SetLinearVelocity(b2Vec2(vel.x+acc,vel.y));
-                }
+            if (vel.x < 0) // moving left
+            {
+                body->SetLinearVelocity(b2Vec2(vel.x+dec,vel.y));
+            }
+            else if (vel.x < 15) // moving right
+            {
+                body->SetLinearVelocity(b2Vec2(vel.x+acc,vel.y));
+            }
         }
         else if (vel.x < 15) // if in the air and velocity less than 10
             body->SetLinearVelocity(b2Vec2(vel.x+acc,vel.y));
@@ -215,50 +215,58 @@ void Player::render()
             //for each enemy in range
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
-               // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
+                // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
 //                std::vector<b2Body*> Bodies;
 //                int num = engine->json.getBodiesByName("Enemy",Bodies);
 //                std::cout << " " <<  num << std::endl;
 
-
-                Enemy* enemy = engine->worldMap->mapEnemies.at(i);
-                b2Body* it = enemy->body;
-
-                std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
-                std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
-
-                sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
-                sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
-                float euclidian = getEuclidianDistance(bodyPosition,playerPosition);
-
-                std::cout << "check for in range: " << euclidian << std::endl;
-                if(euclidian < attackDistance)
+                std::cout << "check for NULL"<< std::endl;
+                if( engine->worldMap->mapEnemies.at(i)->body != NULL)
                 {
-                    std::cout << "in range" << std::endl;
-                    sf::Vertex line[] =
+                    std::cout << "body not null" << std::endl;
+
+
+                    Enemy* enemy = engine->worldMap->mapEnemies.at(i);
+                    b2Body* it = enemy->body;
+
+                    std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
+                    std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
+
+                    sf::Vector2f bodyPosition = sf::Vector2f(it->GetPosition().x*engine->SCALE, it->GetPosition().y*engine->SCALE);
+                    sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
+                    float euclidian = getEuclidianDistance(bodyPosition,playerPosition);
+
+                    std::cout << "check for in range: " << euclidian << std::endl;
+                    if(euclidian < attackDistance)
                     {
-                        sf::Vertex(bodyPosition,sf::Color::Blue),
-                        sf::Vertex(playerPosition,sf::Color::Blue)
-                    };
-                    engine->Window->draw(line, 2, sf::Lines);
-                    sf::Texture tex;
-                    //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
-                    test.setTextureRect(attackAnimation.nextFrame());
-                    test.setOrigin(100,35);
-                    test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
+                        std::cout << "in range" << std::endl;
+                        sf::Vertex line[] =
+                        {
+                            sf::Vertex(bodyPosition,sf::Color::Blue),
+                            sf::Vertex(playerPosition,sf::Color::Blue)
+                        };
+                        engine->Window->draw(line, 2, sf::Lines);
+                        sf::Texture tex;
+                        //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
+                        test.setTextureRect(attackAnimation.nextFrame());
+                        test.setOrigin(100,35);
+                        test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
 
 
-                    // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
-                    //   std::cout << "rect" << test->getTextureRect().width << std::endl;
+                        // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
+                        //   std::cout << "rect" << test->getTextureRect().width << std::endl;
 //                 test->setPosition(100.f,engine->SCALE0.f);
 //                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
-                    engine->Window->draw(test);
-                    std::cout << "schedule for removal" << std::endl;
-                    engine->enemyScheduledForRemoval.push_back(enemy);
+                        engine->Window->draw(test);
+                        std::cout << "schedule for removal" << std::endl;
+                        engine->enemyScheduledForRemoval.push_back(enemy);
 
-                    engine->worldMap->mapEnemies.erase(engine->worldMap->mapEnemies.begin()+i);
-
+                        // engine->worldMap->mapEnemies.erase(engine->worldMap->mapEnemies.begin()+i);
+                    }
                 }
+                else  std::cout << "found NULL BODY" << std::endl;
+
+
             }
         }
         if(engine->jumpAnimation)

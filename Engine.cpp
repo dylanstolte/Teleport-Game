@@ -382,7 +382,8 @@ void Engine::update()
         //enemy class scheduled for removal
         Enemy* temp = enemyScheduledForRemoval.at(i);
         //call enemy class destructor
-        delete temp;
+        //delete temp;
+        temp->deleteBody();
         std::cout << "removal completed" << std::endl;
         // set enemy pointer in engine class to null
         worldMap->enemy = NULL;
@@ -405,7 +406,7 @@ void Engine::renderFrame()
     Window->setView(view);
 
     //this call uses tons of cycle time
-     // displayMouseCoords();
+      displayMouseCoords();
     //  displayAssetSelection();
 
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
@@ -533,8 +534,10 @@ void Engine::displayMouseCoords()
     text.setColor(sf::Color::Blue);
     text2.setColor(sf::Color::Cyan);
     // sf::Vector2f mouse = Window->mapPixelToCoords
-    text.setPosition(worldBodies["player"]->GetPosition().x*SCALE,-worldBodies["player"]->GetPosition().y*SCALE);
-    text2.setPosition(Window->mapPixelToCoords(sf::Vector2i(200,0)));
+    text.setScale(1,-1);
+    text2.setScale(1,-1);
+    text.setPosition(Window->mapPixelToCoords( sf::Vector2i(10,10) ));
+    text2.setPosition(Window->mapPixelToCoords( sf::Vector2i(120,10) ));
     Window->draw(text);
     Window->draw(text2);
 }

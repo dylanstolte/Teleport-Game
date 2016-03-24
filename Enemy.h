@@ -19,10 +19,12 @@ public:
 
     Animation walkLeftAnimation;
     Animation walkRightAnimation;
+    bool dead = true;
+    float respawn = 1;
 
     Map* worldMap;
 
-
+    float counter = 0;
     sf::RenderWindow* window;
     sf::Texture enemyTexture;
     Engine* engine;
@@ -30,8 +32,11 @@ public:
     sf::Vector2i originPos;
     sf::Vector2i currentPos;
 
+    void update();
     void render();
     void moveOnPath(float x);
+    void deleteBody();
+    void spawnBody();
     sf::Vector2i nextPosition();
     std::string bodyName;
 

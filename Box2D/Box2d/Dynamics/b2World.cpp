@@ -137,11 +137,14 @@ void b2World::DestroyBody(b2Body* b)
 	{
 		return;
 	}
+	std::cout << "in box destroy1" << std::endl;
 
 	// Delete the attached joints.
 	b2JointEdge* je = b->m_jointList;
+	 std::cout << "in box destroy2" << std::endl;
 	while (je)
 	{
+	    std::cout << "in box destroy in loop" << std::endl;
 		b2JointEdge* je0 = je;
 		je = je->next;
 
@@ -154,8 +157,9 @@ void b2World::DestroyBody(b2Body* b)
 
 		b->m_jointList = je;
 	}
+	std::cout << "in box destroy3" << std::endl;
 	b->m_jointList = NULL;
-
+std::cout << "in box destroy4" << std::endl;
 	// Delete the attached contacts.
 	b2ContactEdge* ce = b->m_contactList;
 	while (ce)
@@ -165,6 +169,7 @@ void b2World::DestroyBody(b2Body* b)
 		m_contactManager.Destroy(ce0->contact);
 	}
 	b->m_contactList = NULL;
+
 
 	// Delete the attached fixtures. This destroys broad-phase proxies.
 	b2Fixture* f = b->m_fixtureList;
@@ -188,7 +193,7 @@ void b2World::DestroyBody(b2Body* b)
 	}
 	b->m_fixtureList = NULL;
 	b->m_fixtureCount = 0;
-std::cout << "in box destroy" << std::endl;
+std::cout << "in box destroy5" << std::endl;
 	// Remove world body list.
 	if (b->m_prev)
 	{

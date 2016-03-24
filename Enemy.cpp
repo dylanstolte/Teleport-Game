@@ -6,8 +6,16 @@ Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName)
     this->engine = engine;
     this->bodyName = enemyName;
     originPos.x = pos_x;
-    originPos.y = pos_x;
-    bodyDef.position = b2Vec2(pos_x/engine->SCALE, pos_y/engine->SCALE);
+    originPos.y = pos_y;
+
+
+    spawnBody();
+
+    };
+
+void Enemy::spawnBody()
+{
+    bodyDef.position = b2Vec2(originPos.x/engine->SCALE, originPos.y/engine->SCALE);
     bodyDef.type = b2_dynamicBody;
     //prevent player from rotating
     bodyDef.fixedRotation = true;
@@ -28,18 +36,13 @@ Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName)
     b2Fixture* fixture = body->CreateFixture(&fixtureDef);
 
     shape.SetAsBox(0.2, 0.2, b2Vec2(0,1), 0);
-    fixtureDef.isSensor = true;
+   // fixtureDef.isSensor = true;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
 
     Json::Value bodyValue = engine->json.b2j( body );
   //  body = engine->json.j2b2Body(engine->World, bodyValue);
     std::cout << "bodyvalue" << std::endl;
-
-    enemyTexture.loadFromFile("AssetLoader/enemysprite.png");
-
-    walkLeftAnimation = Animation(4,enemyTexture);
-    walkLeftAnimation.setFrame(0,70,60,70);
 
 
 
@@ -49,25 +52,61 @@ Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName)
    engine->json.setCustomInt(fixture, "damage", 10);
   // engine->json.j2b2Body(engine->World, bodyValue);
  // engine->World->DestroyBody(body);
-    };
+  dead = false;
+
+}
+void Enemy::deleteBody()
+
+{
+ std::cout << "remove body in class  " << std::endl;
+    engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
+    //engine->World->DestroyBody(body);
+    std::cout << "completed body in class removal  " << std::endl;
+    body = NULL;
+    std::cout << "body set to NULL  " << std::endl;
+    //this class will be removed
+    dead = true;
+    respawn = 1800;
+
+}
 
 Enemy::~Enemy()
 {
-    std::cout << "remove body in class  " << std::endl;
-    //engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
-    engine->World->DestroyBody(body);
-    std::cout << "completed body in class removal  " << std::endl;
-    //this class will be removed
+
 
 
 };
+
+void Enemy::update()
+{
+    if(dead)
+    {
+//std::cout << "respawn count down " << respawn << std::endl;
+        respawn--;
+    }
+
+    if(respawn == 0)
+    {
+      spawnBody();
+   //   std::cout << "respawn " << bodyName << std::endl;
+        dead = false;
+        respawn = 1;
+    }
+    if(!dead && body != NULL)
+        moveOnPath(engine->clock.getElapsedTime().asSeconds()*5000);
+}
 void Enemy::moveOnPath(float x)
 {
 
     //get body position
 
 //std::cout << "move path" << std::endl;
-        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + 6 * sin(x),body->GetPosition().y),body->GetAngle());
+    if(bodyName != "Enemy2")
+    {
+         counter+=x;
+        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + 6 * sin(counter),body->GetPosition().y),body->GetAngle());
+
+    }
 
 }
 

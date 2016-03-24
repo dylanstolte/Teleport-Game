@@ -20,7 +20,7 @@ public:
     sf::Texture smallPlatform;
     sf::Sprite groundSprite;
     Enemy* enemy;
-    float counter = 0;
+
     int objectCount = 0;
     //pointers because bodies are stored in world
     std::vector<b2Body*> mapBodies;

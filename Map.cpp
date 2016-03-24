@@ -32,7 +32,7 @@ void Map::createEnemy()
      mapEnemies.push_back(enemy);
 
 
-     enemy = new Enemy(engine,-500,0,"Enemy1");
+     enemy = new Enemy(engine,-700,-100,"Enemy1");
      mapEnemies.push_back(enemy);
 
      enemy = new Enemy(engine,800,800,"Enemy2");
@@ -46,24 +46,29 @@ void Map::update()
     //get all moving bodies in map
     //create an enemy
     //set proper position of bodies
+    for(int i = 0; mapEnemies.size() > i; i++)
+    {
+    enemy = mapEnemies.at(i);
 
-    enemy = mapEnemies.at(0);
+    // if(mapEnemies.at(i)->body != NULL)
+        {
+         mapEnemies.at(i)->update();
+        }
+    }
 
-        counter+=engine->clock.getElapsedTime().asSeconds()*5000;
-    enemy->moveOnPath(counter);
 
 }
 
 void Map::render()
 {
     //render enemies
-    for (int i = 0; i < mapEnemies.size(); i++)
-    {
-        if(mapEnemies.at(i)->body != NULL)
-        {
-        mapEnemies.at(i)->render();
-        }
-    }
+//    for (int i = 0; i < mapEnemies.size(); i++)
+//    {
+//        if(mapEnemies.at(i)->body != NULL)
+//        {
+//        mapEnemies.at(i)->render();
+//        }
+//    }
 
 
 

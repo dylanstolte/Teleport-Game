@@ -19,8 +19,8 @@ Player::Player(b2World* world, Engine* engine)
     body->SetUserData((void*)id);
 
     //  shape.SetAsBox((25/2)/engine->SCALE, (35/2)/engine->SCALE);
-    circleShape.m_p.Set(0,.5); //position, relative to body position
-    circleShape.m_radius = .5;
+    circleShape.m_p.Set(0,.7); //position, relative to body position
+    circleShape.m_radius = .7;
     fixtureDef.density = 3.f;
     fixtureDef.friction = 3.f;
     fixtureDef.shape = &circleShape;
@@ -31,7 +31,7 @@ Player::Player(b2World* world, Engine* engine)
 
 
     //foot fixture
-    shape.SetAsBox(0.2, 0.2, b2Vec2(0,0), 0);
+    shape.SetAsBox(0.2, 0.2, b2Vec2(0,.2), 0);
     fixtureDef.isSensor = true;
     fixtureDef.shape = &shape;
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
@@ -52,8 +52,8 @@ Player::Player(b2World* world, Engine* engine)
     // playerTexture.loadFromFile("spritesheetvolt.png");
 
 
-    checkpointPos.x =0;
-    checkpointPos.y =60;
+    checkpointPos.x =-600.f/engine->SCALE;
+    checkpointPos.y =200.f/engine->SCALE;
 
     //Animation Setup
     pichuSheet.loadFromFile("AssetLoader/colorRun.png");
@@ -91,7 +91,116 @@ void Player::setOrigin(float pos_x, float pos_y)
     //  playerSprite.setOrigin(140.f,190.f);
 
 }
+void Player::update()
+{
 
+    if(health < 0)
+    {
+        respawn(checkpointPos);
+    }
+
+
+    if(numFootContacts > 0)
+    {
+       grounded = true;
+       inAir = false;
+       engine->doubleJumpReset = true;
+    }
+    else
+    {
+        grounded = false;
+        inAir = true;
+
+    }
+
+    //if in the inAir and havent double jumped yet
+    //doubleJumpReset = true
+
+
+    if(engine->moveJump)
+    {
+        {
+            std::cout << "Jump apply" << std::endl;
+            b2Vec2 vel =  body->GetLinearVelocity();
+            float desiredVel = 9;
+            float velChange = desiredVel - vel.y;
+            float impulse = body->GetMass() * 20;
+            body->ApplyLinearImpulse( b2Vec2(0,impulse), body->GetWorldCenter(), true);
+            // worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,9));
+            engine->moveJump = false;
+            engine->jumpAnimation = true;
+        }
+
+    }
+    if(engine->doDoubleJump)
+    {
+        {
+            std::cout << "double jump apply" << std::endl;
+            b2Vec2 vel =  body->GetLinearVelocity();
+            float desiredVel = 9;
+            float velChange = desiredVel - vel.y;
+            float impulse = body->GetMass() * 20;
+            body->ApplyLinearImpulse( b2Vec2(0,impulse), body->GetWorldCenter(), true);
+            // worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,9));
+            engine->doDoubleJump= false;
+            engine->jumpAnimation = true;
+        }
+
+    }
+    //for variable jump height
+    if(engine->jumpRelease)
+    {
+        if(body->GetLinearVelocity().y > 0)
+        {
+            std::cout << "variable jump" << std::endl;
+            if(body->GetLinearVelocity().y > 7)
+                body->SetLinearVelocity(b2Vec2(body->GetLinearVelocity().x,3.5));
+        }
+    }
+
+    b2Vec2 vel =  body->GetLinearVelocity();
+    if (engine->moveLeft)
+    {
+        if(numFootContacts > 0)
+        {
+            if (vel.x > 0)
+            {
+                body->SetLinearVelocity(b2Vec2(vel.x-dec,vel.y));
+                //  xsp -= player->dec;
+            }
+            else if (vel.x > -15)
+            {
+                body->SetLinearVelocity(b2Vec2(vel.x-acc,vel.y));
+                //xsp = xsp-player->acc;
+            }
+        }
+        else if (vel.x > -15)
+            body->SetLinearVelocity(b2Vec2(vel.x-acc,vel.y));
+    }
+    else if (engine->moveRight)
+    {
+        if(numFootContacts > 0)
+        {
+                if (vel.x < 0) // moving left
+                {
+                    body->SetLinearVelocity(b2Vec2(vel.x+dec,vel.y));
+                }
+                else if (vel.x < 15) // moving right
+                {
+                    body->SetLinearVelocity(b2Vec2(vel.x+acc,vel.y));
+                }
+        }
+        else if (vel.x < 15) // if in the air and velocity less than 10
+            body->SetLinearVelocity(b2Vec2(vel.x+acc,vel.y));
+
+    } //else xsp = xsp-minimum(absolute(xsp), frc)*sign(xsp);
+
+    if(engine->moveStop && numFootContacts > 0)
+    {
+        // std::cout << "stopping movement" << std::cout;
+        body->SetLinearVelocity(b2Vec2(vel.x/1.2,vel.y));
+    }
+}
 void Player::render()
 {
     {
@@ -107,12 +216,13 @@ void Player::render()
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
                // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
-                std::vector<b2Body*> Bodies;
-                int num = engine->json.getBodiesByName("Enemy",Bodies);
-                std::cout << " " <<  num << std::endl;
+//                std::vector<b2Body*> Bodies;
+//                int num = engine->json.getBodiesByName("Enemy",Bodies);
+//                std::cout << " " <<  num << std::endl;
 
-                b2Body* it = engine->json.getBodyByName("Enemy");
+
                 Enemy* enemy = engine->worldMap->mapEnemies.at(i);
+                b2Body* it = enemy->body;
 
                 std::cout << it->GetPosition().x*engine->SCALE<< " " << it->GetPosition().y*engine->SCALE << std::endl;
                 std::cout << it->GetPosition().x<< " " << it->GetPosition().y << std::endl;
@@ -145,8 +255,8 @@ void Player::render()
                     engine->Window->draw(test);
                     std::cout << "schedule for removal" << std::endl;
                     engine->enemyScheduledForRemoval.push_back(enemy);
-                    // std::find(vector.begin(), vector.end(), body) != vector.end()
-                    engine->worldMap->mapEnemies.clear();
+
+                    engine->worldMap->mapEnemies.erase(engine->worldMap->mapEnemies.begin()+i);
 
                 }
             }
@@ -235,6 +345,14 @@ void Player::render()
     playerSprite.setRotation(body->GetAngle() * 180/b2_pi);
     engine->Window->draw(playerSprite);
 
+    //draw health bar above player
+    sf::RectangleShape rectangle(sf::Vector2f(health, 10));
+    rectangle.setFillColor(sf::Color::Green);
+    if(health < 50)
+        rectangle.setFillColor(sf::Color::Red);
+    rectangle.setPosition(engine->SCALE * body->GetPosition().x-35, engine->SCALE * body->GetPosition().y+70);
+    engine->Window->draw(rectangle);
+
 }
 sf::Vector2f Player::getCoordsToPointBetweenPoints(float euclidian,sf::Vector2f player,sf::Vector2f enemy,float distance)
 {
@@ -268,8 +386,9 @@ float Player::getEuclidianDistance(sf::Vector2f target,sf::Vector2f destination)
 
 void Player::respawn(sf::Vector2f checkpointPos)
 {
+    health = 70;
     std::cout << "respawn" << std::endl;
-    body->SetTransform(b2Vec2(0,600/engine->SCALE),body->GetAngle());
+    body->SetTransform(b2Vec2(checkpointPos.x,checkpointPos.y),body->GetAngle());
     body->SetLinearVelocity(b2Vec2(0,0));
     dead = false;
 

@@ -2,14 +2,8 @@
 
 Map::Map(Engine* engine)
 {
-//    GroundTexture.loadFromFile("ground.png");
-//    BoxTexture.loadFromFile("box.png");
-//    platform.loadFromFile("platform1.png");
-//    smallPlatform.loadFromFile("grass_box/grass_96x96.png");
     this->engine = engine;
-  //  moonbackground.loadFromFile("AssetLoader/treeBackground.jpg");
-  //  backgroundSprite.setTexture(moonbackground);
-   // backgroundView.setCenter(4500,600);
+
     backgroundView.reset(sf::FloatRect(0, 0, 1400, 900));
     verticalVineTexture.loadFromFile("AssetLoader/verticalVine.png");
     verticalVineSprite.setTexture(verticalVineTexture);
@@ -19,34 +13,62 @@ Map::Map(Engine* engine)
     rockPlatformTexture.loadFromFile("AssetLoader/rockPlatform.png");
     rockPlatformSprite.setTexture(rockPlatformTexture);
     rockPlatformSprite.scale(sf::Vector2f(1.6,1.6));
-   std::cout << "endl"  << std::endl;
+    std::cout << "endl"  << std::endl;
     rockPlatformSprite.setPosition(1165,290);
 
-    //create sprites from images from json
-    //call create sprites function put into map sprites
 
 
-//    std::cout << "create boxes" << std::endl;
-//    createBodyBox(0,700,150,25,4);
-//    //walls
-//  //  createBodyBox(-450,50,15,1500,4);
-// //   createBodyBox(600,50,15,1500,4);
-//    //swinging platforms
-//    createBodyBox(-200,350,15,150,4);
-//    createBodyBox(350,550,15,150,4);
-//    //wallplatforms
-//    createBodyBox(-450,350,150,15,4);
-//    createBodyBox(600,500,150,15,4);
+    //create enemy 2
+
 }
 
-Map::~Map() {}
+Map::~Map() {delete enemy;}
 void Map::buildMapPerimeter() {}
-void Map::createEnemy(){}
+void Map::createEnemy()
+{
+     //create enemy 1
+     std::cout << "enemy load" << std::endl;
+     enemy = new Enemy(engine,0,100,"Enemy");
+     mapEnemies.push_back(enemy);
 
 
+     enemy = new Enemy(engine,-500,0,"Enemy1");
+     mapEnemies.push_back(enemy);
+
+     enemy = new Enemy(engine,800,800,"Enemy2");
+     mapEnemies.push_back(enemy);
+
+
+}
+
+void Map::update()
+{
+    //get all moving bodies in map
+    //create an enemy
+    //set proper position of bodies
+
+    enemy = mapEnemies.at(0);
+
+        counter+=engine->clock.getElapsedTime().asSeconds()*5000;
+    enemy->moveOnPath(counter);
+
+}
 
 void Map::render()
 {
+    //render enemies
+    for (int i = 0; i < mapEnemies.size(); i++)
+    {
+        if(mapEnemies.at(i)->body != NULL)
+        {
+        mapEnemies.at(i)->render();
+        }
+    }
+
+
+
+
+
     //draw sprites in mapSprites
     for (int i = 0; i < mapSprites.size(); i++)
     {

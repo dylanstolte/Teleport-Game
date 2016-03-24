@@ -399,7 +399,7 @@
 	<iostream>
 	"Engine.hpp"
 
-1457935058 c:\users\zbook15g2\git\teleport-game\engine.hpp
+1458804367 c:\users\zbook15g2\git\teleport-game\engine.hpp
 	<SFML\Graphics.hpp>
 	"Box2D/Box2D.h"
 	<iostream>
@@ -415,1081 +415,6 @@
 	"scriptBuiltMap.h"
 	"b2dJson.h"
 	"b2dJsonImage.h"
-
-1270343882 c:\box2d\box2d\box2d.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Collision/b2BroadPhase.h>
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
-	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
-	<Box2D/Dynamics/Joints/b2GearJoint.h>
-	<Box2D/Dynamics/Joints/b2LineJoint.h>
-	<Box2D/Dynamics/Joints/b2MouseJoint.h>
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/Joints/b2WeldJoint.h>
-
-1270317792 c:\box2d\box2d\common\b2settings.h
-	<cassert>
-	<cmath>
-
-1265015568 c:\box2d\box2d\collision\shapes\b2circleshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1268010794 c:\box2d\box2d\collision\shapes\b2shape.h
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-
-1265015568 c:\box2d\box2d\common\b2blockallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1271144924 c:\box2d\box2d\common\b2math.h
-	<Box2D/Common/b2Settings.h>
-	<cmath>
-	<cfloat>
-	<cstddef>
-	<limits>
-
-1269925966 c:\box2d\box2d\collision\b2collision.h
-	<Box2D/Common/b2Math.h>
-	<climits>
-
-1265015568 c:\box2d\box2d\collision\shapes\b2polygonshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1265015568 c:\box2d\box2d\collision\b2broadphase.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<algorithm>
-
-1267925474 c:\box2d\box2d\collision\b2dynamictree.h
-	<Box2D/Collision/b2Collision.h>
-
-1265015568 c:\box2d\box2d\collision\b2distance.h
-	<Box2D/Common/b2Math.h>
-	<climits>
-
-1265015568 c:\box2d\box2d\collision\b2timeofimpact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Distance.h>
-	<climits>
-
-1270342506 c:\box2d\box2d\dynamics\b2body.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<memory>
-
-1270342984 c:\box2d\box2d\dynamics\b2fixture.h
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1269815900 c:\box2d\box2d\dynamics\b2worldcallbacks.h
-	<Box2D/Common/b2Settings.h>
-
-1265015568 c:\box2d\box2d\dynamics\b2timestep.h
-	<Box2D/Common/b2Settings.h>
-
-1269364864 c:\box2d\box2d\dynamics\b2world.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2StackAllocator.h>
-	<Box2D/Dynamics/b2ContactManager.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-
-1265015568 c:\box2d\box2d\common\b2stackallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1269244176 c:\box2d\box2d\dynamics\b2contactmanager.h
-	<Box2D/Collision/b2BroadPhase.h>
-
-1271315540 c:\box2d\box2d\dynamics\contacts\b2contact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/b2Fixture.h>
-
-1270342614 c:\box2d\box2d\dynamics\joints\b2distancejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2joint.h
-	<Box2D/Common/b2Math.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2frictionjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2gearjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1267516356 c:\box2d\box2d\dynamics\joints\b2linejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2mousejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1267434940 c:\box2d\box2d\dynamics\joints\b2prismaticjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2pulleyjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2revolutejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1265015568 c:\box2d\box2d\dynamics\joints\b2weldjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1456799188 c:\users\zbook15g2\git\teleport-game\mycontactlistener.h
-	<SFML\Graphics.hpp>
-	<Box2D\Box2D.h>
-	<iostream>
-	<String>
-	<map>
-	"Engine.hpp"
-
-1457660951 c:\users\zbook15g2\git\teleport-game\debugdraw.h
-	<Box2D/Box2D.h>
-	<iostream>
-	<SFML/System.hpp>
-	<SFML/Graphics.hpp>
-
-1458540011 c:\users\zbook15g2\git\teleport-game\player.h
-	"Engine.hpp"
-	"Animation.h"
-
-1457934408 c:\users\zbook15g2\git\teleport-game\map.h
-	"Engine.hpp"
-
-1457318425 c:\users\zbook15g2\git\teleport-game\enemy.h
-	"SFML/Graphics.hpp"
-	"Engine.hpp"
-	"Animation.h"
-
-1457067333 c:\users\zbook15g2\git\teleport-game\mapbuilder.h
-	"Engine.hpp"
-
-1457217863 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h
-	"Engine.hpp"
-
-1457660951 source:c:\users\zbook15g2\git\teleport-game\debugdraw.cpp
-	"DebugDraw.h"
-
-1458032757 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
-	"Enemy.h"
-
-1456802353 source:c:\users\zbook15g2\git\teleport-game\main.cpp
-	"Engine.hpp"
-
-1457777019 source:c:\users\zbook15g2\git\teleport-game\map.cpp
-	"Map.h"
-
-1457070572 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
-	"MapBuilder.h"
-
-1457318425 source:c:\users\zbook15g2\git\teleport-game\mycontactlistener.cpp
-	"MyContactListener.h"
-
-1458542651 source:c:\users\zbook15g2\git\teleport-game\player.cpp
-	"Player.h"
-	"Animation.h"
-
-1457598731 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
-	"scriptBuiltMap.h"
-
-1458537168 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
-	"Engine.hpp"
-	<string>
-	<sstream>
-
-1456940380 source:c:\users\stolted.auth\git\teleport-game\animation.cpp
-	"Animation.h"
-	<iostream>
-
-1456420428 c:\users\stolted.auth\git\teleport-game\animation.h
-	<SFML/graphics.hpp>
-
-1457629912 source:c:\users\stolted.auth\git\teleport-game\assetloader.cpp
-	"AssetLoader.h"
-	<sstream>
-	<string>
-	<fstream>
-	<windows.h>
-
-1457021671 c:\users\stolted.auth\git\teleport-game\assetloader.h
-	<vector>
-	<string>
-	<dirent.h>
-	<sys/stat.h>
-	<iostream>
-	"Engine.hpp"
-
-1457630534 c:\users\stolted.auth\git\teleport-game\engine.hpp
-	<SFML\Graphics.hpp>
-	"Box2D/Box2D.h"
-	<iostream>
-	<String>
-	<map>
-	"MyContactListener.h"
-	"DebugDraw.h"
-	"Player.h"
-	"Map.h"
-	"Enemy.h"
-	"AssetLoader.h"
-	"MapBuilder.h"
-	"scriptBuiltMap.h"
-
-1456248129 c:\users\stolted.auth\git\teleport-game\mycontactlistener.h
-	<SFML\Graphics.hpp>
-	<Box2D\Box2D.h>
-	<iostream>
-	<String>
-	<map>
-	"Engine.hpp"
-
-1457631490 c:\users\stolted.auth\git\teleport-game\debugdraw.h
-	<Box2D/Box2D.h>
-	<iostream>
-	<SFML/System.hpp>
-	<SFML/Graphics.hpp>
-
-1456940380 c:\users\stolted.auth\git\teleport-game\player.h
-	"Engine.hpp"
-	"Animation.h"
-
-1457629679 c:\users\stolted.auth\git\teleport-game\map.h
-	"Engine.hpp"
-
-1456940380 c:\users\stolted.auth\git\teleport-game\enemy.h
-	"SFML/Graphics.hpp"
-	"Engine.hpp"
-	"Animation.h"
-
-1457389392 c:\users\stolted.auth\git\teleport-game\mapbuilder.h
-	"Engine.hpp"
-
-1457389392 c:\users\stolted.auth\git\teleport-game\scriptbuiltmap.h
-	"Engine.hpp"
-
-1457631530 source:c:\users\stolted.auth\git\teleport-game\debugdraw.cpp
-	"DebugDraw.h"
-
-1457631762 source:c:\users\stolted.auth\git\teleport-game\enemy.cpp
-	"Enemy.h"
-
-1457644135 source:c:\users\stolted.auth\git\teleport-game\engine.cpp
-	"Engine.hpp"
-	<string>
-	<sstream>
-
-1455817758 source:c:\users\stolted.auth\git\teleport-game\main.cpp
-	"Engine.hpp"
-
-1457629679 source:c:\users\stolted.auth\git\teleport-game\map.cpp
-	"Map.h"
-
-1457389392 source:c:\users\stolted.auth\git\teleport-game\mapbuilder.cpp
-	"MapBuilder.h"
-
-1457021671 source:c:\users\stolted.auth\git\teleport-game\mycontactlistener.cpp
-	"MyContactListener.h"
-
-1457644860 source:c:\users\stolted.auth\git\teleport-game\player.cpp
-	"Player.h"
-	"Animation.h"
-
-1457629679 source:c:\users\stolted.auth\git\teleport-game\scriptbuiltmap.cpp
-	"scriptBuiltMap.h"
-
-1457465656 source:c:\users\stolted.auth\git\teleport-game\b2djson.cpp
-	<istream>
-	<fstream>
-	"b2dJson.h"
-	"json/json.h"
-	"b2dJsonImage.h"
-
-1457458293 c:\users\stolted.auth\git\teleport-game\b2djson.h
-	<stdio.h>
-	<map>
-	<set>
-	<string>
-	"Box2D/Box2D.h"
-	"json/json.h"
-
-1457458381 c:\users\stolted.auth\git\teleport-game\box2d\box2d.h
-	"Box2D/Common/b2Settings.h"
-	"Box2D/Common/b2Draw.h"
-	"Box2D/Common/b2Timer.h"
-	"Box2D/Collision/Shapes/b2CircleShape.h"
-	"Box2D/Collision/Shapes/b2EdgeShape.h"
-	"Box2D/Collision/Shapes/b2ChainShape.h"
-	"Box2D/Collision/Shapes/b2PolygonShape.h"
-	"Box2D/Collision/b2BroadPhase.h"
-	"Box2D/Collision/b2Distance.h"
-	"Box2D/Collision/b2DynamicTree.h"
-	"Box2D/Collision/b2TimeOfImpact.h"
-	"Box2D/Dynamics/b2Body.h"
-	"Box2D/Dynamics/b2Fixture.h"
-	"Box2D/Dynamics/b2WorldCallbacks.h"
-	"Box2D/Dynamics/b2TimeStep.h"
-	"Box2D/Dynamics/b2World.h"
-	"Box2D/Dynamics/Contacts/b2Contact.h"
-	"Box2D/Dynamics/Joints/b2DistanceJoint.h"
-	"Box2D/Dynamics/Joints/b2FrictionJoint.h"
-	"Box2D/Dynamics/Joints/b2GearJoint.h"
-	"Box2D/Dynamics/Joints/b2MotorJoint.h"
-	"Box2D/Dynamics/Joints/b2MouseJoint.h"
-	"Box2D/Dynamics/Joints/b2PrismaticJoint.h"
-	"Box2D/Dynamics/Joints/b2PulleyJoint.h"
-	"Box2D/Dynamics/Joints/b2RevoluteJoint.h"
-	"Box2D/Dynamics/Joints/b2RopeJoint.h"
-	"Box2D/Dynamics/Joints/b2WeldJoint.h"
-	"Box2D/Dynamics/Joints/b2WheelJoint.h"
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2settings.h
-	<stddef.h>
-	<assert.h>
-	<float.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2draw.h
-	<Box2D/Common/b2Math.h>
-
-1457467239 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2math.h
-	"b2Settings.h"
-	"math.h"
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2timer.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2circleshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1457467402 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2shape.h
-	"../../Common/b2BlockAllocator.h"
-	"../../Common/b2Math.h"
-	"../b2Collision.h"
-
-1457467385 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2blockallocator.h
-	"../Common/b2Settings.h"
-
-1457467432 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2collision.h
-	"../Common/b2Math.h"
-	<limits.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2edgeshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2chainshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2polygonshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1457467839 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2broadphase.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<algorithm>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2dynamictree.h
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Common/b2GrowableStack.h>
-
-1457467581 c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2growablestack.h
-	"../Common/b2Settings.h"
-	<memory.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2distance.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2timeofimpact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Distance.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2body.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<memory>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2fixture.h
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2worldcallbacks.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2timestep.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2world.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2StackAllocator.h>
-	<Box2D/Dynamics/b2ContactManager.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2contact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<Box2D/Dynamics/b2Fixture.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2distancejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2frictionjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2gearjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2motorjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2mousejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2prismaticjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2pulleyjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2revolutejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2ropejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2weldjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2wheeljoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1362835614 c:\users\stolted.auth\git\teleport-game\json\json.h
-	<cpptl/config.h>
-	"config.h"
-	"forwards.h"
-	"forwards.h"
-	<string>
-	<vector>
-	<map>
-	<cpptl/smallmap.h>
-	<cpptl/forwards.h>
-	"features.h"
-	"value.h"
-	<deque>
-	<stack>
-	<string>
-	<iostream>
-	"value.h"
-	<vector>
-	<string>
-	<iostream>
-
-1457458293 c:\users\stolted.auth\git\teleport-game\b2djsonimage.h
-	<string>
-	"Box2D/Box2D.h"
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2broadphase.cpp
-	<Box2D/Collision/b2BroadPhase.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2timeofimpact.cpp
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Common/b2Timer.h>
-	<stdio.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2circleshape.cpp
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2blockallocator.cpp
-	<Box2D/Common/b2BlockAllocator.h>
-	<limits.h>
-	<string.h>
-	<stddef.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2math.cpp
-	<Box2D/Common/b2Math.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2settings.cpp
-	<Box2D/Common/b2Settings.h>
-	<stdio.h>
-	<stdarg.h>
-	<stdlib.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2stackallocator.cpp
-	<Box2D/Common/b2StackAllocator.h>
-	<Box2D/Common/b2Math.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2body.cpp
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2contactmanager.cpp
-	<Box2D/Dynamics/b2ContactManager.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2fixture.cpp
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/b2BroadPhase.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Common/b2BlockAllocator.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2island.cpp
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Dynamics/b2Island.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Contacts/b2ContactSolver.h>
-	<Box2D/Dynamics/Joints/b2Joint.h>
-	<Box2D/Common/b2StackAllocator.h>
-	<Box2D/Common/b2Timer.h>
-
-1269416242 c:\box2d\box2d\dynamics\b2island.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1265015568 c:\box2d\box2d\dynamics\contacts\b2contactsolver.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Dynamics/b2Island.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2worldcallbacks.cpp
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2Fixture.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2circlecontact.cpp
-	<Box2D/Dynamics/Contacts/b2CircleContact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<new>
-
-1265015568 c:\box2d\box2d\dynamics\contacts\b2circlecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2contact.cpp
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Contacts/b2CircleContact.h>
-	<Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h>
-	<Box2D/Dynamics/Contacts/b2PolygonContact.h>
-	<Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h>
-	<Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h>
-	<Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h>
-	<Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h>
-	<Box2D/Dynamics/Contacts/b2ContactSolver.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2World.h>
-
-1265015568 c:\box2d\box2d\dynamics\contacts\b2polygonandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1265015568 c:\box2d\box2d\dynamics\contacts\b2polygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2contactsolver.cpp
-	<Box2D/Dynamics/Contacts/b2ContactSolver.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Common/b2StackAllocator.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygonandcirclecontact.cpp
-	<Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygoncontact.cpp
-	<Box2D/Dynamics/Contacts/b2PolygonContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2distancejoint.cpp
-	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2frictionjoint.cpp
-	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2gearjoint.cpp
-	<Box2D/Dynamics/Joints/b2GearJoint.h>
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2joint.cpp
-	<Box2D/Dynamics/Joints/b2Joint.h>
-	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
-	<Box2D/Dynamics/Joints/b2WheelJoint.h>
-	<Box2D/Dynamics/Joints/b2MouseJoint.h>
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/Joints/b2GearJoint.h>
-	<Box2D/Dynamics/Joints/b2WeldJoint.h>
-	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
-	<Box2D/Dynamics/Joints/b2RopeJoint.h>
-	<Box2D/Dynamics/Joints/b2MotorJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2mousejoint.cpp
-	<Box2D/Dynamics/Joints/b2MouseJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2prismaticjoint.cpp
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2pulleyjoint.cpp
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2revolutejoint.cpp
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2weldjoint.cpp
-	<Box2D/Dynamics/Joints/b2WeldJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1455817758 source:c:\users\stolted.auth\git\teleport-game\example_old.cpp
-	<SFML\Graphics.hpp>
-	<Box2D\Box2D.h>
-	<iostream>
-	<String>
-	<map>
-	"Engine.hpp"
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2body.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<memory>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2math.h
-	<Box2D/Common/b2Settings.h>
-	<math.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2settings.h
-	<stddef.h>
-	<assert.h>
-	<float.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\shapes\b2shape.h
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2blockallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\b2collision.h
-	<Box2D/Common/b2Math.h>
-	<limits.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2stackallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2contactmanager.h
-	<Box2D/Collision/b2BroadPhase.h>
-
-1457467839 c:\box2d-2.3.1\box2d\box2d\collision\b2broadphase.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<algorithm>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\b2dynamictree.h
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Common/b2GrowableStack.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2growablestack.h
-	<Box2D/Common/b2Settings.h>
-	<memory.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2worldcallbacks.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2timestep.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2fixture.h
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2joint.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\box2d.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Common/b2Draw.h>
-	<Box2D/Common/b2Timer.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Collision/b2BroadPhase.h>
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
-	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
-	<Box2D/Dynamics/Joints/b2GearJoint.h>
-	<Box2D/Dynamics/Joints/b2MotorJoint.h>
-	<Box2D/Dynamics/Joints/b2MouseJoint.h>
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/Joints/b2RopeJoint.h>
-	<Box2D/Dynamics/Joints/b2WeldJoint.h>
-	<Box2D/Dynamics/Joints/b2WheelJoint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2draw.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\common\b2timer.h
-	<Box2D/Common/b2Settings.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\shapes\b2circleshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\shapes\b2edgeshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\shapes\b2chainshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\shapes\b2polygonshape.h
-	<Box2D/Collision/Shapes/b2Shape.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\b2distance.h
-	<Box2D/Common/b2Math.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\collision\b2timeofimpact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Distance.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2world.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2StackAllocator.h>
-	<Box2D/Dynamics/b2ContactManager.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2contact.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2Shape.h>
-	<Box2D/Dynamics/b2Fixture.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2distancejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2frictionjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2gearjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2motorjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2mousejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2prismaticjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2pulleyjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2revolutejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2ropejoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2weldjoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\joints\b2wheeljoint.h
-	<Box2D/Dynamics/Joints/b2Joint.h>
-
-1362835614 source:c:\users\stolted.auth\git\teleport-game\b2djsonimage.cpp
-	<cstring>
-	<Box2D/Box2D.h>
-	"b2dJsonImage.h"
-	"bitmap.h"
-
-1362835614 c:\users\stolted.auth\git\teleport-game\bitmap.h
-	<iostream>
-	<fstream>
-	<string>
-	<stdint.h>
-
-1362835614 source:c:\users\stolted.auth\git\teleport-game\jsoncpp.cpp
-	"json/json.h"
-	<json/reader.h>
-	<json/value.h>
-	"json_tool.h"
-	<utility>
-	<cstdio>
-	<cassert>
-	<cstring>
-	<iostream>
-	<stdexcept>
-	<stdlib.h>
-	<assert.h>
-	<json/value.h>
-	<json/writer.h>
-	"json_batchallocator.h"
-	<iostream>
-	<utility>
-	<stdexcept>
-	<cstring>
-	<cassert>
-	<cpptl/conststring.h>
-	<cstddef>
-	"json_internalarray.inl"
-	"json_internalmap.inl"
-	"json_valueiterator.inl"
-	<json/writer.h>
-	"json_tool.h"
-	<utility>
-	<assert.h>
-	<stdio.h>
-	<string.h>
-	<iostream>
-	<sstream>
-	<iomanip>
-
-1457389392 source:c:\users\stolted.auth\git\teleport-game\rubeexporttomapscript\main.cpp
-	<iostream>
-	<fstream>
-	<vector>
-	<dirent.h>
-	<sys/stat.h>
-	<sstream>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2collidecircle.cpp
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2collideedge.cpp
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2collidepolygon.cpp
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2collision.cpp
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2Distance.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2distance.cpp
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\b2dynamictree.cpp
-	<Box2D/Collision/b2DynamicTree.h>
-	<string.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2chainshape.cpp
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<new>
-	<string.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2edgeshape.cpp
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\collision\shapes\b2polygonshape.cpp
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2draw.cpp
-	<Box2D/Common/b2Draw.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\common\b2timer.cpp
-	<Box2D/Common/b2Timer.h>
-	<windows.h>
-	<sys/time.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\b2island.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2contactsolver.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandcirclecontact.cpp
-	<Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<new>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2chainandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandpolygoncontact.cpp
-	<Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<new>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2chainandpolygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2circlecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2polygonandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2polygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2edgeandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\dynamics\contacts\b2edgeandpolygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandcirclecontact.cpp
-	<Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandpolygoncontact.cpp
-	<Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h>
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<new>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2motorjoint.cpp
-	<Box2D/Dynamics/Joints/b2MotorJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2ropejoint.cpp
-	<Box2D/Dynamics/Joints/b2RopeJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\joints\b2wheeljoint.cpp
-	<Box2D/Dynamics/Joints/b2WheelJoint.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1396741392 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\rope\b2rope.cpp
-	<Box2D/Rope/b2Rope.h>
-	<Box2D/Common/b2Draw.h>
-
-1396741392 c:\box2d-2.3.1\box2d\box2d\rope\b2rope.h
-	<Box2D/Common/b2Math.h>
-
-1457633231 source:c:\users\stolted.auth\git\teleport-game\box2d\box2d\dynamics\b2world.cpp
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2Island.h>
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Contacts/b2ContactSolver.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Collision/b2BroadPhase.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Common/b2Draw.h>
-	<Box2D/Common/b2Timer.h>
-	<new>
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d.h
 	"Box2D/Common/b2Settings.h"
@@ -1529,11 +454,27 @@
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2draw.h
 	<Box2D/Common/b2Math.h>
 
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2timer.h
 	<Box2D/Common/b2Settings.h>
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\shapes\b2circleshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\shapes\b2edgeshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
@@ -1550,12 +491,16 @@
 	<Box2D/Collision/b2DynamicTree.h>
 	<algorithm>
 
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2distance.h
-	<Box2D/Common/b2Math.h>
-
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2dynamictree.h
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Common/b2GrowableStack.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<memory.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2timeofimpact.h
 	<Box2D/Common/b2Math.h>
@@ -1585,6 +530,12 @@
 	<Box2D/Dynamics/b2WorldCallbacks.h>
 	<Box2D/Dynamics/b2TimeStep.h>
 
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2contact.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Collision.h>
@@ -1593,6 +544,9 @@
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\joints\b2distancejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
 
 1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\joints\b2frictionjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
@@ -1623,6 +577,120 @@
 
 1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1456799188 c:\users\zbook15g2\git\teleport-game\mycontactlistener.h
+	<SFML\Graphics.hpp>
+	<Box2D\Box2D.h>
+	<iostream>
+	<String>
+	<map>
+	"Engine.hpp"
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1457660951 c:\users\zbook15g2\git\teleport-game\debugdraw.h
+	<Box2D/Box2D.h>
+	<iostream>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+
+1458792784 c:\users\zbook15g2\git\teleport-game\player.h
+	"Engine.hpp"
+	"Animation.h"
+
+1458790775 c:\users\zbook15g2\git\teleport-game\map.h
+	"Engine.hpp"
+
+1458790775 c:\users\zbook15g2\git\teleport-game\enemy.h
+	"SFML/Graphics.hpp"
+	"Engine.hpp"
+	"Animation.h"
+
+1457067333 c:\users\zbook15g2\git\teleport-game\mapbuilder.h
+	"Engine.hpp"
+
+1457217863 c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.h
+	"Engine.hpp"
+
+1457667618 c:\users\zbook15g2\git\teleport-game\b2djson.h
+	<stdio.h>
+	<map>
+	<set>
+	<string>
+	<Box2D/Box2D.h>
+	"json/json.h"
+
+1362839214 c:\users\zbook15g2\git\teleport-game\json\json.h
+	<cpptl/config.h>
+	"config.h"
+	"forwards.h"
+	"forwards.h"
+	<string>
+	<vector>
+	<map>
+	<cpptl/smallmap.h>
+	<cpptl/forwards.h>
+	"features.h"
+	"value.h"
+	<deque>
+	<stack>
+	<string>
+	<iostream>
+	"value.h"
+	<vector>
+	<string>
+	<iostream>
+
+1457667644 c:\users\zbook15g2\git\teleport-game\b2djsonimage.h
+	<string>
+	<Box2D/Box2D.h>
+
+1457667618 source:c:\users\zbook15g2\git\teleport-game\b2djson.cpp
+	<istream>
+	<fstream>
+	"b2dJson.h"
+	"json/json.h"
+	"b2dJsonImage.h"
+
+1457667660 source:c:\users\zbook15g2\git\teleport-game\b2djsonimage.cpp
+	<cstring>
+	<Box2D/Box2D.h>
+	"b2dJsonImage.h"
+	"bitmap.h"
+
+1457667283 c:\users\zbook15g2\git\teleport-game\bitmap.h
+	<iostream>
+	<fstream>
+	<string>
+	<stdint.h>
 
 1457660949 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2broadphase.cpp
 	<Box2D/Collision/b2BroadPhase.h>
@@ -1749,6 +817,16 @@
 	<Box2D/Common/b2StackAllocator.h>
 	<Box2D/Common/b2Timer.h>
 
+1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\b2island.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2contactsolver.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
 1457937613 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\b2world.cpp
 	<iostream>
 	<Box2D/Dynamics/b2World.h>
@@ -1781,6 +859,9 @@
 	<Box2D/Collision/Shapes/b2EdgeShape.h>
 	<new>
 
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandcirclecontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+
 1457660949 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandpolygoncontact.cpp
 	<Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h>
 	<Box2D/Common/b2BlockAllocator.h>
@@ -1788,6 +869,9 @@
 	<Box2D/Collision/Shapes/b2ChainShape.h>
 	<Box2D/Collision/Shapes/b2EdgeShape.h>
 	<new>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandpolygoncontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
 
 1457660949 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2circlecontact.cpp
 	<Box2D/Dynamics/Contacts/b2CircleContact.h>
@@ -1797,6 +881,9 @@
 	<Box2D/Common/b2BlockAllocator.h>
 	<Box2D/Collision/b2TimeOfImpact.h>
 	<new>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2circlecontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
 
 1457660949 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2contact.cpp
 	<Box2D/Dynamics/Contacts/b2Contact.h>
@@ -1815,6 +902,18 @@
 	<Box2D/Dynamics/b2Body.h>
 	<Box2D/Dynamics/b2Fixture.h>
 	<Box2D/Dynamics/b2World.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygonandcirclecontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygoncontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandcirclecontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+
+1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandpolygoncontact.h
+	<Box2D/Dynamics/Contacts/b2Contact.h>
 
 1457660949 source:c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2contactsolver.cpp
 	<Box2D/Dynamics/Contacts/b2ContactSolver.h>
@@ -1930,150 +1029,15 @@
 	<Box2D/Rope/b2Rope.h>
 	<Box2D/Common/b2Draw.h>
 
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\b2collision.h
-	<Box2D/Common/b2Math.h>
-	<limits.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2math.h
-	<Box2D/Common/b2Settings.h>
-	<math.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2growablestack.h
-	<Box2D/Common/b2Settings.h>
-	<memory.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\collision\shapes\b2shape.h
-	<Box2D/Common/b2BlockAllocator.h>
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2blockallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\common\b2stackallocator.h
-	<Box2D/Common/b2Settings.h>
-
-1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\b2contactmanager.h
-	<Box2D/Collision/b2BroadPhase.h>
-
-1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\joints\b2joint.h
-	<Box2D/Common/b2Math.h>
-
-1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\b2island.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2contactsolver.h
-	<Box2D/Common/b2Math.h>
-	<Box2D/Collision/b2Collision.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2chainandpolygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2circlecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygonandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2polygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandcirclecontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\dynamics\contacts\b2edgeandpolygoncontact.h
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-
 1457660950 c:\users\zbook15g2\git\teleport-game\box2d\box2d\rope\b2rope.h
 	<Box2D/Common/b2Math.h>
 
-1457660949 c:\users\zbook15g2\git\teleport-game\box2d\box2d\box2d.h
-	<Box2D/Common/b2Settings.h>
-	<Box2D/Common/b2Draw.h>
-	<Box2D/Common/b2Timer.h>
-	<Box2D/Collision/Shapes/b2CircleShape.h>
-	<Box2D/Collision/Shapes/b2EdgeShape.h>
-	<Box2D/Collision/Shapes/b2ChainShape.h>
-	<Box2D/Collision/Shapes/b2PolygonShape.h>
-	<Box2D/Collision/b2BroadPhase.h>
-	<Box2D/Collision/b2Distance.h>
-	<Box2D/Collision/b2DynamicTree.h>
-	<Box2D/Collision/b2TimeOfImpact.h>
-	<Box2D/Dynamics/b2Body.h>
-	<Box2D/Dynamics/b2Fixture.h>
-	<Box2D/Dynamics/b2WorldCallbacks.h>
-	<Box2D/Dynamics/b2TimeStep.h>
-	<Box2D/Dynamics/b2World.h>
-	<Box2D/Dynamics/Contacts/b2Contact.h>
-	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
-	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
-	<Box2D/Dynamics/Joints/b2GearJoint.h>
-	<Box2D/Dynamics/Joints/b2MotorJoint.h>
-	<Box2D/Dynamics/Joints/b2MouseJoint.h>
-	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
-	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-	<Box2D/Dynamics/Joints/b2RopeJoint.h>
-	<Box2D/Dynamics/Joints/b2WeldJoint.h>
-	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+1457660951 source:c:\users\zbook15g2\git\teleport-game\debugdraw.cpp
+	"DebugDraw.h"
 
-1457667618 source:c:\users\zbook15g2\git\teleport-game\b2djson.cpp
-	<istream>
-	<fstream>
-	"b2dJson.h"
-	"json/json.h"
-	"b2dJsonImage.h"
-
-1457667618 c:\users\zbook15g2\git\teleport-game\b2djson.h
-	<stdio.h>
-	<map>
-	<set>
-	<string>
-	<Box2D/Box2D.h>
-	"json/json.h"
-
-1362839214 c:\users\zbook15g2\git\teleport-game\json\json.h
-	<cpptl/config.h>
-	"config.h"
-	"forwards.h"
-	"forwards.h"
-	<string>
-	<vector>
-	<map>
-	<cpptl/smallmap.h>
-	<cpptl/forwards.h>
-	"features.h"
-	"value.h"
-	<deque>
-	<stack>
-	<string>
-	<iostream>
-	"value.h"
-	<vector>
-	<string>
-	<iostream>
-
-1457667644 c:\users\zbook15g2\git\teleport-game\b2djsonimage.h
-	<string>
-	<Box2D/Box2D.h>
-
-1457667660 source:c:\users\zbook15g2\git\teleport-game\b2djsonimage.cpp
-	<cstring>
-	<Box2D/Box2D.h>
-	"b2dJsonImage.h"
-	"bitmap.h"
-
-1457667283 c:\users\zbook15g2\git\teleport-game\bitmap.h
-	<iostream>
-	<fstream>
-	<string>
-	<stdint.h>
+1458798040 source:c:\users\zbook15g2\git\teleport-game\enemy.cpp
+	"Enemy.h"
+	<math.h>
 
 1457667334 source:c:\users\zbook15g2\git\teleport-game\jsoncpp.cpp
 	"json/json.h"
@@ -2110,4 +1074,28 @@
 	<iostream>
 	<sstream>
 	<iomanip>
+
+1456802353 source:c:\users\zbook15g2\git\teleport-game\main.cpp
+	"Engine.hpp"
+
+1458798675 source:c:\users\zbook15g2\git\teleport-game\map.cpp
+	"Map.h"
+
+1457070572 source:c:\users\zbook15g2\git\teleport-game\mapbuilder.cpp
+	"MapBuilder.h"
+
+1458794763 source:c:\users\zbook15g2\git\teleport-game\mycontactlistener.cpp
+	"MyContactListener.h"
+
+1458804395 source:c:\users\zbook15g2\git\teleport-game\player.cpp
+	"Player.h"
+	"Animation.h"
+
+1457598731 source:c:\users\zbook15g2\git\teleport-game\scriptbuiltmap.cpp
+	"scriptBuiltMap.h"
+
+1458804984 source:c:\users\zbook15g2\git\teleport-game\engine.cpp
+	"Engine.hpp"
+	<string>
+	<sstream>
 

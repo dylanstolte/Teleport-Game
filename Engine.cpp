@@ -367,7 +367,7 @@ void Engine::update()
     /** */
 
     //update player state
-    worldMap->update();
+    worldMap->update(clock.getElapsedTime().asSeconds());
     player->update();
 
     if(debug)
@@ -406,7 +406,7 @@ void Engine::renderFrame()
     Window->setView(view);
 
     //this call uses tons of cycle time
-      displayMouseCoords();
+     // displayMouseCoords();
     //  displayAssetSelection();
 
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));

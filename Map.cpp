@@ -41,10 +41,9 @@ void Map::createEnemy()
 
 }
 
-void Map::update()
+void Map::update(float time)
 {
     //get all moving bodies in map
-    //create an enemy
     //set proper position of bodies
     for(int i = 0; mapEnemies.size() > i; i++)
     {
@@ -52,7 +51,7 @@ void Map::update()
 
     // if(mapEnemies.at(i)->body != NULL)
         {
-         mapEnemies.at(i)->update();
+         mapEnemies.at(i)->update(time);
         }
     }
 
@@ -194,12 +193,6 @@ void Map::jsonImageToMapSprites()
 void save()
 {
 
-//     for(b2Body* BodyIterator = engine->World.GetBodyList();
-//     BodyIterator != 0;
-//     BodyIterator = BodyIterator->GetNext())
-//     {
-//
-//     }
 }
 
 void Map::placeObject(int selection,int mouse_x,int mouse_y)

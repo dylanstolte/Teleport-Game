@@ -31,7 +31,7 @@ public:
     int property;
 
     void save();
-    void update();
+    void update(float time);
 
     void createEnemy();
     void buildMapPerimeter();

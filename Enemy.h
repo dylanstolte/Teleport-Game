@@ -9,38 +9,34 @@ class Animation;
 
 class Enemy{
 public:
-    Enemy(Engine* engine, float pos_x, float pos_y,std::string enemyName);
-    ~Enemy();
-
+    Engine* engine;
     b2Body* body;
     b2PolygonShape shape;
     b2BodyDef bodyDef;
     b2FixtureDef fixtureDef;
 
+    /** Animation */
     Animation walkLeftAnimation;
     Animation walkRightAnimation;
+
     bool dead = true;
     float respawn = 1;
-
-    Map* worldMap;
-
     float counter = 0;
-    sf::RenderWindow* window;
+    std::string bodyName;
     sf::Texture enemyTexture;
-    Engine* engine;
 
     sf::Vector2i originPos;
     sf::Vector2i currentPos;
 
-    void update();
+    Enemy(Engine* engine, float pos_x, float pos_y,std::string enemyName);
+    ~Enemy();
+
+    void update(float time);
     void render();
     void moveOnPath(float x);
     void deleteBody();
     void spawnBody();
     sf::Vector2i nextPosition();
-    std::string bodyName;
-
 
 };
-
 #endif // ENEMY_H_INCLUDED

@@ -59,8 +59,8 @@ void Enemy::deleteBody()
 
 {
  std::cout << "remove body in class  " << std::endl;
-    engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
-    //engine->World->DestroyBody(body);
+    //engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
+    engine->World->DestroyBody(body);
     std::cout << "completed body in class removal  " << std::endl;
     body = NULL;
     std::cout << "body set to NULL  " << std::endl;
@@ -77,7 +77,7 @@ Enemy::~Enemy()
 
 };
 
-void Enemy::update()
+void Enemy::update(float time)
 {
     if(dead)
     {
@@ -93,7 +93,7 @@ void Enemy::update()
         respawn = 1;
     }
     if(!dead && body != NULL)
-        moveOnPath(engine->clock.getElapsedTime().asSeconds()*5000);
+        moveOnPath(time*5000);
 }
 void Enemy::moveOnPath(float x)
 {

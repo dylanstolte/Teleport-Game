@@ -42,6 +42,28 @@
   [
     
     {
+      "class" : "body",
+      "comboboxEntries" : 
+      [
+        
+        {
+          "entry" : "3150,1750"
+        },
+        
+        {
+          "entry" : "900,820"
+        },
+        
+        {
+          "entry" : "0,0"
+        }
+      ],
+      "displayName" : "camera_pos",
+      "name" : "camera_pos",
+      "type" : "vec2"
+    },
+    
+    {
       "class" : "fixture",
       "comboboxEntries" : 
       [
@@ -1415,6 +1437,494 @@
         {
           "x" : 139.9601745605469,
           "y" : 41.42794799804688
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 
+            {
+              "x" : 3150.0,
+              "y" : 1750.0
+            }
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 45,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 2.367929935455322,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -3.051759995287284e-005 ]
+            }
+          }
+        ],
+        "id" : 9,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 86.74430084228516,
+          "y" : 64.30010223388672
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 
+            {
+              "x" : 900.0,
+              "y" : 820.0
+            }
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 47,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 3.131387710571289,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -4.005432128906250e-005 ]
+            }
+          }
+        ],
+        "id" : 11,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 28.34507942199707,
+          "y" : 14.19888973236084
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 0
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 48,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 2.367926359176636,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -3.051759995287284e-005 ]
+            }
+          }
+        ],
+        "id" : 12,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 37.6149902343750,
+          "y" : 45.31051254272461
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 0
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 49,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 1.895982742309570,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -2.670288085937500e-005 ]
+            }
+          }
+        ],
+        "id" : 13,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 129.2426300048828,
+          "y" : 59.35670471191406
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 0
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 50,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 2.367926359176636,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -3.051759995287284e-005 ]
+            }
+          }
+        ],
+        "id" : 14,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 23.34085655212402,
+          "y" : 12.12549209594727
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 0
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 51,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 2.367926359176636,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -3.051759995287284e-005 ]
+            }
+          }
+        ],
+        "id" : 15,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 21.84719848632813,
+          "y" : 75.90493774414063
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 52,
+            "name" : "fixture7",
+            "shapes" : 
+            [
+              
+              {
+                "type" : "polygon"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : 
+              [
+                -0.2878341674804688,
+                0.1318054199218750,
+                0.1318054199218750,
+                -0.2878341674804688
+              ],
+              "y" : 
+              [
+                -8.583473205566406,
+                -8.583473205566406,
+                8.366607666015625,
+                8.366607666015625
+              ]
+            }
+          }
+        ],
+        "id" : 16,
+        "linearVelocity" : 0,
+        "name" : "body5",
+        "position" : 
+        {
+          "x" : 46.12607574462891,
+          "y" : 58.81214523315430
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 
+            {
+              "x" : 900.0,
+              "y" : 820.0
+            }
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 54,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 3.131387710571289,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -4.005432128906250e-005 ]
+            }
+          }
+        ],
+        "id" : 18,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 33.83005523681641,
+          "y" : 45.18318176269531
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 0
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 55,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 1.895982742309570,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -2.670288085937500e-005 ]
+            }
+          }
+        ],
+        "id" : 19,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 83.37889099121094,
+          "y" : 62.39094161987305
+        },
+        "type" : "static"
+      },
+      
+      {
+        "angle" : 0,
+        "angularVelocity" : 0,
+        "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "name" : "camera_pos",
+            "vec2" : 
+            {
+              "x" : 3150.0,
+              "y" : 1750.0
+            }
+          }
+        ],
+        "fixture" : 
+        [
+          
+          {
+            "density" : 1,
+            "friction" : 0.2,
+            "id" : 56,
+            "name" : "fixture6",
+            "sensor" : true,
+            "shapes" : 
+            [
+              
+              {
+                "radius" : 2.367929935455322,
+                "type" : "circle"
+              }
+            ],
+            "vertices" : 
+            {
+              "x" : [ 0.0 ],
+              "y" : [ -3.051759995287284e-005 ]
+            }
+          }
+        ],
+        "id" : 20,
+        "linearVelocity" : 0,
+        "name" : "camera_hold",
+        "position" : 
+        {
+          "x" : 124.5556335449219,
+          "y" : 59.74873733520508
         },
         "type" : "static"
       }

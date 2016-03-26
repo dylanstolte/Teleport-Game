@@ -66,7 +66,7 @@ Engine::Engine()
 
     /** Load json images into sf::spritemap in map class */
     //get all json images
-    json.getAllImages(worldMap->jsonImages);
+    //json.getAllImages(worldMap->jsonImages);
     //assign to map
     worldMap->jsonImageToMapSprites();
 
@@ -74,6 +74,7 @@ Engine::Engine()
     frameCounter = 0;
     switchFrame = 1;
     frameSpeed = 60;
+
 
     mainLoop();
 }
@@ -90,13 +91,14 @@ void Engine::mainLoop()
         frameCounter += elapsed;// *frameSpeed;
         //  std::cout << "frame counter:  " << frameCounter << "  Frame speed: " << switchFrame/frameSpeed << "  clock.restart.asSeconds: " << elapsed << std::endl;
         //frameCounter >= switchFrame
-        while( (frameCounter >= switchFrame/frameSpeed) )
+        if( (frameCounter >= switchFrame/frameSpeed) )
         {
             update();
+            renderFrame();
 
             frameCounter -= switchFrame/frameSpeed;
         }
-        renderFrame();
+
     }
 
 
@@ -111,21 +113,6 @@ void Engine::processInput()
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-
-        //if on the ground & jump isnt already true
-//        if(player->numFootContacts > 0 && !moveJump)
-//        {
-//             moveJump = true;
-//            //jump
-//            std::cout << "Jump" << std::endl;
-//        }
-
-
-        //if in the air
-            //if you havent double jumped
-                //double jump
-            //if you have double jumped
-                //do nothing
 
         if(player->numFootContacts > 0 && !moveJump && jumpRelease)
         {
@@ -179,6 +166,17 @@ void Engine::processInput()
             moveStop = true;
     }
 
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+            if(attackRelease)
+                player->attack = true;
+            attackRelease = false;
+    }
+    else
+    {
+        attackRelease = true;
+    }
+
     if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         //  std::cout << "pressed" << std::endl;
@@ -215,6 +213,8 @@ void Engine::processInput()
         mapBuilder->drawbox = false;
     }
 
+
+
     /***Start the Event Loop*/
     sf::Event event;
     sf::Event prevEvent;
@@ -250,10 +250,11 @@ void Engine::processInput()
                 view.move(10,0);
             }
 
-            if (event.key.code == sf::Keyboard::Space)
-            {
-                player->attack = true;
-            }
+//            if (event.key.code == sf::Keyboard::Space)
+//            {
+//                player->attack = true;
+//                    player->attack = true;
+//            }
             if (event.key.code == sf::Keyboard::Return)
             {
                 player->dash = true;
@@ -406,7 +407,7 @@ void Engine::renderFrame()
     Window->setView(view);
 
     //this call uses tons of cycle time
-     // displayMouseCoords();
+      displayMouseCoords();
     //  displayAssetSelection();
 
     sf::Vector2f mouseWorld = Window->mapPixelToCoords(sf::Mouse::getPosition(*Window));
@@ -432,7 +433,11 @@ void Engine::renderFrame()
     Window->display();
 
    /** Set Camera Position */
-   view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
+    if(camera_hold)
+        view.setCenter(camera_pos);
+        //camera_pos
+   else
+    view.setCenter(worldBodies["player"]->GetPosition().x*SCALE,worldBodies["player"]->GetPosition().y*SCALE);
 };
 
 void Engine::addAssetToWorldMap()

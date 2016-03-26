@@ -82,10 +82,13 @@ public:
     int MouseX;
     int MouseY;
     bool debug = true;
+    int camera_hold = false;
+    sf::Vector2f camera_pos;
 
     b2Body** bodies;
     b2Joint** joints;
     b2dJson json;
+    bool attackRelease = false;
     //enemy class removal
     std::vector<Enemy*> enemyScheduledForRemoval;
 

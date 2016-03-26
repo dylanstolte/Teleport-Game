@@ -5,20 +5,6 @@ Map::Map(Engine* engine)
     this->engine = engine;
 
     backgroundView.reset(sf::FloatRect(0, 0, 1400, 900));
-    verticalVineTexture.loadFromFile("AssetLoader/verticalVine.png");
-    verticalVineSprite.setTexture(verticalVineTexture);
-    verticalVineSprite.scale(sf::Vector2f(.3,.3));
-    verticalVineSprite.setPosition(-180,1610);
-
-    rockPlatformTexture.loadFromFile("AssetLoader/rockPlatform.png");
-    rockPlatformSprite.setTexture(rockPlatformTexture);
-    rockPlatformSprite.scale(sf::Vector2f(1.6,1.6));
-    std::cout << "endl"  << std::endl;
-    rockPlatformSprite.setPosition(1165,290);
-
-
-
-    //create enemy 2
 
 }
 
@@ -28,14 +14,20 @@ void Map::createEnemy()
 {
      //create enemy 1
      std::cout << "enemy load" << std::endl;
-     enemy = new Enemy(engine,0,100,"Enemy");
+     enemy = new Enemy(engine,0,100,"Enemy",1);
      mapEnemies.push_back(enemy);
 
 
-     enemy = new Enemy(engine,-700,-100,"Enemy1");
+     enemy = new Enemy(engine,-700,-300,"Enemy1",3);
      mapEnemies.push_back(enemy);
 
-     enemy = new Enemy(engine,800,800,"Enemy2");
+     enemy = new Enemy(engine,-700,-300,"Enemy1",4);
+     mapEnemies.push_back(enemy);
+
+//     enemy = new Enemy(engine,-700,100,"Enemy1",);
+//     mapEnemies.push_back(enemy);
+
+     enemy = new Enemy(engine,800,800,"Enemy2",2);
      mapEnemies.push_back(enemy);
 
 
@@ -158,6 +150,9 @@ void Map::render()
 
 void Map::jsonImageToMapSprites()
 {
+    std::cout << "Put all Images from Json into worldMap image vector" << std::endl;
+    engine->json.getAllImages(jsonImages);
+
     for(int i = 0; i < engine->worldMap->jsonImages.size(); i++)
     {
         //check if the texture needs to be loaded
@@ -174,10 +169,11 @@ void Map::jsonImageToMapSprites()
         tempSprite.setPosition(image->center.x*engine->SCALE,image->center.y*engine->SCALE);
         //tempSprite.setPosition();
         float scale = image->scale/(tempSprite.getLocalBounds().height/engine->SCALE);
+        float aspect = image->aspectScale*scale;
         if(image->flip)
-            tempSprite.setScale( scale,scale );
+            tempSprite.setScale( aspect,scale );
             else
-                tempSprite.setScale( -scale,scale );
+                tempSprite.setScale( -aspect,scale );
                 //rad to degree
         sf::Color color(image->colorTint[0],image->colorTint[1],image->colorTint[2],image->colorTint[3]);
         color.a = image->opacity*255;

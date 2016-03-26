@@ -22,13 +22,14 @@ public:
     bool dead = true;
     float respawn = 1;
     float counter = 0;
+    int variant;
     std::string bodyName;
     sf::Texture enemyTexture;
 
     sf::Vector2i originPos;
     sf::Vector2i currentPos;
 
-    Enemy(Engine* engine, float pos_x, float pos_y,std::string enemyName);
+    Enemy(Engine* engine, float pos_x, float pos_y,std::string enemyName, int variant);
     ~Enemy();
 
     void update(float time);

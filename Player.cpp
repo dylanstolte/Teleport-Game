@@ -200,21 +200,15 @@ void Player::update()
         // std::cout << "stopping movement" << std::cout;
         body->SetLinearVelocity(b2Vec2(vel.x/1.2,vel.y));
     }
-}
-void Player::render()
-{
-    {
-//        {
-//        playerSprite.setTexture(idleAnimation.animationTexture);
-//        playerSprite.setTextureRect(idleAnimation.nextFrame());
-//        }
 
-        if(attack)
+     if(attack)
         {
+            attack = false;
             std::cout << "attack" << std::endl;
             //for each enemy in range
             for (int i = 0; i < engine->worldMap->mapEnemies.size(); i++)
             {
+
                 // b2Body* it = engine->worldMap->mapEnemies.at(i)->body;
 //                std::vector<b2Body*> Bodies;
 //                int num = engine->json.getBodiesByName("Enemy",Bodies);
@@ -223,6 +217,7 @@ void Player::render()
                 std::cout << "check for NULL"<< std::endl;
                 if( engine->worldMap->mapEnemies.at(i)->body != NULL)
                 {
+
                     std::cout << "body not null" << std::endl;
 
 
@@ -239,25 +234,10 @@ void Player::render()
                     std::cout << "check for in range: " << euclidian << std::endl;
                     if(euclidian < attackDistance)
                     {
+
+                        attackanim = true;
                         std::cout << "in range" << std::endl;
-                        sf::Vertex line[] =
-                        {
-                            sf::Vertex(bodyPosition,sf::Color::Blue),
-                            sf::Vertex(playerPosition,sf::Color::Blue)
-                        };
-                        engine->Window->draw(line, 2, sf::Lines);
-                        sf::Texture tex;
-                        //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
-                        test.setTextureRect(attackAnimation.nextFrame());
-                        test.setOrigin(100,35);
-                        test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
 
-
-                        // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
-                        //   std::cout << "rect" << test->getTextureRect().width << std::endl;
-//                 test->setPosition(100.f,engine->SCALE0.f);
-//                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
-                        engine->Window->draw(test);
                         std::cout << "schedule for removal" << std::endl;
                         engine->enemyScheduledForRemoval.push_back(enemy);
 
@@ -269,6 +249,40 @@ void Player::render()
 
             }
         }
+}
+void Player::render()
+{
+    {
+//        {
+//        playerSprite.setTexture(idleAnimation.animationTexture);
+//        playerSprite.setTextureRect(idleAnimation.nextFrame());
+//        }
+
+if(attackanim)
+{
+    attackanim = false;
+    sf::Vector2f bodyPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y+100);
+    sf::Vector2f playerPosition = sf::Vector2f(playerSprite.getPosition().x, playerSprite.getPosition().y);
+      sf::Vertex line[] =
+                        {
+                            sf::Vertex(bodyPosition,sf::Color::Blue),
+                            sf::Vertex(playerPosition,sf::Color::Blue)
+                        };
+                        engine->Window->draw(line, 2, sf::Lines);
+                        sf::Texture tex;
+                        //    test.setTexture(*(engine->assetLoader->spriteMap["blueball_0"].getTexture()));
+                        test.setTextureRect(attackAnimation.nextFrame());
+                        test.setOrigin(100,35);
+                     //   test.setPosition(playerPosition-getCoordsToPointBetweenPoints(euclidian,playerPosition,bodyPosition,attackPos +=.5));
+
+
+                        // std::cout << test.getPosition().x << " " << test.getPosition().y << std::endl;
+                        //   std::cout << "rect" << test->getTextureRect().width << std::endl;
+//                 test->setPosition(100.f,engine->SCALE0.f);
+//                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
+                        engine->Window->draw(test);
+}
+
         if(engine->jumpAnimation)
         {
             jumpAnimation.frameSpeed = 60;
@@ -320,6 +334,7 @@ void Player::render()
             }
             else
             {
+                runRightAnimation.frameSpeed += -(body->GetLinearVelocity().x);
                 playerSprite.setOrigin(90.f,110.f);
                 runLeftAnimation.frameSpeed = 60;
                 playerSprite.setTexture(runLeftAnimation.animationTexture);
@@ -339,6 +354,7 @@ void Player::render()
             }
             else
             {
+                runRightAnimation.frameSpeed += (body->GetLinearVelocity().x);
                 playerSprite.setOrigin(90.f,110.f);
                 runRightAnimation.frameSpeed = 60;
                 playerSprite.setTexture(runRightAnimation.animationTexture);

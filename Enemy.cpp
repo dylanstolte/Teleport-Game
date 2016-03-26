@@ -1,13 +1,13 @@
 #include "Enemy.h"
 #include <math.h>
 
-Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName)
+Enemy::Enemy(Engine* engine, float pos_x, float pos_y ,std::string enemyName, int variant)
 {
     this->engine = engine;
     this->bodyName = enemyName;
     originPos.x = pos_x;
     originPos.y = pos_y;
-
+    this->variant = variant;
 
     spawnBody();
 
@@ -40,7 +40,7 @@ void Enemy::spawnBody()
     b2Fixture* footSensorFixture = body->CreateFixture(&fixtureDef);
     footSensorFixture->SetUserData( (void*)3 );
 
-    Json::Value bodyValue = engine->json.b2j( body );
+  //  Json::Value bodyValue = engine->json.b2j( body );
   //  body = engine->json.j2b2Body(engine->World, bodyValue);
     std::cout << "bodyvalue" << std::endl;
 
@@ -58,8 +58,8 @@ void Enemy::spawnBody()
 void Enemy::deleteBody()
 
 {
- std::cout << "remove body in class  " << std::endl;
-    //engine->World->DestroyBody( engine->json.getBodyByName(bodyName) );
+ std::cout << "remove body in class  " << engine->json.getBodyName(body) << std::endl;
+
     engine->World->DestroyBody(body);
     std::cout << "completed body in class removal  " << std::endl;
     body = NULL;
@@ -93,20 +93,44 @@ void Enemy::update(float time)
         respawn = 1;
     }
     if(!dead && body != NULL)
-        moveOnPath(time*5000);
+        moveOnPath(time);
 }
 void Enemy::moveOnPath(float x)
 {
 
     //get body position
-
+float speed = 3000;
+float distance = 10;
 //std::cout << "move path" << std::endl;
-    if(bodyName != "Enemy2")
+    if(variant == 1)
     {
          counter+=x;
-        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + 6 * sin(counter),body->GetPosition().y),body->GetAngle());
+        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + distance * sin(speed * counter),body->GetPosition().y),body->GetAngle());
 
     }
+
+    if(variant == 2)
+    {
+         counter+=x;
+        body->SetTransform(b2Vec2(body->GetPosition().x,originPos.y/engine->SCALE + distance * sin(speed * counter)),body->GetAngle());
+
+    }
+
+    if(variant == 3)
+    {
+         counter+=x;
+        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + distance * cos(speed * 10 * counter),originPos.y/engine->SCALE + distance * sin(speed * 10 * counter)),body->GetAngle());
+
+    }
+
+    if(variant == 4)
+    {
+         counter+=x;
+         int delay = 600;
+        body->SetTransform(b2Vec2(originPos.x/engine->SCALE + distance * cos(speed * 10 * counter + delay),originPos.y/engine->SCALE + distance * sin(speed * 10 * counter + delay)),body->GetAngle());
+
+    }
+
 
 }
 

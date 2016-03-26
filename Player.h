@@ -38,6 +38,7 @@ public:
     bool attack = false;
     bool dead = false;
     bool dash = false;
+    bool attackanim;
     float acc = .76;
     float dec = .5;
     int health = 70;

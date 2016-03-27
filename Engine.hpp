@@ -67,6 +67,7 @@ public:
     /////////////// MOVE STATES
     bool moveJump = false;
     bool jumpAnimation = false;
+    float doubleJumpAnimation = false;
     bool moveRight = false;
     bool moveLeft = false;
     bool mouseLeft = false;

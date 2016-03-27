@@ -23,11 +23,13 @@ public:
     sf::Texture playerTexture;
     sf::Texture pichuSheet;
     sf::Texture jump;
+    sf::Texture doubleJump;
     Engine* engine;
     Animation idleAnimation;
     Animation runRightAnimation;
     Animation runLeftAnimation;
     Animation jumpAnimation;
+    Animation doubleJumpAnimation;
     Animation jumpLeftAnimation;
     Animation fallingAnimation;
     Animation attackAnimation;

@@ -76,6 +76,10 @@ Player::Player(b2World* world, Engine* engine)
     fallingAnimation = Animation(1,pichuSheet);
     //  fallingAnimation.setFrame(270,-140,20,40);
 
+    doubleJump.loadFromFile("AssetLoader/DownRects.png");
+    doubleJumpAnimation = Animation(20,doubleJump);
+    doubleJumpAnimation.setFrame(0,0,140,150);
+
 //    sf::Texture temp = *( engine->assetLoader->spriteMap["blueball_0"].getTexture() );
 //    attackAnimation =  Animation(1,  temp);
 //    sf::IntRect temp1 = engine->assetLoader->spriteMap["blueball_0"].getTextureRect();
@@ -143,7 +147,7 @@ void Player::update()
             body->ApplyLinearImpulse( b2Vec2(0,impulse), body->GetWorldCenter(), true);
             // worldBodies["player"]->SetLinearVelocity(b2Vec2(vel.x,9));
             engine->doDoubleJump= false;
-            engine->jumpAnimation = true;
+            engine->doubleJumpAnimation = 0;
         }
 
     }
@@ -282,6 +286,22 @@ if(attackanim)
 //                 test.setTexture(&(engine->assetLoader->spriteMap["ginso_0"].getTexture()));
                         engine->Window->draw(test);
 }
+        engine->doubleJumpAnimation += engine->clock.getElapsedTime().asSeconds();
+        if(engine->doubleJumpAnimation > .1)
+        {
+            doubleJumpAnimation.restart();
+        }
+        if(engine->doubleJumpAnimation < .1)
+        {
+            sf::Sprite jump;
+            doubleJumpAnimation.frameSpeed = 90;
+            jump.setOrigin(60,75);
+            jump.setScale(-1,-1);
+            jump.setTexture(doubleJumpAnimation.animationTexture);
+            jump.setTextureRect(doubleJumpAnimation.nextFrame() );
+            jump.setPosition(engine->SCALE * body->GetPosition().x, (engine->SCALE * body->GetPosition().y)- 75 );
+            engine->Window->draw(jump);
+        }
 
         if(engine->jumpAnimation)
         {
@@ -289,7 +309,7 @@ if(attackanim)
             jumpLeftAnimation.frameSpeed = 60;
             if(jumpLeftAnimation.currentFrame<jumpLeftAnimation.totalFrames && body->GetLinearVelocity().x < 0)
             {
-                playerSprite.setOrigin(20.f,20.f);
+                playerSprite.setOrigin(25.f,10.f);
                 playerSprite.setTexture(jumpLeftAnimation.animationTexture);
                 playerSprite.setTextureRect(jumpLeftAnimation.nextFrame());
                 playerSprite.setScale(1.5,1.5);
@@ -298,7 +318,7 @@ if(attackanim)
 
             else  if(jumpAnimation.currentFrame<jumpAnimation.totalFrames && body->GetLinearVelocity().x > 0)
             {
-                playerSprite.setOrigin(20.f,20.f);
+                playerSprite.setOrigin(25.f,10.f);
                 playerSprite.setTexture(jumpAnimation.animationTexture);
                 playerSprite.setTextureRect(jumpAnimation.nextFrame());
                 playerSprite.setScale(1.5,1.5);
